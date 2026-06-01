@@ -25,7 +25,6 @@
         html, body {
             width: 100%;
             height: 100%;
-            /* সম্পূর্ণ ফন্ট স্টাইল স্যান-শেরিফ (Sans-Serif) এ সেট করা হয়েছে */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background: #0d0d0d; 
             color: var(--white);
@@ -43,7 +42,7 @@
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
-            opacity: 0.25; /* কন্টেন্ট পড়ার সুবিধার জন্য ব্যাকগ্রাউন্ডের অপাসিটি কিছুটা হালকা রাখা হয়েছে */
+            opacity: 0.25;
         }
 
         .cultural-bg-img {
@@ -113,7 +112,7 @@
             color: var(--primary-gold);
         }
 
-        /* ===== BANNER SLIDER (16:9 ASPECT RATIO LOCK) ===== */
+        /* ===== ADVANCED 3D SMOKY SPLASH SLIDER (16:9 RATIO) ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -126,6 +125,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             overflow: hidden;
             aspect-ratio: 16 / 9; 
+            perspective: 1200px; /* 3D ডেপথ তৈরি করার জন্য */
         }
 
         .slider-wrapper {
@@ -145,7 +145,9 @@
             align-items: center;
             background: #000000;
             opacity: 0;
-            animation: cssSliderAnimation 16s infinite ease-in-out;
+            transform: scale(1.1) translateZ(-50px);
+            filter: blur(10px) brightness(0.5);
+            animation: 3dSmokySplashAnimation 16s infinite cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .slide-bg-img {
@@ -155,17 +157,50 @@
             display: block;
         }
 
+        /* প্রতিটি স্লাইডের জন্য সিকোয়েন্সিয়াল টাইম ডিলে */
         .full-slide-layer:nth-child(1) { animation-delay: 0s; }
         .full-slide-layer:nth-child(2) { animation-delay: 4s; }
         .full-slide-layer:nth-child(3) { animation-delay: 8s; }
         .full-slide-layer:nth-child(4) { animation-delay: 12s; }
 
-        @keyframes cssSliderAnimation {
-            0% { opacity: 0; }
-            4% { opacity: 1; }
-            25% { opacity: 1; }
-            29% { opacity: 0; }
-            100% { opacity: 0; }
+        /* 3D Smoky Splash, Particle Burst এবং Fade-out অ্যানিমেশন ম্যাট্রিক্স */
+        @keyframes 3dSmokySplashAnimation {
+            0% {
+                opacity: 0;
+                filter: blur(15px) brightness(0.2) contrast(2);
+                transform: scale(1.2) rotate(3deg) translateZ(-150px);
+                /* ধোঁয়া বা স্প্ল্যাশের মতো অসমান অর্গানিক শেপে ইমেজটি ওপেন হবে */
+                clip-path: circle(0% at 50% 50%);
+            }
+            4% {
+                opacity: 1;
+                filter: blur(4px) brightness(1.2) contrast(1.2);
+                transform: scale(1.05) rotate(-1deg) translateZ(50px);
+                clip-path: circle(45% at 50% 50%);
+            }
+            8%, 25% {
+                opacity: 1;
+                filter: blur(0px) brightness(1) contrast(1);
+                transform: scale(1) rotate(0deg) translateZ(0px);
+                clip-path: circle(100% at 50% 50%);
+            }
+            28% {
+                opacity: 0.4;
+                filter: blur(8px) brightness(0.6);
+                transform: scale(0.95) rotate(1deg) translateZ(-100px);
+                /* কণাগুলো চারপাশে ছড়িয়ে পড়ার স্টাইলে ফেড আউট হবে */
+                clip-path: polygon(
+                    50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%,
+                    /* ভেতর থেকে পার্টিকল ব্লাস্টের মতো মাস্ক ফাঁকা হয়ে যাবে */
+                    30% 30%, 70% 30%, 70% 70%, 30% 70%, 30% 30%
+                );
+            }
+            32%, 100% {
+                opacity: 0;
+                filter: blur(20px) brightness(0);
+                transform: scale(0.9) rotate(0deg) translateZ(-200px);
+                clip-path: circle(0% at 50% 50%);
+            }
         }
 
         /* ===== SECTION HEADER STYLING ===== */
@@ -206,7 +241,6 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
-        /* ট্র্যাডিশনাল ব্যাকগ্রাউন্ডের ওপর লোগো মিক্স করে এক্সক্লুসিভ উইজেট */
         .profile-bg-blend {
             width: 100%;
             height: 100%;
@@ -476,7 +510,6 @@
     <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
-            <!-- ৩ডি মালয়েশিয়ান লোটো গোল্ডেন লোগো -->
             <img class="logo-img" src="1000014839_3.png" alt="Malaysian Lottery Premium Logo">
             <span>MALAYSIAN LOTTERY</span>
         </div>
@@ -490,7 +523,7 @@
         </ul>
     </nav>
 
-    <!-- BANNER SLIDER SYSTEM (16:9 RATIO LOCK) -->
+    <!-- BANNER SLIDER SYSTEM (3D SMOKY SPLASH & TRANSITION) -->
     <div class="hero-view-port" id="home">
         <div class="slider-wrapper">
             
@@ -521,7 +554,6 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <!-- কালচারাল ব্যাকগ্রাউন্ডের সাথে ৩ডি গোল্ড লোগো ওভারলে কম্বিনেশন -->
                 <img class="profile-bg-blend" src="1000014883_3.png" alt="Traditional Backdrop">
                 <img class="profile-logo-overlay" src="1000014839_3.png" alt="Verified Identity Emblem">
             </div>
