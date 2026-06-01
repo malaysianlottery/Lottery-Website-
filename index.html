@@ -111,7 +111,7 @@
             outline: none;
         }
 
-        /* ===== BANNER VIEWPORT CONTEXT WITH PARTICLES AREA ===== */
+        /* ===== BANNER VIEWPORT WITH EXACT TEXT ALIGNMENT ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -166,17 +166,17 @@
             display: block;
         }
 
-        /* ===== NEW: SLIDER CENTERED TEXT TEXT WITH REVEAL TRANSITION ===== */
+        /* ===== SLIDER CENTERED TEXT (PERFECT ALIGN & SPACING) ===== */
         .slide-text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
+            width: 85%;
             text-align: center;
             z-index: 5;
             opacity: 0;
-            transition: opacity 1s ease-in-out 0.3s; /* Delay builds smooth integration with image reveal */
+            transition: opacity 1s ease-in-out 0.2s;
         }
 
         .full-slide-layer.active .slide-text-overlay {
@@ -184,21 +184,17 @@
         }
 
         .slide-text-overlay h1 {
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             font-weight: 900;
             color: var(--primary-gold);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.5);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.2;
+            letter-spacing: 3px;
+            line-height: 1.15;
+            word-spacing: 6px;
         }
 
-        @media (max-width: 768px) {
-            .slide-text-overlay h1 {
-                font-size: 2.2rem;
-            }
-        }
-
+        /* ===== COMMON SECTION TITLE ===== */
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
@@ -493,7 +489,6 @@
             letter-spacing: 4px;
             line-height: 0.9; 
             margin: 5px 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
         }
 
         .live-status-txt {
@@ -561,7 +556,7 @@
             letter-spacing: 1px;
         }
 
-        /* ===== PREMIUM CLASSIEST WINNERS MODAL ===== */
+        /* ===== WINNERS MODAL PLATFORM ===== */
         .winners-modal-overlay {
             position: fixed;
             top: 0;
@@ -737,6 +732,7 @@
             font-family: inherit; 
             font-size: 1rem;
             font-weight: 700;
+            width: 100%;
         }
 
         .cta-button {
@@ -880,7 +876,6 @@
         .btn-whatsapp { background: #25D366; }
         .btn-telegram { background: #0088cc; }
         .btn-imo { background: #128C7E; }
-        .btn-email { background: #EA4335; }
 
         .footer-bottom {
             max-width: 1200px;
@@ -893,17 +888,139 @@
             color: #888888;
         }
 
-        @media (max-width: 992px) {
-            .footer-container { grid-template-columns: 1fr; gap: 3rem; }
-            .profile-container { grid-template-columns: 1fr; gap: 2rem; }
-            .winner-premium-profile-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-            .winner-media-reviews-row { grid-template-columns: 1fr; }
+        /* =========================================================
+           ===== STRICT MOBILE & ANDROID RESPONSIVE ADJUSTMENTS =====
+           ========================================================= */
+        @media (max-width: 1024px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .profile-image-box {
+                max-width: 380px;
+            }
+            .condition-highlight {
+                border-left: none;
+                border-top: 5px solid var(--primary-gold);
+                border-radius: 0 0 8px 8px;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero-view-port { margin-top: 74px; }
-            .live-lucky-num { font-size: 4.5rem; }
+            /* Navbar Mobile Compression Fix */
+            nav {
+                padding: 0.6rem 1rem;
+            }
+            nav ul { 
+                display: none; /* Collapsed for pure cleaner layout */
+            }
+            .logo span {
+                font-size: 1.1rem;
+            }
+            .logo-img {
+                height: 40px;
+            }
+
+            /* Responsive Hero Aspect Adjustment for Android Browsers */
+            .hero-view-port { 
+                margin-top: 65px; 
+                aspect-ratio: 4 / 3; /* Better view boundary on standard Android screens */
+                border-width: 2px;
+            }
+
+            /* Perfect Center Scaling & Alignment for Mobile */
+            .slide-text-overlay {
+                width: 92%;
+            }
+            .slide-text-overlay h1 {
+                font-size: 2.1rem;
+                letter-spacing: 1px;
+                word-spacing: 3px;
+                text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95);
+            }
+
+            /* Component Font Sizes and Elements Adjustments */
+            .section-title {
+                font-size: 2rem;
+            }
+            .profile-info h2 {
+                font-size: 2.2rem;
+            }
+            .live-arena-viewport {
+                padding: 1.5rem 1rem;
+                border-width: 3px;
+            }
+            .live-header-ticker {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .live-lucky-num { 
+                font-size: 4.2rem; 
+                letter-spacing: 2px;
+            }
+            .live-op-name {
+                font-size: 1.6rem;
+            }
+
+            /* Winner Modal View Fixes for Touch Screens */
+            .winners-modal-window {
+                padding: 2rem 1rem;
+                height: 90vh;
+            }
+            .winner-premium-profile-card { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                justify-items: center;
+                padding: 1.2rem;
+            }
+            .winner-media-reviews-row { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+                width: 100%;
+            }
+            .close-modal-trigger {
+                top: 0.8rem;
+                right: 1.2rem;
+                font-size: 2rem;
+            }
+            .modal-headline {
+                font-size: 1.4rem;
+            }
+
+            /* Grid Collapses */
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .portfolio-grid, .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .footer-links-col ul {
+                grid-template-columns: 1fr;
+            }
+            .social-icons-row {
+                justify-content: center;
+            }
+            .social-icon-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide-text-overlay h1 {
+                font-size: 1.7rem;
+            }
+            .live-lucky-num {
+                font-size: 3.5rem;
+            }
         }
     </style>
 </head>
@@ -931,35 +1048,28 @@
         </div>
     </nav>
 
-    <!-- BANNER VIEWPORT CONTEXT (TEXT OVERLAY INTEGRATED) -->
+    <!-- BANNER VIEWPORT CONTEXT (TEXT CLEANED FROM SUB-SLIDES) -->
     <div class="hero-view-port" id="home">
         <canvas id="particleCanvas"></canvas>
         <div class="slider-wrapper">
-            <!-- Blank / First Background Slide Layer with Welcome Text -->
+            <!-- First Background Slide Layer (With Perfect Welcome Text Only) -->
             <div class="full-slide-layer active">
                 <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
                 <div class="slide-text-overlay">
                     <h1>Welcome to Malaysian Lottery</h1>
                 </div>
             </div>
-            <!-- Grand Dragon Slide Layer -->
+            <!-- Grand Dragon Slide Layer (Text Removed) -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
-                <div class="slide-text-overlay">
-                    <h1>Grand Dragon Lotto Exclusive</h1>
-                </div>
             </div>
+            <!-- Slide 3 Layer (Text Removed) -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
-                <div class="slide-text-overlay">
-                    <h1>Premium Mathematical Predictor</h1>
-                </div>
             </div>
+            <!-- Slide 4 Layer (Text Removed) -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
-                <div class="slide-text-overlay">
-                    <h1>Verified VIP Patterns Platform</h1>
-                </div>
             </div>
         </div>
     </div>
@@ -1067,25 +1177,25 @@
         
         <div class="portfolio-grid">
             <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon Lotto')">
-                <div class="win-badge">🐉</div>
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐉</div>
                 <h3>Grand Dragon</h3>
                 <p>Certified Winning Log</p>
                 <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
             <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
-                <div class="win-badge">🏆</div>
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
                 <h3>Sports Toto</h3>
                 <p>Certified Winning Log</p>
                 <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
             <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
-                <div class="win-badge">💎</div>
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💎</div>
                 <h3>Magnum</h3>
                 <p>Certified Winning Log</p>
                 <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
             <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')">
-                <div class="win-badge">🎰</div>
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎰</div>
                 <h3>Nine Lotto</h3>
                 <p>Certified Winning Log</p>
                 <div class="click-hint">Click to Open Profiles ➔</div>
@@ -1093,13 +1203,13 @@
         </div>
     </section>
 
-    <!-- PREMIUM CLASSIEST WINNERS MODAL OVERLAY PLATFORM -->
+    <!-- PREMIUM CLASSIEST WINNERS MODAL OVERLAY -->
     <div class="winners-modal-overlay" id="winnersModal">
         <div class="winners-modal-window">
             <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
             <div class="modal-headline" id="modalGameTitle">Game Winners</div>
             <div class="winners-profiles-container-grid" id="profilesContainer">
-                <!-- Javascript will inject 10 dynamic profile elements here -->
+                <!-- Inner profile template builds asynchronously via JS -->
             </div>
         </div>
     </div>
@@ -1112,9 +1222,9 @@
                     <h4>Quick Navigation</h4>
                     <ul>
                         <li><a href="#home">Home Gateway</a></li>
-                        <li><a href="#profile">About Analyst Bio</a></li>
+                        <li><a href="#profile">About Me</a></li>
                         <li><a href="#services">Game Services</a></li>
-                        <li><a href="#results">Live Monitor Arena</a></li>
+                        <li><a href="#results">Live Monitor</a></li>
                     </ul>
                 </div>
 
@@ -1183,7 +1293,7 @@
     <!-- SCRIPTS CONFIGURATION -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC WITH CAPTION SYNC ===== */
+            /* ===== MULTI-BANNER SLIDER LOGIC ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
             setInterval(() => {
@@ -1201,7 +1311,7 @@
                 liveSlides[currentLiveSlide].classList.add('active');
             }, 3000);
 
-            /* ===== CLOCK SYNC ===== */
+            /* ===== TERMINAL CLOCK SYNC ===== */
             function updateLiveClock() {
                 const now = new Date();
                 document.getElementById('liveClock').innerText = "EST SYNC: " + now.toLocaleTimeString();
@@ -1220,16 +1330,16 @@
             resizeCanvas();
             window.addEventListener("resize", resizeCanvas);
 
-            const particleCount = 120; 
+            const particleCount = 100; 
             const particles = [];
             class Particle {
                 constructor() { this.reset(); }
                 reset() {
                     this.x = Math.random() * canvas.width;
                     this.y = canvas.height + Math.random() * 20;
-                    this.size = Math.random() * 2.5 + 1;
-                    this.speedY = Math.random() * 1.2 + 0.4;
-                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.size = Math.random() * 2.2 + 1;
+                    this.speedY = Math.random() * 1.0 + 0.4;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
                     this.alpha = Math.random() * 0.25 + 0.05; 
                 }
                 update() {
@@ -1278,7 +1388,7 @@
                             <div class="winner-media-reviews-row">
                                 <div class="audio-review-wrapper">
                                     <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
-                                    <audio controls>
+                                    <audio controls style="width:100%;">
                                         <source src="winner_audio_track_${i}.mp3" type="audio/mpeg">
                                     </audio>
                                 </div>
