@@ -125,7 +125,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             overflow: hidden;
             aspect-ratio: 16 / 9; 
-            perspective: 1200px; /* 3D ডেপথ তৈরি করার জন্য */
+            perspective: 1200px;
         }
 
         .slider-wrapper {
@@ -157,19 +157,16 @@
             display: block;
         }
 
-        /* প্রতিটি স্লাইডের জন্য সিকোয়েন্সিয়াল টাইম ডিলে */
         .full-slide-layer:nth-child(1) { animation-delay: 0s; }
         .full-slide-layer:nth-child(2) { animation-delay: 4s; }
         .full-slide-layer:nth-child(3) { animation-delay: 8s; }
         .full-slide-layer:nth-child(4) { animation-delay: 12s; }
 
-        /* 3D Smoky Splash, Particle Burst এবং Fade-out অ্যানিমেশন ম্যাট্রিক্স */
         @keyframes 3dSmokySplashAnimation {
             0% {
                 opacity: 0;
                 filter: blur(15px) brightness(0.2) contrast(2);
                 transform: scale(1.2) rotate(3deg) translateZ(-150px);
-                /* ধোঁয়া বা স্প্ল্যাশের মতো অসমান অর্গানিক শেপে ইমেজটি ওপেন হবে */
                 clip-path: circle(0% at 50% 50%);
             }
             4% {
@@ -188,10 +185,8 @@
                 opacity: 0.4;
                 filter: blur(8px) brightness(0.6);
                 transform: scale(0.95) rotate(1deg) translateZ(-100px);
-                /* কণাগুলো চারপাশে ছড়িয়ে পড়ার স্টাইলে ফেড আউট হবে */
                 clip-path: polygon(
                     50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%,
-                    /* ভেতর থেকে পার্টিকল ব্লাস্টের মতো মাস্ক ফাঁকা হয়ে যাবে */
                     30% 30%, 70% 30%, 70% 70%, 30% 70%, 30% 30%
                 );
             }
@@ -264,7 +259,7 @@
         }
 
         .profile-info h2 {
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: var(--primary-gold);
             margin-bottom: 0.5rem;
             font-weight: 800;
@@ -285,10 +280,25 @@
         }
 
         .profile-info p {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1.15rem;
+            line-height: 1.8;
             color: #dddddd;
             margin-bottom: 1.5rem;
+        }
+
+        .condition-highlight {
+            border-left: 4px solid var(--primary-gold);
+            background: rgba(255, 215, 0, 0.05);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .condition-highlight strong {
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
         }
 
         .stats-grid {
@@ -411,7 +421,8 @@
         .portfolio-card:hover { transform: scale(1.03); border-color: var(--primary-gold); }
         .win-badge { font-size: 3rem; margin-bottom: 1rem; }
         .portfolio-card h3 { color: var(--primary-gold); font-size: 1.4rem; font-weight: 700; }
-        .portfolio-card p { font-size: 1rem; color: #cccccc; line-height: 1.5; }
+        .portfolio-card p { font-size: 1.1rem; color: #ffffff; line-height: 1.6; font-weight: bold; margin-top: 0.5rem; }
+        .portfolio-card span { font-size: 0.95rem; color: #aaaaaa; display: block; margin-top: 0.4rem; }
 
         /* ===== CONTACT FORM INTERFACE ===== */
         .contact-section {
@@ -502,15 +513,13 @@
 </head>
 <body>
 
-    <!-- LUXURY TRADITIONAL BACKGROUND LAYER -->
     <div class="cultural-bg-container">
-        <img class="cultural-bg-img" src="1000014883_3.png" alt="Malaysian Traditional Luxury Pattern Background">
+        <img class="cultural-bg-img" src="1000014883.png" alt="Malaysian Traditional Luxury Pattern Background">
     </div>
 
-    <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
-            <img class="logo-img" src="1000014839_3.png" alt="Malaysian Lottery Premium Logo">
+            <img class="logo-img" src="1000014839.png" alt="Malaysian Lottery Premium Logo">
             <span>MALAYSIAN LOTTERY</span>
         </div>
         <ul>
@@ -523,65 +532,63 @@
         </ul>
     </nav>
 
-    <!-- BANNER SLIDER SYSTEM (3D SMOKY SPLASH & TRANSITION) -->
     <div class="hero-view-port" id="home">
         <div class="slider-wrapper">
             
-            <!-- স্লাইড ১: Magnum 4D -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899_4.jpg" alt="Magnum 4D Premium Banner">
+                <img class="slide-bg-img" src="1000014899.jpg" alt="Magnum 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ২: 4D Dragon -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901_4.jpg" alt="Dragon 4D Premium Banner">
+                <img class="slide-bg-img" src="1000014901.jpg" alt="Dragon 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ৩: Sports Toto 4D -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014898_4.jpg" alt="Sports Toto 4D Premium Banner">
+                <img class="slide-bg-img" src="1000014898.jpg" alt="Sports Toto 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ৪: Nine Lotto -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900_4.jpg" alt="Nine Lotto Premium Banner">
+                <img class="slide-bg-img" src="1000014900.jpg" alt="Nine Lotto Premium Banner">
             </div>
 
         </div>
     </div>
 
-    <!-- BRAND VISUAL PROFILE -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img class="profile-bg-blend" src="1000014883_3.png" alt="Traditional Backdrop">
-                <img class="profile-logo-overlay" src="1000014839_3.png" alt="Verified Identity Emblem">
+                <img class="profile-bg-blend" src="1000014883.png" alt="Traditional Backdrop">
+                <img class="profile-logo-overlay" src="1000014839.png" alt="Verified Identity Emblem">
             </div>
             <div class="profile-info">
-                <h2>Verified Premium Agent</h2>
-                <div class="profile-badge">Institutional Grade Authentication</div>
-                <p>Welcome to the premier digital gateway for Malaysian lottery asset tracking. With over 15 years of industry-leading performance analytics, we secure direct verifications and expert numerical architectures for selective clientele globally.</p>
-                <p>Our operation prioritizes complete validation data, flawless transaction pathways, and optimized historical analysis parameters to deliver success with unmatched transparency.</p>
+                <h2>Hanif Sarkar</h2>
+                <div class="profile-badge">Verified 100% Winning Tips Agent</div>
+                
+                <p>আমি হানিফ সরকার, মালয়েশিয়ান লটারির একজন প্রফেশনাল ও ভেরিফাইড গেম টিপস অ্যানালিস্ট। দীর্ঘ ১৫ বছরের অভিজ্ঞতা থেকে গাণিতিক হিসাব এবং অফিশিয়াল ডেটাবেজ অ্যানালাইসিস করে আমি আপনাদের জন্য ১০০% উইনিং গেমস টিপস ও ক্যালকুলেশন প্রদান করি। কোনো প্রকার প্রতারণা বা ফেক প্রমিজে আমি বিশ্বাসী নই।</p>
+                
+                <div class="condition-highlight">
+                    <strong>নন-চিটিং ওপেন চ্যালেঞ্জ:</strong>
+                    আপনার গেম ১০০% উইন বা জয়ী না হওয়া পর্যন্ত আমি কোনো অগ্রিম টাকা-পয়সা বা অগ্রিম এডভান্স ফি নিই না। গেম সম্পূর্ণভাবে উইন হওয়ার পর মোট লভ্যাংশ বা উইনিং অ্যামাউন্টের ওপর <strong>৩০% কন্ডিশন</strong> প্রযোজ্য হবে। সততাই আমার ব্যবসার মূল ভিত্তি।
+                </div>
                 
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">VIP Clients</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">No Advance</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Success Matrix</div>
+                        <div class="stat-number">30%</div>
+                        <div class="stat-label">After Win Only</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">Live Gateway</div>
+                        <div class="stat-label">VIP Support</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PREMIUM CHANNELS -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 4rem;">Comprehensive analytical models engineered for maximum gaming potential</p>
@@ -620,7 +627,6 @@
         </div>
     </section>
 
-    <!-- INSTANT MONITOR GATEWAY -->
     <section class="results-section" id="results">
         <h2 class="section-title">Latest Live Confirmations</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Real-time verified extractions directly synced from official channels</p>
@@ -632,7 +638,6 @@
         </div>
     </section>
 
-    <!-- HISTORIC MILESTONES -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Celebrating historic milestone payouts and certified customer success records</p>
@@ -641,72 +646,8 @@
             <div class="portfolio-card">
                 <div class="win-badge">🎉</div>
                 <h3>Dragon Strike</h3>
-                <p>Verified client confirmation capturing the premier top-tier payout structure flawlessly.</p>
+                <p>Total Payout: 150,000 MYR</p>
+                <span>Verified client confirmation capturing top-tier payout structure flawlessly.</span>
             </div>
             <div class="portfolio-card">
-                <div class="win-badge">🏆</div>
-                <h3>Magnum Grand</h3>
-                <p>Strategic probability allocation producing a multi-fold historic dividend win.</p>
-            </div>
-            <div class="portfolio-card">
-                <div class="win-badge">💎</div>
-                <h3>Toto Apex</h3>
-                <p>Systemic generation sequence maximizing deep combination pools securely.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECURE CONNECT INTERFACE -->
-    <section class="contact-section" id="contact">
-        <h2 class="section-title">Secure Enquiry Interface</h2>
-        <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Initiate an authenticated connection protocol directly with management</p>
-        
-        <div class="contact-container">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message successfully dispatched.'); this.reset();">
-                <div class="form-group"><label>User Identity Alias</label><input type="text" placeholder="Enter your name" required></div>
-                <div class="form-group"><label>Communication Endpoint</label><input type="email" placeholder="your@email.com" required></div>
-                <div class="form-group"><label>Transmission Data Payload</label><textarea rows="5" placeholder="Type your message here..." required></textarea></div>
-                <button type="submit" class="cta-button" style="width: 100%;">Dispatch Message</button>
-            </form>
-            
-            <div class="contact-sidebar">
-                <div class="contact-method-box">
-                    <h4>Official WhatsApp Channel</h4>
-                    <p><a href="https://wa.me/60123456789" target="_blank">+60 12-345-6789</a></p>
-                </div>
-                <div class="contact-method-box">
-                    <h4>Administrative Email End</h4>
-                    <p><a href="mailto:support@malaysianlottery.com">support@malaysianlottery.com</a></p>
-                </div>
-                <div class="contact-method-box">
-                    <h4>Corporate Headquarters Location</h4>
-                    <p>Kuala Lumpur, Malaysia</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER PIPELINES -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>About Our Architecture</h4>
-                <p>Deploying elite calculation pipelines and verified localized data extractions for selective asset environments since 2008.</p>
-            </div>
-            <div class="footer-col">
-                <h4>System Directories</h4>
-                <ul>
-                    <li><a href="#home">Home Interface</a></li>
-                    <li><a href="#profile">Agent Biography</a></li>
-                    <li><a href="#services">Premium Services</a></li>
-                    <li><a href="#contact">Contact Endpoint</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved | Luxury Analytical Infrastructure Design</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                <div
