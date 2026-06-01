@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Malaysian Lottery - Premium Live 4D Portal</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700;900&family=Poppins:wght=400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -67,7 +67,7 @@
             gap: 1rem;
         }
 
-        /* লোগোর পিছনের ব্যাকগ্রাউন্ড, বর্ডার ও গ্লো ইফেক্ট রিমুভ করা হয়েছে */
+        /* লোগোর পিছনের ব্যাকগ্রাউন্ড, বর্ডার ও গ্লো ইফেক্ট রিমুভড */
         .logo-img {
             height: 55px;
             width: auto;
@@ -125,7 +125,7 @@
             box-shadow: 0 0 5px var(--gold-glow);
         }
 
-        /* ===== HERO AREA WITH MULTI-LINE CENTERED TEXT ===== */
+        /* ===== HERO AREA FIXED SLIDER (NO BLACK SCREEN) ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -165,7 +165,7 @@
             height: 100%;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+            transition: opacity 0.8s ease-in-out; /* ব্ল্যাক স্ক্রিন রোধে ট্রানজিশন অপ্টিমাইজড */
             background: #111116;
         }
 
@@ -179,7 +179,6 @@
             height: 100%;
             object-fit: cover; 
             display: block;
-            background: #111116;
         }
 
         .slide-text-overlay {
@@ -190,12 +189,6 @@
             width: 90%;
             text-align: center;
             z-index: 5;
-            opacity: 0;
-            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
-        }
-
-        .full-slide-layer.active .slide-text-overlay {
-            opacity: 1;
         }
 
         .slide-text-overlay h1 {
@@ -1278,16 +1271,25 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC (UPDATED FOR ALL IMAGES) ===== */
+            /* ===== MULTI-BANNER SLIDER LOGIC (BUG-FREE & SYNCHRONIZED) ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
-            setInterval(() => {
-                if(slides.length > 0) {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-            }, 4000);
+            
+            function nextSlide() {
+                if (slides.length === 0) return;
+                
+                // বর্তমান স্লাইড হাইড করো
+                slides[currentSlide].classList.remove('active');
+                
+                // ইমেজের ইন্ডেক্স পরিবর্তন
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // পরবর্তী স্লাইড শো করো
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // লুপ টাইমার ৪ সেকেন্ড (৪০০০ মিলিসেকেন্ড)
+            setInterval(nextSlide, 4000);
 
             /* ===== DIGITAL LIVE RESULTS SYSTEM ===== */
             const liveSlides = document.querySelectorAll('.live-result-slide');
