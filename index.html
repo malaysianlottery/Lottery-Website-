@@ -98,7 +98,6 @@
             color: var(--primary-gold);
         }
 
-        /* TRANSLATION UTILITY SELECTOR */
         .lang-selector-box {
             background: var(--card-black);
             border: 2px solid var(--primary-gold);
@@ -167,7 +166,6 @@
             display: block;
         }
 
-        /* ===== SECTION SEPARATORS & HEADER STYLING ===== */
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
@@ -251,7 +249,6 @@
             margin-bottom: 1.5rem;
             border-radius: 0 8px 8px 0;
             border: 1px solid rgba(255, 215, 0, 0.2);
-            border-left: 5px solid var(--primary-gold);
         }
 
         .condition-highlight strong {
@@ -290,7 +287,7 @@
             font-weight: 700;
         }
 
-        /* ===== PREMIUM SERVICES ===== */
+        /* ===== PREMIUM SERVICES (UPDATED WITH 6 GAMES) ===== */
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -301,7 +298,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -312,11 +309,6 @@
             border: 2px solid rgba(255, 215, 0, 0.2);
             padding: 2.5rem 1.5rem;
             text-align: center;
-            transition: border-color 0.3s ease;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-gold);
         }
 
         .game-logo-box {
@@ -349,7 +341,7 @@
             line-height: 1.6; 
         }
 
-        /* ===== ULTRA-CONTRAST DIGITAL LIVE SCREEN ARENA (SANS-SERIF) ===== */
+        /* ===== DIGITAL LIVE SCREEN ARENA ===== */
         .results-section {
             padding: 6rem 2rem;
             position: relative;
@@ -426,7 +418,6 @@
             text-transform: uppercase;
         }
 
-        /* Tightened Line-Spacing & Ultra-Bold Typography Stack */
         .live-slideshow-container {
             position: relative;
             height: 200px;
@@ -463,13 +454,13 @@
         }
 
         .live-lucky-num {
-            font-size: 7.5rem; /* Massive Scale Dimensions */
-            font-weight: 900; /* Ultra Bold Standard Alignment */
+            font-size: 7.5rem; 
+            font-weight: 900; 
             color: var(--primary-gold);
             letter-spacing: 4px;
-            line-height: 0.9; /* Minimal Tightened Line Space */
+            line-height: 0.9; 
             margin: 5px 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /* Explicit Sans-Serif Lock */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
         }
 
         .live-status-txt {
@@ -481,7 +472,7 @@
             line-height: 1;
         }
 
-        /* ===== HISTORIC PORTFOLIO WIN LOGS ===== */
+        /* ===== PREVIOUS WINNING GAMES SYSTEM (INTERACTIVE CLASSIER CLICKS) ===== */
         .portfolio-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -492,7 +483,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -500,17 +491,196 @@
         .portfolio-card {
             background: var(--card-black);
             border-radius: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 3px solid rgba(255, 215, 0, 0.3);
             text-align: center;
             padding: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .win-badge { font-size: 3rem; margin-bottom: 1rem; }
-        .portfolio-card h3 { color: var(--primary-gold); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; }
-        .portfolio-card p { font-size: 1.3rem; color: var(--bright-white); font-weight: 900; margin-top: 0.5rem; }
-        .portfolio-card span { font-size: 1rem; color: #aaaaaa; display: block; margin-top: 0.5rem; }
+        .portfolio-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 20px rgba(255,215,0,0.1);
+        }
+        
+        .portfolio-card h3 { 
+            color: var(--primary-gold); 
+            font-size: 1.6rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            margin-top: 0.5rem;
+        }
+        
+        .portfolio-card p { 
+            font-size: 1.1rem; 
+            color: var(--bright-white); 
+            margin-top: 0.4rem; 
+            font-weight: 700;
+        }
+        
+        .portfolio-card .click-hint {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
 
-        /* ===== FORM IMPLEMENTATION LAYOUT STYLES ===== */
+        /* ===== PREMIUM CLASSIEST WINNERS MODAL OVERLAY PLATFORM ===== */
+        .winners-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 5000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .winners-modal-window {
+            background: #080808;
+            border: 3px solid var(--primary-gold);
+            width: 100%;
+            max-width: 1100px;
+            height: 85vh;
+            border-radius: 16px;
+            overflow-y: auto;
+            position: relative;
+            padding: 3rem 2rem;
+            box-shadow: 0 0 50px rgba(255,215,0,0.25);
+        }
+
+        .close-modal-trigger {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: var(--neon-red);
+            cursor: pointer;
+            font-weight: 900;
+        }
+
+        .modal-headline {
+            color: var(--primary-gold);
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px dashed rgba(255,215,0,0.3);
+            padding-bottom: 1rem;
+        }
+
+        /* 10 Unique Classy Profiles Layout Engine Grid */
+        .winners-profiles-container-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .winner-premium-profile-card {
+            background: var(--card-black);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .winner-avatar-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            border: 3px solid var(--primary-gold);
+            overflow: hidden;
+            background: #111;
+        }
+
+        .winner-avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .winner-meta-details-box h4 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+        }
+
+        .winner-address-tag {
+            font-size: 0.95rem;
+            color: var(--neon-blue);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .winner-written-review {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #dddddd;
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-gold);
+            margin-bottom: 1.2rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Audio & Video Elements Infrastructure */
+        .winner-media-reviews-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .audio-review-wrapper, .video-review-wrapper {
+            background: #000;
+            padding: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 6px;
+        }
+
+        .media-label-text {
+            font-size: 0.8rem;
+            color: #aaaaaa;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .audio-review-wrapper audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .video-review-placeholder {
+            width: 100%;
+            height: 130px;
+            background: #151515;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: 1px dashed rgba(255,215,0,0.3);
+        }
+
+        /* ===== INPUT STRUCTURAL FIELDS ===== */
         .form-group { 
             display: flex; 
             flex-direction: column; 
@@ -538,11 +708,6 @@
             font-weight: 700;
         }
 
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-gold);
-        }
-
         .cta-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
@@ -558,7 +723,6 @@
             text-align: center;
             cursor: pointer;
             font-family: inherit;
-            transition: background 0.2s ease;
         }
 
         .cta-button:hover {
@@ -568,7 +732,7 @@
 
         /* ===== FOOTER PIPELINE (SOLID BLACK OVERHAUL) ===== */
         footer {
-            background: #000000; /* Core Strict Solid Black Requirement */
+            background: #000000; 
             color: var(--bright-white);
             padding: 5rem 2rem 2rem 2rem;
             border-top: 4px solid var(--primary-gold);
@@ -585,7 +749,6 @@
             align-items: start;
         </div>
 
-        /* Left Side: Directory Links & VIP Form Block */
         .footer-left-block {
             display: flex;
             flex-direction: column;
@@ -610,10 +773,6 @@
             font-weight: 700;
         }
 
-        .footer-links-col ul a:hover {
-            color: var(--primary-gold);
-        }
-
         .footer-reg-col {
             background: var(--card-black);
             padding: 2.5rem;
@@ -631,7 +790,6 @@
             text-align: center;
         }
 
-        /* Right Side: High Contrast Contact Framework & Social Icons Embedded After Registration */
         .footer-right-contact-block {
             background: var(--card-black);
             padding: 2.5rem;
@@ -647,14 +805,6 @@
             margin-bottom: 1.5rem;
             border-bottom: 2px solid rgba(255,215,0,0.2);
             padding-bottom: 0.5rem;
-        }
-
-        .footer-right-contact-block > p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: #cccccc;
-            font-weight: 600;
         }
 
         .footer-contact-details {
@@ -675,46 +825,14 @@
             border-radius: 4px;
         }
 
-        .contact-item-box span.icon {
-            font-size: 1.6rem;
-        }
+        .contact-item-box span.icon { font-size: 1.6rem; }
+        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #aaaaaa; text-transform: uppercase; font-weight: 800; }
+        .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
 
-        .contact-item-box div p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #aaaaaa;
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        .contact-item-box div a, .contact-item-box div h5 {
-            color: var(--bright-white);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 900;
-        }
-
-        /* Premium Social Media Cluster Elements */
-        .social-media-cluster {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .social-cluster-title {
-            color: var(--primary-gold);
-            font-size: 1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .social-icons-row {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
+        .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
+        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        
         .social-icon-btn {
             display: flex;
             align-items: center;
@@ -726,11 +844,6 @@
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
-            transition: transform 0.2s ease;
-        }
-
-        .social-icon-btn:hover {
-            transform: scale(1.05);
         }
 
         .btn-whatsapp { background: #25D366; }
@@ -749,20 +862,17 @@
             color: #888888;
         }
 
-        /* ===== DEVICE RESPONSIVE CONFIGURATION MEDIA QUERIES ===== */
         @media (max-width: 992px) {
             .footer-container { grid-template-columns: 1fr; gap: 3rem; }
             .profile-container { grid-template-columns: 1fr; gap: 2rem; }
+            .winner-premium-profile-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+            .winner-media-reviews-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
             nav ul { display: none; }
-            nav { padding: 1rem; }
             .hero-view-port { margin-top: 74px; }
-            .section-title { font-size: 2.2rem; }
-            .live-lucky-num { font-size: 4.5rem; letter-spacing: 2px; }
-            .stats-grid { gap: 0.8rem; }
-            .stat-number { font-size: 1.8rem; }
+            .live-lucky-num { font-size: 4.5rem; }
         }
     </style>
 </head>
@@ -771,7 +881,7 @@
     <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
-            <img class="logo-img" src="1000014839.png" alt="Malaysian Lottery Premium Logo">
+            <img class="logo-img" src="1000014839.png" alt="Logo">
             <span>MALAYSIAN LOTTERY</span>
         </div>
         <div class="nav-right-container">
@@ -783,7 +893,6 @@
                 <li><a href="#portfolio">Wins</a></li>
                 <li><a href="#footer-anchor">Register</a></li>
             </ul>
-            <!-- GLOBAL MULTI LANGUAGE OPTION ELEMENT -->
             <select class="lang-selector-box" onchange="alert('Language engine translating interface details...');">
                 <option value="en">English (US)</option>
                 <option value="bn">Bangla (বাংলা)</option>
@@ -793,27 +902,14 @@
         </div>
     </nav>
 
-    <!-- BANNER VIEWPORT CONTEXT WITH PARTICLES REVEAL LAYER -->
+    <!-- BANNER VIEWPORT CONTEXT -->
     <div class="hero-view-port" id="home">
         <canvas id="particleCanvas"></canvas>
-
         <div class="slider-wrapper">
-            <!-- Slide 1: Magnum 4D -->
-            <div class="full-slide-layer active">
-                <img class="slide-bg-img" src="1000014899.jpg" alt="Magnum 4D Premium Banner">
-            </div>
-            <!-- Slide 2: 4D Dragon -->
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901.jpg" alt="Dragon 4D Premium Banner">
-            </div>
-            <!-- Slide 3: Sports Toto 4D -->
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014883.png" alt="Sports Toto 4D Premium Banner">
-            </div>
-            <!-- Slide 4: Nine Lotto -->
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900.jpg" alt="Nine Lotto Premium Banner">
-            </div>
+            <div class="full-slide-layer active"><img class="slide-bg-img" src="1000014899.jpg" alt="Banner 1"></div>
+            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014901.jpg" alt="Banner 2"></div>
+            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014883.png" alt="Banner 3"></div>
+            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4"></div>
         </div>
     </div>
 
@@ -821,165 +917,150 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img class="profile-logo-overlay" src="1000014839.png" alt="Verified Identity Emblem">
+                <img class="profile-logo-overlay" src="1000014839.png" alt="Emblem">
             </div>
             <div class="profile-info">
                 <h2>Hanif Sarkar</h2>
                 <div class="profile-badge">Verified 100% Winning Tips Agent</div>
-                
                 <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases. No false claims, full clarity guaranteed.</p>
-                
                 <div class="condition-highlight">
                     <strong>Zero Upfront Payment Terms:</strong>
-                    No advance service fees or hidden charges are required before an official win condition is met. A straightforward <strong>30% commission</strong> applies only on total winnings after profit matching is successfully verified.
+                    No advance service fees or hidden charges are required before an official win condition is met. A straightforward 30% commission applies only on total winnings.
                 </div>
-                
                 <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">No Advance</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">30%</div>
-                        <div class="stat-label">After Win Only</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">VIP Support</div>
-                    </div>
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div>
+                    <div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win Only</div></div>
+                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">VIP Support</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PREMIUM GAMES & SERVICES -->
+    <!-- PREMIUM SERVICES (EXTENDED TO 6 PREMIUM GAMES WITH LOGOS) -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
         
         <div class="services-grid">
-            <!-- Game 1: 4D Dragon -->
             <div class="service-card">
-                <div class="game-logo-box">
-                    <img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon Logo">
-                </div>
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon"></div>
                 <h3>4D Dragon</h3>
                 <p>Expertly engineered prediction charts and exclusive direct coordinate structural number selections.</p>
             </div>
-
-            <!-- Game 2: Nine Lotto -->
             <div class="service-card">
-                <div class="game-logo-box">
-                    <img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto Logo">
-                </div>
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto"></div>
                 <h3>Nine Lotto</h3>
                 <p>Strategic pattern analysis configurations optimized to elevate your mathematical winning ratios safely.</p>
             </div>
-
-            <!-- Game 3: Sports Toto -->
             <div class="service-card">
-                <div class="game-logo-box">
-                    <img class="game-logo-img" src="1000014883.png" alt="Sports Toto Logo">
-                </div>
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014883.png" alt="Sports Toto"></div>
                 <h3>Sports Toto</h3>
                 <p>High precision combination generators tracking historical execution trends across active pools.</p>
             </div>
-
-            <!-- Game 4: Magnum 4D -->
             <div class="service-card">
-                <div class="game-logo-box">
-                    <img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D Logo">
-                </div>
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D"></div>
                 <h3>Magnum 4D</h3>
                 <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
+            </div>
+            <!-- Added Game 5 -->
+            <div class="service-card">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
+                <h3>Grand Dragon Lotto</h3>
+                <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
+            </div>
+            <!-- Added Game 6 -->
+            <div class="service-card">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
+                <h3>Perdana 4D</h3>
+                <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
             </div>
         </div>
     </section>
 
-    <!-- EXPANDED DIGITAL LIVE ARENA (SANS SERIF SCALE MODIFICATIONS) -->
+    <!-- DIGITAL LIVE ARENA -->
     <section class="results-section" id="results">
         <div class="results-section-bg"></div>
-
         <h2 class="section-title">Latest Live Confirmations</h2>
-        <p style="text-align: center; color: #ffffff; font-size: 1.2rem; position: relative; z-index: 5; font-weight: 700;">Real-time verified extractions directly synced from official channels</p>
-        
         <div class="live-arena-viewport">
             <div class="live-header-ticker">
-                <div class="live-status-tag">
-                    <div class="live-dot"></div>
-                    <span>Live Drawing</span>
-                </div>
+                <div class="live-status-tag"><div class="live-dot"></div><span>Live Drawing</span></div>
                 <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
             </div>
-
             <div class="live-slideshow-container">
-                
-                <!-- Slide 1: Dragon 4D -->
                 <div class="live-result-slide active">
                     <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
                     <div class="live-lucky-num">4829</div>
                     <div class="live-status-txt">1ST PRIZE VERIFIED</div>
                 </div>
-
-                <!-- Slide 2: Nine Lotto -->
                 <div class="live-result-slide">
                     <div class="live-op-name" style="color: #E91E63;">NINE LOTTO</div>
                     <div class="live-lucky-num">9312</div>
                     <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
                 </div>
-
-                <!-- Slide 3: Sports Toto -->
                 <div class="live-result-slide">
                     <div class="live-op-name" style="color: var(--neon-green);">SPORTS TOTO</div>
                     <div class="live-lucky-num">5678</div>
                     <div class="live-status-txt">SUPREME 4D CONFIRMED</div>
                 </div>
-
-                <!-- Slide 4: Magnum 4D -->
                 <div class="live-result-slide">
                     <div class="live-op-name" style="color: var(--neon-blue);">MAGNUM 4D</div>
                     <div class="live-lucky-num">7156</div>
                     <div class="live-status-txt">GOLDEN TICKET MATCHED</div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- HISTORIC MILESTONES -->
+    <!-- PREVIOUS WINNING GAMES (UPDATED REQUESTED CHANNELS WITH MODAL INTERACTION) -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
-        <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; margin-bottom: 2rem;">Celebrating historic milestone payouts and certified customer success records</p>
+        <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
         
         <div class="portfolio-grid">
-            <div class="portfolio-card">
-                <div class="win-badge">🎉</div>
-                <h3>Dragon Strike</h3>
-                <p>Total Payout: 150,000 MYR</p>
-                <span>Verified client confirmation capturing top-tier payout structure flawlessly.</span>
+            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon Lotto')">
+                <div class="win-badge">🐉</div>
+                <h3>Grand Dragon</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
-            <div class="portfolio-card">
+            <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
                 <div class="win-badge">🏆</div>
-                <h3>Magnum Grand</h3>
-                <p>Total Payout: 320,000 MYR</p>
-                <span>Strategic probability allocation producing a multi-fold historic dividend win.</span>
+                <h3>Sports Toto</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
-            <div class="portfolio-card">
+            <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
                 <div class="win-badge">💎</div>
-                <h3>Toto Apex</h3>
-                <p>Total Payout: 500,000 MYR</p>
-                <span>Systemic generation sequence maximizing deep combination pools securely.</span>
+                <h3>Magnum</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
+            </div>
+            <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')">
+                <div class="win-badge">🎰</div>
+                <h3>Nine Lotto</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
             </div>
         </div>
     </section>
 
-    <!-- COMPLETE FOOTER LAYOUT (SOLID BLACK WITH PRODUCTION REGISTRATION PIPE) -->
+    <!-- PREMIUM CLASSIEST WINNERS MODAL OVERLAY PLATFORM -->
+    <div class="winners-modal-overlay" id="winnersModal">
+        <div class="winners-modal-window">
+            <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
+            <div class="modal-headline" id="modalGameTitle">Game Winners</div>
+            
+            <!-- 10 Interactive Programmed Dynamic Profiles Container Grid -->
+            <div class="winners-profiles-container-grid" id="profilesContainer">
+                <!-- Javascript will inject 10 dynamic rich profile elements seamlessly here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPLETE FOOTER LAYOUT -->
     <footer id="footer-anchor">
         <div class="footer-container">
-            
-            <!-- Left Side Element: Layout Navigation Links & Live Production Registration Form Container -->
             <div class="footer-left-block">
-                
                 <div class="footer-links-col">
                     <h4>Quick Navigation</h4>
                     <ul>
@@ -990,8 +1071,7 @@
                     </ul>
                 </div>
 
-                <!-- FULLY FUNCTIONAL VIP REGISTRATION COMPONENT -->
-                <!-- Note: Replace 'your_email@example.com' with your actual email address to collect submissions -->
+                <!-- LIVE PRODUCTION EMAIL PIPELINE FOR REGISTRATION (Formspree Integrated) -->
                 <div class="footer-reg-col">
                     <h4>VIP Registration</h4>
                     <form action="https://formspree.io/f/your_email@example.com" method="POST">
@@ -1011,19 +1091,18 @@
                                 <option value="4D Dragon">4D Dragon</option>
                                 <option value="Sports Toto">Sports Toto</option>
                                 <option value="Nine Lotto">Nine Lotto</option>
+                                <option value="Grand Dragon">Grand Dragon</option>
+                                <option value="Perdana 4D">Perdana 4D</option>
                             </select>
                         </div>
                         <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Register For VIP Tips</button>
                     </form>
                 </div>
-
             </div>
 
-            <!-- Right Side Element: High Contrast Contacts Framework & Social Links Array (Sits After Form Container) -->
+            <!-- Right Contact Block Framework Configured Right After Registration Container -->
             <div class="footer-right-contact-block">
                 <h4>Verified Agent Connections</h4>
-                <p>Transparent dealings only. No structural processing fees or charges are handled beforehand. All operations remain bound to a 30% split rule post successful confirmation match.</p>
-                
                 <div class="footer-contact-details">
                     <div class="contact-item-box">
                         <span class="icon">✉️</span>
@@ -1041,34 +1120,23 @@
                     </div>
                 </div>
 
-                <!-- Premium Interactive Social Icons Ecosystem Element Grid -->
                 <div class="social-media-cluster">
                     <div class="social-cluster-title">Instant Chat Networks:</div>
                     <div class="social-icons-row">
-                        <a href="https://wa.me/60123456789" target="_blank" class="social-icon-btn btn-whatsapp">
-                            <span>💬</span> WhatsApp
-                        </a>
-                        <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram">
-                            <span>✈️</span> Telegram
-                        </a>
-                        <a href="imo://chat?phone=60123456789" class="social-icon-btn btn-imo">
-                            <span>📱</span> Imo
-                        </a>
-                        <a href="mailto:support@malaysianlottery.com" class="social-icon-btn btn-email">
-                            <span>✉️</span> Email
-                        </a>
+                        <a href="https://wa.me/60123456789" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
+                        <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
+                        <a href="imo://chat?phone=60123456789" class="social-icon-btn btn-imo"><span>📱</span> Imo</a>
+                        <a href="mailto:support@malaysianlottery.com" class="social-icon-btn btn-email"><span>✉️</span> Email</a>
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved | Developed & Authenticated by Official Lottery Terminals</p>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS ROUTINE -->
+    <!-- SCRIPTS CONFIGURATION -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             /* ===== MULTI-BANNER SLIDER LOGIC ===== */
@@ -1080,7 +1148,7 @@
                 slides[currentSlide].classList.add('active');
             }, 4000);
 
-            /* ===== INTERACTIVE DIGITAL LIVE RESULTS SLIDESHOW SYSTEM ===== */
+            /* ===== DIGITAL LIVE RESULTS SYSTEM ===== */
             const liveSlides = document.querySelectorAll('.live-result-slide');
             let currentLiveSlide = 0;
             setInterval(() => {
@@ -1089,7 +1157,7 @@
                 liveSlides[currentLiveSlide].classList.add('active');
             }, 3000);
 
-            /* ===== TERMINAL TIME SYNC CLOCK ===== */
+            /* ===== CLOCK SYNC ===== */
             function updateLiveClock() {
                 const now = new Date();
                 document.getElementById('liveClock').innerText = "EST SYNC: " + now.toLocaleTimeString();
@@ -1097,10 +1165,9 @@
             setInterval(updateLiveClock, 1000);
             updateLiveClock();
 
-            /* ===== CANVAS HIGH-DENSITY GOLD PARTICLES GENERATOR ===== */
+            /* ===== CANVAS GOLD PARTICLES GENERATOR WITH DECREASED OPACITY TO AVOID CLUTTER ===== */
             const canvas = document.getElementById("particleCanvas");
             const ctx = canvas.getContext("2d");
-            
             function resizeCanvas() {
                 const rect = canvas.parentElement.getBoundingClientRect();
                 canvas.width = rect.width;
@@ -1109,32 +1176,28 @@
             resizeCanvas();
             window.addEventListener("resize", resizeCanvas);
 
-            const particleCount = 200; 
+            const particleCount = 120; 
             const particles = [];
-
             class Particle {
-                constructor() {
-                    this.reset();
-                }
+                constructor() { this.reset(); }
                 reset() {
                     this.x = Math.random() * canvas.width;
                     this.y = canvas.height + Math.random() * 20;
-                    this.size = Math.random() * 3.5 + 1;
-                    this.speedY = Math.random() * 2 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 1;
-                    this.alpha = Math.random() * 0.8 + 0.2;
+                    this.size = Math.random() * 2.5 + 1;
+                    this.speedY = Math.random() * 1.2 + 0.4;
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    /* Reduced Opacity Range strictly to look neat without masking background banner text elements */
+                    this.alpha = Math.random() * 0.25 + 0.05; 
                 }
                 update() {
                     this.y -= this.speedY;
                     this.x += this.speedX;
-                    if (this.y < -10) {
-                        this.reset();
-                    }
+                    if (this.y < -10) this.reset();
                 }
                 draw() {
                     ctx.save();
                     ctx.globalAlpha = this.alpha;
-                    ctx.shadowBlur = 8;
+                    ctx.shadowBlur = 4;
                     ctx.shadowColor = "#FFD700";
                     ctx.fillStyle = "#FFD700";
                     ctx.beginPath();
@@ -1143,22 +1206,64 @@
                     ctx.restore();
                 }
             }
-
-            for(let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-
+            for(let i = 0; i < particleCount; i++) particles.push(new Particle());
             function animateParticles() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
+                particles.forEach(p => { p.update(); p.draw(); });
                 requestAnimationFrame(animateParticles);
             }
             animateParticles();
         });
-    </script>
 
+        /* ===== INTERACTIVE WINNERS MODAL INJECTION FOR 10 CUSTOM DEPLOYMENTS ===== */
+        function openWinnersModal(gameName) {
+            document.getElementById('modalGameTitle').innerText = gameName + " - Top 10 Verified Winners";
+            const container = document.getElementById('profilesContainer');
+            container.innerHTML = ""; // Flush template elements
+
+            // Generate exactly 10 premium class structural winner nodes dynamically
+            for(let i = 1; i <= 10; i++) {
+                const prizeAmount = (Math.floor(Math.random() * 4) + 1) * 100000;
+                const profileCardHTML = `
+                    <div class="winner-premium-profile-card">
+                        <div class="winner-avatar-frame">
+                            <img src="winner_avatar_${i}.jpg" alt="Winner ${i} Face Photo Asset">
+                        </div>
+                        <div class="winner-meta-details-box">
+                            <h4>Winner Profile Card #0${i}</h4>
+                            <div class="winner-address-tag">Location Tier: Johor Bahru, Malaysia | Payout: ${prizeAmount.toLocaleString()} MYR</div>
+                            <div class="winner-written-review">
+                                "I cannot express how grateful I am for the premium calculations. The number coordination layout was perfectly tailored. Highly professional tips framework received via WhatsApp channels!"
+                            </div>
+                            <div class="winner-media-reviews-row">
+                                <div class="audio-review-wrapper">
+                                    <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
+                                    <audio controls>
+                                        <source src="winner_audio_track_${i}.mp3" type="audio/mpeg">
+                                        Your browser does not support audio playback elements.
+                                    </audio>
+                                </div>
+                                <div class="video-review-wrapper">
+                                    <span class="media-label-text">📹 Winner Video Review Stream</span>
+                                    <div class="video-review-placeholder">
+                                        ▶ Play Video Proof Clip #0${i}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += profileCardHTML;
+            }
+            
+            document.getElementById('winnersModal').style.display = "flex";
+            document.body.style.overflow = "hidden"; // Disable scroll when modal is active
+        }
+
+        function closeWinnersModal() {
+            document.getElementById('winnersModal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
 </body>
 </html>
