@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malaysian Lottery - Premium 4D Results & Services</title>
+    <title>Malaysian Lottery - Premium Live 4D Portal</title>
     <style>
         /* ===== GLOBAL RESET & SANS-SERIF FONT ===== */
         * {
@@ -16,9 +16,9 @@
             --primary-gold: #FFD700;
             --deep-gold: #C5A059;
             --dark-black: #111111;
-            --luxury-dark: #1a1a1a;
+            --pure-black: #000000;
+            --luxury-dark: #121212;
             --white: #ffffff;
-            --card-bg: rgba(26, 26, 26, 0.9);
             --accent-blue: #00CCFF;
         }
 
@@ -26,29 +26,10 @@
             width: 100%;
             height: 100%;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background: #0d0d0d; 
+            background: #0a0a0a; 
             color: var(--white);
             overflow-x: hidden;
             scroll-behavior: smooth;
-        }
-
-        /* ===== TRADITIONAL MALAYSIAN GOLDEN CULTURAL BACKGROUND ===== */
-        .cultural-bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-            opacity: 0.15;
-        }
-
-        .cultural-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         nav, .hero-view-port, section, footer {
@@ -112,7 +93,7 @@
             color: var(--primary-gold);
         }
 
-        /* ===== SLIDER (16:9 RATIO FADE SYSTEM) ===== */
+        /* ===== HERO INTERFACE WITH GOLDEN PARTICLES CANVAS ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -122,15 +103,27 @@
             position: relative;
             background: #000000; 
             border: 2px solid var(--deep-gold);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
             overflow: hidden;
             aspect-ratio: 16 / 9;
+        }
+
+        /* Canvas background behind slides */
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
         }
 
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
+            z-index: 1;
         }
 
         .full-slide-layer {
@@ -171,8 +164,8 @@
         /* ===== ABOUT PROFILE SECTION ===== */
         .profile-section {
             padding: 6rem 2rem;
-            background: rgba(26, 26, 26, 0.7);
-            border-bottom: 1px solid rgba(255,215,0,0.15);
+            background: #121212;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
         }
 
         .profile-container {
@@ -194,17 +187,7 @@
             border: 3px solid var(--deep-gold);
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             margin: 0 auto;
-        }
-
-        .profile-bg-blend {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            filter: brightness(0.4);
+            background: #000;
         }
 
         .profile-logo-overlay {
@@ -268,7 +251,7 @@
         }
 
         .stat-item {
-            background: var(--dark-black);
+            background: var(--pure-black);
             padding: 1.5rem;
             border-radius: 6px;
             text-align: center;
@@ -287,11 +270,11 @@
             text-transform: uppercase;
         }
 
-        /* ===== SERVICES GRID WITH LOGOS ===== */
+        /* ===== PREMIUM GAMES & SERVICES ===== */
         .services-section {
             padding: 6rem 2rem;
-            background: rgba(17, 17, 17, 0.7);
-            border-bottom: 1px solid rgba(255,215,0,0.15);
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
         }
 
         .services-grid {
@@ -304,7 +287,7 @@
         }
 
         .service-card {
-            background: var(--card-bg);
+            background: #111111;
             border-radius: 12px;
             border: 2px solid rgba(197, 160, 89, 0.2);
             padding: 2.5rem 1.5rem;
@@ -349,40 +332,154 @@
             line-height: 1.6; 
         }
 
-        /* ===== LIVE RESULTS SECTION ===== */
+        /* ===== ADVANCED LIVE STAGE RESULTS SYSTEM WITH BACKGROUND IMAGE ===== */
         .results-section {
             padding: 6rem 2rem;
-            background: rgba(26, 26, 26, 0.7);
-            border-bottom: 1px solid rgba(255,215,0,0.15);
+            position: relative;
+            background: #000000;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
         }
 
-        .results-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Background image injected specifically into the live segment */
+        .results-section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('1000014883.png') no-repeat center center;
+            background-size: cover;
+            opacity: 0.12;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        .result-box {
-            background: rgba(17, 17, 17, 0.9);
-            border-radius: 6px;
-            border-top: 4px solid var(--deep-gold);
-            padding: 2.2rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        .results-section .section-title, .results-section p {
+            position: relative;
+            z-index: 5;
         }
 
-        .operator-name { font-size: 1.1rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 1rem; letter-spacing: 1px; }
-        .lucky-number { font-size: 3rem; font-weight: 900; color: var(--primary-gold); margin: 1rem 0; letter-spacing: 2px; }
-        .draw-time { font-size: 0.85rem; color: #888888; }
+        /* Premium Digital Live Arena Board Template */
+        .live-arena-viewport {
+            position: relative;
+            z-index: 5;
+            max-width: 900px;
+            margin: 3rem auto 0 auto;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #080808 100%);
+            border: 4px solid var(--primary-gold);
+            border-radius: 16px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(0,0,0,0.9);
+            padding: 3rem 2rem;
+            overflow: hidden;
+        }
+
+        /* Live Streaming Ticker / Header */
+        .live-header-ticker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed rgba(255,215,0,0.3);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .live-status-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 0, 0, 0.15);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #ff0000;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ff3333;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: pulseBlink 1s infinite alternate;
+        }
+
+        @keyframes pulseBlink {
+            0% { opacity: 0.3; transform: scale(0.9); box-shadow: 0 0 0px rgba(255,0,0,0); }
+            100% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 12px #ff0000; }
+        }
+
+        .live-timer-sync {
+            font-size: 0.95rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Slideshow Animation Elements inside Live Screen Box */
+        .live-slideshow-container {
+            position: relative;
+            height: 220px;
+            width: 100%;
+        }
+
+        .live-result-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.95);
+        }
+
+        .live-result-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        .live-op-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .live-lucky-num {
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            letter-spacing: 6px;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.2);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0.5rem 0;
+        }
+
+        .live-status-txt {
+            font-size: 1rem;
+            color: #00FFcc;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* ===== HISTORIC WINS / PORTFOLIO ===== */
         .portfolio-section {
             padding: 6rem 2rem;
-            background: rgba(17, 17, 17, 0.7);
-            border-bottom: 1px solid rgba(255,215,0,0.15);
+            background: #121212;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
         }
 
         .portfolio-grid {
@@ -395,7 +492,7 @@
         }
 
         .portfolio-card {
-            background: var(--card-bg);
+            background: #1a1a1a;
             border-radius: 12px;
             border: 2px solid rgba(197, 160, 89, 0.2);
             text-align: center;
@@ -409,7 +506,7 @@
         .portfolio-card p { font-size: 1.1rem; color: #ffffff; line-height: 1.6; font-weight: bold; margin-top: 0.5rem; }
         .portfolio-card span { font-size: 0.95rem; color: #aaaaaa; display: block; margin-top: 0.4rem; }
 
-        /* ===== INPUT FORM STYLES ===== */
+        /* ===== INPUT STRUCTURAL FIELDS ===== */
         .form-group { 
             display: flex; 
             flex-direction: column; 
@@ -427,7 +524,7 @@
         
         .form-group input, .form-group textarea, .form-group select { 
             padding: 0.9rem; 
-            background: #151515; 
+            background: #0d0d0d; 
             border: 1px solid rgba(197, 160, 89, 0.4); 
             color: white; 
             border-radius: 6px; 
@@ -465,10 +562,10 @@
             box-shadow: 0 5px 15px rgba(255,215,0,0.3);
         }
 
-        /* ===== COMPLETE & ADVANCED FOOTER INTEGRATION ===== */
+        /* ===== FULL SOLID BLACK COMPACT FOOTER PIPELINE ===== */
         footer {
-            background: #070707;
-            color: #bbbbbb;
+            background: var(--pure-black); /* Strict Solid Black Theme */
+            color: #dddddd;
             padding: 5rem 2rem 2rem 2rem;
             border-top: 3px solid var(--deep-gold);
             position: relative;
@@ -508,7 +605,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: rgba(255,215,0,0.03);
+            background: rgba(255,215,0,0.04);
             padding: 0.8rem 1rem;
             border-left: 3px solid var(--primary-gold);
             border-radius: 0 6px 6px 0;
@@ -521,7 +618,7 @@
         .contact-item-box div p {
             margin: 0;
             font-size: 0.8rem;
-            color: #777777;
+            color: #888888;
             text-transform: uppercase;
         }
 
@@ -542,14 +639,8 @@
             padding-bottom: 0.5rem;
         }
 
-        .footer-links-col ul {
-            list-style: none;
-        }
-
-        .footer-links-col ul li {
-            margin-bottom: 0.8rem;
-        }
-
+        .footer-links-col ul { list-style: none; }
+        .footer-links-col ul li { margin-bottom: 0.8rem; }
         .footer-links-col ul a {
             color: #cccccc;
             text-decoration: none;
@@ -563,9 +654,9 @@
             transform: translateX(5px);
         }
 
-        /* Registration Form inside Footer */
+        /* Registration Structure Box */
         .footer-reg-col {
-            background: rgba(20, 20, 20, 0.8);
+            background: #0a0a0a;
             padding: 2rem;
             border-radius: 8px;
             border: 1px solid rgba(197, 160, 89, 0.3);
@@ -583,14 +674,14 @@
         .footer-bottom {
             max-width: 1200px;
             margin: 4rem auto 0 auto;
-            border-top: 1px solid rgba(255,215,0,0.1);
+            border-top: 1px solid rgba(255,215,0,0.15);
             padding-top: 2rem;
             text-align: center;
             font-size: 0.9rem;
-            color: #666666;
+            color: #555555;
         }
 
-        /* ===== MOBILE RESPONSIVE ===== */
+        /* ===== RESPONSIVE MEDIA BREAKPOINTS ===== */
         @media (max-width: 992px) {
             .footer-container { grid-template-columns: 1fr; gap: 3rem; }
             .profile-container { grid-template-columns: 1fr; gap: 2rem; }
@@ -601,17 +692,13 @@
             nav { padding: 1rem; }
             .hero-view-port { margin-top: 74px; }
             .section-title { font-size: 2rem; }
+            .live-lucky-num { font-size: 3.5rem; letter-spacing: 3px; }
             .stats-grid { gap: 0.8rem; }
             .stat-number { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- LUXURY TRADITIONAL BACKGROUND LAYER -->
-    <div class="cultural-bg-container">
-        <img class="cultural-bg-img" src="1000014883.png" alt="Malaysian Traditional Pattern Background">
-    </div>
 
     <!-- MAIN INTERFACE HEADER -->
     <nav>
@@ -623,36 +710,34 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#profile">About Me</a></li>
             <li><a href="#services">Premium Services</a></li>
-            <li><a href="#results">Live Results</a></li>
+            <li><a href="#results">Live Screen</a></li>
             <li><a href="#portfolio">Wins</a></li>
             <li><a href="#footer-anchor">Register & Contact</a></li>
         </ul>
     </nav>
 
-    <!-- BANNER SLIDER SYSTEM (FIXED TRANSITION & TIMING) -->
+    <!-- BANNER VIEWPORT CONTEXT WITH PARTICLES REVEAL UPPERMOST LAYER -->
     <div class="hero-view-port" id="home">
+        <!-- Interactive Golden Particle Canvas Layer -->
+        <canvas id="particleCanvas"></canvas>
+
         <div class="slider-wrapper">
-            
             <!-- স্লাইড ১: Magnum 4D -->
             <div class="full-slide-layer active">
                 <img class="slide-bg-img" src="1000014899.jpg" alt="Magnum 4D Premium Banner">
             </div>
-
             <!-- স্লাইড ২: 4D Dragon -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014901.jpg" alt="Dragon 4D Premium Banner">
             </div>
-
             <!-- স্লাইড ৩: Sports Toto 4D -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014898.jpg" alt="Sports Toto 4D Premium Banner">
             </div>
-
             <!-- স্লাইড ৪: Nine Lotto -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014900.jpg" alt="Nine Lotto Premium Banner">
             </div>
-
         </div>
     </div>
 
@@ -660,7 +745,6 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img class="profile-bg-blend" src="1000014883.png" alt="Traditional Backdrop">
                 <img class="profile-logo-overlay" src="1000014839.png" alt="Verified Identity Emblem">
             </div>
             <div class="profile-info">
@@ -692,7 +776,7 @@
         </div>
     </section>
 
-    <!-- PREMIUM GAMES & SERVICES WITH ORIGINAL LOGOS -->
+    <!-- PREMIUM GAMES & SERVICES -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 3rem;">গ্যারান্টিড ক্যালকুলেশন এবং অরিজিনাল লটারির অফিশিয়াল গেম মেকানিক্স</p>
@@ -736,19 +820,60 @@
         </div>
     </section>
 
-    <!-- INSTANT MONITOR GATEWAY -->
+    <!-- EXPANDED DIGITAL LIVE SCREEN ARENA SLIDESHOW SYSTEM (BACKGROUND APPLIED HERE) -->
     <section class="results-section" id="results">
+        <!-- Core visual backdrop shifted exclusively inside this section -->
+        <div class="results-section-bg"></div>
+
         <h2 class="section-title">Latest Live Confirmations</h2>
-        <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Real-time verified extractions directly synced from official channels</p>
-        <div class="results-grid">
-            <div class="result-box"><div class="operator-name">DRAGON 4D</div><div class="lucky-number">4829</div><div class="draw-time">Live Verified Today</div></div>
-            <div class="result-box"><div class="operator-name">MAGNUM 4D</div><div class="lucky-number">7156</div><div class="draw-time">Live Verified Today</div></div>
-            <div class="result-box"><div class="operator-name">SPORTS TOTO</div><div class="lucky-number">5678</div><div class="draw-time">Live Verified Today</div></div>
-            <div class="result-box"><div class="operator-name">NINE LOTTO</div><div class="lucky-number">9312</div><div class="draw-time">Live Verified Today</div></div>
+        <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; position: relative; z-index: 5;">Real-time verified extractions directly synced from official channels</p>
+        
+        <!-- Live Large Monitor Container -->
+        <div class="live-arena-viewport">
+            <div class="live-header-ticker">
+                <div class="live-status-tag">
+                    <div class="live-dot"></div>
+                    <span>Live Drawing</span>
+                </div>
+                <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
+            </div>
+
+            <!-- Slideshow Content Wrapper -->
+            <div class="live-slideshow-container">
+                
+                <!-- Slide 1: Dragon 4D -->
+                <div class="live-result-slide active">
+                    <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
+                    <div class="live-lucky-num">4829</div>
+                    <div class="live-status-txt">1ST PRIZE VERIFIED</div>
+                </div>
+
+                <!-- Slide 2: Nine Lotto -->
+                <div class="live-result-slide">
+                    <div class="live-op-name" style="color: #E91E63;">NINE LOTTO</div>
+                    <div class="live-lucky-num">9312</div>
+                    <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
+                </div>
+
+                <!-- Slide 3: Sports Toto -->
+                <div class="live-result-slide">
+                    <div class="live-op-name" style="color: #00E676;">SPORTS TOTO</div>
+                    <div class="live-lucky-num">5678</div>
+                    <div class="live-status-txt">SUPREME 4D CONFIRMED</div>
+                </div>
+
+                <!-- Slide 4: Magnum 4D -->
+                <div class="live-result-slide">
+                    <div class="live-op-name" style="color: #00B0FF;">MAGNUM 4D</div>
+                    <div class="live-lucky-num">7156</div>
+                    <div class="live-status-txt">GOLDEN TICKET MATCHED</div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- HISTORIC MILESTONES (CONVERTED TO MYR) -->
+    <!-- HISTORIC MILESTONES -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Celebrating historic milestone payouts and certified customer success records</p>
@@ -775,11 +900,11 @@
         </div>
     </section>
 
-    <!-- COMPLETE FOOTER PIPELINE: CONTACT, QUICK LINKS & REGISTRATION -->
+    <!-- COMPLETE SOLID BLACK FOOTER PIPELINE: CONTACT & REGISTRATION -->
     <footer id="footer-anchor">
         <div class="footer-container">
             
-            <!-- কলাম ১: কন্টাক্ট ডিটেইলস এবং বিবরণ -->
+            <!-- Column 1: Core Profile Contact Details -->
             <div class="footer-info-col">
                 <h3>Hanif Sarkar</h3>
                 <p>আমরা কোনো ফেক কাজ করি না এবং সততাই আমাদের মূল পরিচয়। গেম উইন হওয়ার আগে কোনো প্রকার এডভান্স পেমেন্ট নেওয়া হয় না। উইন হওয়ার পর লভ্যাংশের ৩০% কন্ডিশন।</p>
@@ -809,19 +934,19 @@
                 </div>
             </div>
 
-            <!-- কলাম ২: কুইক লিংক ডিরেক্টরি -->
+            <!-- Column 2: Structural Navigation Directory -->
             <div class="footer-links-col">
                 <h4>Quick Directory</h4>
                 <ul>
                     <li><a href="#home">Home Gateway</a></li>
                     <li><a href="#profile">About Analyst Bio</a></li>
                     <li><a href="#services">Game Services</a></li>
-                    <li><a href="#results">Live Results Panel</a></li>
+                    <li><a href="#results">Live Monitor Arena</a></li>
                     <li><a href="#portfolio">Past Winning Logs</a></li>
                 </ul>
             </div>
 
-            <!-- কলাম ৩: প্রিমিয়াম মেম্বারশিপ রেজিস্ট্রেশন ফর্ম -->
+            <!-- Column 3: VIP Registration Form Area -->
             <div class="footer-reg-col">
                 <h4>VIP Registration</h4>
                 <form onsubmit="event.preventDefault(); alert('Registration submitted successfully! Hanif Sarkar will contact you via WhatsApp.'); this.reset();">
@@ -849,26 +974,101 @@
 
         </div>
 
-        <!-- ফুটারে কপিরাইট অংশ -->
         <div class="footer-bottom">
             <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved | Developed & Authenticated by Agent Hanif Sarkar</p>
         </div>
     </footer>
 
-    <!-- AUTOMATIC BACKEND SLIDER FUNCTIONALITY -->
+    <!-- INTERACTIVE SCRIPTS ROUTINE -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            /* ===== MULTI-BANNER SLIDER LOGIC ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
-            const slideInterval = 4000; // প্রতি ৪ সেকেন্ড পর পর স্লাইড পরিবর্তন হবে
-
-            function nextSlide() {
+            setInterval(() => {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
+            }, 4000);
+
+            /* ===== INTERACTIVE DIGITAL LIVE RESULTS SLIDESHOW SYSTEM ===== */
+            const liveSlides = document.querySelectorAll('.live-result-slide');
+            let currentLiveSlide = 0;
+            setInterval(() => {
+                liveSlides[currentLiveSlide].classList.remove('active');
+                currentLiveSlide = (currentLiveSlide + 1) % liveSlides.length;
+                liveSlides[currentLiveSlide].classList.add('active');
+            }, 3000); // প্রতি ৩ সেকেন্ড পর পর স্লাইড পরিবর্তন হবে
+
+            /* ===== TERMINAL TIME SYNC CLOCK ===== */
+            function updateLiveClock() {
+                const now = new Date();
+                document.getElementById('liveClock').innerText = "EST SYNC: " + now.toLocaleTimeString();
+            }
+            setInterval(updateLiveClock, 1000);
+            updateLiveClock();
+
+            /* ===== CANVAS HIGH-DENSITY GOLD PARTICLES GENERATOR ===== */
+            const canvas = document.getElementById("particleCanvas");
+            const ctx = canvas.getContext("2d");
+            
+            function resizeCanvas() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas);
+
+            const particleCount = 150; // প্রচুর পরিমাণে পারটিকেলস জেনারেট করার কাউন্ট
+            const particles = [];
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = canvas.height + Math.random() * 20;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedY = Math.random() * 1.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.8;
+                    this.alpha = Math.random() * 0.8 + 0.2;
+                }
+                update() {
+                    this.y -= this.speedY;
+                    this.x += this.speedX;
+                    if (this.y < -10) {
+                        this.reset();
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.alpha;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = "#FFD700";
+                    ctx.fillStyle = "linear-gradient(to right, #FFD700, #C5A059)";
+                    ctx.fillStyle = "#FFD700";
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
             }
 
-            setInterval(nextSlide, slideInterval);
+            for(let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
         });
     </script>
 
