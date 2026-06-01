@@ -18,7 +18,7 @@
             --dark-black: #111111;
             --luxury-dark: #1a1a1a;
             --white: #ffffff;
-            --card-bg: rgba(34, 34, 34, 0.85);
+            --card-bg: rgba(26, 26, 26, 0.9);
             --accent-blue: #00CCFF;
         }
 
@@ -42,7 +42,7 @@
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
-            opacity: 0.25;
+            opacity: 0.15;
         }
 
         .cultural-bg-img {
@@ -112,7 +112,7 @@
             color: var(--primary-gold);
         }
 
-        /* ===== ADVANCED 3D SMOKY SPLASH SLIDER (16:9 RATIO) ===== */
+        /* ===== SLIDER (16:9 RATIO FADE SYSTEM) ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -124,8 +124,7 @@
             border: 2px solid var(--deep-gold);
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             overflow: hidden;
-            aspect-ratio: 16 / 9; 
-            perspective: 1200px;
+            aspect-ratio: 16 / 9;
         }
 
         .slider-wrapper {
@@ -140,62 +139,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000000;
             opacity: 0;
-            transform: scale(1.1) translateZ(-50px);
-            filter: blur(10px) brightness(0.5);
-            animation: 3dSmokySplashAnimation 16s infinite cubic-bezier(0.25, 1, 0.5, 1);
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+            background: #000000;
+        }
+
+        .full-slide-layer.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         .slide-bg-img {
             width: 100%;
             height: 100%;
-            object-fit: fill; 
+            object-fit: cover; 
             display: block;
-        }
-
-        .full-slide-layer:nth-child(1) { animation-delay: 0s; }
-        .full-slide-layer:nth-child(2) { animation-delay: 4s; }
-        .full-slide-layer:nth-child(3) { animation-delay: 8s; }
-        .full-slide-layer:nth-child(4) { animation-delay: 12s; }
-
-        @keyframes 3dSmokySplashAnimation {
-            0% {
-                opacity: 0;
-                filter: blur(15px) brightness(0.2) contrast(2);
-                transform: scale(1.2) rotate(3deg) translateZ(-150px);
-                clip-path: circle(0% at 50% 50%);
-            }
-            4% {
-                opacity: 1;
-                filter: blur(4px) brightness(1.2) contrast(1.2);
-                transform: scale(1.05) rotate(-1deg) translateZ(50px);
-                clip-path: circle(45% at 50% 50%);
-            }
-            8%, 25% {
-                opacity: 1;
-                filter: blur(0px) brightness(1) contrast(1);
-                transform: scale(1) rotate(0deg) translateZ(0px);
-                clip-path: circle(100% at 50% 50%);
-            }
-            28% {
-                opacity: 0.4;
-                filter: blur(8px) brightness(0.6);
-                transform: scale(0.95) rotate(1deg) translateZ(-100px);
-                clip-path: polygon(
-                    50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%,
-                    30% 30%, 70% 30%, 70% 70%, 30% 70%, 30% 30%
-                );
-            }
-            32%, 100% {
-                opacity: 0;
-                filter: blur(20px) brightness(0);
-                transform: scale(0.9) rotate(0deg) translateZ(-200px);
-                clip-path: circle(0% at 50% 50%);
-            }
         }
 
         /* ===== SECTION HEADER STYLING ===== */
@@ -212,7 +171,7 @@
         /* ===== ABOUT PROFILE SECTION ===== */
         .profile-section {
             padding: 6rem 2rem;
-            background: rgba(26, 26, 26, 0.6);
+            background: rgba(26, 26, 26, 0.7);
             border-bottom: 1px solid rgba(255,215,0,0.15);
         }
 
@@ -234,6 +193,7 @@
             overflow: hidden;
             border: 3px solid var(--deep-gold);
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            margin: 0 auto;
         }
 
         .profile-bg-blend {
@@ -327,10 +287,10 @@
             text-transform: uppercase;
         }
 
-        /* ===== SERVICES GRID ===== */
+        /* ===== SERVICES GRID WITH LOGOS ===== */
         .services-section {
             padding: 6rem 2rem;
-            background: rgba(17, 17, 17, 0.6);
+            background: rgba(17, 17, 17, 0.7);
             border-bottom: 1px solid rgba(255,215,0,0.15);
         }
 
@@ -338,17 +298,16 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .service-card {
             background: var(--card-bg);
-            backdrop-filter: blur(5px);
-            border-radius: 8px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(197, 160, 89, 0.2);
+            padding: 2.5rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -356,17 +315,44 @@
         .service-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary-gold);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
         }
 
-        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; display: inline-block; }
-        .service-card h3 { color: var(--primary-gold); font-size: 1.3rem; margin-bottom: 0.8rem; font-weight: 700; }
-        .service-card p { color: #cccccc; font-size: 0.95rem; line-height: 1.6; }
+        .game-logo-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary-gold);
+            background: #000;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.2);
+        }
+
+        .game-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 { 
+            color: var(--primary-gold); 
+            font-size: 1.4rem; 
+            margin-bottom: 0.8rem; 
+            font-weight: 800; 
+            text-transform: uppercase;
+        }
+        
+        .service-card p { 
+            color: #cccccc; 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+        }
 
         /* ===== LIVE RESULTS SECTION ===== */
         .results-section {
             padding: 6rem 2rem;
-            background: rgba(26, 26, 26, 0.6);
+            background: rgba(26, 26, 26, 0.7);
             border-bottom: 1px solid rgba(255,215,0,0.15);
         }
 
@@ -376,7 +362,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .result-box {
@@ -395,7 +381,7 @@
         /* ===== HISTORIC WINS / PORTFOLIO ===== */
         .portfolio-section {
             padding: 6rem 2rem;
-            background: rgba(17, 17, 17, 0.6);
+            background: rgba(17, 17, 17, 0.7);
             border-bottom: 1px solid rgba(255,215,0,0.15);
         }
 
@@ -405,12 +391,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .portfolio-card {
             background: var(--card-bg);
-            backdrop-filter: blur(5px);
             border-radius: 12px;
             border: 2px solid rgba(197, 160, 89, 0.2);
             text-align: center;
@@ -424,34 +409,45 @@
         .portfolio-card p { font-size: 1.1rem; color: #ffffff; line-height: 1.6; font-weight: bold; margin-top: 0.5rem; }
         .portfolio-card span { font-size: 0.95rem; color: #aaaaaa; display: block; margin-top: 0.4rem; }
 
-        /* ===== CONTACT FORM INTERFACE ===== */
-        .contact-section {
-            padding: 6rem 2rem;
-            background: rgba(26, 26, 26, 0.5);
+        /* ===== INPUT FORM STYLES ===== */
+        .form-group { 
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label { 
+            color: var(--deep-gold); 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        
+        .form-group input, .form-group textarea, .form-group select { 
+            padding: 0.9rem; 
+            background: #151515; 
+            border: 1px solid rgba(197, 160, 89, 0.4); 
+            color: white; 
+            border-radius: 6px; 
+            font-family: inherit; 
+            font-size: 0.95rem;
         }
 
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 4rem;
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 8px rgba(255,215,0,0.2);
         }
-
-        .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { color: var(--deep-gold); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .form-group input, .form-group textarea { padding: 1rem; background: #222222; border: 1px solid rgba(197, 160, 89, 0.4); color: white; border-radius: 4px; font-family: inherit; }
 
         .cta-button {
             display: inline-block;
-            padding: 1.1rem 3.5rem;
+            padding: 1rem 2.5rem;
             background: linear-gradient(135deg, var(--deep-gold), #ecd599);
             color: #000;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 800;
             font-size: 1rem;
             letter-spacing: 1px;
@@ -464,47 +460,146 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             background: linear-gradient(135deg, var(--primary-gold), #FFE55C);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
         }
 
-        .contact-sidebar { display: flex; flex-direction: column; gap: 2rem; }
-        .contact-method-box { background: rgba(17, 17, 17, 0.9); padding: 2rem; border-left: 4px solid var(--primary-gold); border-radius: 4px; }
-        .contact-method-box h4 { color: var(--primary-gold); font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .contact-method-box p, .contact-method-box a { color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700; }
-
-        /* ===== PREMIUM FOOTER ===== */
+        /* ===== COMPLETE & ADVANCED FOOTER INTEGRATION ===== */
         footer {
-            background: #0a0a0a;
-            color: #888888;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 2px solid rgba(197, 160, 89, 0.3);
+            background: #070707;
+            color: #bbbbbb;
+            padding: 5rem 2rem 2rem 2rem;
+            border-top: 3px solid var(--deep-gold);
+            position: relative;
+            z-index: 100;
         }
 
-        .footer-grid {
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            text-align: left;
+            grid-template-columns: 1.2fr 1fr 1.3fr;
+            gap: 4rem;
         }
 
-        .footer-col h4 { color: var(--primary-gold); font-size: 1.1rem; margin-bottom: 1.2rem; font-weight: 700; }
-        .footer-col p { font-size: 0.95rem; line-height: 1.6; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 0.6rem; }
-        .footer-col ul a { color: #888888; text-decoration: none; font-size: 0.95rem; }
-        .footer-col ul a:hover { color: var(--primary-gold); }
-        .footer-bottom { border-top: 1px solid rgba(255,215,0,0.1); padding-top: 2rem; margin-top: 2rem; font-size: 0.9rem; }
+        .footer-info-col h3 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-info-col p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: #aaaaaa;
+        }
+
+        .footer-contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,215,0,0.03);
+            padding: 0.8rem 1rem;
+            border-left: 3px solid var(--primary-gold);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .contact-item-box span.icon {
+            font-size: 1.4rem;
+        }
+
+        .contact-item-box div p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #777777;
+            text-transform: uppercase;
+        }
+
+        .contact-item-box div a, .contact-item-box div h5 {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .footer-links-col h4 {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,215,0,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links-col ul {
+            list-style: none;
+        }
+
+        .footer-links-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links-col ul a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .footer-links-col ul a:hover {
+            color: var(--primary-gold);
+            transform: translateX(5px);
+        }
+
+        /* Registration Form inside Footer */
+        .footer-reg-col {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .footer-reg-col h4 {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 4rem auto 0 auto;
+            border-top: 1px solid rgba(255,215,0,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666666;
+        }
 
         /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .footer-container { grid-template-columns: 1fr; gap: 3rem; }
+            .profile-container { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
         @media (max-width: 768px) {
             nav ul { display: none; }
             nav { padding: 1rem; }
             .hero-view-port { margin-top: 74px; }
-            .profile-container, .contact-container { grid-template-columns: 1fr; gap: 2rem; }
             .section-title { font-size: 2rem; }
             .stats-grid { gap: 0.8rem; }
             .stat-number { font-size: 1.5rem; }
@@ -513,10 +608,12 @@
 </head>
 <body>
 
+    <!-- LUXURY TRADITIONAL BACKGROUND LAYER -->
     <div class="cultural-bg-container">
-        <img class="cultural-bg-img" src="1000014883.png" alt="Malaysian Traditional Luxury Pattern Background">
+        <img class="cultural-bg-img" src="1000014883.png" alt="Malaysian Traditional Pattern Background">
     </div>
 
+    <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
             <img class="logo-img" src="1000014839.png" alt="Malaysian Lottery Premium Logo">
@@ -525,28 +622,33 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#profile">About Me</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#services">Premium Services</a></li>
             <li><a href="#results">Live Results</a></li>
             <li><a href="#portfolio">Wins</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#footer-anchor">Register & Contact</a></li>
         </ul>
     </nav>
 
+    <!-- BANNER SLIDER SYSTEM (FIXED TRANSITION & TIMING) -->
     <div class="hero-view-port" id="home">
         <div class="slider-wrapper">
             
-            <div class="full-slide-layer">
+            <!-- স্লাইড ১: Magnum 4D -->
+            <div class="full-slide-layer active">
                 <img class="slide-bg-img" src="1000014899.jpg" alt="Magnum 4D Premium Banner">
             </div>
 
+            <!-- স্লাইড ২: 4D Dragon -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014901.jpg" alt="Dragon 4D Premium Banner">
             </div>
 
+            <!-- স্লাইড ৩: Sports Toto 4D -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014898.jpg" alt="Sports Toto 4D Premium Banner">
             </div>
 
+            <!-- স্লাইড ৪: Nine Lotto -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014900.jpg" alt="Nine Lotto Premium Banner">
             </div>
@@ -554,6 +656,7 @@
         </div>
     </div>
 
+    <!-- BRAND VISUAL PROFILE -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
@@ -589,44 +692,51 @@
         </div>
     </section>
 
+    <!-- PREMIUM GAMES & SERVICES WITH ORIGINAL LOGOS -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 4rem;">Comprehensive analytical models engineered for maximum gaming potential</p>
+        <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 3rem;">গ্যারান্টিড ক্যালকুলেশন এবং অরিজিনাল লটারির অফিশিয়াল গেম মেকানিক্স</p>
         
         <div class="services-grid">
+            <!-- গেম ১: 4D Dragon -->
             <div class="service-card">
-                <div class="service-icon">🎰</div>
-                <h3>Magnum 4D Module</h3>
-                <p>Classic regional integration mechanics providing high stability dividend infrastructure.</p>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon Logo">
+                </div>
+                <h3>4D Dragon</h3>
+                <p>বিশেষজ্ঞদের দ্বারা তৈরি ড্রাগন ৪ডি-র প্রিমিয়াম ক্যালকুলেশন চার্ট এবং ডিরেক্ট নম্বর মেথড গাইডলাইন।</p>
             </div>
+
+            <!-- গেম ২: Nine Lotto -->
             <div class="service-card">
-                <div class="service-icon">🏁</div>
-                <h3>Sports Toto System</h3>
-                <p>High-capacity structural distribution matrix optimized for advanced jackpot architectures.</p>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto Logo">
+                </div>
+                <h3>Nine Lotto</h3>
+                <p>লাইন লোটো গেমের জন্য স্পেশাল উইনিং ট্রিক্স ও ডেটাবেজ অ্যানালাইসিস যা জয়ের সম্ভাবনা ১০০% বাড়িয়ে দেয়।</p>
             </div>
+
+            <!-- গেম ৩: Sports Toto -->
             <div class="service-card">
-                <div class="service-icon">🐎</div>
-                <h3>Damacai 1+3D Tool</h3>
-                <p>Sophisticated formula calculations combined with premium algorithm matching models.</p>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014898.jpg" alt="Sports Toto Logo">
+                </div>
+                <h3>Sports Toto</h3>
+                <p>টোটো জ্যাকপট এবং ৪ডি গেম স্ট্রাকচারের জন্য ম্যাথমেটিক্যাল কম্বিনেশন নম্বর জেনারেটর ফর্মুলা।</p>
             </div>
+
+            <!-- গেম ৪: Magnum 4D -->
             <div class="service-card">
-                <div class="service-icon">🔮</div>
-                <h3>Expert Generator</h3>
-                <p>Algorithmic probability mechanics deployed via cloud computing frameworks.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📜</div>
-                <h3>Historical Archives</h3>
-                <p>Deep database tracking across 15 years of structured past performance indicators.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔍</div>
-                <h3>Instant Ticket OCR</h3>
-                <p>Immediate digital verification protocols cross-checked against official databases.</p>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D Logo">
+                </div>
+                <h3>Magnum 4D</h3>
+                <p>ম্যাগনাম ৪ডি-র কনফার্ম ফার্স্ট প্রাইজ ও স্পেশাল প্রাইজ উইনিং টিপস। কোনো প্রকার মিস হওয়ার সুযোগ নেই।</p>
             </div>
         </div>
     </section>
 
+    <!-- INSTANT MONITOR GATEWAY -->
     <section class="results-section" id="results">
         <h2 class="section-title">Latest Live Confirmations</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Real-time verified extractions directly synced from official channels</p>
@@ -634,10 +744,11 @@
             <div class="result-box"><div class="operator-name">DRAGON 4D</div><div class="lucky-number">4829</div><div class="draw-time">Live Verified Today</div></div>
             <div class="result-box"><div class="operator-name">MAGNUM 4D</div><div class="lucky-number">7156</div><div class="draw-time">Live Verified Today</div></div>
             <div class="result-box"><div class="operator-name">SPORTS TOTO</div><div class="lucky-number">5678</div><div class="draw-time">Live Verified Today</div></div>
-            <div class="result-box"><div class="operator-name">DAMACAI 1+3D</div><div class="lucky-number">2945</div><div class="draw-time">Live Verified Today</div></div>
+            <div class="result-box"><div class="operator-name">NINE LOTTO</div><div class="lucky-number">9312</div><div class="draw-time">Live Verified Today</div></div>
         </div>
     </section>
 
+    <!-- HISTORIC MILESTONES (CONVERTED TO MYR) -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 2rem;">Celebrating historic milestone payouts and certified customer success records</p>
@@ -650,4 +761,116 @@
                 <span>Verified client confirmation capturing top-tier payout structure flawlessly.</span>
             </div>
             <div class="portfolio-card">
-                <div
+                <div class="win-badge">🏆</div>
+                <h3>Magnum Grand</h3>
+                <p>Total Payout: 320,000 MYR</p>
+                <span>Strategic probability allocation producing a multi-fold historic dividend win.</span>
+            </div>
+            <div class="portfolio-card">
+                <div class="win-badge">💎</div>
+                <h3>Toto Apex</h3>
+                <p>Total Payout: 500,000 MYR</p>
+                <span>Systemic generation sequence maximizing deep combination pools securely.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLETE FOOTER PIPELINE: CONTACT, QUICK LINKS & REGISTRATION -->
+    <footer id="footer-anchor">
+        <div class="footer-container">
+            
+            <!-- কলাম ১: কন্টাক্ট ডিটেইলস এবং বিবরণ -->
+            <div class="footer-info-col">
+                <h3>Hanif Sarkar</h3>
+                <p>আমরা কোনো ফেক কাজ করি না এবং সততাই আমাদের মূল পরিচয়। গেম উইন হওয়ার আগে কোনো প্রকার এডভান্স পেমেন্ট নেওয়া হয় না। উইন হওয়ার পর লভ্যাংশের ৩০% কন্ডিশন।</p>
+                
+                <div class="footer-contact-details">
+                    <div class="contact-item-box">
+                        <span class="icon">📞</span>
+                        <div>
+                            <p>Direct WhatsApp Channel</p>
+                            <a href="https://wa.me/60123456789" target="_blank">+60 12-345-6789</a>
+                        </div>
+                    </div>
+                    <div class="contact-item-box">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <p>Official Email Service</p>
+                            <a href="mailto:support@malaysianlottery.com">support@malaysianlottery.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item-box">
+                        <span class="icon">📍</span>
+                        <div>
+                            <p>Administrative Base</p>
+                            <h5>Kuala Lumpur, Malaysia</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- কলাম ২: কুইক লিংক ডিরেক্টরি -->
+            <div class="footer-links-col">
+                <h4>Quick Directory</h4>
+                <ul>
+                    <li><a href="#home">Home Gateway</a></li>
+                    <li><a href="#profile">About Analyst Bio</a></li>
+                    <li><a href="#services">Game Services</a></li>
+                    <li><a href="#results">Live Results Panel</a></li>
+                    <li><a href="#portfolio">Past Winning Logs</a></li>
+                </ul>
+            </div>
+
+            <!-- কলাম ৩: প্রিমিয়াম মেম্বারশিপ রেজিস্ট্রেশন ফর্ম -->
+            <div class="footer-reg-col">
+                <h4>VIP Registration</h4>
+                <form onsubmit="event.preventDefault(); alert('Registration submitted successfully! Hanif Sarkar will contact you via WhatsApp.'); this.reset();">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your official name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Contact Number</label>
+                        <input type="tel" placeholder="+60 / +880..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Target Game</label>
+                        <select required>
+                            <option value="">-- Choose Your Game --</option>
+                            <option value="magnum">Magnum 4D</option>
+                            <option value="dragon">4D Dragon</option>
+                            <option value="toto">Sports Toto</option>
+                            <option value="nine">Nine Lotto</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Register For VIP Tips</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- ফুটারে কপিরাইট অংশ -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved | Developed & Authenticated by Agent Hanif Sarkar</p>
+        </div>
+    </footer>
+
+    <!-- AUTOMATIC BACKEND SLIDER FUNCTIONALITY -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slides = document.querySelectorAll('.full-slide-layer');
+            let currentSlide = 0;
+            const slideInterval = 4000; // প্রতি ৪ সেকেন্ড পর পর স্লাইড পরিবর্তন হবে
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            setInterval(nextSlide, slideInterval);
+        });
+    </script>
+
+</body>
+</html>
