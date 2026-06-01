@@ -166,6 +166,39 @@
             display: block;
         }
 
+        /* ===== NEW: SLIDER CENTERED TEXT TEXT WITH REVEAL TRANSITION ===== */
+        .slide-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            text-align: center;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 1s ease-in-out 0.3s; /* Delay builds smooth integration with image reveal */
+        }
+
+        .full-slide-layer.active .slide-text-overlay {
+            opacity: 1;
+        }
+
+        .slide-text-overlay h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .slide-text-overlay h1 {
+                font-size: 2.2rem;
+            }
+        }
+
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
@@ -287,7 +320,7 @@
             font-weight: 700;
         }
 
-        /* ===== PREMIUM SERVICES (UPDATED WITH 6 GAMES) ===== */
+        /* ===== PREMIUM SERVICES ===== */
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -472,7 +505,7 @@
             line-height: 1;
         }
 
-        /* ===== PREVIOUS WINNING GAMES SYSTEM (INTERACTIVE CLASSIER CLICKS) ===== */
+        /* ===== PREVIOUS WINNING GAMES SYSTEM ===== */
         .portfolio-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -528,7 +561,7 @@
             letter-spacing: 1px;
         }
 
-        /* ===== PREMIUM CLASSIEST WINNERS MODAL OVERLAY PLATFORM ===== */
+        /* ===== PREMIUM CLASSIEST WINNERS MODAL ===== */
         .winners-modal-overlay {
             position: fixed;
             top: 0;
@@ -578,7 +611,6 @@
             padding-bottom: 1rem;
         }
 
-        /* 10 Unique Classy Profiles Layout Engine Grid */
         .winners-profiles-container-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -637,7 +669,6 @@
             border-radius: 0 6px 6px 0;
         }
 
-        /* Audio & Video Elements Infrastructure */
         .winner-media-reviews-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -730,7 +761,7 @@
             color: #000000;
         }
 
-        /* ===== FOOTER PIPELINE (SOLID BLACK OVERHAUL) ===== */
+        /* ===== FOOTER PIPELINE ===== */
         footer {
             background: #000000; 
             color: var(--bright-white);
@@ -893,23 +924,43 @@
                 <li><a href="#portfolio">Wins</a></li>
                 <li><a href="#footer-anchor">Register</a></li>
             </ul>
-            <select class="lang-selector-box" onchange="alert('Language engine translating interface details...');">
+            <select class="lang-selector-box" onchange="alert('Language engine translating...');">
                 <option value="en">English (US)</option>
                 <option value="bn">Bangla (বাংলা)</option>
-                <option value="hi">Hindi (হিন্দি)</option>
-                <option value="ur">Urdu (اردو)</option>
             </select>
         </div>
     </nav>
 
-    <!-- BANNER VIEWPORT CONTEXT -->
+    <!-- BANNER VIEWPORT CONTEXT (TEXT OVERLAY INTEGRATED) -->
     <div class="hero-view-port" id="home">
         <canvas id="particleCanvas"></canvas>
         <div class="slider-wrapper">
-            <div class="full-slide-layer active"><img class="slide-bg-img" src="1000014899.jpg" alt="Banner 1"></div>
-            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014901.jpg" alt="Banner 2"></div>
-            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014883.png" alt="Banner 3"></div>
-            <div class="full-slide-layer"><img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4"></div>
+            <!-- Blank / First Background Slide Layer with Welcome Text -->
+            <div class="full-slide-layer active">
+                <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
+                <div class="slide-text-overlay">
+                    <h1>Welcome to Malaysian Lottery</h1>
+                </div>
+            </div>
+            <!-- Grand Dragon Slide Layer -->
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
+                <div class="slide-text-overlay">
+                    <h1>Grand Dragon Lotto Exclusive</h1>
+                </div>
+            </div>
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
+                <div class="slide-text-overlay">
+                    <h1>Premium Mathematical Predictor</h1>
+                </div>
+            </div>
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
+                <div class="slide-text-overlay">
+                    <h1>Verified VIP Patterns Platform</h1>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -922,7 +973,7 @@
             <div class="profile-info">
                 <h2>Hanif Sarkar</h2>
                 <div class="profile-badge">Verified 100% Winning Tips Agent</div>
-                <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases. No false claims, full clarity guaranteed.</p>
+                <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases.</p>
                 <div class="condition-highlight">
                     <strong>Zero Upfront Payment Terms:</strong>
                     No advance service fees or hidden charges are required before an official win condition is met. A straightforward 30% commission applies only on total winnings.
@@ -936,7 +987,7 @@
         </div>
     </section>
 
-    <!-- PREMIUM SERVICES (EXTENDED TO 6 PREMIUM GAMES WITH LOGOS) -->
+    <!-- PREMIUM SERVICES -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
@@ -962,13 +1013,11 @@
                 <h3>Magnum 4D</h3>
                 <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
             </div>
-            <!-- Added Game 5 -->
             <div class="service-card">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
                 <h3>Grand Dragon Lotto</h3>
                 <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
             </div>
-            <!-- Added Game 6 -->
             <div class="service-card">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
                 <h3>Perdana 4D</h3>
@@ -1011,7 +1060,7 @@
         </div>
     </section>
 
-    <!-- PREVIOUS WINNING GAMES (UPDATED REQUESTED CHANNELS WITH MODAL INTERACTION) -->
+    <!-- PREVIOUS WINNING GAMES SYSTEM -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
@@ -1049,10 +1098,8 @@
         <div class="winners-modal-window">
             <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
             <div class="modal-headline" id="modalGameTitle">Game Winners</div>
-            
-            <!-- 10 Interactive Programmed Dynamic Profiles Container Grid -->
             <div class="winners-profiles-container-grid" id="profilesContainer">
-                <!-- Javascript will inject 10 dynamic rich profile elements seamlessly here -->
+                <!-- Javascript will inject 10 dynamic profile elements here -->
             </div>
         </div>
     </div>
@@ -1071,7 +1118,6 @@
                     </ul>
                 </div>
 
-                <!-- LIVE PRODUCTION EMAIL PIPELINE FOR REGISTRATION (Formspree Integrated) -->
                 <div class="footer-reg-col">
                     <h4>VIP Registration</h4>
                     <form action="https://formspree.io/f/your_email@example.com" method="POST">
@@ -1100,7 +1146,6 @@
                 </div>
             </div>
 
-            <!-- Right Contact Block Framework Configured Right After Registration Container -->
             <div class="footer-right-contact-block">
                 <h4>Verified Agent Connections</h4>
                 <div class="footer-contact-details">
@@ -1126,20 +1171,19 @@
                         <a href="https://wa.me/60123456789" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
                         <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
                         <a href="imo://chat?phone=60123456789" class="social-icon-btn btn-imo"><span>📱</span> Imo</a>
-                        <a href="mailto:support@malaysianlottery.com" class="social-icon-btn btn-email"><span>✉️</span> Email</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved | Developed & Authenticated by Official Lottery Terminals</p>
+            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved</p>
         </div>
     </footer>
 
     <!-- SCRIPTS CONFIGURATION -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC ===== */
+            /* ===== MULTI-BANNER SLIDER LOGIC WITH CAPTION SYNC ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
             setInterval(() => {
@@ -1165,7 +1209,7 @@
             setInterval(updateLiveClock, 1000);
             updateLiveClock();
 
-            /* ===== CANVAS GOLD PARTICLES GENERATOR WITH DECREASED OPACITY TO AVOID CLUTTER ===== */
+            /* ===== CANVAS GOLD PARTICLES GENERATOR ===== */
             const canvas = document.getElementById("particleCanvas");
             const ctx = canvas.getContext("2d");
             function resizeCanvas() {
@@ -1186,7 +1230,6 @@
                     this.size = Math.random() * 2.5 + 1;
                     this.speedY = Math.random() * 1.2 + 0.4;
                     this.speedX = (Math.random() - 0.5) * 0.6;
-                    /* Reduced Opacity Range strictly to look neat without masking background banner text elements */
                     this.alpha = Math.random() * 0.25 + 0.05; 
                 }
                 update() {
@@ -1197,8 +1240,6 @@
                 draw() {
                     ctx.save();
                     ctx.globalAlpha = this.alpha;
-                    ctx.shadowBlur = 4;
-                    ctx.shadowColor = "#FFD700";
                     ctx.fillStyle = "#FFD700";
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -1215,19 +1256,18 @@
             animateParticles();
         });
 
-        /* ===== INTERACTIVE WINNERS MODAL INJECTION FOR 10 CUSTOM DEPLOYMENTS ===== */
+        /* ===== WINNERS MODAL GENERATOR ===== */
         function openWinnersModal(gameName) {
             document.getElementById('modalGameTitle').innerText = gameName + " - Top 10 Verified Winners";
             const container = document.getElementById('profilesContainer');
-            container.innerHTML = ""; // Flush template elements
+            container.innerHTML = ""; 
 
-            // Generate exactly 10 premium class structural winner nodes dynamically
             for(let i = 1; i <= 10; i++) {
                 const prizeAmount = (Math.floor(Math.random() * 4) + 1) * 100000;
                 const profileCardHTML = `
                     <div class="winner-premium-profile-card">
                         <div class="winner-avatar-frame">
-                            <img src="winner_avatar_${i}.jpg" alt="Winner ${i} Face Photo Asset">
+                            <img src="winner_avatar_${i}.jpg" alt="Winner ${i}">
                         </div>
                         <div class="winner-meta-details-box">
                             <h4>Winner Profile Card #0${i}</h4>
@@ -1240,14 +1280,11 @@
                                     <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
                                     <audio controls>
                                         <source src="winner_audio_track_${i}.mp3" type="audio/mpeg">
-                                        Your browser does not support audio playback elements.
                                     </audio>
                                 </div>
                                 <div class="video-review-wrapper">
                                     <span class="media-label-text">📹 Winner Video Review Stream</span>
-                                    <div class="video-review-placeholder">
-                                        ▶ Play Video Proof Clip #0${i}
-                                    </div>
+                                    <div class="video-review-placeholder">▶ Play Video Proof Clip #0${i}</div>
                                 </div>
                             </div>
                         </div>
@@ -1257,7 +1294,7 @@
             }
             
             document.getElementById('winnersModal').style.display = "flex";
-            document.body.style.overflow = "hidden"; // Disable scroll when modal is active
+            document.body.style.overflow = "hidden"; 
         }
 
         function closeWinnersModal() {
