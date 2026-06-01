@@ -13,14 +13,18 @@
         }
 
         :root {
+            /* আরও লাক্সারিয়াস ও প্রমিনেন্ট গোল্ডেন কালার প্যালেট */
             --primary-gold: #FFD700;
-            --deep-gold: #C5A059;
+            --bright-gold: #FFDF00;
+            --deep-gold: #E6B800;
+            --gold-glow: rgba(255, 223, 0, 0.4);
             --pure-black: #000000;
             --card-black: #0d0d0d;
             --bright-white: #ffffff;
             --neon-green: #00FF66;
             --neon-blue: #00E5FF;
             --neon-red: #FF3333;
+            --messenger-color: #0084FF;
         }
 
         html, body {
@@ -49,8 +53,8 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 3px solid var(--primary-gold);
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+            border-bottom: 3.5px solid var(--bright-gold);
+            box-shadow: 0 4px 25px rgba(255, 223, 0, 0.25);
         }
 
         .logo {
@@ -68,8 +72,9 @@
         .logo span {
             font-size: 1.5rem;
             font-weight: 900;
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
         .nav-right-container {
@@ -95,12 +100,13 @@
         }
 
         nav a:hover {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
+            text-shadow: 0 0 8px var(--gold-glow);
         }
 
         .lang-selector-box {
             background: var(--card-black);
-            border: 2px solid var(--primary-gold);
+            border: 2px solid var(--bright-gold);
             color: var(--bright-white);
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
@@ -109,9 +115,10 @@
             font-weight: 700;
             cursor: pointer;
             outline: none;
+            box-shadow: 0 0 5px var(--gold-glow);
         }
 
-        /* ===== BANNER VIEWPORT WITH EXACT TEXT ALIGNMENT ===== */
+        /* ===== BANNER VIEWPORT WITX EXACT TEXT ALIGNMENT ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -120,7 +127,8 @@
             margin-right: auto;
             position: relative;
             background: var(--pure-black); 
-            border: 3px solid var(--primary-gold);
+            border: 3.5px solid var(--bright-gold);
+            box-shadow: 0 0 30px rgba(255, 223, 0, 0.15);
             overflow: hidden;
             aspect-ratio: 16 / 9;
         }
@@ -166,7 +174,7 @@
             display: block;
         }
 
-        /* ===== SLIDER CENTERED TEXT (PERFECT ALIGN & SPACING) ===== */
+        /* ===== SLIDER CENTERED LINE-BY-LINE TEXT ===== */
         .slide-text-overlay {
             position: absolute;
             top: 50%;
@@ -184,32 +192,32 @@
         }
 
         .slide-text-overlay h1 {
-            font-size: 4.8rem;
+            font-size: 4.2rem;
             font-weight: 900;
-            color: var(--primary-gold);
-            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.5);
+            color: var(--bright-gold);
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 223, 0, 0.6);
             text-transform: uppercase;
             letter-spacing: 3px;
-            line-height: 1.15;
-            word-spacing: 6px;
+            line-height: 1.3; /* লাইনগুলোর মধ্যে সামঞ্জস্য বজায় রাখার জন্য */
         }
 
         /* ===== COMMON SECTION TITLE ===== */
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
+            text-shadow: 0 0 15px rgba(255, 223, 0, 0.2);
         }
 
         /* ===== ABOUT PROFILE SECTION ===== */
         .profile-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
         }
 
         .profile-container {
@@ -228,9 +236,10 @@
             aspect-ratio: 1 / 1;
             border-radius: 12px;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
+            border: 3.5px solid var(--bright-gold);
             margin: 0 auto;
             background: var(--pure-black);
+            box-shadow: 0 0 25px var(--gold-glow);
         }
 
         .profile-logo-overlay {
@@ -245,7 +254,7 @@
 
         .profile-info h2 {
             font-size: 3rem;
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             margin-bottom: 0.5rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -253,15 +262,16 @@
 
         .profile-badge {
             display: inline-block;
-            background: rgba(255, 215, 0, 0.15);
-            color: var(--primary-gold);
+            background: rgba(255, 223, 0, 0.15);
+            color: var(--bright-gold);
             padding: 0.5rem 1.5rem;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 800;
-            border: 2px solid var(--primary-gold);
+            border: 2px solid var(--bright-gold);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(255, 223, 0, 0.2);
         }
 
         .profile-info p {
@@ -272,16 +282,17 @@
         }
 
         .condition-highlight {
-            border-left: 5px solid var(--primary-gold);
+            border-left: 5px solid var(--bright-gold);
             background: #0d0d0d;
             padding: 1.2rem;
             margin-bottom: 1.5rem;
             border-radius: 0 8px 8px 0;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 223, 0, 0.3);
+            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.05);
         }
 
         .condition-highlight strong {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             display: block;
             margin-bottom: 0.4rem;
             font-size: 1.3rem;
@@ -299,14 +310,15 @@
             padding: 1.5rem;
             border-radius: 6px;
             text-align: center;
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            border-top: 4px solid var(--primary-gold);
+            border: 2px solid rgba(255, 223, 0, 0.25);
+            border-top: 4px solid var(--bright-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .stat-number {
             font-size: 2.2rem;
             font-weight: 900;
-            color: var(--primary-gold);
+            color: var(--bright-gold);
         }
 
         .stat-label {
@@ -320,7 +332,7 @@
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
         }
 
         .services-grid {
@@ -335,9 +347,16 @@
         .service-card {
             background: var(--card-black);
             border-radius: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 223, 0, 0.25);
             padding: 2.5rem 1.5rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--bright-gold);
+            box-shadow: 0 0 20px rgba(255, 223, 0, 0.15);
+            transform: translateY(-2px);
         }
 
         .game-logo-box {
@@ -346,8 +365,9 @@
             margin: 0 auto 1.5rem auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
+            border: 3px solid var(--bright-gold);
             background: var(--pure-black);
+            box-shadow: 0 0 12px var(--gold-glow);
         }
 
         .game-logo-img {
@@ -357,7 +377,7 @@
         }
 
         .service-card h3 { 
-            color: var(--primary-gold); 
+            color: var(--bright-gold); 
             font-size: 1.5rem; 
             margin-bottom: 0.8rem; 
             font-weight: 900; 
@@ -376,7 +396,7 @@
             position: relative;
             background: var(--pure-black);
             overflow: hidden;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
         }
 
         .results-section-bg {
@@ -398,17 +418,17 @@
             max-width: 950px;
             margin: 3rem auto 0 auto;
             background: #000000;
-            border: 5px solid var(--primary-gold);
+            border: 5px solid var(--bright-gold);
             border-radius: 16px;
             padding: 3rem 2rem;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 50px rgba(255, 223, 0, 0.3);
         }
 
         .live-header-ticker {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary-gold);
+            border-bottom: 3px solid var(--bright-gold);
             padding-bottom: 1.2rem;
             margin-bottom: 1.5rem;
         }
@@ -485,10 +505,11 @@
         .live-lucky-num {
             font-size: 7.5rem; 
             font-weight: 900; 
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             letter-spacing: 4px;
             line-height: 0.9; 
             margin: 5px 0;
+            text-shadow: 0 0 25px rgba(255, 223, 0, 0.4);
         }
 
         .live-status-txt {
@@ -504,7 +525,7 @@
         .portfolio-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
         }
 
         .portfolio-grid {
@@ -519,21 +540,21 @@
         .portfolio-card {
             background: var(--card-black);
             border-radius: 12px;
-            border: 3px solid rgba(255, 215, 0, 0.3);
+            border: 3px solid rgba(255, 223, 0, 0.3);
             text-align: center;
             padding: 2.5rem;
             cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .portfolio-card:hover { 
             transform: translateY(-5px); 
-            border-color: var(--primary-gold);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.1);
+            border-color: var(--bright-gold);
+            box-shadow: 0 10px 25px rgba(255, 223, 0, 0.25);
         }
         
         .portfolio-card h3 { 
-            color: var(--primary-gold); 
+            color: var(--bright-gold); 
             font-size: 1.6rem; 
             font-weight: 900; 
             text-transform: uppercase; 
@@ -574,7 +595,7 @@
 
         .winners-modal-window {
             background: #080808;
-            border: 3px solid var(--primary-gold);
+            border: 3px solid var(--bright-gold);
             width: 100%;
             max-width: 1100px;
             height: 85vh;
@@ -582,7 +603,7 @@
             overflow-y: auto;
             position: relative;
             padding: 3rem 2rem;
-            box-shadow: 0 0 50px rgba(255,215,0,0.25);
+            box-shadow: 0 0 50px rgba(255, 223, 0, 0.35);
         }
 
         .close-modal-trigger {
@@ -596,13 +617,13 @@
         }
 
         .modal-headline {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 2.2rem;
             font-weight: 900;
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255,215,0,0.3);
+            border-bottom: 2px dashed rgba(255, 223, 0, 0.4);
             padding-bottom: 1rem;
         }
 
@@ -614,7 +635,7 @@
 
         .winner-premium-profile-card {
             background: var(--card-black);
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 223, 0, 0.2);
             border-radius: 12px;
             padding: 2rem;
             display: grid;
@@ -627,7 +648,7 @@
             width: 180px;
             height: 180px;
             border-radius: 12px;
-            border: 3px solid var(--primary-gold);
+            border: 3px solid var(--bright-gold);
             overflow: hidden;
             background: #111;
         }
@@ -639,7 +660,7 @@
         }
 
         .winner-meta-details-box h4 {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 1.5rem;
             font-weight: 900;
             margin-bottom: 0.3rem;
@@ -659,7 +680,7 @@
             color: #dddddd;
             background: rgba(255,255,255,0.03);
             padding: 1rem;
-            border-left: 4px solid var(--primary-gold);
+            border-left: 4px solid var(--bright-gold);
             margin-bottom: 1.2rem;
             border-radius: 0 6px 6px 0;
         }
@@ -673,7 +694,7 @@
         .audio-review-wrapper, .video-review-wrapper {
             background: #000;
             padding: 1rem;
-            border: 1px solid rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 223, 0, 0.15);
             border-radius: 6px;
         }
 
@@ -699,11 +720,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            border: 1px dashed rgba(255,215,0,0.3);
+            border: 1px dashed rgba(255, 223, 0, 0.4);
         }
 
         /* ===== INPUT STRUCTURAL FIELDS ===== */
@@ -715,7 +736,7 @@
         }
         
         .form-group label { 
-            color: var(--primary-gold); 
+            color: var(--bright-gold); 
             font-size: 0.9rem; 
             font-weight: 900; 
             margin-bottom: 0.5rem; 
@@ -726,19 +747,25 @@
         .form-group input, .form-group select { 
             padding: 1rem; 
             background: var(--pure-black); 
-            border: 2px solid rgba(255, 215, 0, 0.4); 
+            border: 2px solid rgba(255, 223, 0, 0.5); 
             color: var(--bright-white); 
             border-radius: 6px; 
             font-family: inherit; 
             font-size: 1rem;
             font-weight: 700;
             width: 100%;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--bright-gold);
+            box-shadow: 0 0 10px var(--gold-glow);
         }
 
         .cta-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
-            background: var(--primary-gold);
+            background: var(--bright-gold);
             color: var(--pure-black);
             text-decoration: none;
             border-radius: 6px;
@@ -750,11 +777,43 @@
             text-align: center;
             cursor: pointer;
             font-family: inherit;
+            box-shadow: 0 4px 15px var(--gold-glow);
+            transition: all 0.2s ease;
         }
 
         .cta-button:hover {
             background: #ffffff;
             color: #000000;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.4);
+        }
+
+        /* ===== MESSENGER FLOATING BUTTON ===== */
+        .messenger-chat-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--messenger-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .messenger-chat-float:hover {
+            transform: scale(1.1);
+        }
+
+        .messenger-chat-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
         }
 
         /* ===== FOOTER PIPELINE ===== */
@@ -762,7 +821,7 @@
             background: #000000; 
             color: var(--bright-white);
             padding: 5rem 2rem 2rem 2rem;
-            border-top: 4px solid var(--primary-gold);
+            border-top: 4.5px solid var(--bright-gold);
             position: relative;
             z-index: 100;
         }
@@ -783,12 +842,12 @@
         }
 
         .footer-links-col h4 {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 1.3rem;
             margin-bottom: 1.2rem;
             font-weight: 900;
             text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.4);
             padding-bottom: 0.5rem;
         }
 
@@ -799,17 +858,20 @@
             font-size: 1rem;
             font-weight: 700;
         }
+        .footer-links-col ul a:hover {
+            color: var(--bright-gold);
+        }
 
         .footer-reg-col {
             background: var(--card-black);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-            box-shadow: 0 10px 30px rgba(255,215,0,0.1);
+            border: 3px solid var(--bright-gold);
+            box-shadow: 0 10px 30px rgba(255, 223, 0, 0.15);
         }
 
         .footer-reg-col h4 {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             font-weight: 900;
@@ -821,16 +883,16 @@
             background: var(--card-black);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(255, 223, 0, 0.3);
         }
 
         .footer-right-contact-block h4 {
-            color: var(--primary-gold);
+            color: var(--bright-gold);
             font-size: 1.4rem;
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(255,215,0,0.2);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
             padding-bottom: 0.5rem;
         }
 
@@ -847,8 +909,8 @@
             gap: 1.2rem;
             background: var(--pure-black);
             padding: 1rem 1.2rem;
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            border-left: 5px solid var(--primary-gold);
+            border: 2px solid rgba(255, 223, 0, 0.25);
+            border-left: 5px solid var(--bright-gold);
             border-radius: 4px;
         }
 
@@ -857,7 +919,7 @@
         .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
 
         .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
-        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .social-cluster-title { color: var(--bright-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
         .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
         
         .social-icon-btn {
@@ -880,7 +942,7 @@
         .footer-bottom {
             max-width: 1200px;
             margin: 4rem auto 0 auto;
-            border-top: 2px solid rgba(255,215,0,0.3);
+            border-top: 2px solid rgba(255, 223, 0, 0.3);
             padding-top: 2rem;
             text-align: center;
             font-size: 0.95rem;
@@ -902,7 +964,7 @@
             }
             .condition-highlight {
                 border-left: none;
-                border-top: 5px solid var(--primary-gold);
+                border-top: 5px solid var(--bright-gold);
                 border-radius: 0 0 8px 8px;
             }
             .footer-container {
@@ -912,121 +974,58 @@
         }
 
         @media (max-width: 768px) {
-            /* Navbar Mobile Compression Fix */
-            nav {
-                padding: 0.6rem 1rem;
-            }
-            nav ul { 
-                display: none; /* Collapsed for pure cleaner layout */
-            }
-            .logo span {
-                font-size: 1.1rem;
-            }
-            .logo-img {
-                height: 40px;
-            }
+            nav { padding: 0.6rem 1rem; }
+            nav ul { display: none; }
+            .logo span { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
 
-            /* Responsive Hero Aspect Adjustment for Android Browsers */
             .hero-view-port { 
                 margin-top: 65px; 
-                aspect-ratio: 4 / 3; /* Better view boundary on standard Android screens */
+                aspect-ratio: 4 / 3; 
                 border-width: 2px;
             }
 
-            /* Perfect Center Scaling & Alignment for Mobile */
-            .slide-text-overlay {
-                width: 92%;
-            }
+            .slide-text-overlay { width: 92%; }
             .slide-text-overlay h1 {
-                font-size: 2.1rem;
+                font-size: 2.3rem; /* মোবাইলে আরও স্পষ্ট রিড্যাবিলিটি */
                 letter-spacing: 1px;
-                word-spacing: 3px;
                 text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95);
             }
 
-            /* Component Font Sizes and Elements Adjustments */
-            .section-title {
-                font-size: 2rem;
-            }
-            .profile-info h2 {
-                font-size: 2.2rem;
-            }
-            .live-arena-viewport {
-                padding: 1.5rem 1rem;
-                border-width: 3px;
-            }
-            .live-header-ticker {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            .live-lucky-num { 
-                font-size: 4.2rem; 
-                letter-spacing: 2px;
-            }
-            .live-op-name {
-                font-size: 1.6rem;
-            }
+            .section-title { font-size: 2rem; }
+            .profile-info h2 { font-size: 2.2rem; }
+            .live-arena-viewport { padding: 1.5rem 1rem; border-width: 3px; }
+            .live-header-ticker { flex-direction: column; gap: 1rem; text-align: center; }
+            .live-lucky-num { font-size: 4.2rem; letter-spacing: 2px; }
+            .live-op-name { font-size: 1.6rem; }
 
-            /* Winner Modal View Fixes for Touch Screens */
-            .winners-modal-window {
-                padding: 2rem 1rem;
-                height: 90vh;
-            }
+            .winners-modal-window { padding: 2rem 1rem; height: 90vh; }
             .winner-premium-profile-card { 
                 grid-template-columns: 1fr; 
                 text-align: center; 
                 justify-items: center;
                 padding: 1.2rem;
             }
-            .winner-media-reviews-row { 
-                grid-template-columns: 1fr; 
-                gap: 1rem;
-                width: 100%;
-            }
-            .close-modal-trigger {
-                top: 0.8rem;
-                right: 1.2rem;
-                font-size: 2rem;
-            }
-            .modal-headline {
-                font-size: 1.4rem;
-            }
+            .winner-media-reviews-row { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
+            .close-modal-trigger { top: 0.8rem; right: 1.2rem; font-size: 2rem; }
+            .modal-headline { font-size: 1.4rem; }
 
-            /* Grid Collapses */
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .portfolio-grid, .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .footer-links-col ul {
-                grid-template-columns: 1fr;
-            }
-            .social-icons-row {
-                justify-content: center;
-            }
-            .social-icon-btn {
-                width: 100%;
-                justify-content: center;
-            }
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .portfolio-grid, .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-links-col ul { grid-template-columns: 1fr; }
+            .social-icons-row { justify-content: center; }
+            .social-icon-btn { width: 100%; justify-content: center; }
+            .messenger-chat-float { bottom: 15px; right: 15px; width: 50px; height: 50px; }
         }
 
         @media (max-width: 480px) {
-            .slide-text-overlay h1 {
-                font-size: 1.7rem;
-            }
-            .live-lucky-num {
-                font-size: 3.5rem;
-            }
+            .slide-text-overlay h1 { font-size: 1.8rem; }
+            .live-lucky-num { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
             <img class="logo-img" src="1000014839.png" alt="Logo">
@@ -1048,33 +1047,27 @@
         </div>
     </nav>
 
-    <!-- BANNER VIEWPORT CONTEXT (TEXT CLEANED FROM SUB-SLIDES) -->
     <div class="hero-view-port" id="home">
         <canvas id="particleCanvas"></canvas>
         <div class="slider-wrapper">
-            <!-- First Background Slide Layer (With Perfect Welcome Text Only) -->
             <div class="full-slide-layer active">
                 <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
                 <div class="slide-text-overlay">
-                    <h1>Welcome to Malaysian Lottery</h1>
+                    <h1>Welcome<br>to<br>Malaysian<br>Lottery</h1>
                 </div>
             </div>
-            <!-- Grand Dragon Slide Layer (Text Removed) -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
+                <img class="slide-bg-img" src="1000014999.jpg" alt="Grand Dragon Banner">
             </div>
-            <!-- Slide 3 Layer (Text Removed) -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
             </div>
-            <!-- Slide 4 Layer (Text Removed) -->
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
             </div>
         </div>
     </div>
 
-    <!-- BRAND VISUAL PROFILE -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
@@ -1097,7 +1090,6 @@
         </div>
     </section>
 
-    <!-- PREMIUM SERVICES -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
@@ -1136,7 +1128,6 @@
         </div>
     </section>
 
-    <!-- DIGITAL LIVE ARENA -->
     <section class="results-section" id="results">
         <div class="results-section-bg"></div>
         <h2 class="section-title">Latest Live Confirmations</h2>
@@ -1170,7 +1161,6 @@
         </div>
     </section>
 
-    <!-- PREVIOUS WINNING GAMES SYSTEM -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
@@ -1203,18 +1193,21 @@
         </div>
     </section>
 
-    <!-- PREMIUM CLASSIEST WINNERS MODAL OVERLAY -->
     <div class="winners-modal-overlay" id="winnersModal">
         <div class="winners-modal-window">
             <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
             <div class="modal-headline" id="modalGameTitle">Game Winners</div>
             <div class="winners-profiles-container-grid" id="profilesContainer">
-                <!-- Inner profile template builds asynchronously via JS -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- COMPLETE FOOTER LAYOUT -->
+    <a href="https://m.me/60123456789" target="_blank" class="messenger-chat-float" title="Chat with Representatives">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.908 1.454 5.502 3.743 7.151.192.138.303.361.293.598l-.078 2.316c-.015.42.417.747.818.6l2.597-.954c.18-.066.38-.052.551.04 1.134.613 2.424.962 3.796.962 5.523 0 10-4.145 10-11.258C22 6.145 17.523 2 12 2zm1.03 12.875l-2.253-2.408-4.4 2.408 4.832-5.132 2.303 2.408 4.35-2.408-4.832 5.132z"/>
+        </svg>
+    </a>
+
     <footer id="footer-anchor">
         <div class="footer-container">
             <div class="footer-left-block">
@@ -1230,18 +1223,18 @@
 
                 <div class="footer-reg-col">
                     <h4>VIP Registration</h4>
-                    <form action="https://formspree.io/f/your_email@example.com" method="POST">
+                    <form onsubmit="sendWhatsAppNotification(event)">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" name="Client Name" placeholder="Enter your official name" required>
+                            <input type="text" id="clientName" placeholder="Enter your official name" required>
                         </div>
                         <div class="form-group">
                             <label>WhatsApp Contact Number</label>
-                            <input type="tel" name="WhatsApp Number" placeholder="Example: +60 12-345-6789" required>
+                            <input type="tel" id="whatsappNumber" placeholder="Example: +60 12-345-6789" required>
                         </div>
                         <div class="form-group">
                             <label>Select Target Game</label>
-                            <select name="Target Game" required>
+                            <select id="targetGame" required>
                                 <option value="">-- Choose Your Game --</option>
                                 <option value="Magnum 4D">Magnum 4D</option>
                                 <option value="4D Dragon">4D Dragon</option>
@@ -1290,8 +1283,31 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS CONFIGURATION -->
     <script>
+        /* ===== WHATSAPP DIRECT FORM NOTIFICATION ENGINE ===== */
+        function sendWhatsAppNotification(event) {
+            event.preventDefault(); // পেজ রিলোড হওয়া বন্ধ করতে
+            
+            // ফর্ম থেকে ডেটা কালেকশন
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('whatsappNumber').value;
+            const game = document.getElementById('targetGame').value;
+            
+            // আপনার ব্যক্তিগত বা এজেন্ট হোয়াটসঅ্যাপ নাম্বার (এখানে আপনার আসল নাম্বারটি বসিয়ে দিন)
+            const agentWhatsAppNumber = "60123456789"; 
+            
+            // হোয়াটসঅ্যাপ টেক্সট মেসেজ ফরম্যাটিং
+            const message = `🔥 *New VIP Registration Alert* 🔥%0A%0A` +
+                            `👤 *Client Name:* ${encodeURIComponent(name)}%0A` +
+                            `📱 *WhatsApp:* ${encodeURIComponent(phone)}%0A` +
+                            `🎮 *Target Game:* ${encodeURIComponent(game)}%0A%0A` +
+                            `🚀 _Please process this user allocation instantly._`;
+            
+            // ইউজারকে সরাসরি হোয়াটসঅ্যাপ উইন্ডোতে পাঠানো হচ্ছে মেসেজসহ
+            const whatsappUrl = `https://wa.me/${agentWhatsAppNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             /* ===== MULTI-BANNER SLIDER LOGIC ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
@@ -1340,7 +1356,7 @@
                     this.size = Math.random() * 2.2 + 1;
                     this.speedY = Math.random() * 1.0 + 0.4;
                     this.speedX = (Math.random() - 0.5) * 0.5;
-                    this.alpha = Math.random() * 0.25 + 0.05; 
+                    this.alpha = Math.random() * 0.35 + 0.1; /* পার্টিক্যালের ভিজিবিলিটি আরেকটু বাড়ানো হয়েছে */
                 }
                 update() {
                     this.y -= this.speedY;
@@ -1350,7 +1366,7 @@
                 draw() {
                     ctx.save();
                     ctx.globalAlpha = this.alpha;
-                    ctx.fillStyle = "#FFD700";
+                    ctx.fillStyle = "#FFDF00"; /* গ্লোয়িং গোল্ড পার্টিক্যাল */
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
