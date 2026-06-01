@@ -92,7 +92,7 @@
             top: 0;
             width: 100%;
             background: #111111;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -108,11 +108,10 @@
         }
 
         .logo-img {
-            height: 50px;
-            width: 50px;
+            height: 55px;
+            width: auto;
             object-fit: contain;
-            border-radius: 50%;
-            border: 2px solid var(--primary-gold);
+            filter: drop-shadow(0px 2px 8px rgba(255, 215, 0, 0.4));
         }
 
         .logo span {
@@ -142,11 +141,11 @@
             color: var(--primary-gold);
         }
 
-        /* ===== PERFECT ASPECT RATIO BANNER SLIDER (ব্যানারের রেশিও অনুযায়ী সাইজ লক) ===== */
+        /* ===== PERFECT ASPECT RATIO BANNER SLIDER ===== */
         .hero-view-port {
-            margin-top: 82px; /* নেভিগেশন বারের স্পেস */
+            margin-top: 85px; /* নেভিগেশন বারের স্পেস */
             width: 100%;
-            max-width: 1400px; /* প্রিমিয়াম লুকের জন্য সর্বোচ্চ চওড়া সীমা */
+            max-width: 1400px; 
             margin-left: auto;
             margin-right: auto;
             position: relative;
@@ -154,8 +153,7 @@
             border: 2px solid var(--deep-gold);
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             overflow: hidden;
-            /* ১৬:৯ রেশিও অনুযায়ী হাইট অটোমেটিক সেট করার ম্যাজিক ট্রিক */
-            aspect-ratio: 16 / 9; 
+            aspect-ratio: 16 / 9; /* ব্যানার রেশিও অনুযায়ী সাইজ লক */
         }
 
         .slider-wrapper {
@@ -181,7 +179,7 @@
         .slide-bg-img {
             width: 100%;
             height: 100%;
-            object-fit: fill; /* ইমেজ যেন পুরো ফ্রেমে পারফেক্টলি ফিট হয় এবং কোনো অংশ কেটে না যায় */
+            object-fit: fill; 
             display: block;
         }
 
@@ -474,8 +472,8 @@
     <!-- NAVIGATION MENU -->
     <nav>
         <div class="logo">
-            <!-- আপনার মূল লোগো ইমেজটি এখানে সংযুক্ত -->
-            <img class="logo-img" src="1000014883_2.png" alt="Logo">
+            <!-- থ্রিডি প্রিমিয়াম গোল্ডেন লোগো ইমেজ লিংক ফিক্সড -->
+            <img class="logo-img" src="1000014839_2.png" alt="Malaysian Lottery Logo">
             <span>MALAYSIAN LOTTERY</span>
         </div>
         <ul>
@@ -488,28 +486,28 @@
         </ul>
     </nav>
 
-    <!-- AUTOMATIC CSS SLIDER (১৬:৯ এসপেক্ট রেশিও লকড) -->
+    <!-- AUTOMATIC CSS SLIDER (১৬:৯ এসপেক্ট রেশিও এবং নতুন ইমেজ লিংক ফিক্সড) -->
     <div class="hero-view-port" id="home">
         <div class="slider-wrapper">
             
             <!-- স্লাইড ১ (Magnum 4D) -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899_2.jpg" alt="Magnum 4D Banner">
+                <img class="slide-bg-img" src="1000014899_3.jpg" alt="Magnum 4D Banner">
             </div>
 
             <!-- স্লাইড ২ (4D Dragon) -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901_2.jpg" alt="Dragon 4D">
+                <img class="slide-bg-img" src="1000014901_3.jpg" alt="Dragon 4D">
             </div>
 
             <!-- স্লাইড ৩ (Sports Toto 4D) -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014898_2.jpg" alt="Sports Toto 4D">
+                <img class="slide-bg-img" src="1000014898_3.jpg" alt="Sports Toto 4D">
             </div>
 
             <!-- স্লাইড ৪ (Nine Lotto) -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900_2.jpg" alt="Nine Lotto">
+                <img class="slide-bg-img" src="1000014900_3.jpg" alt="Nine Lotto">
             </div>
 
         </div>
@@ -519,7 +517,8 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img src="1000014883_2.png" alt="Verified Premium Agent">
+                <!-- প্রোফাইল সেকশনেও নতুন ব্র্যান্ড লোগোটি সেট করা হলো -->
+                <img src="1000014839_2.png" alt="Verified Premium Agent">
             </div>
             <div class="profile-info">
                 <h2>Verified Premium Agent</h2>
