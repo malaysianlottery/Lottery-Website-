@@ -2,35 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Malaysian Lottery - Premium Live 4D Portal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* ===== GLOBAL RESET & STRICT SANS-SERIF TYPOGRAPHY ===== */
+        /* ===== GLOBAL RESET & HIGH-END GOLDEN VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            /* আরও লাক্সারিয়াস ও প্রমিনেন্ট গোল্ডেন কালার প্যালেট */
-            --primary-gold: #FFD700;
-            --bright-gold: #FFDF00;
-            --deep-gold: #E6B800;
-            --gold-glow: rgba(255, 223, 0, 0.4);
+            --primary-gold: #FFDF00;     /* Ultra Bright Premium Gold */
+            --deep-gold: #D4AF37;        /* Classic Metallic Gold */
+            --dark-gold: #996515;        /* Luxury Shadow Gold */
             --pure-black: #000000;
-            --card-black: #0d0d0d;
+            --card-black: #08080a;
             --bright-white: #ffffff;
-            --neon-green: #00FF66;
+            --neon-green: #39FF14;
             --neon-blue: #00E5FF;
             --neon-red: #FF3333;
-            --messenger-color: #0084FF;
+            --gold-glow: rgba(255, 223, 0, 0.35);
         }
 
         html, body {
             width: 100%;
             height: 100%;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: var(--pure-black); 
             color: var(--bright-white);
             overflow-x: hidden;
@@ -42,19 +45,20 @@
             z-index: 10;
         }
 
-        /* ===== HIGH-CONTRAST NAVIGATION BAR ===== */
+        /* ===== DEEP GOLDEN HIGH-CONTRAST NAVBAR ===== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.98);
+            background: rgba(0, 0, 0, 0.95);
             padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 3.5px solid var(--bright-gold);
-            box-shadow: 0 4px 25px rgba(255, 223, 0, 0.25);
+            border-bottom: 3px solid var(--primary-gold);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 25px rgba(255, 223, 0, 0.2);
         }
 
         .logo {
@@ -67,14 +71,17 @@
             height: 55px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--gold-glow));
         }
 
         .logo span {
+            font-family: 'Cinzel', serif;
             font-size: 1.5rem;
             font-weight: 900;
-            color: var(--bright-gold);
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
         .nav-right-container {
@@ -93,20 +100,20 @@
             color: var(--bright-white);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             text-shadow: 0 0 8px var(--gold-glow);
         }
 
         .lang-selector-box {
             background: var(--card-black);
-            border: 2px solid var(--bright-gold);
+            border: 2px solid var(--primary-gold);
             color: var(--bright-white);
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
@@ -118,7 +125,7 @@
             box-shadow: 0 0 5px var(--gold-glow);
         }
 
-        /* ===== BANNER VIEWPORT WITX EXACT TEXT ALIGNMENT ===== */
+        /* ===== HERO AREA WITH MULTI-LINE CENTERED TEXT ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -127,8 +134,8 @@
             margin-right: auto;
             position: relative;
             background: var(--pure-black); 
-            border: 3.5px solid var(--bright-gold);
-            box-shadow: 0 0 30px rgba(255, 223, 0, 0.15);
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 0 30px var(--gold-glow);
             overflow: hidden;
             aspect-ratio: 16 / 9;
         }
@@ -158,7 +165,7 @@
             height: 100%;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
             background: var(--pure-black);
         }
 
@@ -174,17 +181,17 @@
             display: block;
         }
 
-        /* ===== SLIDER CENTERED LINE-BY-LINE TEXT ===== */
+        /* 4-Line Break Layout Engine Configuration */
         .slide-text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 85%;
+            width: 90%;
             text-align: center;
             z-index: 5;
             opacity: 0;
-            transition: opacity 1s ease-in-out 0.2s;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
         }
 
         .full-slide-layer.active .slide-text-overlay {
@@ -192,32 +199,44 @@
         }
 
         .slide-text-overlay h1 {
-            font-size: 4.2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
             font-weight: 900;
-            color: var(--bright-gold);
-            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 223, 0, 0.6);
+            line-height: 1.15;
+            color: var(--bright-white);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            line-height: 1.3; /* লাইনগুলোর মধ্যে সামঞ্জস্য বজায় রাখার জন্য */
+            letter-spacing: 4px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
         }
 
-        /* ===== COMMON SECTION TITLE ===== */
+        /* Individual Line Break Highlights */
+        .slide-text-overlay h1 span {
+            display: block;
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+        }
+
+        /* ===== COMMON GOLDEN HEADLINE HEADER ===== */
         .section-title {
+            font-family: 'Cinzel', serif;
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: var(--bright-gold);
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-align: center;
-            text-shadow: 0 0 15px rgba(255, 223, 0, 0.2);
         }
 
-        /* ===== ABOUT PROFILE SECTION ===== */
+        /* ===== ABOUT PROFILE DATA MATRIX ===== */
         .profile-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
         }
 
         .profile-container {
@@ -234,27 +253,29 @@
             width: 100%;
             max-width: 450px;
             aspect-ratio: 1 / 1;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 3.5px solid var(--bright-gold);
+            border: 3px solid var(--primary-gold);
             margin: 0 auto;
-            background: var(--pure-black);
-            box-shadow: 0 0 25px var(--gold-glow);
+            background: var(--card-black);
+            box-shadow: 0 0 35px rgba(255, 223, 0, 0.15);
         }
 
         .profile-logo-overlay {
             position: absolute;
-            width: 75%;
+            width: 80%;
             height: auto;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
+            filter: drop-shadow(0 0 15px var(--gold-glow));
         }
 
         .profile-info h2 {
+            font-family: 'Cinzel', serif;
             font-size: 3rem;
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             margin-bottom: 0.5rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -262,41 +283,43 @@
 
         .profile-badge {
             display: inline-block;
-            background: rgba(255, 223, 0, 0.15);
-            color: var(--bright-gold);
+            background: rgba(255, 223, 0, 0.1);
+            color: var(--primary-gold);
             padding: 0.5rem 1.5rem;
             border-radius: 4px;
             font-size: 0.9rem;
             font-weight: 800;
-            border: 2px solid var(--bright-gold);
+            border: 2px solid var(--primary-gold);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             box-shadow: 0 0 10px rgba(255, 223, 0, 0.2);
         }
 
         .profile-info p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #eeeeee;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #e2e2e8;
             margin-bottom: 1.5rem;
         }
 
         .condition-highlight {
-            border-left: 5px solid var(--bright-gold);
-            background: #0d0d0d;
-            padding: 1.2rem;
+            border-left: 5px solid var(--primary-gold);
+            background: linear-gradient(90deg, #101014, #050505);
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-radius: 0 8px 8px 0;
-            border: 1px solid rgba(255, 223, 0, 0.3);
-            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.05);
+            border-radius: 0 12px 12px 0;
+            border-top: 1px solid rgba(255,223,0,0.2);
+            border-right: 1px solid rgba(255,223,0,0.2);
+            border-bottom: 1px solid rgba(255,223,0,0.2);
         }
 
         .condition-highlight strong {
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-size: 1.3rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .stats-grid {
@@ -308,31 +331,32 @@
         .stat-item {
             background: var(--card-black);
             padding: 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             text-align: center;
-            border: 2px solid rgba(255, 223, 0, 0.25);
-            border-top: 4px solid var(--bright-gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 223, 0, 0.2);
+            border-top: 4px solid var(--primary-gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .stat-number {
             font-size: 2.2rem;
             font-weight: 900;
-            color: var(--bright-gold);
+            color: var(--primary-gold);
+            text-shadow: 0 0 8px var(--gold-glow);
         }
 
         .stat-label {
             font-size: 0.85rem;
-            color: #aaaaaa;
+            color: #b5b5be;
             text-transform: uppercase;
             font-weight: 700;
         }
 
-        /* ===== PREMIUM SERVICES ===== */
+        /* ===== PREMIUM SERVICES MODULES ===== */
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
         }
 
         .services-grid {
@@ -340,23 +364,23 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .service-card {
             background: var(--card-black);
-            border-radius: 12px;
-            border: 2px solid rgba(255, 223, 0, 0.25);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 223, 0, 0.15);
             padding: 2.5rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
         }
 
         .service-card:hover {
-            border-color: var(--bright-gold);
-            box-shadow: 0 0 20px rgba(255, 223, 0, 0.15);
-            transform: translateY(-2px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 25px rgba(255, 223, 0, 0.1);
+            transform: translateY(-5px);
         }
 
         .game-logo-box {
@@ -365,9 +389,9 @@
             margin: 0 auto 1.5rem auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--bright-gold);
+            border: 3px solid var(--primary-gold);
             background: var(--pure-black);
-            box-shadow: 0 0 12px var(--gold-glow);
+            box-shadow: 0 0 15px var(--gold-glow);
         }
 
         .game-logo-img {
@@ -377,26 +401,27 @@
         }
 
         .service-card h3 { 
-            color: var(--bright-gold); 
+            color: var(--primary-gold); 
             font-size: 1.5rem; 
             margin-bottom: 0.8rem; 
             font-weight: 900; 
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .service-card p { 
-            color: #dddddd; 
+            color: #d1d1d6; 
             font-size: 1rem; 
             line-height: 1.6; 
         }
 
-        /* ===== DIGITAL LIVE SCREEN ARENA ===== */
+        /* ===== DIGITAL LIVE ARENA ===== */
         .results-section {
             padding: 6rem 2rem;
             position: relative;
             background: var(--pure-black);
             overflow: hidden;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
         }
 
         .results-section-bg {
@@ -407,7 +432,7 @@
             height: 100%;
             background: url('1000014883.png') no-repeat center center;
             background-size: cover;
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: 1;
             pointer-events: none;
         }
@@ -418,17 +443,17 @@
             max-width: 950px;
             margin: 3rem auto 0 auto;
             background: #000000;
-            border: 5px solid var(--bright-gold);
+            border: 4px solid var(--primary-gold);
             border-radius: 16px;
             padding: 3rem 2rem;
-            box-shadow: 0 0 50px rgba(255, 223, 0, 0.3);
+            box-shadow: 0 0 45px rgba(255, 223, 0, 0.25);
         }
 
         .live-header-ticker {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--bright-gold);
+            border-bottom: 3px solid var(--primary-gold);
             padding-bottom: 1.2rem;
             margin-bottom: 1.5rem;
         }
@@ -485,7 +510,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .live-result-slide.active {
@@ -496,7 +521,6 @@
         .live-op-name {
             font-size: 2.2rem;
             font-weight: 900;
-            color: var(--bright-white);
             letter-spacing: 2px;
             margin-bottom: 0px;
             line-height: 1;
@@ -505,11 +529,11 @@
         .live-lucky-num {
             font-size: 7.5rem; 
             font-weight: 900; 
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             letter-spacing: 4px;
             line-height: 0.9; 
             margin: 5px 0;
-            text-shadow: 0 0 25px rgba(255, 223, 0, 0.4);
+            text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
         }
 
         .live-status-txt {
@@ -521,11 +545,11 @@
             line-height: 1;
         }
 
-        /* ===== PREVIOUS WINNING GAMES SYSTEM ===== */
+        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
         .portfolio-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
         }
 
         .portfolio-grid {
@@ -539,22 +563,22 @@
 
         .portfolio-card {
             background: var(--card-black);
-            border-radius: 12px;
-            border: 3px solid rgba(255, 223, 0, 0.3);
+            border-radius: 16px;
+            border: 3px solid rgba(255, 223, 0, 0.2);
             text-align: center;
             padding: 2.5rem;
             cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .portfolio-card:hover { 
             transform: translateY(-5px); 
-            border-color: var(--bright-gold);
-            box-shadow: 0 10px 25px rgba(255, 223, 0, 0.25);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 25px rgba(255, 223, 0, 0.2);
         }
         
         .portfolio-card h3 { 
-            color: var(--bright-gold); 
+            color: var(--primary-gold); 
             font-size: 1.6rem; 
             font-weight: 900; 
             text-transform: uppercase; 
@@ -577,15 +601,15 @@
             letter-spacing: 1px;
         }
 
-        /* ===== WINNERS MODAL PLATFORM ===== */
+        /* ===== WINNERS EXCLUSIVE LAYER MODAL ===== */
         .winners-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(10px);
             z-index: 5000;
             display: none;
             justify-content: center;
@@ -594,8 +618,8 @@
         }
 
         .winners-modal-window {
-            background: #080808;
-            border: 3px solid var(--bright-gold);
+            background: #050507;
+            border: 3px solid var(--primary-gold);
             width: 100%;
             max-width: 1100px;
             height: 85vh;
@@ -603,7 +627,7 @@
             overflow-y: auto;
             position: relative;
             padding: 3rem 2rem;
-            box-shadow: 0 0 50px rgba(255, 223, 0, 0.35);
+            box-shadow: 0 0 55px rgba(255, 223, 0, 0.3);
         }
 
         .close-modal-trigger {
@@ -617,13 +641,14 @@
         }
 
         .modal-headline {
-            color: var(--bright-gold);
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
             font-size: 2.2rem;
             font-weight: 900;
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255, 223, 0, 0.4);
+            border-bottom: 2px dashed rgba(255, 223, 0, 0.3);
             padding-bottom: 1rem;
         }
 
@@ -635,7 +660,7 @@
 
         .winner-premium-profile-card {
             background: var(--card-black);
-            border: 2px solid rgba(255, 223, 0, 0.2);
+            border: 2px solid rgba(255, 223, 0, 0.15);
             border-radius: 12px;
             padding: 2rem;
             display: grid;
@@ -648,7 +673,7 @@
             width: 180px;
             height: 180px;
             border-radius: 12px;
-            border: 3px solid var(--bright-gold);
+            border: 3px solid var(--primary-gold);
             overflow: hidden;
             background: #111;
         }
@@ -660,7 +685,7 @@
         }
 
         .winner-meta-details-box h4 {
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             font-size: 1.5rem;
             font-weight: 900;
             margin-bottom: 0.3rem;
@@ -677,10 +702,10 @@
         .winner-written-review {
             font-size: 1.05rem;
             line-height: 1.6;
-            color: #dddddd;
-            background: rgba(255,255,255,0.03);
+            color: #e2e2e8;
+            background: rgba(255,255,255,0.02);
             padding: 1rem;
-            border-left: 4px solid var(--bright-gold);
+            border-left: 4px solid var(--primary-gold);
             margin-bottom: 1.2rem;
             border-radius: 0 6px 6px 0;
         }
@@ -700,7 +725,7 @@
 
         .media-label-text {
             font-size: 0.8rem;
-            color: #aaaaaa;
+            color: #a1a1aa;
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
@@ -715,19 +740,19 @@
         .video-review-placeholder {
             width: 100%;
             height: 130px;
-            background: #151515;
+            background: #121215;
             border-radius: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--bright-gold);
+            color: var(--primary-gold);
             font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            border: 1px dashed rgba(255, 223, 0, 0.4);
+            border: 1px dashed rgba(255,223,0,0.3);
         }
 
-        /* ===== INPUT STRUCTURAL FIELDS ===== */
+        /* ===== LUXURY FORM LABELS & INPUT FLUIDITY ===== */
         .form-group { 
             display: flex; 
             flex-direction: column; 
@@ -736,7 +761,7 @@
         }
         
         .form-group label { 
-            color: var(--bright-gold); 
+            color: var(--primary-gold); 
             font-size: 0.9rem; 
             font-weight: 900; 
             margin-bottom: 0.5rem; 
@@ -752,20 +777,21 @@
             border-radius: 6px; 
             font-family: inherit; 
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             width: 100%;
             outline: none;
+            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus, .form-group select:focus {
-            border-color: var(--bright-gold);
-            box-shadow: 0 0 10px var(--gold-glow);
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 10px rgba(255,223,0,0.25);
         }
 
         .cta-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
-            background: var(--bright-gold);
+            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
             color: var(--pure-black);
             text-decoration: none;
             border-radius: 6px;
@@ -777,51 +803,22 @@
             text-align: center;
             cursor: pointer;
             font-family: inherit;
-            box-shadow: 0 4px 15px var(--gold-glow);
-            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255,223,0,0.3);
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: #ffffff;
+            background: var(--bright-white);
             color: #000000;
             box-shadow: 0 4px 20px rgba(255,255,255,0.4);
         }
 
-        /* ===== MESSENGER FLOATING BUTTON ===== */
-        .messenger-chat-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: var(--messenger-color);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .messenger-chat-float:hover {
-            transform: scale(1.1);
-        }
-
-        .messenger-chat-float svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        /* ===== FOOTER PIPELINE ===== */
+        /* ===== FOOTER STRUCTURAL FLOW ===== */
         footer {
             background: #000000; 
             color: var(--bright-white);
             padding: 5rem 2rem 2rem 2rem;
-            border-top: 4.5px solid var(--bright-gold);
+            border-top: 4px solid var(--primary-gold);
             position: relative;
             z-index: 100;
         }
@@ -833,7 +830,7 @@
             grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
             align-items: start;
-        </div>
+        }
 
         .footer-left-block {
             display: flex;
@@ -842,36 +839,39 @@
         }
 
         .footer-links-col h4 {
-            color: var(--bright-gold);
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
             font-size: 1.3rem;
             margin-bottom: 1.2rem;
             font-weight: 900;
             text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.4);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
             padding-bottom: 0.5rem;
         }
 
         .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
         .footer-links-col ul a {
-            color: #dddddd;
+            color: #d1d1d6;
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
         .footer-links-col ul a:hover {
-            color: var(--bright-gold);
+            color: var(--primary-gold);
         }
 
         .footer-reg-col {
             background: var(--card-black);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 3px solid var(--bright-gold);
-            box-shadow: 0 10px 30px rgba(255, 223, 0, 0.15);
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(255,223,0,0.15);
         }
 
         .footer-reg-col h4 {
-            color: var(--bright-gold);
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             font-weight: 900;
@@ -883,16 +883,17 @@
             background: var(--card-black);
             padding: 2.5rem;
             border-radius: 12px;
-            border: 2px solid rgba(255, 223, 0, 0.3);
+            border: 2px solid rgba(255, 223, 0, 0.2);
         }
 
         .footer-right-contact-block h4 {
-            color: var(--bright-gold);
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
             font-size: 1.4rem;
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            border-bottom: 2px solid rgba(255,223,0,0.2);
             padding-bottom: 0.5rem;
         }
 
@@ -909,17 +910,17 @@
             gap: 1.2rem;
             background: var(--pure-black);
             padding: 1rem 1.2rem;
-            border: 2px solid rgba(255, 223, 0, 0.25);
-            border-left: 5px solid var(--bright-gold);
+            border: 2px solid rgba(255, 223, 0, 0.15);
+            border-left: 5px solid var(--primary-gold);
             border-radius: 4px;
         }
 
-        .contact-item-box span.icon { font-size: 1.6rem; }
-        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #aaaaaa; text-transform: uppercase; font-weight: 800; }
+        .contact-item-box span.icon { font-size: 1.6rem; color: var(--primary-gold); }
+        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #a1a1aa; text-transform: uppercase; font-weight: 800; }
         .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
 
         .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
-        .social-cluster-title { color: var(--bright-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
         .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
         
         .social-icon-btn {
@@ -933,6 +934,7 @@
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .btn-whatsapp { background: #25D366; }
@@ -942,17 +944,15 @@
         .footer-bottom {
             max-width: 1200px;
             margin: 4rem auto 0 auto;
-            border-top: 2px solid rgba(255, 223, 0, 0.3);
+            border-top: 2px solid rgba(255,223,0,0.25);
             padding-top: 2rem;
             text-align: center;
             font-size: 0.95rem;
             font-weight: 700;
-            color: #888888;
+            color: #71717a;
         }
 
-        /* =========================================================
-           ===== STRICT MOBILE & ANDROID RESPONSIVE ADJUSTMENTS =====
-           ========================================================= */
+        /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
         @media (max-width: 1024px) {
             .profile-container {
                 grid-template-columns: 1fr;
@@ -964,8 +964,8 @@
             }
             .condition-highlight {
                 border-left: none;
-                border-top: 5px solid var(--bright-gold);
-                border-radius: 0 0 8px 8px;
+                border-top: 5px solid var(--primary-gold);
+                border-radius: 0 0 12px 12px;
             }
             .footer-container {
                 grid-template-columns: 1fr;
@@ -987,9 +987,9 @@
 
             .slide-text-overlay { width: 92%; }
             .slide-text-overlay h1 {
-                font-size: 2.3rem; /* মোবাইলে আরও স্পষ্ট রিড্যাবিলিটি */
-                letter-spacing: 1px;
-                text-shadow: 0 2px 15px rgba(0, 0, 0, 0.95);
+                font-size: 2.3rem;
+                letter-spacing: 2px;
+                line-height: 1.2;
             }
 
             .section-title { font-size: 2rem; }
@@ -1015,11 +1015,10 @@
             .footer-links-col ul { grid-template-columns: 1fr; }
             .social-icons-row { justify-content: center; }
             .social-icon-btn { width: 100%; justify-content: center; }
-            .messenger-chat-float { bottom: 15px; right: 15px; width: 50px; height: 50px; }
         }
 
         @media (max-width: 480px) {
-            .slide-text-overlay h1 { font-size: 1.8rem; }
+            .slide-text-overlay h1 { font-size: 1.9rem; }
             .live-lucky-num { font-size: 3.5rem; }
         }
     </style>
@@ -1053,11 +1052,16 @@
             <div class="full-slide-layer active">
                 <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
                 <div class="slide-text-overlay">
-                    <h1>Welcome<br>to<br>Malaysian<br>Lottery</h1>
+                    <h1>
+                        <span>Welcome</span>
+                        <span>to</span>
+                        <span>Malaysian</span>
+                        <span>Lottery</span>
+                    </h1>
                 </div>
             </div>
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014999.jpg" alt="Grand Dragon Banner">
+                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
             </div>
             <div class="full-slide-layer">
                 <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
@@ -1092,7 +1096,7 @@
 
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
         
         <div class="services-grid">
             <div class="service-card">
@@ -1143,7 +1147,7 @@
                     <div class="live-status-txt">1ST PRIZE VERIFIED</div>
                 </div>
                 <div class="live-result-slide">
-                    <div class="live-op-name" style="color: #E91E63;">NINE LOTTO</div>
+                    <div class="live-op-name" style="color: #E91E63;">NINE Lotto</div>
                     <div class="live-lucky-num">9312</div>
                     <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
                 </div>
@@ -1163,7 +1167,7 @@
 
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
-        <p style="text-align: center; color: #aaaaaa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
         
         <div class="portfolio-grid">
             <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon Lotto')">
@@ -1197,16 +1201,9 @@
         <div class="winners-modal-window">
             <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
             <div class="modal-headline" id="modalGameTitle">Game Winners</div>
-            <div class="winners-profiles-container-grid" id="profilesContainer">
-                </div>
+            <div class="winners-profiles-container-grid" id="profilesContainer"></div>
         </div>
     </div>
-
-    <a href="https://m.me/60123456789" target="_blank" class="messenger-chat-float" title="Chat with Representatives">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.908 1.454 5.502 3.743 7.151.192.138.303.361.293.598l-.078 2.316c-.015.42.417.747.818.6l2.597-.954c.18-.066.38-.052.551.04 1.134.613 2.424.962 3.796.962 5.523 0 10-4.145 10-11.258C22 6.145 17.523 2 12 2zm1.03 12.875l-2.253-2.408-4.4 2.408 4.832-5.132 2.303 2.408 4.35-2.408-4.832 5.132z"/>
-        </svg>
-    </a>
 
     <footer id="footer-anchor">
         <div class="footer-container">
@@ -1226,15 +1223,15 @@
                     <form onsubmit="sendWhatsAppNotification(event)">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" id="clientName" placeholder="Enter your official name" required>
+                            <input type="text" id="regName" placeholder="Enter your official name" required>
                         </div>
                         <div class="form-group">
                             <label>WhatsApp Contact Number</label>
-                            <input type="tel" id="whatsappNumber" placeholder="Example: +60 12-345-6789" required>
+                            <input type="tel" id="regPhone" placeholder="Example: +60 12-345-6789" required>
                         </div>
                         <div class="form-group">
                             <label>Select Target Game</label>
-                            <select id="targetGame" required>
+                            <select id="regGame" required>
                                 <option value="">-- Choose Your Game --</option>
                                 <option value="Magnum 4D">Magnum 4D</option>
                                 <option value="4D Dragon">4D Dragon</option>
@@ -1284,30 +1281,6 @@
     </footer>
 
     <script>
-        /* ===== WHATSAPP DIRECT FORM NOTIFICATION ENGINE ===== */
-        function sendWhatsAppNotification(event) {
-            event.preventDefault(); // পেজ রিলোড হওয়া বন্ধ করতে
-            
-            // ফর্ম থেকে ডেটা কালেকশন
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('whatsappNumber').value;
-            const game = document.getElementById('targetGame').value;
-            
-            // আপনার ব্যক্তিগত বা এজেন্ট হোয়াটসঅ্যাপ নাম্বার (এখানে আপনার আসল নাম্বারটি বসিয়ে দিন)
-            const agentWhatsAppNumber = "60123456789"; 
-            
-            // হোয়াটসঅ্যাপ টেক্সট মেসেজ ফরম্যাটিং
-            const message = `🔥 *New VIP Registration Alert* 🔥%0A%0A` +
-                            `👤 *Client Name:* ${encodeURIComponent(name)}%0A` +
-                            `📱 *WhatsApp:* ${encodeURIComponent(phone)}%0A` +
-                            `🎮 *Target Game:* ${encodeURIComponent(game)}%0A%0A` +
-                            `🚀 _Please process this user allocation instantly._`;
-            
-            // ইউজারকে সরাসরি হোয়াটসঅ্যাপ উইন্ডোতে পাঠানো হচ্ছে মেসেজসহ
-            const whatsappUrl = `https://wa.me/${agentWhatsAppNumber}?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             /* ===== MULTI-BANNER SLIDER LOGIC ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
@@ -1346,17 +1319,17 @@
             resizeCanvas();
             window.addEventListener("resize", resizeCanvas);
 
-            const particleCount = 100; 
+            const particleCount = 120; 
             const particles = [];
             class Particle {
                 constructor() { this.reset(); }
                 reset() {
                     this.x = Math.random() * canvas.width;
                     this.y = canvas.height + Math.random() * 20;
-                    this.size = Math.random() * 2.2 + 1;
-                    this.speedY = Math.random() * 1.0 + 0.4;
-                    this.speedX = (Math.random() - 0.5) * 0.5;
-                    this.alpha = Math.random() * 0.35 + 0.1; /* পার্টিক্যালের ভিজিবিলিটি আরেকটু বাড়ানো হয়েছে */
+                    this.size = Math.random() * 2.5 + 1;
+                    this.speedY = Math.random() * 1.2 + 0.4;
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.alpha = Math.random() * 0.35 + 0.1; 
                 }
                 update() {
                     this.y -= this.speedY;
@@ -1366,7 +1339,7 @@
                 draw() {
                     ctx.save();
                     ctx.globalAlpha = this.alpha;
-                    ctx.fillStyle = "#FFDF00"; /* গ্লোয়িং গোল্ড পার্টিক্যাল */
+                    ctx.fillStyle = "#FFDF00";
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
@@ -1382,7 +1355,36 @@
             animateParticles();
         });
 
-        /* ===== WINNERS MODAL GENERATOR ===== */
+        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
+        function sendWhatsAppNotification(event) {
+            event.preventDefault(); // ফর্ম রিলোড হওয়া আটকানোর জন্য
+
+            // ফর্মের ইনপুট ভ্যালুগুলো নেওয়া হচ্ছে
+            const name = document.getElementById('regName').value;
+            const phone = document.getElementById('regPhone').value;
+            const game = document.getElementById('regGame').value;
+
+            // আপনার ব্যক্তিগত বা এজেন্ট হোয়াটসঅ্যাপ নাম্বার (এখানে কান্ট্রি কোড সহ আপনার নাম্বারটি বসিয়ে দিন)
+            const targetAgentWhatsAppNumber = "60123456789"; 
+
+            // মেসেজ টেক্সট ফরম্যাট করা হচ্ছে (ইউজার সাবমিট করার পর এই মেসেজটি আপনার হোয়াটসঅ্যাপে আসবে)
+            const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
+                                `👤 *Client Name:* ${name}\n` +
+                                `📱 *WhatsApp Number:* ${phone}\n` +
+                                `🎰 *Target Game:* ${game}\n\n` +
+                                `Please process the high-precision prediction matrices immediately.`;
+
+            // ইউআরএল এনকোড করা হচ্ছে সুরক্ষার জন্য
+            const encodedMessage = encodeURIComponent(messageText);
+            
+            // হোয়াটসঅ্যাপ চ্যাট ইউআরএল তৈরি
+            const whatsAppUrl = `https://wa.me/${targetAgentWhatsAppNumber}?text=${encodedMessage}`;
+
+            // নতুন ট্যাবে ইউজারকে সরাসরি আপনার হোয়াটসঅ্যাপ চ্যাট স্ক্রিনে নিয়ে যাবে মেসেজসহ
+            window.open(whatsAppUrl, '_blank');
+        }
+
+        /* ===== WINNERS MODAL PLATFORM GENERATOR ===== */
         function openWinnersModal(gameName) {
             document.getElementById('modalGameTitle').innerText = gameName + " - Top 10 Verified Winners";
             const container = document.getElementById('profilesContainer');
@@ -1393,7 +1395,7 @@
                 const profileCardHTML = `
                     <div class="winner-premium-profile-card">
                         <div class="winner-avatar-frame">
-                            <img src="winner_avatar_${i}.jpg" alt="Winner ${i}">
+                            <img src="1000014898.jpg" alt="Winner ${i}">
                         </div>
                         <div class="winner-meta-details-box">
                             <h4>Winner Profile Card #0${i}</h4>
