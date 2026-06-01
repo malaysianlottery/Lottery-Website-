@@ -32,7 +32,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== BULLETPROOF HIGH-DENSITY PARTICLES BACKGROUND ===== */
+        /* ===== HIGH-DENSITY PARTICLES BACKGROUND ===== */
         .particles-container {
             position: fixed;
             top: 0;
@@ -141,9 +141,9 @@
             color: var(--primary-gold);
         }
 
-        /* ===== PERFECT ASPECT RATIO BANNER SLIDER ===== */
+        /* ===== BANNER SLIDER WITH ASPECT RATIO LOCK ===== */
         .hero-view-port {
-            margin-top: 85px; /* নেভিগেশন বারের স্পেস */
+            margin-top: 85px; 
             width: 100%;
             max-width: 1400px; 
             margin-left: auto;
@@ -153,7 +153,7 @@
             border: 2px solid var(--deep-gold);
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             overflow: hidden;
-            aspect-ratio: 16 / 9; /* ব্যানার রেশিও অনুযায়ী সাইজ লক */
+            aspect-ratio: 16 / 9; 
         }
 
         .slider-wrapper {
@@ -196,7 +196,7 @@
             100% { opacity: 0; }
         }
 
-        /* ===== SECTION TITLE STYLE ===== */
+        /* ===== SECTION HEADER STYLING ===== */
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
@@ -207,7 +207,7 @@
             text-align: center;
         }
 
-        /* ===== PROFILE / AGENT BIOGRAPHY ===== */
+        /* ===== ABOUT PROFILE SECTION ===== */
         .profile-section {
             padding: 6rem 2rem;
             background: rgba(26, 26, 26, 0.7);
@@ -284,7 +284,7 @@
             text-transform: uppercase;
         }
 
-        /* ===== PREMIUM SERVICES ===== */
+        /* ===== SERVICES GRID ===== */
         .services-section {
             padding: 6rem 2rem;
             background: rgba(17, 17, 17, 0.7);
@@ -318,7 +318,7 @@
         .service-card h3 { color: var(--primary-gold); font-size: 1.4rem; margin-bottom: 0.8rem; }
         .service-card p { color: #aaaaaa; font-size: 1.05rem; line-height: 1.6; }
 
-        /* ===== LIVE RESULTS MONITOR ===== */
+        /* ===== LIVE RESULTS SECTION ===== */
         .results-section {
             padding: 6rem 2rem;
             background: rgba(26, 26, 26, 0.7);
@@ -347,7 +347,7 @@
         .lucky-number { font-size: 3.2rem; font-weight: 900; color: var(--primary-gold); margin: 1rem 0; }
         .draw-time { font-size: 0.9rem; color: #888888; }
 
-        /* ===== PORTFOLIO / HISTORIC WINS ===== */
+        /* ===== HISTORIC WINS / PORTFOLIO ===== */
         .portfolio-section {
             padding: 6rem 2rem;
             background: rgba(17, 17, 17, 0.7);
@@ -377,7 +377,7 @@
         .portfolio-card h3 { color: var(--primary-gold); font-size: 1.6rem; }
         .portfolio-card p { font-size: 1.1rem; color: #cccccc; }
 
-        /* ===== CONTACT GATEWAY ===== */
+        /* ===== CONTACT FORM INTERFACE ===== */
         .contact-section {
             padding: 6rem 2rem;
             background: rgba(26, 26, 26, 0.6);
@@ -425,7 +425,7 @@
         .contact-method-box h4 { color: var(--primary-gold); font-size: 1.2rem; margin-bottom: 0.5rem; }
         .contact-method-box p, .contact-method-box a { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
 
-        /* ===== FOOTER ===== */
+        /* ===== PREMIUM FOOTER ===== */
         footer {
             background: #0a0a0a;
             color: #888888;
@@ -450,7 +450,7 @@
         .footer-col ul a:hover { color: var(--primary-gold); }
         .footer-bottom { border-top: 1px solid rgba(255,215,0,0.1); padding-top: 2rem; margin-top: 2rem; }
 
-        /* ===== RESPONSIVE ARCHITECTURE ===== */
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
             nav ul { display: none; }
             nav { padding: 1rem; }
@@ -464,15 +464,15 @@
 </head>
 <body>
 
-    <!-- SAFE CSS BACKGROUND PARTICLES LAYER -->
+    <!-- LIGHTFALL BACKGROUND PARTICLES -->
     <div class="particles-container">
         <div class="particles-bg"></div>
     </div>
 
-    <!-- NAVIGATION MENU -->
+    <!-- MAIN INTERFACE HEADER -->
     <nav>
         <div class="logo">
-            <!-- থ্রিডি প্রিমিয়াম গোল্ডেন লোগো ইমেজ লিংক ফিক্সড -->
+            <!-- আপনার ৩ডি গোল্ডেন লোগো পাথ -->
             <img class="logo-img" src="1000014839_2.png" alt="Malaysian Lottery Logo">
             <span>MALAYSIAN LOTTERY</span>
         </div>
@@ -486,39 +486,39 @@
         </ul>
     </nav>
 
-    <!-- AUTOMATIC CSS SLIDER (১৬:৯ এসপেক্ট রেশিও এবং নতুন ইমেজ লিংক ফিক্সড) -->
+    <!-- BANNER SLIDER SYSTEM (১৬:৯ রেশিও লকড) -->
     <div class="hero-view-port" id="home">
         <div class="slider-wrapper">
             
-            <!-- স্লাইড ১ (Magnum 4D) -->
+            <!-- স্লাইড ১: Magnum 4D -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899_3.jpg" alt="Magnum 4D Banner">
+                <img class="slide-bg-img" src="1000014899_3.jpg" alt="Magnum 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ২ (4D Dragon) -->
+            <!-- স্লাইড ২: 4D Dragon -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901_3.jpg" alt="Dragon 4D">
+                <img class="slide-bg-img" src="1000014901_3.jpg" alt="Dragon 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ৩ (Sports Toto 4D) -->
+            <!-- স্লাইড ৩: Sports Toto 4D -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014898_3.jpg" alt="Sports Toto 4D">
+                <img class="slide-bg-img" src="1000014898_3.jpg" alt="Sports Toto 4D Premium Banner">
             </div>
 
-            <!-- স্লাইড ৪ (Nine Lotto) -->
+            <!-- স্লাইড ৪: Nine Lotto -->
             <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900_3.jpg" alt="Nine Lotto">
+                <img class="slide-bg-img" src="1000014900_3.jpg" alt="Nine Lotto Premium Banner">
             </div>
 
         </div>
     </div>
 
-    <!-- AGENT PROFILE SECTION -->
+    <!-- BRAND VISUAL PROFILE -->
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <!-- প্রোফাইল সেকশনেও নতুন ব্র্যান্ড লোগোটি সেট করা হলো -->
-                <img src="1000014839_2.png" alt="Verified Premium Agent">
+                <!-- ব্র্যান্ড আইডেন্টিটি হিসেবে প্রোফাইল বক্সে লোগো প্লেসমেন্ট -->
+                <img src="1000014839_2.png" alt="Verified Premium Identity">
             </div>
             <div class="profile-info">
                 <h2>Verified Premium Agent</h2>
@@ -544,7 +544,7 @@
         </div>
     </section>
 
-    <!-- PREMIUM SERVICES -->
+    <!-- PREMIUM CHANNELS -->
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
         <p style="text-align: center; color: #888; font-size: 1.2rem; margin-bottom: 4rem;">Comprehensive analytical models engineered for maximum gaming potential</p>
@@ -583,7 +583,7 @@
         </div>
     </section>
 
-    <!-- LIVE RESULTS MONITOR -->
+    <!-- INSTANT MONITOR GATEWAY -->
     <section class="results-section" id="results">
         <h2 class="section-title">Latest Live Confirmations</h2>
         <p style="text-align: center; color: #888; font-size: 1.2rem; margin-bottom: 2rem;">Real-time verified extractions directly synced from official channels</p>
@@ -595,7 +595,7 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO / HISTORIC WINS -->
+    <!-- HISTORIC MILESTONES -->
     <section class="portfolio-section" id="portfolio">
         <h2 class="section-title">Previous Winning Games</h2>
         <p style="text-align: center; color: #888; font-size: 1.2rem; margin-bottom: 2rem;">Celebrating historic milestone payouts and certified customer success records</p>
@@ -619,7 +619,7 @@
         </div>
     </section>
 
-    <!-- CONTACT GATEWAY -->
+    <!-- SECURE CONNECT INTERFACE -->
     <section class="contact-section" id="contact">
         <h2 class="section-title">Secure Enquiry Interface</h2>
         <p style="text-align: center; color: #888; font-size: 1.2rem; margin-bottom: 2rem;">Initiate an authenticated connection protocol directly with management</p>
@@ -649,7 +649,7 @@
         </div>
     </section>
 
-    <!-- FOOTER ARCHITECTURE -->
+    <!-- FOOTER PIPELINES -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
