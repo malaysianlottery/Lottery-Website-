@@ -30,41 +30,46 @@
             color: var(--white);
             overflow-x: hidden;
             scroll-behavior: smooth;
-            position: relative;
         }
 
-        /* ===== BACKGROUND TINY PARTICLES (খুবই ছোট ও ক্ষুদ্র কণা) ===== */
-        body::before {
-            content: "";
+        /* ===== BULLETPROOF TINY PARTICLES LAYER (প্রচুর পরিমাণ ক্ষুদ্র কণা) ===== */
+        .particles-layer {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            /* মাল্টিপল গ্রাডিয়েন্ট লেয়ার দিয়ে পার্টিকেলের সংখ্যা ৪ গুণ বাড়ানো হয়েছে */
             background: 
-                radial-gradient(1px 1px at 10% 20%, rgba(255, 215, 0, 0.4) 100%, transparent),
-                radial-gradient(1.5px 1.5px at 30% 70%, rgba(255, 215, 0, 0.3) 100%, transparent),
-                radial-gradient(1px 1px at 50% 40%, rgba(255, 215, 0, 0.5) 100%, transparent),
-                radial-gradient(1.2px 1.2px at 70% 80%, rgba(255, 215, 0, 0.3) 100%, transparent),
-                radial-gradient(1px 1px at 90% 30%, rgba(255, 215, 0, 0.4) 100%, transparent),
-                radial-gradient(1.5px 1.5px at 25% 15%, rgba(255, 215, 0, 0.3) 100%, transparent),
-                radial-gradient(1px 1px at 60% 85%, rgba(255, 215, 0, 0.5) 100%, transparent),
-                radial-gradient(1.2px 1.2px at 85% 65%, rgba(255, 215, 0, 0.2) 100%, transparent);
-            background-size: 300px 300px;
-            animation: particleAnimation 25s linear infinite;
-            pointer-events: none;
-            z-index: 1;
+                radial-gradient(1px 1px at 10% 20%, rgba(255, 215, 0, 0.6) 100%, transparent),
+                radial-gradient(1.2px 1.2px at 15% 50%, rgba(255, 215, 0, 0.4) 100%, transparent),
+                radial-gradient(1.5px 1.5px at 30% 70%, rgba(255, 215, 0, 0.5) 100%, transparent),
+                radial-gradient(1px 1px at 40% 10%, rgba(255, 215, 0, 0.6) 100%, transparent),
+                radial-gradient(1.2px 1.2px at 50% 40%, rgba(255, 215, 0, 0.7) 100%, transparent),
+                radial-gradient(1px 1px at 55% 85%, rgba(255, 215, 0, 0.4) 100%, transparent),
+                radial-gradient(1.5px 1.5px at 70% 80%, rgba(255, 215, 0, 0.5) 100%, transparent),
+                radial-gradient(1.2px 1.2px at 80% 20%, rgba(255, 215, 0, 0.6) 100%, transparent),
+                radial-gradient(1px 1px at 90% 30%, rgba(255, 215, 0, 0.6) 100%, transparent),
+                radial-gradient(1.5px 1.5px at 95% 75%, rgba(255, 215, 0, 0.4) 100%, transparent),
+                radial-gradient(1px 1px at 25% 15%, rgba(255, 215, 0, 0.5) 100%, transparent),
+                radial-gradient(1.2px 1.2px at 35% 85%, rgba(255, 215, 0, 0.4) 100%, transparent),
+                radial-gradient(1px 1px at 65% 60%, rgba(255, 215, 0, 0.6) 100%, transparent),
+                radial-gradient(1.2px 1.2px at 85% 65%, rgba(255, 215, 0, 0.5) 100%, transparent);
+            background-size: 250px 250px;
+            animation: superParticleAnimation 20s linear infinite;
+            pointer-events: none; /* যাতে মাউস ক্লিকে বাধা না দেয় */
+            z-index: 1; /* কন্টেন্টের একদম পেছনে থাকবে */
         }
 
-        @keyframes particleAnimation {
+        @keyframes superParticleAnimation {
             from { background-position: 0 0; }
-            to { background-position: 0 -300px; }
+            to { background-position: 0 -250px; }
         }
 
-        /* কন্টেন্ট যেন পার্টিকেলের উপরে থাকে */
+        /* কন্টেন্ট লেয়ার সিকিউরিটি (যাতে সবকিছু পার্টিকেলের উপরে ভেসে থাকে) */
         nav, .hero-view-port, section, footer {
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
 
         /* ===== NAVIGATION BAR ===== */
@@ -123,11 +128,11 @@
             color: var(--primary-gold);
         }
 
-        /* ===== ADVANCED SLIDER WITH AUTOMATIC FADE ANIMATION ===== */
+        /* ===== SLIDER MODULE ===== */
         .hero-view-port {
             margin-top: 75px;
             width: 100%;
-            height: 550px; /* ডেস্কটপ স্ট্যান্ডার্ড রেসপন্সিভ হাইট */
+            height: 550px; 
             position: relative;
             background: #000000; 
             border-bottom: 3px solid var(--deep-gold);
@@ -148,4 +153,80 @@
             height: 100%;
             opacity: 0;
             display: flex;
-            justify-content: center
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+            animation: premiumSliderAnimation 16s infinite ease-in-out;
+        }
+
+        .slide-bg-img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .full-slide-layer:nth-child(1) { animation-delay: 0s; }
+        .full-slide-layer:nth-child(2) { animation-delay: 4s; }
+        .full-slide-layer:nth-child(3) { animation-delay: 8s; }
+        .full-slide-layer:nth-child(4) { animation-delay: 12s; }
+
+        @keyframes premiumSliderAnimation {
+            0% { opacity: 0; z-index: 1; }
+            4% { opacity: 1; z-index: 5; }
+            25% { opacity: 1; z-index: 5; }
+            29% { opacity: 0; z-index: 1; }
+            100% { opacity: 0; z-index: 1; }
+        }
+
+        /* ===== SECTION TITLE STYLE ===== */
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* ===== PROFILE / AGENT BIOGRAPHY ===== */
+        .profile-section {
+            padding: 6rem 2rem;
+            background: rgba(26, 26, 26, 0.6);
+            border-bottom: 1px solid rgba(255,215,0,0.15);
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-image-box img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            border: 3px solid var(--deep-gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .profile-info h2 {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem
