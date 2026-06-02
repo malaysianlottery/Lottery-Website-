@@ -58,7 +58,6 @@
             z-index: 1000;
             border-bottom: 3px solid var(--primary-gold);
             backdrop-filter: blur(10px);
-
         }
 
         .logo {
@@ -67,7 +66,6 @@
             gap: 1rem;
         }
 
-        /* লোগোর পিছনের ব্যাকগ্রাউন্ড, বর্ডার ও গ্লো ইফেক্ট রিমুভড */
         .logo-img {
             height: 55px;
             width: auto;
@@ -108,7 +106,6 @@
 
         nav a:hover {
             color: var(--primary-gold);
-
         }
 
         .lang-selector-box {
@@ -122,10 +119,9 @@
             font-weight: 700;
             cursor: pointer;
             outline: none;
-
         }
 
-        /* ===== HERO AREA FIXED SLIDER (NO BLACK SCREEN) ===== */
+        /* ===== HERO AREA FIXED SLIDER ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -135,7 +131,6 @@
             position: relative;
             background: #111116; 
             border: 3px solid var(--primary-gold);
-
             overflow: hidden;
             aspect-ratio: 16 / 9;
         }
@@ -165,7 +160,7 @@
             height: 100%;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.8s ease-in-out; /* ব্ল্যাক স্ক্রিন রোধে ট্রানজিশন অপ্টিমাইজড */
+            transition: opacity 0.8s ease-in-out;
             background: #111116;
         }
 
@@ -240,6 +235,7 @@
             align-items: center;
         }
 
+        /* হানিফ সরকার প্রোফাইল ফ্রেম - শ্যাডো/গ্লো রিমুভড ও সলিড ব্ল্যাক */
         .profile-image-box {
             width: 100%;
             max-width: 450px;
@@ -248,10 +244,11 @@
             overflow: hidden;
             border: 3px solid var(--primary-gold);
             margin: 0 auto;
-            background: var(--card-black);
+            background: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: none;
         }
 
         .profile-logo-overlay {
@@ -282,7 +279,6 @@
             border: 2px solid var(--primary-gold);
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-
         }
 
         .profile-info p {
@@ -323,14 +319,12 @@
             text-align: center;
             border: 2px solid rgba(255, 223, 0, 0.2);
             border-top: 4px solid var(--primary-gold);
-
         }
 
         .stat-number {
             font-size: 2.2rem;
             font-weight: 900;
             color: var(--primary-gold);
-
         }
 
         .stat-label {
@@ -367,7 +361,6 @@
 
         .service-card:hover {
             border-color: var(--primary-gold);
-
             transform: translateY(-5px);
         }
 
@@ -379,7 +372,6 @@
             overflow: hidden;
             border: 3px solid var(--primary-gold);
             background: #111;
-
         }
 
         .game-logo-img {
@@ -433,7 +425,6 @@
             border: 4px solid var(--primary-gold);
             border-radius: 16px;
             padding: 3rem 2rem;
-
         }
 
         .live-header-ticker {
@@ -468,978 +459,4 @@
         }
 
         @keyframes pulseBlink {
-            0% { opacity: 0.2; }
-            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-red); }
-        }
-
-        .live-timer-sync {
-            font-size: 1.1rem;
-            color: var(--neon-blue);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .live-slideshow-container {
-            position: relative;
-            height: 200px;
-            width: 100%;
-        }
-
-        .live-result-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .live-result-slide.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .live-op-name {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 0px;
-            line-height: 1;
-        }
-
-        .live-lucky-num {
-            font-size: 7.5rem; 
-            font-weight: 900; 
-            color: var(--primary-gold);
-            letter-spacing: 4px;
-            line-height: 0.9; 
-            margin: 5px 0;
-            text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
-        }
-
-        .live-status-txt {
-            font-size: 1.2rem;
-            color: var(--neon-green);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1;
-        }
-
-        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
-        .portfolio-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .portfolio-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: var(--card-black);
-            border-radius: 16px;
-            border: 3px solid rgba(255, 223, 0, 0.2);
-            text-align: center;
-            padding: 2.5rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .portfolio-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--primary-gold);
-
-        }
-        
-        .portfolio-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.6rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            margin-top: 0.5rem;
-        }
-        
-        .portfolio-card p { 
-            font-size: 1.1rem; 
-            color: var(--bright-white); 
-            margin-top: 0.4rem; 
-            font-weight: 700;
-        }
-        
-        .portfolio-card .click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-
-        /* ===== WINNERS EXCLUSIVE LAYER MODAL ===== */
-        .winners-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 5000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .winners-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 1100px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-
-        }
-
-        .close-modal-trigger {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 2.5rem;
-            color: var(--neon-red);
-            cursor: pointer;
-            font-weight: 900;
-        }
-
-        .modal-headline {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255, 223, 0, 0.3);
-            padding-bottom: 1rem;
-        }
-
-        .winners-profiles-container-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .winner-premium-profile-card {
-            background: var(--card-black);
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            border-radius: 12px;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .winner-avatar-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-            overflow: hidden;
-            background: #222;
-        }
-
-        .winner-avatar-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .winner-meta-details-box h4 {
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.3rem;
-        }
-
-        .winner-address-tag {
-            font-size: 0.95rem;
-            color: var(--neon-blue);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .winner-written-review {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #e2e2e8;
-            background: rgba(255,255,255,0.02);
-            padding: 1rem;
-            border-left: 4px solid var(--primary-gold);
-            margin-bottom: 1.2rem;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .winner-media-reviews-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .audio-review-wrapper, .video-review-wrapper {
-            background: #000;
-            padding: 1rem;
-            border: 1px solid rgba(255, 223, 0, 0.15);
-            border-radius: 6px;
-        }
-
-        .media-label-text {
-            font-size: 0.8rem;
-            color: #a1a1aa;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .audio-review-wrapper audio {
-            width: 100%;
-            outline: none;
-        }
-
-        .video-review-placeholder {
-            width: 100%;
-            height: 130px;
-            background: #121215;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            border: 1px dashed rgba(255,223,0,0.3);
-        }
-
-        /* ===== LUXURY FORM LABELS & INPUT FLUIDITY ===== */
-        .form-group { 
-            display: flex; 
-            flex-direction: column; 
-            margin-bottom: 1.2rem;
-            text-align: left;
-        }
-        
-        .form-group label { 
-            color: var(--primary-gold); 
-            font-size: 0.9rem; 
-            font-weight: 900; 
-            margin-bottom: 0.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        .form-group input, .form-group select { 
-            padding: 1rem; 
-            background: var(--pure-black); 
-            border: 2px solid rgba(255, 223, 0, 0.5); 
-            color: var(--bright-white); 
-            border-radius: 6px; 
-            font-family: inherit; 
-            font-size: 1rem;
-            font-weight: 600;
-            width: 100%;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--primary-gold);
-
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
-            color: var(--pure-black);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 900;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 2px solid var(--bright-white);
-            text-align: center;
-            cursor: pointer;
-            font-family: inherit;
-
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--bright-white);
-            color: #000000;
-
-        }
-
-        /* ===== FOOTER STRUCTURAL FLOW ===== */
-        footer {
-            background: #000000; 
-            color: var(--bright-white);
-            padding: 5rem 2rem 2rem 2rem;
-            border-top: 4px solid var(--primary-gold);
-            position: relative;
-            z-index: 100;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .footer-left-block {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .footer-links-col h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-        .footer-links-col ul a {
-            color: #d1d1d6;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-        .footer-links-col ul a:hover {
-            color: var(--primary-gold);
-        }
-
-        .footer-reg-col {
-            background: var(--card-black);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-
-        }
-
-        .footer-reg-col h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .footer-right-contact-block {
-            background: var(--card-black);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-        }
-
-        .footer-right-contact-block h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(255,223,0,0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .contact-item-box {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            background: var(--pure-black);
-            padding: 1rem 1.2rem;
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            border-left: 5px solid var(--primary-gold);
-            border-radius: 4px;
-        }
-
-        .contact-item-box span.icon { font-size: 1.6rem; color: var(--primary-gold); }
-        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #a1a1aa; text-transform: uppercase; font-weight: 800; }
-        .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
-
-        .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
-        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
-        .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-        
-        .social-icon-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #fff;
-
-        }
-
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #0088cc; }
-        .btn-imo { background: #128C7E; }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 4rem auto 0 auto;
-            border-top: 2px solid rgba(255,223,0,0.25);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #71717a;
-        }
-
-        /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
-        @media (max-width: 1024px) {
-            .profile-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-            .profile-image-box {
-                max-width: 380px;
-            }
-            .condition-highlight {
-                border-left: none;
-                border-top: 5px solid var(--primary-gold);
-                border-radius: 0 0 12px 12px;
-            }
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 0.6rem 1rem; }
-            nav ul { display: none; }
-            .logo span { font-size: 1.1rem; }
-            .logo-img { height: 40px; }
-
-            .hero-view-port { 
-                margin-top: 65px; 
-                aspect-ratio: 4 / 3; 
-                border-width: 2px;
-            }
-
-            .slide-text-overlay { width: 92%; }
-            .slide-text-overlay h1 {
-                font-size: 2.3rem;
-                letter-spacing: 2px;
-                line-height: 1.2;
-            }
-
-            .section-title { font-size: 2rem; }
-            .profile-info h2 { font-size: 2.2rem; }
-            .live-arena-viewport { padding: 1.5rem 1rem; border-width: 3px; }
-            .live-header-ticker { flex-direction: column; gap: 1rem; text-align: center; }
-            .live-lucky-num { font-size: 4.2rem; letter-spacing: 2px; }
-            .live-op-name { font-size: 1.6rem; }
-
-            .winners-modal-window { padding: 2rem 1rem; height: 90vh; }
-            .winner-premium-profile-card { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                justify-items: center;
-                padding: 1.2rem;
-            }
-            .winner-media-reviews-row { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
-            .close-modal-trigger { top: 0.8rem; right: 1.2rem; font-size: 2rem; }
-            .modal-headline { font-size: 1.4rem; }
-
-            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .portfolio-grid, .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .footer-links-col ul { grid-template-columns: 1fr; }
-            .social-icons-row { justify-content: center; }
-            .social-icon-btn { width: 100%; justify-content: center; }
-        }
-
-        @media (max-width: 480px) {
-            .slide-text-overlay h1 { font-size: 1.9rem; }
-            .live-lucky-num { font-size: 3.5rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">
-            <img class="logo-img" src="1000014839.png" alt="Logo">
-            <span>MALAYSIAN LOTTERY</span>
-        </div>
-        <div class="nav-right-container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#profile">About Me</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#results">Live Screen</a></li>
-                <li><a href="#portfolio">Wins</a></li>
-                <li><a href="#footer-anchor">Register</a></li>
-            </ul>
-            <select class="lang-selector-box" onchange="alert('Language engine translating...');">
-                <option value="en">English (US)</option>
-                <option value="bn">Bangla (বাংলা)</option>
-            </select>
-        </div>
-    </nav>
-
-    <div class="hero-view-port" id="home">
-        <canvas id="particleCanvas"></canvas>
-        <div class="slider-wrapper">
-            <div class="full-slide-layer active">
-                <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
-                <div class="slide-text-overlay">
-                    <h1>
-                        <span>Welcome</span>
-                        <span>to</span>
-                        <span>Malaysian</span>
-                        <span>Lottery</span>
-                    </h1>
-                </div>
-            </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
-            </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
-            </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
-            </div>
-        </div>
-    </div>
-
-    <section class="profile-section" id="profile">
-        <div class="profile-container">
-            <div class="profile-image-box">
-                <img class="profile-logo-overlay" src="1000014839.png" alt="Emblem">
-            </div>
-            <div class="profile-info">
-                <h2>Hanif Sarkar</h2>
-                <div class="profile-badge">Verified 100% Winning Tips Agent</div>
-                <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases.</p>
-                <div class="condition-highlight">
-                    <strong>Zero Upfront Payment Terms:</strong>
-                    No advance service fees or hidden charges are required before an official win condition is met. A straightforward 30% commission applies only on total winnings.
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div>
-                    <div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win Only</div></div>
-                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">VIP Support</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-section" id="services">
-        <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks</p>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon"></div>
-                <h3>4D Dragon</h3>
-                <p>Expertly engineered prediction charts and exclusive direct coordinate structural number selections.</p>
-            </div>
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto"></div>
-                <h3>Nine Lotto</h3>
-                <p>Strategic pattern analysis configurations optimized to elevate your mathematical winning ratios safely.</p>
-            </div>
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014883.png" alt="Sports Toto"></div>
-                <h3>Sports Toto</h3>
-                <p>High precision combination generators tracking historical execution trends across active pools.</p>
-            </div>
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D"></div>
-                <h3>Magnum 4D</h3>
-                <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
-            </div>
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
-                <h3>Grand Dragon Lotto</h3>
-                <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
-            </div>
-            <div class="service-card">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
-                <h3>Perdana 4D</h3>
-                <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="results-section" id="results">
-        <div class="results-section-bg"></div>
-        <h2 class="section-title">Latest Live Confirmations</h2>
-        <div class="live-arena-viewport">
-            <div class="live-header-ticker">
-                <div class="live-status-tag"><div class="live-dot"></div><span>Live Drawing</span></div>
-                <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
-            </div>
-            <div class="live-slideshow-container">
-                <div class="live-result-slide active">
-                    <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
-                    <div class="live-lucky-num">4829</div>
-                    <div class="live-status-txt">1ST PRIZE VERIFIED</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: #E91E63;">NINE LOTTO</div>
-                    <div class="live-lucky-num">9312</div>
-                    <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-green);">SPORTS TOTO</div>
-                    <div class="live-lucky-num">5678</div>
-                    <div class="live-status-txt">SUPREME 4D CONFIRMED</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-blue);">MAGNUM 4D</div>
-                    <div class="live-lucky-num">7156</div>
-                    <div class="live-status-txt">GOLDEN TICKET MATCHED</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section" id="portfolio">
-        <h2 class="section-title">Previous Winning Games</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon Lotto')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐉</div>
-                <h3>Grand Dragon</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
-                <h3>Sports Toto</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💎</div>
-                <h3>Magnum</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎰</div>
-                <h3>Nine Lotto</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="winners-modal-overlay" id="winnersModal">
-        <div class="winners-modal-window">
-            <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
-            <div class="modal-headline" id="modalGameTitle">Game Winners</div>
-            <div class="winners-profiles-container-grid" id="profilesContainer"></div>
-        </div>
-    </div>
-
-    <footer id="footer-anchor">
-        <div class="footer-container">
-            <div class="footer-left-block">
-                <div class="footer-links-col">
-                    <h4>Quick Navigation</h4>
-                    <ul>
-                        <li><a href="#home">Home Gateway</a></li>
-                        <li><a href="#profile">About Me</a></li>
-                        <li><a href="#services">Game Services</a></li>
-                        <li><a href="#results">Live Monitor</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-reg-col">
-                    <h4>VIP Registration</h4>
-                    <form onsubmit="sendWhatsAppNotification(event)">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" id="regName" placeholder="Enter your official name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Contact Number</label>
-                            <input type="tel" id="regPhone" placeholder="Example: +60 12-345-6789" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Select Target Game</label>
-                            <select id="regGame" required>
-                                <option value="">-- Choose Your Game --</option>
-                                <option value="Magnum 4D">Magnum 4D</option>
-                                <option value="4D Dragon">4D Dragon</option>
-                                <option value="Sports Toto">Sports Toto</option>
-                                <option value="Nine Lotto">Nine Lotto</option>
-                                <option value="Grand Dragon">Grand Dragon</option>
-                                <option value="Perdana 4D">Perdana 4D</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Register For VIP Tips</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-right-contact-block">
-                <h4>Verified Agent Connections</h4>
-                <div class="footer-contact-details">
-                    <div class="contact-item-box">
-                        <span class="icon">✉️</span>
-                        <div>
-                            <p>Official Email Gateway</p>
-                            <a href="mailto:support@malaysianlottery.com">support@malaysianlottery.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item-box">
-                        <span class="icon">📍</span>
-                        <div>
-                            <p>Administrative Base</p>
-                            <h5>Kuala Lumpur, Malaysia</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-media-cluster">
-                    <div class="social-cluster-title">Instant Chat Networks:</div>
-                    <div class="social-icons-row">
-                        <a href="https://wa.me/60123456789" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
-                        <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
-                        <a href="imo://chat?phone=60123456789" class="social-icon-btn btn-imo"><span>📱</span> Imo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC (BUG-FREE & SYNCHRONIZED) ===== */
-            const slides = document.querySelectorAll('.full-slide-layer');
-            let currentSlide = 0;
-            
-            function nextSlide() {
-                if (slides.length === 0) return;
-                
-                // বর্তমান স্লাইড হাইড করো
-                slides[currentSlide].classList.remove('active');
-                
-                // ইমেজের ইন্ডেক্স পরিবর্তন
-                currentSlide = (currentSlide + 1) % slides.length;
-                
-                // পরবর্তী স্লাইড শো করো
-                slides[currentSlide].classList.add('active');
-            }
-            
-            // লুপ টাইমার ৪ সেকেন্ড (৪০০০ মিলিসেকেন্ড)
-            setInterval(nextSlide, 4000);
-
-            /* ===== DIGITAL LIVE RESULTS SYSTEM ===== */
-            const liveSlides = document.querySelectorAll('.live-result-slide');
-            let currentLiveSlide = 0;
-            setInterval(() => {
-                if(liveSlides.length > 0) {
-                    liveSlides[currentLiveSlide].classList.remove('active');
-                    currentLiveSlide = (currentLiveSlide + 1) % liveSlides.length;
-                    liveSlides[currentLiveSlide].classList.add('active');
-                }
-            }, 3000);
-
-            /* ===== TERMINAL CLOCK SYNC ===== */
-            function updateLiveClock() {
-                const now = new Date();
-                const clockEl = document.getElementById('liveClock');
-                if(clockEl) {
-                    clockEl.innerText = "EST SYNC: " + now.toLocaleTimeString();
-                }
-            }
-            setInterval(updateLiveClock, 1000);
-            updateLiveClock();
-
-            /* ===== CANVAS GOLD PARTICLES GENERATOR ===== */
-            const canvas = document.getElementById("particleCanvas");
-            if (canvas) {
-                const ctx = canvas.getContext("2d");
-                function resizeCanvas() {
-                    const rect = canvas.parentElement.getBoundingClientRect();
-                    canvas.width = rect.width;
-                    canvas.height = rect.height;
-                }
-                resizeCanvas();
-                window.addEventListener("resize", resizeCanvas);
-
-                const particleCount = 120; 
-                const particles = [];
-                class Particle {
-                    constructor() { this.reset(); }
-                    reset() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = canvas.height + Math.random() * 20;
-                        this.size = Math.random() * 2.5 + 1;
-                        this.speedY = Math.random() * 1.2 + 0.4;
-                        this.speedX = (Math.random() - 0.5) * 0.6;
-                        this.alpha = Math.random() * 0.35 + 0.1; 
-                    }
-                    update() {
-                        this.y -= this.speedY;
-                        this.x += this.speedX;
-                        if (this.y < -10) this.reset();
-                    }
-                    draw() {
-                        ctx.save();
-                        ctx.globalAlpha = this.alpha;
-                        ctx.fillStyle = "#FFDF00";
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.restore();
-                    }
-                }
-                for(let i = 0; i < particleCount; i++) particles.push(new Particle());
-                function animateParticles() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(p => { p.update(); p.draw(); });
-                    requestAnimationFrame(animateParticles);
-                }
-                animateParticles();
-            }
-        });
-
-        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
-        function sendWhatsAppNotification(event) {
-            event.preventDefault(); 
-
-            const name = document.getElementById('regName').value;
-            const phone = document.getElementById('regPhone').value;
-            const game = document.getElementById('regGame').value;
-
-            const targetAgentWhatsAppNumber = "60123456789"; 
-
-            const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
-                                `👤 *Client Name:* ${name}\n` +
-                                `📱 *WhatsApp Number:* ${phone}\n` +
-                                `🎰 *Target Game:* ${game}\n\n` +
-                                `Please process the high-precision prediction matrices immediately.`;
-
-            const encodedMessage = encodeURIComponent(messageText);
-            const whatsAppUrl = `https://wa.me/${targetAgentWhatsAppNumber}?text=${encodedMessage}`;
-
-            window.open(whatsAppUrl, '_blank');
-        }
-
-        /* ===== WINNERS MODAL PLATFORM GENERATOR ===== */
-        function openWinnersModal(gameName) {
-            document.getElementById('modalGameTitle').innerText = gameName + " - Top 10 Verified Winners";
-            const container = document.getElementById('profilesContainer');
-            if(!container) return;
-            container.innerHTML = ""; 
-
-            for(let i = 1; i <= 10; i++) {
-                let prizeAmount = (Math.floor(Math.random() * 4) + 1) * 100000;
-                let winnerName = `Winner Profile Card #0${i}`;
-                let winnerLocation = `Location Tier: Johor Bahru, Malaysia | Payout: ${prizeAmount.toLocaleString()} MYR`;
-                let winnerReview = `"I cannot express how grateful I am for the premium calculations. The number coordination layout was perfectly tailored. Highly professional tips framework received via WhatsApp channels!"`;
-                let winnerAvatar = `<div style="width:100%; height:100%; background:#222; display:flex; align-items:center; justify-content:center; color:var(--primary-gold); font-weight:bold;">WINNER 0${i}</div>`;
-
-                if (gameName === 'Grand Dragon Lotto' && i === 1) {
-                    winnerName = "Sabbir Ali";
-                    winnerLocation = "Age: 35 | Passport No: [Protected] | Payout: 450,000 MYR";
-                    winnerReview = `"Alhamdulillah! Hanif Sarkar's tips are 100% genuine. I followed his Grand Dragon calculations and won a massive prize. No advance payment was needed, just 30% after my win. Highly recommended for everyone!"`;
-                    winnerAvatar = `<img src="1000014883.png" style="width:100%; height:100%; object-fit:cover;">`;
-                }
-
-                const profileCardHTML = `
-                    <div class="winner-premium-profile-card">
-                        <div class="winner-avatar-frame">
-                            ${winnerAvatar}
-                        </div>
-                        <div class="winner-meta-details-box">
-                            <h4>${winnerName}</h4>
-                            <div class="winner-address-tag">${winnerLocation}</div>
-                            <div class="winner-written-review">
-                                ${winnerReview}
-                            </div>
-                            <div class="winner-media-reviews-row">
-                                <div class="audio-review-wrapper">
-                                    <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
-                                    <audio controls style="width:100%;">
-                                        <source src="winner_audio_track_${i}.mp3" type="audio/mpeg">
-                                    </audio>
-                                </div>
-                                <div class="video-review-wrapper">
-                                    <span class="media-label-text">📹 Winner Video Review Stream</span>
-                                    <div class="video-review-placeholder">▶ Play Video Proof Clip #0${i}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += profileCardHTML;
-            }
-            
-            document.getElementById('winnersModal').style.display = "flex";
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function closeWinnersModal() {
-            document.getElementById('winnersModal').style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    </script>
-</body>
-</html>
+            0% { opacity: 0.
