@@ -235,7 +235,7 @@
             align-items: center;
         }
 
-        /* হানিফ সরকার প্রোফাইল ফ্রেম - শ্যাডো/গ্লো রিমুভড ও সলিড ব্ল্যাক */
+        /* হানিফ সরকার প্রোফাইল ফ্রেম - রেগুলার সাইজ ফিক্সড */
         .profile-image-box {
             width: 100%;
             max-width: 450px;
@@ -251,12 +251,11 @@
             box-shadow: none;
         }
 
-        .profile-logo-overlay {
-            height: 120px;
-            width: auto;
-            object-fit: contain;
+        .profile-photo-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin: 0 auto;
         }
 
         .profile-info h2 {
@@ -1039,7 +1038,7 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img class="profile-logo-overlay" src="1000014839.png" alt="Emblem">
+                <img class="profile-photo-main" src="1000014922.jpg" alt="Hanif Sarkar Profile">
             </div>
             <div class="profile-info">
                 <h2>Hanif Sarkar</h2>
@@ -1232,9 +1231,9 @@
                 <div class="social-media-cluster">
                     <div class="social-cluster-title">Instant Chat Networks:</div>
                     <div class="social-icons-row">
-                        <a href="https://wa.me/60123456789" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
+                        <a href="https://wa.me/601116448229" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
                         <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
-                        <a href="imo://chat?phone=60123456789" class="social-icon-btn btn-imo"><span>📱</span> Imo</a>
+                        <a href="https://www.imo.im/chat/601116448229" target="_blank" class="social-icon-btn btn-imo"><span>📱</span> Imo</a>
                     </div>
                 </div>
             </div>
@@ -1329,13 +1328,13 @@
             }
         });
 
-        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
+        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE (UPDATED TO +601116448229) ===== */
         function sendWhatsAppNotification(event) {
             event.preventDefault(); 
             const name = document.getElementById('regName').value;
             const phone = document.getElementById('regPhone').value;
             const game = document.getElementById('regGame').value;
-            const targetAgentWhatsAppNumber = "60123456789"; 
+            const targetAgentWhatsAppNumber = "601116448229"; // আপনার পার্সোনাল নাম্বার যুক্ত করা হয়েছে
 
             const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
                                 `👤 *Client Name:* ${name}\n` +
@@ -1362,11 +1361,10 @@
                 let winnerReview = `"I cannot express how grateful I am for the premium calculations. The number coordination layout was perfectly tailored. Highly professional tips framework received via WhatsApp channels!"`;
                 let winnerAvatar = `<div style="width:100%; height:100%; background:#222; display:flex; align-items:center; justify-content:center; color:var(--primary-gold); font-weight:bold;">WINNER 0${i}</div>`;
                 
-                // ডিফল্ট ডামি প্লেয়ার সোর্স
                 let audioSource = `winner_audio_track_${i}.mp3`;
                 let videoHTML = `<div class="video-review-placeholder">▶ Play Video Proof Clip #0${i}</div>`;
 
-                // সাব্বির আলী প্রোফাইল ডেটা ইন্টিগ্রেশন (Grand Dragon Lotto - Winner 1)
+                // সাব্বির আলী প্রোফাইল ডেটা ইন্টিগ্রেশন (Grand Dragon Lotto - Winner 1) - অডিও সোর্স টাইপ ফিক্সড
                 if (gameName === 'Grand Dragon Lotto' && i === 1) {
                     winnerName = "Sabbir Ali";
                     winnerLocation = "Age: 35 | Passport No: [Protected] | Payout: 450,000 MYR";
@@ -1380,7 +1378,6 @@
                         </video>
                     `;
                 } else {
-                    // অন্যান্য ডামি কার্ডের জন্য সাধারণ ভিডিও ট্যাগ
                     videoHTML = `
                         <video controls preload="none">
                             <source src="winner_video_clip_${i}.mp4" type="video/mp4">
@@ -1403,6 +1400,7 @@
                                 <div class="audio-review-wrapper">
                                     <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
                                     <audio controls preload="metadata" style="width:100%;">
+                                        <source src="${audioSource}" type="audio/ogg; codecs=opus">
                                         <source src="${audioSource}" type="audio/ogg">
                                         <source src="${audioSource}" type="audio/mpeg">
                                         Your browser does not support the audio element.
