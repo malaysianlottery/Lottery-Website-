@@ -1346,4 +1346,123 @@
                 {
                     name: "Sabbir Ali",
                     meta: "Age: 35 | Residence: Johor Bahru, Malaysia | Payout: 450,000 MYR",
-                    review: `"Alhamdulillah! Hanif Sarkar's tips are 100% genuine. I followed his Grand Dragon calculations and won a massive prize. No advance payment was needed, just 30% after my
+                    review: `"Alhamdulillah! Hanif Sarkar's tips are 100% genuine. I followed his Grand Dragon calculations and won a massive prize. No advance payment was needed, just 30% after my win. Highly recommended for everyone!"`,
+                    isSpecial: true
+                },
+                {
+                    name: "Mizanur Rahman",
+                    meta: "Age: 29 | Residence: Penang, Malaysia | Payout: 280,000 MYR",
+                    review: `"আমি মালয়েশিয়ায় প্রায় ৫ বছর ধরে আছি, অনেক টাকা লস করেছি আগে। হানিফ ভাইয়ের ক্যালকুলেশন চার্ট পাওয়ার পর প্রথমবার বড় প্রাইজ উইন হলাম। উনি কোনো অ্যাডভান্স নেন নাই, জেতার পর ৩০% কমিশন নিয়ে কাজ করে দিয়েছেন।"`
+                },
+                {
+                    name: "Mohammad Ibrahim",
+                    meta: "Age: 42 | Residence: Kuala Lumpur, Malaysia | Payout: 350,000 MYR",
+                    review: `"Genuine and trusted agent! His mathematical coordination layout was 100% accurate. I got the special direct block numbers on my WhatsApp. Best of luck, Hanif Bhai!"`
+                },
+                {
+                    name: "Kamrul Islam",
+                    meta: "Age: 31 | Residence: Shah Alam, Malaysia | Payout: 190,000 MYR",
+                    review: `"হানিফ সরকারের ফ্রি ক্যালকুলেশন ট্রিক্স সত্যি অসাধারণ। প্রথমে বিশ্বাস করতে কষ্ট হয়েছিল, কিন্তু রেজাল্ট লাইভ দেখার পর বুঝলাম উনার মেথড কতটা শক্তিশালী। প্রবাসী ভাইদের জন্য সেরা মাধ্যম।"`
+                },
+                {
+                    name: "Rashedul Prodan",
+                    meta: "Age: 26 | Residence: Singapore (Ex-Klang Worker) | Payout: 220,000 SGD Equivalent",
+                    review: `"Top tier support and accurate database calculation. No hidden service charges before the lucky draw execution. Highly professional agent framework."`
+                },
+                {
+                    name: "Ariful Islam",
+                    meta: "Age: 38 | Residence: Malacca, Malaysia | Payout: 400,000 MYR",
+                    review: `"আল্লাহর রহমতে হানিফ ভাইয়ের ভিআইপি মেম্বারশিপ গ্রুপে যুক্ত হয়ে আমার সব লস কভার করতে পেরেছি। উনি এক টাকাও আগে নেন নাই, উইন হওয়ার পরেই শুধু উনার পাওনা বুঝাইয়া দিছি।"`
+                },
+                {
+                    name: "Selim Hossain",
+                    meta: "Age: 33 | Residence: Ipoh, Malaysia | Payout: 150,000 MYR",
+                    review: `"Very helpful layout patterns. Direct ticket match confirmed on Perdana and Toto pools seamlessly. Safe matrix generator recommended."`
+                },
+                {
+                    name: "Tariqul Anam",
+                    meta: "Age: 45 | Residence: Cyberjaya, Malaysia | Payout: 320,000 MYR",
+                    review: `"কোম্পানির ব্যানার দেখে যোগাযোগ করেছিলাম। হানিফ ভাই পারফেক্ট গাইডলাইন দিয়েছেন। প্রবাসী শ্রমিকদের কষ্টের টাকা এভাবে সঠিক ট্রিক্সে কাজে লাগানোর জন্য উনাকে ধন্যবাদ।"`
+                },
+                {
+                    name: "Anowar Kazi",
+                    meta: "Age: 30 | Residence: Klang, Malaysia | Payout: 260,000 MYR",
+                    review: `"100% genuine winning logs received on my instant chat connection. Fast verification and no fraud advanced requirements."`
+                },
+                {
+                    name: "Faruk Ahmed",
+                    meta: "Age: 34 | Residence: Rawang, Malaysia | Payout: 500,000 MYR",
+                    review: `"হাফ মিলিয়ন মাইর উইন করা মুখের কথা না! হানিফ সরকারের ডাবল-চান্স পারমিউটেশন ফর্মুলা দিয়ে এটা সম্ভব হয়েছে। উইন হওয়ার পর সততার সাথে ৩০% পে করে দিয়েছি।"`
+                }
+            ];
+
+            for(let i = 0; i < 10; i++) {
+                let currentWinner = expatriateWinners[i];
+                let winnerName = currentWinner.name;
+                let winnerLocation = currentWinner.meta;
+                let winnerReview = currentWinner.review;
+                
+                let winnerAvatar = `<div style="width:100%; height:100%; background:#1c1c24; display:flex; align-items:center; justify-content:center; color:var(--primary-gold); font-weight:bold; font-size:1.1rem; border: 1px dashed rgba(255,223,0,0.3);">PRO-0${i+1}</div>`;
+                let audioSource = `winner_audio_track_${i+1}.mp3`;
+                let videoHTML = `
+                    <video controls preload="none">
+                        <source src="winner_video_clip_${i+1}.mp4" type="video/mp4">
+                    </video>
+                `;
+
+                // সাব্বির আলীর জন্য স্পেশাল মিডিয়া ফাইল ও রিয়েল ফটো লোড করা হচ্ছে
+                if (gameName === 'Grand Dragon Lotto' && currentWinner.isSpecial) {
+                    winnerAvatar = `<img src="1000011072.jpg" style="width:100%; height:100%; object-fit:cover;">`;
+                    audioSource = `PTT-20260529-WA0000.opus`;
+                    videoHTML = `
+                        <video controls preload="metadata">
+                            <source src="VID-20260420-WA0007.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+
+                const profileCardHTML = `
+                    <div class="winner-premium-profile-card">
+                        <div class="winner-avatar-frame">
+                            ${winnerAvatar}
+                        </div>
+                        <div class="winner-meta-details-box">
+                            <h4>${winnerName}</h4>
+                            <div class="winner-address-tag">${winnerLocation}</div>
+                            <div class="winner-written-review">
+                                ${winnerReview}
+                            </div>
+                            <div class="winner-media-reviews-row">
+                                <div class="audio-review-wrapper">
+                                    <span class="media-label-text">🔊 Winner Audio Verification Statement</span>
+                                    <audio controls preload="metadata" style="width:100%;">
+                                        <source src="${audioSource}" type="audio/ogg; codecs=opus">
+                                        <source src="${audioSource}" type="audio/ogg">
+                                        <source src="${audioSource}" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <div class="video-review-wrapper">
+                                    <span class="media-label-text">📹 Winner Video Review Stream</span>
+                                    ${videoHTML}
+                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += profileCardHTML;
+            }
+            
+            document.getElementById('winnersModal').style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeWinnersModal() {
+            document.getElementById('winnersModal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+</body>
+</html>
