@@ -247,13 +247,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px var(--gold-glow);
+            box-shadow: none;
         }
 
         .profile-photo-main {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* লোগো সুন্দরভাবে ফিট হওয়ার জন্য contain ব্যবহার করা হয়েছে */
+            background: #0d0d11;
             display: block;
         }
 
@@ -454,6 +455,13 @@
             background-color: var(--neon-red);
             border-radius: 50%;
             animation: pulseBlink 0.8s infinite alternate;
+        }
+
+        @media (max-width: 1024px) {
+            .profile-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .profile-image-box { max-width: 380px; }
+            .condition-highlight { border-left: none; border-top: 5px solid var(--primary-gold); border-radius: 0 0 12px 12px; }
+            .footer-container { grid-template-columns: 1fr; gap: 3rem; }
         }
 
         @keyframes pulseBlink {
@@ -802,6 +810,17 @@
             gap: 3rem;
         }
 
+        .footer-links-col h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
         .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
         .footer-links-col ul a {
             color: #d1d1d6;
@@ -904,26 +923,6 @@
         }
 
         /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
-        @media (max-width: 1024px) {
-            .profile-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-            .profile-image-box {
-                max-width: 380px;
-            }
-            .condition-highlight {
-                border-left: none;
-                border-top: 5px solid var(--primary-gold);
-                border-radius: 0 0 12px 12px;
-            }
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-        }
-
         @media (max-width: 768px) {
             nav { padding: 0.6rem 1rem; }
             nav ul { display: none; }
@@ -1026,7 +1025,7 @@
     <section class="profile-section" id="profile">
         <div class="profile-container">
             <div class="profile-image-box">
-                <img class="profile-photo-main" src="1000011072.jpg" alt="Hanif Sarkar Profile">
+                <img class="profile-photo-main" src="1000014839.png" alt="Hanif Sarkar Brand Logo">
             </div>
             <div class="profile-info">
                 <h2>Hanif Sarkar</h2>
@@ -1121,7 +1120,7 @@
         <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
         
         <div class="portfolio-grid">
-            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon')">
+            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon Lotto')">
                 <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐉</div>
                 <h3>Grand Dragon</h3>
                 <p>Certified Winning Log</p>
@@ -1159,6 +1158,16 @@
     <footer id="footer-anchor">
         <div class="footer-container">
             <div class="footer-left-block">
+                <div class="footer-links-col">
+                    <h4>Quick Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home Gateway</a></li>
+                        <li><a href="#profile">About Me</a></li>
+                        <li><a href="#services">Game Services</a></li>
+                        <li><a href="#results">Live Monitor</a></li>
+                    </ul>
+                </div>
+
                 <div class="footer-reg-col">
                     <h4>VIP Registration</h4>
                     <form onsubmit="sendWhatsAppNotification(event)">
@@ -1296,4 +1305,45 @@
                         ctx.restore();
                     }
                 }
-                for(let i = 0
+                for(let i = 0; i < particleCount; i++) particles.push(new Particle());
+                function animateParticles() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(p => { p.update(); p.draw(); });
+                    requestAnimationFrame(animateParticles);
+                }
+                animateParticles();
+            }
+        });
+
+        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
+        function sendWhatsAppNotification(event) {
+            event.preventDefault(); 
+            const name = document.getElementById('regName').value;
+            const phone = document.getElementById('regPhone').value;
+            const game = document.getElementById('regGame').value;
+            const targetAgentWhatsAppNumber = "601116448229";
+
+            const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
+                                `👤 *Client Name:* ${name}\n` +
+                                `📱 *WhatsApp Number:* ${phone}\n` +
+                                `🎰 *Target Game:* ${game}\n\n` +
+                                `Please process the high-precision prediction matrices immediately.`;
+
+            const encodedMessage = encodeURIComponent(messageText);
+            const whatsAppUrl = `https://wa.me/${targetAgentWhatsAppNumber}?text=${encodedMessage}`;
+            window.open(whatsAppUrl, '_blank');
+        }
+
+        /* ===== WINNERS MODAL PLATFORM GENERATOR (UPDATED WITH EXPATRIOT BENGALI MEN) ===== */
+        function openWinnersModal(gameName) {
+            document.getElementById('modalGameTitle').innerText = gameName + " - Top 10 Verified Winners";
+            const container = document.getElementById('profilesContainer');
+            if(!container) return;
+            container.innerHTML = ""; 
+
+            // প্রবাসী বাংলাদেশি ভাইদের রিয়েলিস্টিক ডাটাবেজ
+            const expatriateWinners = [
+                {
+                    name: "Sabbir Ali",
+                    meta: "Age: 35 | Residence: Johor Bahru, Malaysia | Payout: 450,000 MYR",
+                    review: `"Alhamdulillah! Hanif Sarkar's tips are 100% genuine. I followed his Grand Dragon calculations and won a massive prize. No advance payment was needed, just 30% after my
