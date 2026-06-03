@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রেসপনসিভ ওয়েবসাইট ও উইনার রিভিউ</title>
+    <title>MyPlatform - Responsive Menu</title>
     <style>
         /* জেনারেল স্টাইল */
         * {
@@ -15,6 +15,7 @@
         body {
             background-color: #f4f7f6;
             color: #333;
+            padding-top: 70px; /* হেডার ফিক্সড থাকার কারণে কন্টেন্ট নিচে নামানোর জন্য */
         }
         
         /* হেডার ও নেভিগেশন বার */
@@ -32,9 +33,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 15px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            height: 60px;
         }
         .logo {
             font-size: 24px;
@@ -62,74 +64,76 @@
             cursor: pointer;
             flex-direction: column;
             gap: 5px;
+            padding: 5px;
         }
         .hamburger span {
             width: 25px;
             height: 3px;
             background-color: white;
             transition: 0.3s;
+            display: block;
         }
 
         /* সেকশন স্টাইল */
         section {
-            padding: 100px 20px 60px 20px;
+            padding: 40px 20px;
             max-width: 1200px;
-            margin: 0 auto;
-            min-height: 50vh;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .section-title {
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 40px;
+            font-size: 26px;
+            margin-bottom: 25px;
             color: #0056b3;
             position: relative;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 3px;
             background-color: #0056b3;
-            margin: 10px auto 0 auto;
+            margin: 8px auto 0 auto;
         }
-
-        /* হোম ও এবাউট মি সেকশন */
-        #home, #about {
-            background-color: white;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
         }
 
         /* প্রিভিয়াস উইনারস গ্রিড স্টাইল */
         .winners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
         .winner-card {
-            background-color: white;
+            background-color: #fff;
+            border: 1px solid #e1e8ed;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
         .winner-card:hover {
             transform: translateY(-5px);
         }
         .winner-img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border: 3px solid #0056b3;
         }
         .winner-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 5px;
             color: #222;
@@ -141,16 +145,17 @@
             padding: 3px 10px;
             font-size: 12px;
             border-radius: 20px;
-            margin-bottom: 15px;
-        }
-        .winner-review {
-            font-style: italic;
-            color: #555;
-            line-height: 1.6;
+            margin-bottom: 12px;
         }
         .stars {
             color: #ffc107;
             margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .winner-review {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
         }
 
         /* ফুটার */
@@ -158,17 +163,18 @@
             background-color: #222;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             margin-top: 40px;
+            font-size: 14px;
         }
 
-        /* মোবাইল ও ট্যাবলেটের জন্য রেসপনসিভ মিডিয়া কোয়েরি */
+        /* মোবাইল স্ক্রিনের জন্য রেসপনসিভ স্টাইল */
         @media (max-width: 768px) {
             .hamburger {
-                display: flex;
+                display: flex; /* মোবাইলে থ্রি-লাইন দেখাবে */
             }
             .nav-links {
-                display: none;
+                display: none; /* ডিফল্টভাবে মেনু লুকানো থাকবে */
                 flex-direction: column;
                 position: absolute;
                 top: 60px;
@@ -176,8 +182,9 @@
                 width: 100%;
                 background-color: #0056b3;
                 text-align: center;
-                box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
+            /* যখন active ক্লাস যুক্ত হবে তখন মেনু দেখা যাবে */
             .nav-links.active {
                 display: flex;
             }
@@ -189,7 +196,8 @@
                 padding: 15px;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-            /* অ্যানিমেশন ট্রানজিশন (মেনু ওপেন হলে লাইন ক্রস হবে) */
+            
+            /* থ্রি-লাইন মেনুর অ্যানিমেশন ক্রসের জন্য */
             .hamburger.toggle .line1 {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
@@ -222,21 +230,21 @@
 
     <section id="home">
         <h2 class="section-title">Home</h2>
-        <p>আমাদের প্ল্যাটফর্মে আপনাকে স্বাগতম। এখানে আপনি বিভিন্ন প্রতিযোগিতামূলক গেমসে অংশগ্রহণ করে আকর্ষণীয় পুরস্কার জিতে নিতে পারেন। স্বচ্ছতা এবং সততাই আমাদের মূল লক্ষ্য।</p>
+        <p>আমাদের প্ল্যাটফর্মে আপনাকে স্বাগতম। এখানে আপনি বিভিন্ন প্রতিযোগিতামূলক গেমসে অংশগ্রহণ করে আকর্ষণীয় পুরস্কার জিতে নিতে পারেন। স্বচ্ছতা এবং সততাই আমাদের মূল লক্ষ্য। প্রতিদিন হাজারো ইউজার আমাদের এখানে যুক্ত হয়ে তাদের মেধা ও ভাগ্যের পরীক্ষা নিচ্ছেন।</p>
     </section>
 
     <section id="about">
         <h2 class="section-title">About Me</h2>
-        <p>আমি একজন গেম ডেভেলপার এবং প্ল্যাটফর্ম মডারেটর। দীর্ঘ কয়েক বছর ধরে আমি অনলাইনে বিভিন্ন ফেয়ার-প্লে ইভেন্ট এবং গেমিং টুর্নামেন্ট পরিচালনা করে আসছি। আমাদের অতীতের সকল গেমের বিজয়ীদের তালিকা এবং তাদের সত্য প্রতিক্রিয়া নিচে তুলে ধরা হলো।</p>
+        <p>আমি একজন গেম ডেভেলপার এবং প্ল্যাটফর্ম মডারেটর। দীর্ঘ কয়েক বছর ধরে আমি অনলাইনে বিভিন্ন ফেয়ার-প্লে ইভেন্ট এবং গেমিং টুর্নামেন্ট পরিচালনা করে আসছি। আমাদের অতীতের সকল গেমের বিজয়ীদের তালিকা এবং তাদের সত্য প্রতিক্রিয়া নিচে তুলে ধরা হলো যাতে নতুনরা অনুপ্রাণিত হতে পারে।</p>
     </section>
 
     <section id="winners">
-        <h2 class="section-title">Previous Winning Games & Reviews</h2>
+        <h2 class="section-title">Previous Winners & Reviews</h2>
         
         <div class="winners-grid">
             
             <div class="winner-card">
-                <img src="https://via.placeholder.com/100" alt="Winner 1" class="winner-img">
+                <img src="https://via.placeholder.com/80" alt="Arif" class="winner-img">
                 <div class="winner-name">আরিফ রহমান</div>
                 <span class="game-tag">Mega Quiz Tournament</span>
                 <div class="stars">★★★★★</div>
@@ -244,23 +252,23 @@
             </div>
 
             <div class="winner-card">
-                <img src="https://via.placeholder.com/100" alt="Winner 2" class="winner-img">
+                <img src="https://via.placeholder.com/80" alt="Sajia" class="winner-img">
                 <div class="winner-name">সাজিয়া আফরিন</div>
                 <span class="game-tag">Lucky Spin Round 4</span>
                 <div class="stars">★★★★★</div>
-                <p class="winner-review">"একদম রিয়েল একটি প্ল্যাটফর্ম। কোন রকম ঝামেলা ছাড়াই আমি আমার উইনিং মানি তুলতে পেরেছি। আমি সবাইকে এখানে অংশ নেওয়ার অনুরোধ করব।"</p>
+                <p class="winner-review">"একদম রিয়াল একটি প্ল্যাটফর্ম। কোন রকম ঝামেলা ছাড়াই আমি আমার উইনিং মানি তুলতে পেরেছি। আমি সবাইকে এখানে অংশ নেওয়ার অনুরোধ করব।"</p>
             </div>
 
             <div class="winner-card">
-                <img src="https://via.placeholder.com/100" alt="Winner 3" class="winner-img">
+                <img src="https://via.placeholder.com/80" alt="Rashed" class="winner-img">
                 <div class="winner-name">রাশেদুল ইসলাম</div>
                 <span class="game-tag">Speed Typing Challenge</span>
                 <div class="stars">★★★★☆</div>
-                <p class="winner-review">"খুবই চমৎকার অভিজ্ঞতা! গেমের রুলসগুলো একদম পরিষ্কার ছিল। পেমেন্ট পেতে সামান্য কিছু সময় লেগেছিল, তবে সাপোর্ট টিম সাথে সাথেই সমস্যার সমাধান করে দিয়েছে।"</p>
+                <p class="winner-review">"খুবই চমৎকার অভিজ্ঞতা! গেমের রুলসগুলো একদম পরিষ্কার ছিল। পেমেন্ট পেতে সামান্য কিছু সময় লেগেছিল, তবে সাপোর্ট টিম সাথে সাথেই সমাধান করে দিয়েছে।"</p>
             </div>
 
             <div class="winner-card">
-                <img src="https://via.placeholder.com/100" alt="Winner 4" class="winner-img">
+                <img src="https://via.placeholder.com/80" alt="Tanvir" class="winner-img">
                 <div class="winner-name">তানভীর আহমেদ</div>
                 <span class="game-tag">Puzzle Master Season 2</span>
                 <div class="stars">★★★★★</div>
@@ -275,20 +283,23 @@
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburgerMenu');
-        const navLinks = document.getElementById('navLinks');
+        document.addEventListener("DOMContentLoaded", function() {
+            const hamburger = document.getElementById('hamburgerMenu');
+            const navLinks = document.getElementById('navLinks');
 
-        // থ্রি-লাইন মেনুতে ক্লিক করলে মেনু ওপেন/ক্লোজ হবে
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('toggle');
-        });
+            // থ্রি-লাইন মেনুতে ক্লিক করলে মেনু দেখা যাবে/লুকাবে
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('toggle');
+            });
 
-        // মেনুর কোনো অপশনে ক্লিক করলে মোবাইল মেনুটি স্বয়ংক্রিয়ভাবে বন্ধ হয়ে যাবে
-        document.querySelectorAll('.nav-links li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('toggle');
+            // মেনুর যেকোনো অপশনে ক্লিক করলে মোবাইল মেনুটি নিজে থেকেই বন্ধ হয়ে যাবে
+            const links = document.querySelectorAll('.nav-links li a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('toggle');
+                });
             });
         });
     </script>
