@@ -652,10 +652,12 @@
             background: #222;
         }
 
+        /* ছবিগুলো রেসপনসিভ করার জন্য সিএসএস আপডেট করা হলো */
         .winner-avatar-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .winner-meta-details-box h4 {
@@ -1340,52 +1342,52 @@
         /* ===== 40 UNIQUE WINNERS DATABASE (10 PER GAME) ===== */
         const winnersDatabase = {
             "Grand Dragon": [
-                { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"` },
-                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিফ ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"` },
-                { name: "Md. Rashed", meta: "Age: 32 | Kuala Lumpur | Payout: 250,000 MYR", review: `"First time winning such a huge amount in GDLotto. Highly recommended formula solver."` },
-                { name: "Anwar Uddin", meta: "Age: 41 | Malacca | Payout: 95,000 MYR", review: `"হানিফ ভাই মালয়েশিয়ার সেরা লটারি মেম্বারশিপ এজেন্ট। ওনার ক্যালকুলেশন ১০০% রিয়েল কাজ করে।"` },
-                { name: "Arif Khan", meta: "Age: 26 | Shah Alam | Payout: 180,000 MYR", review: `"I am shocked by the accuracy. Got a direct matching coordinate ticket number last Saturday."` },
-                { name: "Sumon Bepari", meta: "Age: 39 | Ipoh | Payout: 310,000 MYR", review: `"প্রবাসে এসে অনেক লস খেয়েছিলাম, কিন্তু হানিফ সরকারের উসিলায় গ্র্যান্ড ড্রাগন লটারিতে ফার্স্ট প্রাইজ পেয়ে আজ আমি স্বাবলম্বী।"` },
-                { name: "Mizanur Rahman", meta: "Age: 34 | Klang | Payout: 150,000 MYR", review: `"Trusted agent without any doubt. He delivers pure direct patterns safely."` },
-                { name: "Rokib Ahmed", meta: "Age: 30 | Kuching | Payout: 85,000 MYR", review: `"অ্যাডভান্স টাকা ছাড়া যে লটারির টিপস পাওয়া যায়, তা হানিফ ভাই প্রমান করে দিলেন। ধন্যবাদ ভাই।"` },
-                { name: "Shafiqul Islam", meta: "Age: 45 | Subang Jaya | Payout: 500,000 MYR", review: `"Absolutely phenomenal matrix layout strategy. Handled smoothly till terminal validation."` },
-                { name: "Hasan Mahmud", meta: "Age: 29 | Cyberjaya | Payout: 220,000 MYR", review: `"হানিফ ভাইয়ের ভিআইপি মেম্বারশিপ গ্রুপে জয়েন করে আমার ভাগ্যটাই বদলে গেছে।"` }
+                { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
+                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিফ ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"`, image: "1000015080.jpg" },
+                { name: "Md. Rashed", meta: "Age: 32 | Kuala Lumpur | Payout: 250,000 MYR", review: `"First time winning such a huge amount in GDLotto. Highly recommended formula solver."`, image: "1000015081.jpg" },
+                { name: "Anwar Uddin", meta: "Age: 41 | Malacca | Payout: 95,000 MYR", review: `"হানিফ ভাই মালয়েশিয়ার সেরা লটারি মেম্বারশিপ এজেন্ট। ওনার ক্যালকুলেশন ১০০% রিয়েল কাজ করে।"`, image: "1000015082.jpg" },
+                { name: "Arif Khan", meta: "Age: 26 | Shah Alam | Payout: 180,000 MYR", review: `"I am shocked by the accuracy. Got a direct matching coordinate ticket number last Saturday."`, image: "1000015083.jpg" },
+                { name: "Sumon Bepari", meta: "Age: 39 | Ipoh | Payout: 310,000 MYR", review: `"প্রবাসে এসে অনেক লস খেয়েছিলাম, কিন্তু হানিফ সরকারের উসিলায় গ্র্যান্ড ড্রাগন লটারিতে ফার্স্ট প্রাইজ পেয়ে আজ আমি স্বাবলম্বী।"`, image: "1000015084.jpg" },
+                { name: "Mizanur Rahman", meta: "Age: 34 | Klang | Payout: 150,000 MYR", review: `"Trusted agent without any doubt. He delivers pure direct patterns safely."`, image: "1000015085.jpg" },
+                { name: "Rokib Ahmed", meta: "Age: 30 | Kuching | Payout: 85,000 MYR", review: `"অ্যাডভান্স টাকা ছাড়া যে লটারির টিপস পাওয়া যায়, তা হানিফ ভাই প্রমান করে দিলেন। ধন্যবাদ ভাই।"`, image: "1000015086.jpg" },
+                { name: "Shafiqul Islam", meta: "Age: 45 | Subang Jaya | Payout: 500,000 MYR", review: `"Absolutely phenomenal matrix layout strategy. Handled smoothly till terminal validation."`, image: "1000015101.jpg" },
+                { name: "Hasan Mahmud", meta: "Age: 29 | Cyberjaya | Payout: 220,000 MYR", review: `"হানিফ ভাইয়ের ভিআইপি মেম্বারশিপ গ্রুপে জয়েন করে আমার ভাগ্যটাই বদলে গেছে।"`, image: "1000015100.jpg" }
             ],
             "Sports Toto": [
-                { name: "Md. Ishtiaque", meta: "Age: 29 | Kuala Lumpur | Payout: 280,000 MYR", review: `"আমি প্রথমে বিশ্বাস করতে পারিনি, কিন্তু হানিফ ভাইয়ের হিসাব নিকাশ অসাধারণ। স্পোর্টস টোটো খেলায় বড় প্রাইজ পেয়েছি। যারা রিয়েল এজেন্ট খুঁজছেন তারা যোগাযোগ করুন।"` },
-                { name: "Rubel Hossain", meta: "Age: 33 | Seremban | Payout: 140,000 MYR", review: `"Sports Toto Supreme 4D pattern configuration perfectly matched. Best service ever."` },
-                { name: "Nayan Chowdhury", meta: "Age: 27 | Johor | Payout: 90,000 MYR", review: `"কোনো অগ্রিম ফি দিতে হয়নি। শুধু উইন হওয়ার পর সততার সাথে ৩০% কমিশন দিয়েছি।"` },
-                { name: "Faisal Ahmed", meta: "Age: 36 | Petaling Jaya | Payout: 320,000 MYR", review: `"High level tracking structure. His sequence tables are deeply backed by math."` },
-                { name: "Biplob Das", meta: "Age: 42 | Miri | Payout: 210,000 MYR", review: `"হানিফ ভাই একজন সৎ মানুষ। ওনার টিপস নিয়ে স্পোর্টস টোটোতে সেকেন্ড প্রাইজ পেয়েছি।"` },
-                { name: "Sujon Mia", meta: "Age: 25 | Alor Setar | Payout: 75,000 MYR", review: `"Fast VIP verification and prompt support on WhatsApp. Very cooperative agent."` },
-                { name: "Tariqul Islam", meta: "Age: 31 | Kuantan | Payout: 195,000 MYR", review: `"আমি ওনার গাইডলাইন ফলো করে আজ সফল। স্পোর্টস টোটো লাকি নম্বর একদম মিলে গেছে।"` },
-                { name: "Faruk Khan", meta: "Age: 38 | Putrajaya | Payout: 410,000 MYR", review: `"Super heavy payout received. Golden combo matching pattern worked seamlessly."` },
-                { name: "Sainul Uddin", meta: "Age: 30 | Batu Pahat | Payout: 115,000 MYR", review: `"হানিফ সরকারের হিসাব ছাড়া লটারি কাটা মানেই টাকা নষ্ট। ওনার মেথড সেরা।"` },
-                { name: "Jasim Ahmed", meta: "Age: 34 | Cheras | Payout: 260,000 MYR", review: `"Genuine platform with clear rules. Commission strictly after your official winnings."` }
+                { name: "Md. Ishtiaque", meta: "Age: 29 | Kuala Lumpur | Payout: 280,000 MYR", review: `"আমি প্রথমে বিশ্বাস করতে পারিনি, কিন্তু হানিফ ভাইয়ের হিসাব নিকাশ অসাধারণ। স্পোর্টস টোটো খেলায় বড় প্রাইজ পেয়েছি। যারা রিয়েল এজেন্ট খুঁজছেন তারা যোগাযোগ করুন।"`, image: "1000015079.jpg" },
+                { name: "Rubel Hossain", meta: "Age: 33 | Seremban | Payout: 140,000 MYR", review: `"Sports Toto Supreme 4D pattern configuration perfectly matched. Best service ever."`, image: "1000015080.jpg" },
+                { name: "Nayan Chowdhury", meta: "Age: 27 | Johor | Payout: 90,000 MYR", review: `"কোনো অগ্রিম ফি দিতে হয়নি। শুধু উইন হওয়ার পর সততার সাথে ৩০% কমিশন দিয়েছি।"`, image: "1000015081.jpg" },
+                { name: "Faisal Ahmed", meta: "Age: 36 | Petaling Jaya | Payout: 320,000 MYR", review: `"High level tracking structure. His sequence tables are deeply backed by math."`, image: "1000015082.jpg" },
+                { name: "Biplob Das", meta: "Age: 42 | Miri | Payout: 210,000 MYR", review: `"হানিফ ভাই একজন সৎ মানুষ। ওনার টিপস নিয়ে স্পোর্টস টোটোতে সেকেন্ড প্রাইজ পেয়েছি।"`, image: "1000015083.jpg" },
+                { name: "Sujon Mia", meta: "Age: 25 | Alor Setar | Payout: 75,000 MYR", review: `"Fast VIP verification and prompt support on WhatsApp. Very cooperative agent."`, image: "1000015084.jpg" },
+                { name: "Tariqul Islam", meta: "Age: 31 | Kuantan | Payout: 195,000 MYR", review: `"আমি ওনার গাইডলাইন ফলো করে আজ সফল। স্পোর্টস টোটো লাকি নম্বর একদম মিলে গেছে।"`, image: "1000015085.jpg" },
+                { name: "Faruk Khan", meta: "Age: 38 | Putrajaya | Payout: 410,000 MYR", review: `"Super heavy payout received. Golden combo matching pattern worked seamlessly."`, image: "1000015086.jpg" },
+                { name: "Sainul Uddin", meta: "Age: 30 | Batu Pahat | Payout: 115,000 MYR", review: `"হানিফ সরকারের হিসাব ছাড়া লটারি কাটা মানেই টাকা নষ্ট। ওনার মেথড সেরা।"`, image: "1000015101.jpg" },
+                { name: "Jasim Ahmed", meta: "Age: 34 | Cheras | Payout: 260,000 MYR", review: `"Genuine platform with clear rules. Commission strictly after your official winnings."`, image: "1000015100.jpg" }
             ],
             "Magnum 4D": [
-                { name: "Babul Mia", meta: "Age: 37 | Rawang | Payout: 350,000 MYR", review: `"Magnum 4D direct prize pool extraction was smooth. Thanks Hanif Sarkar for this premium ticket distribution system."` },
-                { name: "Ripon Sarker", meta: "Age: 24 | Kajang | Payout: 95,000 MYR", review: `"ম্যাগনাম লটারির ৩টি সেট নম্বর দিয়েছিলেন, তার মধ্যে একটা ডাইরেক ফার্স্ট প্রাইজ লেগে গেছে!"` },
-                { name: "Sikder Monir", meta: "Age: 46 | Taiping | Payout: 550,000 MYR", review: `"Brilliant calculations. Highly consistent algorithm matching data models."` },
-                { name: "Alamin Sheikh", meta: "Age: 31 | Skudai | Payout: 160,000 MYR", review: `"হানিফ ভাইয়ের গ্রুপে জয়েন করার পর লটারিতে লস খাওয়া বন্ধ হয়েছে। রিয়েল গুরু!"` },
-                { name: "Rana Ahmed", meta: "Age: 29 | Ampang | Payout: 240,000 MYR", review: `"Validated 1st Prize. Zero complex setups. Just check numbers on live monitor."` },
-                { name: "Zakir Hossain", meta: "Age: 40 | Bintulu | Payout: 130,000 MYR", review: `"আমি দীর্ঘদিন ধরে চেষ্টা করছিলাম, শেষমেশ হানিফ ভাইয়ের ফর্মুলা দিয়ে ম্যাগনাম ৪ডি উইন হলাম।"` },
-                { name: "Mostafa Kamal", meta: "Age: 33 | Sandakan | Payout: 88,000 MYR", review: `"No scam, no advance payment harassment. Purely professional execution agent."` },
-                { name: "Imran Khan", meta: "Age: 27 | Sibu | Payout: 205,000 MYR", review: `"ম্যাগনামের লাকি ডাইরেক্ট ডিজিট চার্ট একদম মিলে গেছে। ওনাকে অনেক ধন্যবাদ।"` },
-                { name: "Belal Uddin", meta: "Age: 35 | Kangar | Payout: 420,000 MYR", review: `"Top level secure database. Very reliable structural layouts without hidden fees."` },
-                { name: "Emon Chowdhury", meta: "Age: 28 | Segamat | Payout: 175,000 MYR", review: `"হানিফ সরকার ভাইয়ের সততা প্রশংসনীয়। কাজ হওয়ার পরেই শুধু কমিশন নেন।"` }
+                { name: "Babul Mia", meta: "Age: 37 | Rawang | Payout: 350,000 MYR", review: `"Magnum 4D direct prize pool extraction was smooth. Thanks Hanif Sarkar for this premium ticket distribution system."`, image: "1000015079.jpg" },
+                { name: "Ripon Sarker", meta: "Age: 24 | Kajang | Payout: 95,000 MYR", review: `"ম্যাগনাম লটারির ৩টি সেট নম্বর দিয়েছিলেন, তার মধ্যে একটা ডাইরেক ফার্স্ট প্রাইজ লেগে গেছে!"`, image: "1000015080.jpg" },
+                { name: "Sikder Monir", meta: "Age: 46 | Taiping | Payout: 550,000 MYR", review: `"Brilliant calculations. Highly consistent algorithm matching data models."`, image: "1000015081.jpg" },
+                { name: "Alamin Sheikh", meta: "Age: 31 | Skudai | Payout: 160,000 MYR", review: `"হানিফ ভাইয়ের গ্রুপে জয়েন করার পর লটারিতে লস খাওয়া বন্ধ হয়েছে। রিয়েল গুরু!"`, image: "1000015082.jpg" },
+                { name: "Rana Ahmed", meta: "Age: 29 | Ampang | Payout: 240,000 MYR", review: `"Validated 1st Prize. Zero complex setups. Just check numbers on live monitor."`, image: "1000015083.jpg" },
+                { name: "Zakir Hossain", meta: "Age: 40 | Bintulu | Payout: 130,000 MYR", review: `"আমি দীর্ঘদিন ধরে চেষ্টা করছিলাম, শেষমেশ হানিফ ভাইয়ের ফর্মুলা দিয়ে ম্যাগনাম ৪ডি উইন হলাম।"`, image: "1000015084.jpg" },
+                { name: "Mostafa Kamal", meta: "Age: 33 | Sandakan | Payout: 88,000 MYR", review: `"No scam, no advance payment harassment. Purely professional execution agent."`, image: "1000015085.jpg" },
+                { name: "Imran Khan", meta: "Age: 27 | Sibu | Payout: 205,000 MYR", review: `"ম্যাগনামের লাকি ডাইরেক্ট ডিজিট চার্ট একদম মিলে গেছে। ওনাকে অনেক ধন্যবাদ।"`, image: "1000015086.jpg" },
+                { name: "Belal Uddin", meta: "Age: 35 | Kangar | Payout: 420,000 MYR", review: `"Top level secure database. Very reliable structural layouts without hidden fees."`, image: "1000015101.jpg" },
+                { name: "Emon Chowdhury", meta: "Age: 28 | Segamat | Payout: 175,000 MYR", review: `"হানিফ সরকার ভাইয়ের সততা প্রশংসনীয়। কাজ হওয়ার পরেই শুধু কমিশন নেন।"`, image: "1000015100.jpg" }
             ],
             "Nine Lotto": [
-                { name: "Saiful Islam", meta: "Age: 30 | Sungai Petani | Payout: 290,000 MYR", review: `"Nine Lotto Jackpot pattern tracked perfectly! Hanif Sarkar helped me win safely without any dynamic advanced deposits."` },
-                { name: "Zahidul Islam", meta: "Age: 36 | Muar | Payout: 105,000 MYR", review: `"নাইন লোটো খেলায় এর আগে এত বড় এমাউন্ট কখনো পাইনি। হানিফ ভাইয়ের হিসাব ১০০% পাকা।"` },
-                { name: "Sultan Ahmed", meta: "Age: 43 | Kota Bharu | Payout: 380,000 MYR", review: `"Superb algorithmic precision extraction. Checked live stream and matched data points directly."` },
-                { name: "Mamun Mia", meta: "Age: 26 | Lahad Datu | Payout: 72,000 MYR", review: `"হানিফ ভাইয়ের টিপস নিয়ে প্রবাসের সব দেনা শোধ করেছি। উনি আমাদের দেশের গর্ব।"` },
-                { name: "Kabir Hossain", meta: "Age: 32 | Tawau | Payout: 190,000 MYR", review: `"Clean VIP guidance map. Fully systematic combination charts generated accurately."` },
-                { name: "Tofazzal Ali", meta: "Age: 38 | Kulim | Payout: 230,000 MYR", review: `"নাইন লোটোর স্পেশাল ড্র-তে ফার্স্ট প্রাইজ পেয়েছি। হানিফ ভাইকে ৩০% কমিশন ট্রান্সফার করে দিয়েছি।"` },
-                { name: "Rabiul Awual", meta: "Age: 29 | Nilai | Payout: 145,000 MYR", review: `"Highly cooperative support management system. Got verified coordinates effortlessly."` },
-                { name: "Shorif Ahmed", meta: "Age: 34 | Temerloh | Payout: 82,000 MYR", review: `"লটারি জগতে প্রতারকের অভাব নেই, কিন্তু হানিফ ভাই একমাত্র জেনুইন এবং বিশ্বস্ত মানুষ।"` },
-                { name: "Khorshed Alam", meta: "Age: 48 | Port Dickson | Payout: 600,000 MYR", review: `"Outstanding milestone payout. Followed the matrix sequence daily till perfect extraction match."` },
-                { name: "Ashraful Islam", meta: "Age: 25 | Senai | Payout: 155,000 MYR", review: `"হানিফ ভাইয়ের দেওয়া লাকি চার্ট অনুযায়ী খেলে আজ আমি সফল উইনার।"` }
+                { name: "Saiful Islam", meta: "Age: 30 | Sungai Petani | Payout: 290,000 MYR", review: `"Nine Lotto Jackpot pattern tracked perfectly! Hanif Sarkar helped me win safely without any dynamic advanced deposits."`, image: "1000015079.jpg" },
+                { name: "Zahidul Islam", meta: "Age: 36 | Muar | Payout: 105,000 MYR", review: `"নাইন লোটো খেলায় এর আগে এত বড় এমাউন্ট কখনো পাইনি। হানিফ ভাইয়ের হিসাব ১০০% পাকা।"`, image: "1000015080.jpg" },
+                { name: "Sultan Ahmed", meta: "Age: 43 | Kota Bharu | Payout: 380,000 MYR", review: `"Superb algorithmic precision extraction. Checked live stream and matched data points directly."`, image: "1000015081.jpg" },
+                { name: "Mamun Mia", meta: "Age: 26 | Lahad Datu | Payout: 72,000 MYR", review: `"হানিফ ভাইয়ের টিপস নিয়ে প্রবাসের সব দেনা শোধ করেছি। উনি আমাদের দেশের গর্ব।"`, image: "1000015082.jpg" },
+                { name: "Kabir Hossain", meta: "Age: 32 | Tawau | Payout: 190,000 MYR", review: `"Clean VIP guidance map. Fully systematic combination charts generated accurately."`, image: "1000015083.jpg" },
+                { name: "Tofazzal Ali", meta: "Age: 38 | Kulim | Payout: 230,000 MYR", review: `"নাইন লোটোর স্পেশাল ড্র-তে ফার্স্ট প্রাইজ পেয়েছি। হানিফ ভাইকে ৩০% কমিশন ট্রান্সফার করে দিয়েছি।"`, image: "1000015084.jpg" },
+                { name: "Rabiul Awual", meta: "Age: 29 | Nilai | Payout: 145,000 MYR", review: `"Highly cooperative support management system. Got verified coordinates effortlessly."`, image: "1000015085.jpg" },
+                { name: "Shorif Ahmed", meta: "Age: 34 | Temerloh | Payout: 82,000 MYR", review: `"লটারি জগতে প্রতারকের অভাব নেই, কিন্তু হানিফ ভাই একমাত্র জেনুইন এবং বিশ্বস্ত মানুষ।"`, image: "1000015086.jpg" },
+                { name: "Khorshed Alam", meta: "Age: 48 | Port Dickson | Payout: 600,000 MYR", review: `"Outstanding milestone payout. Followed the matrix sequence daily till perfect extraction match."`, image: "1000015101.jpg" },
+                { name: "Ashraful Islam", meta: "Age: 25 | Senai | Payout: 155,000 MYR", review: `"হানিফ ভাইয়ের দেওয়া লাকি চার্ট অনুযায়ী খেলে আজ আমি সফল উইনার।"`, image: "1000015100.jpg" }
             ]
         };
 
@@ -1399,30 +1401,17 @@
             // নির্দিষ্ট গেমের ১০ জন উইনারের ডেটাবেজ নেওয়া হচ্ছে
             const selectedWinners = winnersDatabase[gameName];
 
-            // আপনার আপলোড করা ১০টি আসল উইনার প্রোফাইল ছবির তালিকা
-            const userUploadedAvatars = [
-                "1000015079.jpg",
-                "1000015080.jpg",
-                "1000015081.jpg",
-                "1000015082.jpg",
-                "1000015083.jpg",
-                "1000015084.jpg",
-                "1000015085.jpg",
-                "1000015086.jpg",
-                "1000015101.jpg",
-                "1000015100.jpg"
-            ];
-
             // লুপ চালিয়ে ১০ জন উইনারের আলাদা আলাদা কার্ড জেনারেট করা হচ্ছে
-            selectedWinners.forEach((winner, index) => {
+            selectedWinners.forEach((winner) => {
                 // ডাইনামিক রিয়েল অডিও এবং ভিডিও ট্র্যাক অ্যাসাইন করা
                 const audioFile = "PTT-20260529-WA0000.opus"; 
                 const videoFile = "VID-20260420-WA0007.mp4";
 
+                // সরাসরি ইমেজ ট্যাগ ব্যবহার করা হলো
                 const cardHTML = `
                     <div class="winner-premium-profile-card">
                         <div class="winner-avatar-frame">
-                            <img src="${userUploadedAvatars[index]}" alt="${winner.name}">
+                            <img src="${winner.image}" alt="${winner.name}">
                         </div>
                         <div class="winner-meta-details-box">
                             <h4>${winner.name}</h4>
