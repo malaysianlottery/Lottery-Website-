@@ -332,7 +332,7 @@
             font-weight: 700;
         }
 
-        /* ===== PREMIUM SERVICES MODULES ===== */
+        /* ===== PREMIUM SERVICES MODULES (PORTFOLIO STYLE) ===== */
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -343,7 +343,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -352,25 +352,28 @@
             background: var(--card-black);
             border-radius: 16px;
             border: 2px solid rgba(255, 223, 0, 0.15);
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card:hover {
             border-color: var(--primary-gold);
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.15);
         }
 
         .game-logo-box {
-            width: 95px;
-            height: 95px;
+            width: 100%;
+            height: 140px;
             margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
+            border-radius: 12px;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
+            border: 2px solid var(--primary-gold);
             background: #111;
         }
 
@@ -382,7 +385,7 @@
 
         .service-card h3 { 
             color: var(--primary-gold); 
-            font-size: 1.5rem; 
+            font-size: 1.4rem; 
             margin-bottom: 0.8rem; 
             font-weight: 900; 
             text-transform: uppercase;
@@ -391,9 +394,9 @@
         
         .service-card p { 
             color: #d1d1d6; 
-            font-size: 1rem; 
+            font-size: 0.95rem; 
             line-height: 1.6; 
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .service-card .click-info-hint {
@@ -402,6 +405,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: auto;
         }
 
         /* ===== DIGITAL LIVE ARENA ===== */
@@ -946,17 +950,6 @@
         .btn-telegram { background: #0088cc; }
         .btn-imo { background: #1f86ef; }
 
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 4rem auto 0 auto;
-            border-top: 2px solid rgba(255,223,0,0.25);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #71717a;
-        }
-
         /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
         @media (max-width: 1024px) {
             .profile-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
@@ -1026,7 +1019,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#profile">About Me</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Services Portfolio</a></li>
                 <li><a href="#results">Live Screen</a></li>
                 <li><a href="#portfolio">Wins</a></li>
                 <li><a href="#footer-anchor">Register</a></li>
@@ -1084,33 +1077,46 @@
     </section>
 
     <section class="services-section" id="services">
-        <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks (Click any game to open Portfolio)</p>
+        <h2 class="section-title">Our Premium Services Portfolio</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">
+            বাস্তব কাজের প্রমাণপত্র: গ্রাহকদের সাথে চ্যাটিং স্ক্রিনশট, পেমেন্ট স্লিপ এবং অফিসিয়াল ডকুমেন্টস দেখতে যেকোনো গেমের ওপর ক্লিক করুন।
+        </p>
         
         <div class="services-grid">
             <div class="service-card" onclick="openWinnersModal('Magnum 4D')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014925.png" alt="Magnum 4D"></div>
-                <h3>Magnum 4D</h3>
-                <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
-                <div class="click-info-hint">View Portfolio & Docs ➔</div>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014924.jpg" alt="Magnum 4D Logo">
+                </div>
+                <h3>Magnum 4D Portfolio</h3>
+                <p>গ্রাহকদের পেমেন্ট স্লিপ ও চ্যাটিং প্রুফ সহ ডিরেক্ট প্রাইজ পুল এক্সট্রাকশন ডাটাবেজ দেখতে ভিজিট করুন।</p>
+                <div class="click-info-hint">চ্যাটিং ও স্লিপ ডকুমেন্টস দেখুন ➔</div>
             </div>
+            
             <div class="service-card" onclick="openWinnersModal('Sports Toto')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014924.jpg" alt="Sports Toto"></div>
-                <h3>Sports Toto</h3>
-                <p>High precision combination generators tracking historical execution trends across active pools.</p>
-                <div class="click-info-hint">View Portfolio & Docs ➔</div>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000015102.webp" alt="Sports Toto Logo">
+                </div>
+                <h3>Sports Toto Portfolio</h3>
+                <p>উইনারদের রিয়েল টাইম চ্যাট হিস্ট্রি এবং ব্যাংক ট্রানজেকশন আইডি সহ ভেরিফাইড মেম্বারশিপ প্রুফ গ্যালারি।</p>
+                <div class="click-info-hint">চ্যাটিং ও স্লিপ ডকুমেন্টস দেখুন ➔</div>
             </div>
+            
             <div class="service-card" onclick="openWinnersModal('Damacai 3D/4D')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000015102.webp" alt="Damacai"></div>
-                <h3>Damacai 3D/4D</h3>
-                <p>Premium statistical metrics covering high precision double-chance permutations for active pools.</p>
-                <div class="click-info-hint">View Portfolio & Docs ➔</div>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014925.png" alt="Damacai Logo">
+                </div>
+                <h3>Damacai Portfolio</h3>
+                <p>হানিফ ভাইয়ের স্পেশাল ডাবল-চান্স উইনিং মেথড এর মাধ্যমে সফল কাস্টমারদের পেমেন্ট রসিদ এবং চ্যাট লগ।</p>
+                <div class="click-info-hint">চ্যাটিং ও স্লিপ ডকুমেন্টস দেখুন ➔</div>
             </div>
+            
             <div class="service-card" onclick="openWinnersModal('Grand Dragon')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014925.png" alt="Grand Dragon Lotto"></div>
-                <h3>Grand Dragon Lotto</h3>
-                <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
-                <div class="click-info-hint">View Portfolio & Docs ➔</div>
+                <div class="game-logo-box">
+                    <img class="game-logo-img" src="1000014926.png" alt="Grand Dragon Logo">
+                </div>
+                <h3>Grand Dragon Portfolio</h3>
+                <p>১০ জন স্পেশাল ভিআইপি মেম্বারদের লাইভ উইনিং টিকেট কনফার্মেশন স্ক্রিনশট এবং ফুল চ্যাট ডকুমেন্টেশন।</p>
+                <div class="click-info-hint">১০টি ভেরিফাইড প্রুফ দেখুন ➔</div>
             </div>
         </div>
     </section>
@@ -1196,7 +1202,7 @@
                     <ul>
                         <li><a href="#home">Home Gateway</a></li>
                         <li><a href="#profile">About Me</a></li>
-                        <li><a href="#services">Game Services</a></li>
+                        <li><a href="#services">Game Services Portfolio</a></li>
                         <li><a href="#results">Live Monitor</a></li>
                     </ul>
                 </div>
@@ -1365,7 +1371,7 @@
             window.open(whatsAppUrl, '_blank');
         }
 
-        /* ===== DYNAMIC DATABASE MATRIX (10 WINNERS & EXTRA PREMIUM DETAILS) ===== */
+        /* ===== DYNAMIC DATABASE MATRIX (10 WINNERS & IMAGES FIXED) ===== */
         const winnersDatabase = {
             "Grand Dragon": [
                 { name: "Sabbir Ali", meta: "Johor Bahru | Payout: 450,000 MYR", docType: "Official Winning Slip Verification", docNo: "GD-98231-X7", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
@@ -1422,7 +1428,7 @@
                                     <i class="fa-solid fa-file-shield"></i>
                                     <div class="document-info-text">
                                         <strong>Document Type: ${winner.docType}</strong>
-                                        Verification Code: ${winner.docNo} (Status: Officially Secured)
+                                        Verification Code: ${winner.docNo} (Status: Officially Verified Proof)
                                     </div>
                                 </div>
 
