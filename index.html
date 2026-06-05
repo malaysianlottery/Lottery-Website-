@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Malaysian Lottery - Premium Live 4D Portal</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700;900&family=Poppins:wght=400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -108,20 +108,7 @@
             color: var(--primary-gold);
         }
 
-        .lang-selector-box {
-            background: var(--card-black);
-            border: 2px solid var(--primary-gold);
-            color: var(--bright-white);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            outline: none;
-        }
-
-        /* ===== HERO AREA FIXED SLIDER ===== */
+        /* ===== HERO AREA ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -132,1023 +119,267 @@
             background: #111116; 
             border: 3px solid var(--primary-gold);
             overflow: hidden;
-            aspect-ratio: 16 / 9;
-        }
-
-        #particleCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .full-slide-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.8s ease-in-out;
-            background: #111116;
-        }
-
-        .full-slide-layer.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .slide-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
-
-        .slide-text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
+            padding: 4rem 2rem;
             text-align: center;
-            z-index: 5;
         }
 
-        .slide-text-overlay h1 {
+        .hero-view-port h1 {
             font-family: 'Cinzel', serif;
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 900;
-            line-height: 1.15;
-            color: var(--bright-white);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
-        }
-
-        .slide-text-overlay h1 span {
-            display: block;
             background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+            margin-bottom: 1rem;
         }
 
-        /* ===== COMMON GOLDEN HEADLINE HEADER ===== */
+        .hero-view-port p {
+            font-size: 1.2rem;
+            color: #d1d1d6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===== LIVE RESULTS SECTION ===== */
+        .results-section {
+            padding: 4rem 2rem;
+            background: var(--pure-black);
+            text-align: center;
+        }
+
         .section-title {
             font-family: 'Cinzel', serif;
             font-size: 2.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
         }
 
-        /* ===== ABOUT PROFILE DATA MATRIX ===== */
-        .profile-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .profile-container {
-            max-width: 1200px;
+        .live-arena-viewport {
+            max-width: 1100px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-image-box {
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 1 / 1;
+            background: #050508;
             border-radius: 16px;
-            overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            margin: 0 auto;
-            background: #000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-photo-main {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #0d0d11;
-            display: block;
-        }
-
-        .profile-info h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .profile-badge {
-            display: inline-block;
-            background: rgba(255, 223, 0, 0.1);
-            color: var(--primary-gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 800;
             border: 2px solid var(--primary-gold);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .profile-info p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #e2e2e8;
-            margin-bottom: 1.5rem;
-        }
-
-        .condition-highlight {
-            border-left: 5px solid var(--primary-gold);
-            background: linear-gradient(90deg, #101014, #050505);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0 12px 12px 0;
-            border: 1px solid rgba(255,223,0,0.2);
-        }
-
-        .condition-highlight strong {
-            color: var(--primary-gold);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .stat-item {
-            background: var(--card-black);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-            border-top: 4px solid var(--primary-gold);
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-gold);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #b5b5be;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* ===== PREMIUM SERVICES MODULES ===== */
-        .services-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--card-black);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.1);
-        }
-
-        .game-logo-box {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            background: #111;
-        }
-
-        .game-logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.5rem; 
-            margin-bottom: 0.8rem; 
-            font-weight: 900; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .service-card p { 
-            color: #d1d1d6; 
-            font-size: 1rem; 
-            line-height: 1.6; 
-            margin-bottom: 1rem;
-        }
-
-        .service-click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        /* ===== SERVICE PROOF DYNAMIC MODAL ===== */
-        .service-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 6000;
-            display: none;
-            justify-content: center;
-            align-items: center;
             padding: 2rem;
         }
 
-        .service-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 800px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-        }
-
-        .modal-proof-content-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .proof-media-item-box {
-            background: var(--card-black);
-            border: 1px solid rgba(255, 223, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .proof-media-item-box img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid rgba(255,223,0,0.3);
-        }
-
-        .modal-fb-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #1877F2;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 6px;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-        .modal-fb-btn:hover { opacity: 0.9; }
-
-        /* ===== DIGITAL LIVE ARENA (UPDATED DIRECT DISPLAY) ===== */
-        .results-section {
-            padding: 6rem 2rem;
-            position: relative;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-            text-align: center;
-        }
-
-        .results-section-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            opacity: 0.12;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* সরাসরি লাইভ স্ক্রিন প্রদর্শিত হবে */
-        .live-arena-viewport {
-            position: relative;
-            z-index: 5;
-            max-width: 1000px;
-            margin: 2rem auto 0 auto;
-            background: #050508;
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            display: block; /* সরাসরি দৃশ্যমান */
-            border: 3px solid var(--primary-gold);
-        }
-
-        .live-header-ticker {
+        .live-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary-gold);
-            padding-bottom: 1.2rem;
-            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .live-status-tag {
+        .live-tag {
+            background: rgba(255, 51, 51, 0.1);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            background: rgba(0, 229, 255, 0.1);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            border: 2px solid var(--neon-blue);
-            font-size: 1rem;
-            font-weight: 900;
-            color: var(--neon-blue);
-            text-transform: uppercase;
+            gap: 0.5rem;
         }
 
         .live-dot {
-            width: 12px;
-            height: 12px;
-            background-color: var(--neon-blue);
+            width: 10px;
+            height: 10px;
+            background: var(--neon-red);
             border-radius: 50%;
-            animation: pulseBlink 0.8s infinite alternate;
+            animation: blink 1s infinite;
         }
 
-        @keyframes pulseBlink {
-            0% { opacity: 0.2; }
-            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-blue); }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
 
-        .live-timer-sync {
-            font-size: 1.1rem;
-            color: var(--neon-blue);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        /* নতুন মাল্টি-প্রাইজ লেআউট কন্টেইনার */
-        .live-slideshow-container {
-            position: relative;
-            min-height: 480px;
-            width: 100%;
-        }
-
-        .live-result-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            visibility: hidden;
+        /* Horizontally Scrollable Game Tabs */
+        .game-tabs {
             display: flex;
-            flex-direction: column;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 223, 0, 0.2);
         }
 
-        .live-result-slide.active {
-            opacity: 1;
-            visibility: visible;
-            position: relative;
+        .game-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        .game-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 3px;
         }
 
-        .live-op-name {
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+        .tab-btn {
+            background: var(--card-black);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+            transition: 0.3s;
+            white-space: nowrap;
         }
 
-        /* প্রধান ৩টি প্রাইজের ডিজাইন */
-        .main-prizes-box {
+        .tab-btn.active {
+            background: var(--primary-gold);
+            color: var(--pure-black);
+        }
+
+        .result-info {
             display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 223, 0, 0.15);
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: #aaa;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .result-display {
+            display: none;
+        }
+
+        .result-display.active {
+            display: block;
+        }
+
+        .main-prizes {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        /* ১ম প্রাইজ আলাদা এবং অনেক বড় */
-        .first-prize-row {
-            text-align: center;
-            padding: 1rem;
-            border-bottom: 2px dashed rgba(255, 223, 0, 0.2);
-            margin-bottom: 0.5rem;
-        }
-        .first-prize-label {
-            font-size: 1.2rem;
-            color: var(--primary-gold);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .live-lucky-num.huge-num {
-            font-size: 7.5rem; /* সবচেয়ে বড় ফন্ট */
-            font-weight: 900; 
-            color: var(--primary-gold);
-            letter-spacing: 5px;
-            line-height: 1; 
-            margin: 5px 0;
-            text-shadow: 0 0 30px rgba(255, 223, 0, 0.6);
+        .prize-card {
+            background: var(--card-black);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 223, 0, 0.3);
         }
 
-        /* ২য় ও ৩য় প্রাইজ পাশাপাশি জোড়ায় */
-        .minor-prizes-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .minor-prize-card {
-            background: #0c0c12;
-            padding: 1rem;
-            border-radius: 8px;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-        }
-        .minor-prize-label {
-            font-size: 1rem;
-            color: #b5b5be;
+        .prize-label {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-        }
-        .minor-prize-num {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
         }
 
-        /* স্পেশাল এবং কনসোলেশন নাম্বার গ্রিড */
-        .sub-prizes-wrapper {
+        .prize-num {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        .prize-card.first {
+            grid-column: span 3;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .prize-card.first .prize-num {
+            font-size: 5rem;
+            color: var(--primary-gold);
+            text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
+        }
+
+        .sub-prizes-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
             text-align: left;
         }
-        .sub-prize-section {
-            background: #08080c;
-            border: 1px solid rgba(255, 223, 0, 0.15);
-            border-radius: 8px;
-            padding: 1.2rem;
-        }
-        .sub-prize-title {
-            font-size: 1rem;
+
+        .sub-prize-box h4 {
             color: var(--neon-blue);
-            font-weight: 900;
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            border-left: 4px solid var(--neon-blue);
-            padding-left: 8px;
-            letter-spacing: 1px;
+            border-left: 3px solid var(--neon-blue);
+            padding-left: 10px;
         }
-        .sub-numbers-grid {
+
+        .num-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
-        .sub-num-box {
+
+        .num-item {
             background: #12121a;
-            border: 1px solid rgba(255,255,255,0.08);
             padding: 0.5rem;
             text-align: center;
             border-radius: 4px;
-            font-size: 1.2rem;
             font-weight: 700;
-            color: #e2e2e8;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* ড্র ফ্ল্যাশিং অ্যানিমেশনের জন্য ক্লাস */
-        .live-lucky-num.flashing, .minor-prize-num.flashing, .sub-num-box.flashing {
-            animation: numberFlash 0.15s infinite alternate;
-            color: var(--neon-red) !important;
-        }
-
-        @keyframes numberFlash {
-            0% { opacity: 0.4; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1.02); }
-        }
-
-        .live-status-txt {
-            font-size: 1.1rem;
-            color: var(--neon-green);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 1.5rem;
-        }
-
-        /* ===== PAST RESULTS SECTION (NEW) ===== */
+        /* ===== PAST RESULTS SECTION ===== */
         .past-results-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-            text-align: center;
+            padding: 4rem 2rem;
+            background: #050505;
         }
 
-        .past-results-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: var(--card-black);
-            border: 2px solid var(--primary-gold);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-        }
-
-        .search-control {
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .search-control input[type="date"] {
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            border: 2px solid var(--primary-gold);
-            background: #000;
-            color: #fff;
-            font-family: inherit;
-            font-weight: 700;
-            outline: none;
-        }
-
-        .past-results-display-box {
-            text-align: left;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .past-game-card {
-            background: #050508;
-            border: 1px solid rgba(255, 223, 0, 0.3);
-            padding: 1.5rem;
-            border-radius: 12px;
-        }
-
-        .past-game-title {
-            color: var(--primary-gold);
-            font-size: 1.3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 223, 0, 0.2);
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .past-prizes-list {
-            list-style: none;
-        }
-
-        .past-prizes-list li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .past-prizes-list .prize-name { color: #aaa; font-weight: 600; }
-        .past-prizes-list .prize-val { color: #fff; font-weight: 900; letter-spacing: 1px; }
-
-        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
-        .portfolio-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .portfolio-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: var(--card-black);
-            border-radius: 16px;
-            border: 3px solid rgba(255, 223, 0, 0.2);
-            text-align: center;
-            padding: 2.5rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .portfolio-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--primary-gold);
-        }
-        
-        .portfolio-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.6rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            margin-top: 0.5rem;
-        }
-        
-        .portfolio-card p { 
-            font-size: 1.1rem; 
-            color: var(--bright-white); 
-            margin-top: 0.4rem; 
-            font-weight: 700;
-        }
-        
-        .portfolio-card .click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-
-        /* ===== GLOBAL DYNAMIC LAYER MODAL ===== */
-        .winners-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 5000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .winners-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 1100px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-        }
-
-        .close-modal-trigger {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 2.5rem;
-            color: var(--neon-red);
-            cursor: pointer;
-            font-weight: 900;
-            z-index: 100;
-        }
-
-        .modal-headline {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255, 223, 0, 0.3);
-            padding-bottom: 1rem;
-        }
-
-        .winners-profiles-container-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .winner-premium-profile-card {
-            background: var(--card-black);
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            border-radius: 12px;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .winner-avatar-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-            overflow: hidden;
-            background: #222;
-        }
-
-        .winner-avatar-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .winner-meta-details-box h4 {
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.3rem;
-        }
-
-        .winner-address-tag {
-            font-size: 0.95rem;
-            color: var(--neon-blue);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .winner-written-review {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #e2e2e8;
-            background: rgba(255,255,255,0.02);
-            padding: 1rem;
-            border-left: 4px solid var(--primary-gold);
-            margin-bottom: 1.2rem;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .winner-media-reviews-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .audio-review-wrapper, .video-review-wrapper {
-            background: #000;
-            padding: 1rem;
-            border: 1px solid rgba(255, 223, 0, 0.15);
-            border-radius: 6px;
-        }
-
-        .media-label-text {
-            font-size: 0.8rem;
-            color: #a1a1aa;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .audio-review-wrapper audio, .proof-media-item-box audio {
-            width: 100%;
-            outline: none;
-        }
-
-        .video-review-wrapper video, .proof-media-item-box video {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 223, 0, 0.3);
-            outline: none;
-            background: #121215;
-        }
-
-        /* ===== LUXURY FORM LABELS & INPUT FLUIDITY ===== */
-        .form-group { 
-            display: flex; 
-            flex-direction: column; 
-            margin-bottom: 1.2rem;
-            text-align: left;
-        }
-        
-        .form-group label { 
-            color: var(--primary-gold); 
-            font-size: 0.9rem; 
-            font-weight: 900; 
-            margin-bottom: 0.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        .form-group input, .form-group select { 
-            padding: 1rem; 
-            background: var(--pure-black); 
-            border: 2px solid rgba(255, 223, 0, 0.5); 
-            color: var(--bright-white); 
-            border-radius: 6px; 
-            font-family: inherit; 
-            font-size: 1rem;
-            font-weight: 600;
-            width: 100%;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--primary-gold);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
-            color: var(--pure-black);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 900;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 2px solid var(--bright-white);
-            text-align: center;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--bright-white);
-            color: #000000;
-        }
-
-        /* ===== FOOTER STRUCTURAL FLOW ===== */
-        footer {
-            background: #000000; 
-            color: var(--bright-white);
-            padding: 5rem 2rem 2rem 2rem;
-            border-top: 4px solid var(--primary-gold);
-            position: relative;
-            z-index: 100;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .footer-left-block {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .footer-logo-box {
-            display: flex;
-            align-items: center;
             gap: 1rem;
         }
 
-        .footer-logo-img {
-            height: 60px;
-            width: auto;
+        .search-box input, .search-box select {
+            flex: 1;
+            padding: 1rem;
+            background: var(--pure-black);
+            border: 2px solid var(--primary-gold);
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
         }
 
-        .footer-logo-text {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .footer-desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #b5b5be;
-        }
-
-        .footer-social-row {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 223, 0, 0.1);
-            border: 1px solid var(--primary-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-gold);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-icon-link:hover {
+        .search-btn {
+            padding: 1rem 2rem;
             background: var(--primary-gold);
-            color: #000;
-            transform: translateY(-3px);
-        }
-
-        .footer-right-block {
-            background: #0d0d11;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 223, 0, 0.2);
-        }
-
-        .footer-right-block h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: var(--primary-gold);
-            margin-bottom: 1.5rem;
+            border: none;
+            color: black;
+            font-weight: 900;
+            border-radius: 6px;
+            cursor: pointer;
             text-transform: uppercase;
         }
 
-        .copyright-bar {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 4rem 2rem;
+            background: #000;
+            border-top: 2px solid var(--primary-gold);
             text-align: center;
-            color: #666;
-            font-size: 0.9rem;
         }
 
-        @media (max-width: 992px) {
-            .profile-container { grid-template-columns: 1fr; gap: 3rem; }
-            .footer-container { grid-template-columns: 1fr; }
-            .slide-text-overlay h1 { font-size: 3.5rem; }
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
         }
 
-        @media (max-width: 600px) {
-            .slide-text-overlay h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2rem; }
-            .live-op-name { font-size: 1.8rem; }
-            .live-lucky-num.huge-num { font-size: 4.5rem; }
-            .minor-prize-num { font-size: 2.2rem; }
-            .sub-numbers-grid { grid-template-columns: repeat(3, 1fr); }
-            .nav-right-container ul { display: none; }
+        @media (max-width: 768px) {
+            .hero-view-port h1 { font-size: 2.5rem; }
+            .main-prizes { grid-template-columns: 1fr; }
+            .prize-card.first { grid-column: span 1; }
+            .sub-prizes-grid { grid-template-columns: 1fr; }
+            .num-grid { grid-template-columns: repeat(4, 1fr); }
         }
     </style>
 </head>
@@ -1163,386 +394,347 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#live">Live Results</a></li>
-                <li><a href="#past-results">Past Results</a></li>
-                <li><a href="#portfolio">Winners</a></li>
+                <li><a href="#past">Past Results</a></li>
             </ul>
-            <select class="lang-selector-box">
-                <option value="en">ENGLISH</option>
-                <option value="bn">বাংলা</option>
-                <option value="ms">MALAY</option>
-            </select>
         </div>
     </nav>
 
     <section class="hero-view-port" id="home">
-        <canvas id="particleCanvas"></canvas>
-        <div class="slider-wrapper">
-            <div class="full-slide-layer active">
-                <img src="https://images.unsplash.com/photo-1518458028434-583322a91f44?q=80&w=2070&auto=format&fit=crop" class="slide-bg-img">
-                <div class="slide-text-overlay">
-                    <h1>PREMIUM LIVE <span>4D PORTAL</span></h1>
-                </div>
-            </div>
-        </div>
+        <h1>PREMIUM LIVE 4D PORTAL</h1>
+        <p>Fast & Free Live 4D Results App for games from Malaysia, Singapore and more! View live results as they happen, as well as search and analyse number history.</p>
     </section>
 
     <section class="results-section" id="live">
-        <div class="results-section-bg"></div>
-        <h2 class="section-title">Digital Live Arena</h2>
+        <h2 class="section-title">Live Draw Arena</h2>
         
         <div class="live-arena-viewport">
-            <div class="live-header-ticker">
-                <div class="live-status-tag">
+            <div class="live-header">
+                <div class="live-tag">
                     <div class="live-dot"></div>
-                    <span>TERMINAL SYNCING...</span>
+                    LIVE NOW
                 </div>
-                <div class="live-timer-sync" id="liveClock">00:00:00</div>
+                <div id="current-date">03-06-2026</div>
             </div>
 
-            <div class="live-slideshow-container">
-                <!-- Slides will be injected by JS -->
+            <div class="game-tabs">
+                <button class="tab-btn active" onclick="showGame('magnum')">Magnum 4D</button>
+                <button class="tab-btn" onclick="showGame('toto')">Sports Toto</button>
+                <button class="tab-btn" onclick="showGame('stc')">Sandakan TC</button>
+                <button class="tab-btn" onclick="showGame('sweep')">Cash Sweep</button>
+                <button class="tab-btn" onclick="showGame('sabah')">Sabah 88</button>
+                <button class="tab-btn" onclick="showGame('good4d')">Good 4D</button>
+                <button class="tab-btn" onclick="showGame('gdragon')">Grand Dragon</button>
+                <button class="tab-btn" onclick="showGame('ldragon')">Lotto Dragon</button>
             </div>
-        </div>
-    </section>
 
-    <section class="past-results-section" id="past-results">
-        <h2 class="section-title">Past Draw Results</h2>
-        <div class="past-results-container">
-            <div class="search-control">
-                <label style="color: var(--primary-gold); font-weight: 900; align-self: center;">SELECT DATE:</label>
-                <input type="date" id="pastDrawDate" value="2026-06-03">
-                <button class="cta-button" onclick="searchPastResults()">SEARCH ARCHIVE</button>
-            </div>
-            <div id="pastResultsDisplay" class="past-results-display-box">
-                <!-- Results will be shown here -->
-                <p style="grid-column: 1/-1; text-align: center; color: #888;">Select a date to view historical results for all games.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="profile-section">
-        <div class="profile-container">
-            <div class="profile-image-box">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" class="profile-photo-main">
-            </div>
-            <div class="profile-info">
-                <div class="profile-badge">Master Predictor</div>
-                <h2>Hanif Sarkar</h2>
-                <p>With over 12 years of experience in the Malaysian Lottery ecosystem, Hanif Sarkar provides the most accurate prediction matrices using advanced statistical algorithms.</p>
-                <div class="condition-highlight">
-                    <strong>Winning Policy</strong>
-                    No advance payment required. 30% commission only after your win is officially verified.
+            <div id="magnum" class="result-display active">
+                <div class="result-info">
+                    <div>Date: 03-06-2026 (Wednesday)</div>
+                    <div>Draw No: #376/26</div>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-item"><div class="stat-number">12k+</div><div class="stat-label">Happy Clients</div></div>
-                    <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">Accuracy</div></div>
-                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Live Support</div></div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">2469</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">6830</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6747</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3779</div><div class="num-item">5646</div><div class="num-item">2625</div><div class="num-item">3321</div><div class="num-item">0489</div>
+                            <div class="num-item">3849</div><div class="num-item">7616</div><div class="num-item">0523</div><div class="num-item">0335</div><div class="num-item">3495</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">5040</div><div class="num-item">1304</div><div class="num-item">0194</div><div class="num-item">4638</div><div class="num-item">9937</div>
+                            <div class="num-item">3724</div><div class="num-item">2433</div><div class="num-item">7723</div><div class="num-item">9162</div><div class="num-item">9827</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div id="toto" class="result-display">
+                <div class="result-info">
+                    <div>Date: 29-11-2020 (Sunday)</div>
+                    <div>Draw No: 5204/20</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">8137</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9179</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6360</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9253</div><div class="num-item">9857</div><div class="num-item">4011</div><div class="num-item">1212</div><div class="num-item">5334</div>
+                            <div class="num-item">0856</div><div class="num-item">9039</div><div class="num-item">9236</div><div class="num-item">7417</div><div class="num-item">5333</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="stc" class="result-display">
+                <div class="result-info">
+                    <div>Date: 29-11-2020 (Sunday)</div>
+                    <div>Draw ID: 106/20</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">5000</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9944</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1457</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9312</div><div class="num-item">8714</div><div class="num-item">3298</div><div class="num-item">1735</div><div class="num-item">5436</div>
+                            <div class="num-item">3923</div><div class="num-item">1571</div><div class="num-item">9626</div><div class="num-item">8400</div><div class="num-item">6476</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sweep" class="result-display">
+                <div class="result-info">
+                    <div>Date: 29-11-2020 (Sunday)</div>
+                    <div>Draw No: 4363/20</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize (1+3D / 3D Big)</div>
+                        <div class="prize-num">7562 / 562</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9864 / 864</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">5516 / 516</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Starter Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">6741</div><div class="num-item">5848</div><div class="num-item">9497</div><div class="num-item">5601</div><div class="num-item">1973</div>
+                            <div class="num-item">1022</div><div class="num-item">0427</div><div class="num-item">1165</div><div class="num-item">5249</div><div class="num-item">1578</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sabah" class="result-display">
+                <div class="result-info">
+                    <div>Date: 29-11-2020 (Sunday)</div>
+                    <div>Draw No: 3270/20</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">3925</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">2358</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">8237</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">0967</div><div class="num-item">2070</div><div class="num-item">3358</div><div class="num-item">5881</div><div class="num-item">6441</div>
+                            <div class="num-item">7002</div><div class="num-item">7342</div><div class="num-item">7738</div><div class="num-item">7827</div><div class="num-item">8357</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="good4d" class="result-display">
+                <div class="result-info">
+                    <div>Date: 30-11-2020 (Monday)</div>
+                    <div>Status: Final Result</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">2232</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">6958</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1428</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">2311</div><div class="num-item">5376</div><div class="num-item">5328</div><div class="num-item">8112</div><div class="num-item">4465</div>
+                            <div class="num-item">4073</div><div class="num-item">8458</div><div class="num-item">1277</div><div class="num-item">4975</div><div class="num-item">2261</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gdragon" class="result-display">
+                <div class="result-info">
+                    <div>Date: 30-11-2020 (Monday)</div>
+                    <div>Status: Final Result</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">5426</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">8672</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">2370</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3468</div><div class="num-item">6441</div><div class="num-item">3204</div><div class="num-item">0275</div><div class="num-item">5230</div>
+                            <div class="num-item">3838</div><div class="num-item">9991</div><div class="num-item">4185</div><div class="num-item">3018</div><div class="num-item">7120</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ldragon" class="result-display">
+                <div class="result-info">
+                    <div>Date: 30-11-2020 (Monday)</div>
+                    <div>Status: Final Result</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize</div>
+                        <div class="prize-num">9387</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">5726</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">9368</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1914</div><div class="num-item">7656</div><div class="num-item">0245</div><div class="num-item">4812</div><div class="num-item">7552</div>
+                            <div class="num-item">9851</div><div class="num-item">4691</div><div class="num-item">8519</div><div class="num-item">9434</div><div class="num-item">6921</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="services-section">
-        <h2 class="section-title">Our Premium Pools</h2>
-        <div class="services-grid">
-            <div class="service-card" onclick="openServicesModal('Magnum 4D')">
-                <div class="game-logo-box"><img src="https://cdn.aptoide.com/imgs/8/5/9/859581fd38ee8def5dc9df16ae9c0e23_icon.png" class="game-logo-img"></div>
-                <h3>Magnum 4D</h3>
-                <p>Classic 4D with high precision prediction matrices.</p>
-                <div class="service-click-hint">Click to View Proofs</div>
-            </div>
-            <div class="service-card" onclick="openServicesModal('Sports Toto')">
-                <div class="game-logo-box"><img src="https://cdn.aptoide.com/imgs/9/9/4/994d514f19e68fd05102702e210380f2_icon.png" class="game-logo-img"></div>
-                <h3>Sports Toto</h3>
-                <p>Multi-tier jackpot analysis and live verification.</p>
-                <div class="service-click-hint">Click to View Proofs</div>
-            </div>
-            <div class="service-card" onclick="openServicesModal('Da Ma Cai')">
-                <div class="game-logo-box"><img src="https://cdn.aptoide.com/imgs/8/a/7/8a7ea31a6b64471785c7b9444df4b298_icon.png" class="game-logo-img"></div>
-                <h3>Da Ma Cai</h3>
-                <p>South-East Asia's most trusted live lottery pool.</p>
-                <div class="service-click-hint">Click to View Proofs</div>
-            </div>
+    <section class="past-results-section" id="past">
+        <h2 class="section-title">Past Results History</h2>
+        <div class="search-box">
+            <select id="past-game">
+                <option value="magnum">Magnum 4D</option>
+                <option value="toto">Sports Toto</option>
+                <option value="stc">Sandakan Turf Club</option>
+                <option value="sweep">Special Cash Sweep</option>
+                <option value="sabah">Sabah 88</option>
+                <option value="good4d">Good 4D</option>
+                <option value="gdragon">Grand Dragon 4D</option>
+                <option value="ldragon">Lotto Dragon</option>
+            </select>
+            <input type="date" id="past-date">
+            <button class="search-btn" onclick="searchPast()">Search Results</button>
         </div>
-    </section>
-
-    <section class="portfolio-section" id="portfolio">
-        <h2 class="section-title">Verified Winners Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
-                <i class="fa fa-trophy fa-3x" style="color:var(--primary-gold); margin-bottom:1rem;"></i>
-                <h3>Magnum 4D</h3>
-                <p>128 Recent Winners</p>
-                <div class="click-hint">View Portfolio Log</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
-                <i class="fa fa-medal fa-3x" style="color:var(--primary-gold); margin-bottom:1rem;"></i>
-                <h3>Sports Toto</h3>
-                <p>95 Recent Winners</p>
-                <div class="click-hint">View Portfolio Log</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon')">
-                <i class="fa fa-crown fa-3x" style="color:var(--primary-gold); margin-bottom:1rem;"></i>
-                <h3>Grand Dragon</h3>
-                <p>210 Recent Winners</p>
-                <div class="click-hint">View Portfolio Log</div>
-            </div>
+        <div id="past-content" style="text-align: center; color: #888;">
+            Select a game and date to view past draw results.
         </div>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-left-block">
-                <div class="footer-logo-box">
-                    <img src="https://static-images.aptoide.com/static/imgs/malware-rank/TRUSTED-icon.svg" class="footer-logo-img">
-                    <span class="footer-logo-text">MY LOTTERY</span>
-                </div>
-                <p class="footer-desc">The most trusted live 4D portal in Malaysia and Singapore. Fast results, accurate predictions, and verified winner portfolios.</p>
-                <div class="footer-social-row">
-                    <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon-link"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-icon-link"><i class="fab fa-telegram-plane"></i></a>
-                </div>
-            </div>
-            <div class="footer-right-block">
-                <h3>VIP Registration</h3>
-                <form onsubmit="sendWhatsAppNotification(event)">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="regName" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>WhatsApp Number</label>
-                        <input type="tel" id="regPhone" placeholder="+60 123456789" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Target Game</label>
-                        <select id="regGame">
-                            <option>Magnum 4D</option>
-                            <option>Sports Toto</option>
-                            <option>Da Ma Cai</option>
-                            <option>Sabah 88</option>
-                            <option>Perdana 4D</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="cta-button" style="width:100%;">Join VIP Group</button>
-                </form>
-            </div>
-        </div>
-        <div class="copyright-bar">
-            &copy; 2026 Malaysian Lottery Premium Portal. For entertainment purposes only. Responsibility is advised.
-        </div>
+        <div class="footer-logo">MY LOTTERY</div>
+        <p>&copy; 2026 Malaysian Lottery Portal. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #555;">This website is for informational purposes only. We do not promote gambling.</p>
     </footer>
 
-    <!-- MODALS -->
-    <div id="winnersModal" class="winners-modal-overlay">
-        <div class="winners-modal-window">
-            <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
-            <h2 id="modalGameTitle" class="modal-headline">Game Portfolio</h2>
-            <div id="profilesContainer" class="winners-profiles-container-grid"></div>
-        </div>
-    </div>
-
-    <div id="servicesModal" class="service-modal-overlay">
-        <div class="service-modal-window">
-            <span class="close-modal-trigger" onclick="closeServicesModal()">&times;</span>
-            <h2 id="modalServiceTitle" class="modal-headline">Service Proofs</h2>
-            <div id="serviceProofsContainer" class="modal-proof-content-layout"></div>
-        </div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Particle Background
-            const canvas = document.getElementById('particleCanvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            let particles = [];
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.speedX = Math.random() * 1 - 0.5;
-                    this.speedY = Math.random() * 1 - 0.5;
-                }
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                }
-                draw() {
-                    ctx.fillStyle = 'rgba(255, 223, 0, 0.5)';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-            for (let i = 0; i < 50; i++) particles.push(new Particle());
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => { p.update(); p.draw(); });
-                requestAnimationFrame(animateParticles);
-            }
-            animateParticles();
-
-            // Lottery Engine
-            const lotterySchedule = [
-                { name: "MAGNUM 4D", color: "#FFDF00", targetTime: "19:00", p1: "2469", p2: "6830", p3: "6747", special: ["3779", "5646", "2625", "3321", "0489", "3849", "7616", "0523", "0335", "3495"], consolation: ["5040", "1304", "0194", "4638", "9937", "3724", "2433", "7723", "9162", "9827"] },
-                { name: "SPORTS TOTO", color: "#39FF14", targetTime: "19:10", p1: "6697", p2: "2969", p3: "1040", special: ["9698", "4693", "5478", "9612", "3744", "1601", "7323", "9962", "1780", "9816"], consolation: ["5072", "3672", "5420", "3828", "7663", "9903", "1225", "8267", "6677", "1909"] },
-                { name: "DA MA CAI", color: "#00E5FF", targetTime: "19:20", p1: "2308", p2: "2660", p3: "0185", special: ["7121", "5641", "1568", "2943", "7037", "2462", "5751", "2304", "2979", "6129"], consolation: ["8267", "3458", "4283", "5374", "0042", "3725", "7483", "9594", "2139", "8298"] },
-                { name: "SABAH 88", color: "#FF3333", targetTime: "19:00", p1: "5587", p2: "5090", p3: "4822", special: ["3141", "----", "----", "----", "----"], consolation: ["8461", "0545", "----", "----", "----"] },
-                { name: "SINGAPORE 4D", color: "#FFDF00", targetTime: "18:30", p1: "2414", p2: "8613", p3: "2868", special: ["0126", "2292", "----", "----", "----"], consolation: ["0637", "5865", "----", "----", "----"] },
-                { name: "PERDANA 4D", color: "#00E5FF", targetTime: "19:00", p1: "9963", p2: "7074", p3: "7404", special: ["----", "----", "----", "----", "----"], consolation: ["----", "----", "----", "----", "----"] },
-                { name: "9 LOTTO", color: "#39FF14", targetTime: "19:00", p1: "9312", p2: "4056", p3: "1189", special: ["----", "----", "----", "----", "----"], consolation: ["----", "----", "----", "----", "----"] }
-            ];
-
-            const liveSlidesContainer = document.querySelector('.live-slideshow-container');
-            const liveStatusTag = document.querySelector('.live-status-tag span');
-            const liveDot = document.querySelector('.live-dot');
-
-            function updateLiveResultsEngine() {
-                const now = new Date();
-                document.getElementById('liveClock').innerText = now.toLocaleTimeString();
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                const currentTime = `${hours}:${minutes}`;
-
-                if (!liveSlidesContainer) return;
-                liveSlidesContainer.innerHTML = ""; 
-                let anyGameLive = false;
-
-                lotterySchedule.forEach((game, index) => {
-                    let d1 = "----", d2 = "----", d3 = "----";
-                    let dSpecial = ["----", "----", "----", "----", "----"];
-                    let dConsolation = ["----", "----", "----", "----", "----"];
-                    let gameStatus = "WAITING FOR DRAW";
-                    let isFlashing = false;
-
-                    if (currentTime >= game.targetTime) {
-                        d1 = game.p1; d2 = game.p2; d3 = game.p3;
-                        dSpecial = game.special.slice(0,5); dConsolation = game.consolation.slice(0,5);
-                        gameStatus = "OFFICIAL RESULTS VERIFIED";
-                    } else {
-                        const [targetH, targetM] = game.targetTime.split(':').map(Number);
-                        const diff = (targetH * 60 + targetM) - (now.getHours() * 60 + now.getMinutes());
-                        if (diff <= 15 && diff > 0) {
-                            gameStatus = "LIVE DRAW IN PROGRESS...";
-                            isFlashing = true; anyGameLive = true;
-                            d1 = Math.floor(1000 + Math.random() * 9000);
-                            d2 = Math.floor(1000 + Math.random() * 9000);
-                            d3 = Math.floor(1000 + Math.random() * 9000);
-                            dSpecial = Array.from({length: 5}, () => Math.floor(1000 + Math.random() * 9000));
-                            dConsolation = Array.from({length: 5}, () => Math.floor(1000 + Math.random() * 9000));
-                        }
-                    }
-
-                    const slide = document.createElement('div');
-                    slide.className = `live-result-slide ${index === 0 ? 'active' : ''}`;
-                    slide.innerHTML = `
-                        <div class="live-op-name" style="color: ${game.color};">${game.name}</div>
-                        <div class="main-prizes-box">
-                            <div class="first-prize-row">
-                                <div class="first-prize-label">1st Prize</div>
-                                <div class="live-lucky-num huge-num ${isFlashing ? 'flashing' : ''}">${d1}</div>
-                            </div>
-                            <div class="minor-prizes-grid">
-                                <div class="minor-prize-card"><div class="minor-prize-label">2nd Prize</div><div class="minor-prize-num ${isFlashing ? 'flashing' : ''}">${d2}</div></div>
-                                <div class="minor-prize-card"><div class="minor-prize-label">3rd Prize</div><div class="minor-prize-num ${isFlashing ? 'flashing' : ''}">${d3}</div></div>
-                            </div>
-                        </div>
-                        <div class="sub-prizes-wrapper">
-                            <div class="sub-prize-section"><div class="sub-prize-title">Special Numbers</div><div class="sub-numbers-grid">${dSpecial.map(n => `<div class="sub-num-box ${isFlashing ? 'flashing' : ''}">${n}</div>`).join('')}</div></div>
-                            <div class="sub-prize-section"><div class="sub-prize-title">Consolation Numbers</div><div class="sub-numbers-grid">${dConsolation.map(n => `<div class="sub-num-box ${isFlashing ? 'flashing' : ''}">${n}</div>`).join('')}</div></div>
-                        </div>
-                        <div class="live-status-txt" style="color: ${isFlashing ? 'var(--neon-red)' : 'var(--neon-green)'};">${gameStatus}</div>
-                    `;
-                    liveSlidesContainer.appendChild(slide);
-                });
-
-                if (anyGameLive) {
-                    liveStatusTag.innerText = "LIVE DRAWING ACTIVE";
-                    liveDot.style.backgroundColor = "var(--neon-red)";
-                } else {
-                    liveStatusTag.innerText = "OFFICIAL TERMINAL SYNCED";
-                    liveDot.style.backgroundColor = "var(--neon-blue)";
-                }
-            }
-
-            setInterval(updateLiveResultsEngine, 1000);
-            updateLiveResultsEngine();
-
-            let activeLiveIndex = 0;
-            setInterval(() => {
-                const slides = document.querySelectorAll('.live-result-slide');
-                if (slides.length > 0) {
-                    slides[activeLiveIndex].classList.remove('active');
-                    activeLiveIndex = (activeLiveIndex + 1) % slides.length;
-                    slides[activeLiveIndex].classList.add('active');
-                }
-            }, 5000);
-        });
-
-        // Past Results Database (Simulated)
-        const pastResultsDatabase = {
-            "2026-06-03": [
-                { name: "Magnum 4D", p1: "2469", p2: "6830", p3: "6747" },
-                { name: "Sports Toto", p1: "6697", p2: "2969", p3: "1040" },
-                { name: "Da Ma Cai", p1: "2308", p2: "2660", p3: "0185" },
-                { name: "Sabah 88", p1: "5587", p2: "5090", p3: "4822" },
-                { name: "Singapore 4D", p1: "2414", p2: "8613", p3: "2868" }
-            ]
-        };
-
-        function searchPastResults() {
-            const date = document.getElementById('pastDrawDate').value;
-            const display = document.getElementById('pastResultsDisplay');
-            display.innerHTML = "";
-
-            const results = pastResultsDatabase[date];
-            if (results) {
-                results.forEach(game => {
-                    const card = document.createElement('div');
-                    card.className = 'past-game-card';
-                    card.innerHTML = `
-                        <div class="past-game-title">${game.name}</div>
-                        <ul class="past-prizes-list">
-                            <li><span class="prize-name">1st Prize</span><span class="prize-val">${game.p1}</span></li>
-                            <li><span class="prize-name">2nd Prize</span><span class="prize-val">${game.p2}</span></li>
-                            <li><span class="prize-name">3rd Prize</span><span class="prize-val">${game.p3}</span></li>
-                        </ul>
-                    `;
-                    display.appendChild(card);
-                });
-            } else {
-                display.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--neon-red); font-weight: 900;">NO DATA FOUND FOR THIS DATE. PLEASE CONTACT ADMIN.</p>`;
-            }
+        function showGame(gameId) {
+            // Hide all
+            document.querySelectorAll('.result-display').forEach(div => div.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected
+            document.getElementById(gameId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
 
-        // WhatsApp Function
-        function sendWhatsAppNotification(event) {
-            event.preventDefault(); 
-            const name = document.getElementById('regName').value;
-            const phone = document.getElementById('regPhone').value;
-            const game = document.getElementById('regGame').value;
-            const msg = `VIP REGISTRATION:\nName: ${name}\nPhone: ${phone}\nGame: ${game}`;
-            window.open(`https://wa.me/601116448229?text=${encodeURIComponent(msg)}`, '_blank');
+        function searchPast() {
+            const game = document.getElementById('past-game').value;
+            const gameText = document.getElementById('past-game').options[document.getElementById('past-game').selectedIndex].text;
+            const date = document.getElementById('past-date').value;
+            const content = document.getElementById('past-content');
+            
+            if (!date) {
+                alert("Please select a date.");
+                return;
+            }
+
+            content.innerHTML = `<div style="color: var(--primary-gold); font-weight: bold; margin-bottom: 10px;">Showing ${gameText} results for ${date}...</div>
+                                 <p style="margin-top: 1rem; color:#aaa;">(In a production environment, an API request will fetch the standalone records of "${gameText}" for this specific date from your Database.)</p>`;
         }
 
-        // Modal Functions
-        function openServicesModal(game) { document.getElementById('servicesModal').style.display = 'flex'; }
-        function closeServicesModal() { document.getElementById('servicesModal').style.display = 'none'; }
-        function openWinnersModal(game) { document.getElementById('winnersModal').style.display = 'flex'; }
-        function closeWinnersModal() { document.getElementById('winnersModal').style.display = 'none'; }
-        window.onclick = function(e) {
-            if(e.target.className.includes('modal-overlay')) {
-                closeServicesModal(); closeWinnersModal();
-            }
-        }
+        // Live Clock
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('current-date').innerText = now.toLocaleDateString() + " " + now.toLocaleTimeString();
+        }, 1000);
     </script>
 </body>
 </html>
