@@ -1,1567 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Malaysian Lottery - Premium Live 4D Portal</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700;900&family=Poppins:wght=400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লাইভ 4D লটারি রেজাল্ট</title>
     <style>
-        /* ===== GLOBAL RESET & HIGH-END GOLDEN VARIABLES ===== */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
-
-        :root {
-            --primary-gold: #FFDF00;     
-            --deep-gold: #D4AF37;        
-            --dark-gold: #996515;        
-            --pure-black: #000000;
-            --card-black: #0d0d11;
-            --bright-white: #ffffff;
-            --neon-green: #39FF14;
-            --neon-blue: #00E5FF;
-            --neon-red: #FF3333;
-            --gold-glow: rgba(255, 223, 0, 0.35);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #333;
+            padding: 20px;
         }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            background: var(--pure-black); 
-            color: var(--bright-white);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        nav, .hero-view-port, section, footer {
-            position: relative;
-            z-index: 10;
-        }
-
-        /* ===== NAVBAR ===== */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            padding: 0.8rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 3px solid var(--primary-gold);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo span {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .nav-right-container {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--bright-white);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-gold);
-        }
-
-        .lang-selector-box {
-            background: var(--card-black);
-            border: 2px solid var(--primary-gold);
-            color: var(--bright-white);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            outline: none;
-        }
-
-        /* ===== HERO AREA FIXED SLIDER ===== */
-        .hero-view-port {
-            margin-top: 85px; 
-            width: 100%;
-            max-width: 1400px; 
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            background: #111116; 
-            border: 3px solid var(--primary-gold);
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-        }
-
-        #particleCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .full-slide-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.8s ease-in-out;
-            background: #111116;
-        }
-
-        .full-slide-layer.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .slide-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
-
-        .slide-text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
+        h1 {
             text-align: center;
-            z-index: 5;
-        }
-
-        .slide-text-overlay h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.15;
-            color: var(--bright-white);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
-        }
-
-        .slide-text-overlay h1 span {
-            display: block;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
-        }
-
-        /* ===== COMMON GOLDEN HEADLINE HEADER ===== */
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 28px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-align: center;
         }
-
-        /* ===== ABOUT PROFILE DATA MATRIX ===== */
-        .profile-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .profile-container {
+        /* গ্রিড লেআউট - সব লটারি কার্ড সাজানোর জন্য */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
         }
-
-        .profile-image-box {
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 1 / 1;
-            border-radius: 16px;
+        /* লটারি কার্ড স্টাইল */
+        .lottery-card {
+            background: #ffffff;
+            border-radius: 12px;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            margin: 0 auto;
-            background: #000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-photo-main {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #0d0d11;
-            display: block;
-        }
-
-        .profile-info h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .profile-badge {
-            display: inline-block;
-            background: rgba(255, 223, 0, 0.1);
-            color: var(--primary-gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            border: 2px solid var(--primary-gold);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .profile-info p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #e2e2e8;
-            margin-bottom: 1.5rem;
-        }
-
-        .condition-highlight {
-            border-left: 5px solid var(--primary-gold);
-            background: linear-gradient(90deg, #101014, #050505);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0 12px 12px 0;
-            border: 1px solid rgba(255,223,0,0.2);
-        }
-
-        .condition-highlight strong {
-            color: var(--primary-gold);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .stat-item {
-            background: var(--card-black);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-            border-top: 4px solid var(--primary-gold);
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-gold);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #b5b5be;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* ===== PREMIUM SERVICES MODULES ===== */
-        .services-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--card-black);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.1);
-        }
-
-        .game-logo-box {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            background: #111;
-        }
-
-        .game-logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.5rem; 
-            margin-bottom: 0.8rem; 
-            font-weight: 900; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .service-card p { 
-            color: #d1d1d6; 
-            font-size: 1rem; 
-            line-height: 1.6; 
-            margin-bottom: 1rem;
-        }
-
-        .service-click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        /* ===== SERVICE PROOF DYNAMIC MODAL ===== */
-        .service-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 6000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .service-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 800px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-        }
-
-        .modal-proof-content-layout {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            margin-top: 1.5rem;
         }
+        /* আলাদা আলাদা লটারির জন্য ব্র্যান্ড হেডার কালার */
+        .header-magnum { background-color: #ffcc00; color: black; }
+        .header-damacai { background-color: #0033aa; color: white; }
+        .header-toto { background-color: #e60000; color: white; }
+        .header-gdragon { background-color: #cca300; color: black; }
+        .header-perdana { background-color: #ff5500; color: white; }
+        .header-sandakan { background-color: #00802b; color: white; }
+        .header-sabah { background-color: #0055ff; color: white; }
+        .header-sweep { background-color: #196619; color: white; }
+        .header-good4d { background-color: #ffaa00; color: black; }
 
-        .proof-media-item-box {
-            background: var(--card-black);
-            border: 1px solid rgba(255, 223, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 8px;
+        .card-header {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
         }
-
-        .proof-media-item-box img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid rgba(255,223,0,0.3);
-        }
-
-        .modal-fb-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #1877F2;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 6px;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-        .modal-fb-btn:hover { opacity: 0.9; }
-
-        /* ===== DIGITAL LIVE ARENA ===== */
-        .results-section {
-            padding: 6rem 2rem;
-            position: relative;
-            background: var(--pure-black);
-            overflow: hidden;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .results-section-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            opacity: 0.12;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .live-arena-viewport {
-            position: relative;
-            z-index: 5;
-            max-width: 950px;
-            margin: 3rem auto 0 auto;
-            background: #000000;
-            border: 4px solid var(--primary-gold);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-        }
-
-        .live-header-ticker {
+        .draw-info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--primary-gold);
-            padding-bottom: 1.2rem;
-            margin-bottom: 1.5rem;
+            padding: 10px 15px;
+            background: #f0f0f0;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
         }
-
-        .live-status-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(255, 0, 0, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            border: 2px solid var(--neon-red);
-            font-size: 1rem;
-            font-weight: 900;
-            color: var(--neon-red);
-            text-transform: uppercase;
-        }
-
-        .live-dot {
-            width: 12px;
-            height: 12px;
-            background-color: var(--neon-red);
-            border-radius: 50%;
-            animation: pulseBlink 0.8s infinite alternate;
-        }
-
-        @keyframes pulseBlink {
-            0% { opacity: 0.2; }
-            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-red); }
-        }
-
-        .live-timer-sync {
-            font-size: 1.1rem;
-            color: var(--neon-blue);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .live-slideshow-container {
-            position: relative;
-            height: 200px;
+        /* পুরস্কারের টেবিল */
+        .prize-table {
             width: 100%;
+            border-collapse: collapse;
         }
-
-        .live-result-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        .prize-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
         }
-
-        .live-result-slide.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .live-op-name {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 0px;
-            line-height: 1;
-        }
-
-        .live-lucky-num {
-            font-size: 7.5rem; 
-            font-weight: 900; 
-            color: var(--primary-gold);
-            letter-spacing: 4px;
-            line-height: 0.9; 
-            margin: 5px 0;
-            text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
-        }
-
-        .live-status-txt {
-            font-size: 1.2rem;
-            color: var(--neon-green);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1;
-        }
-
-        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
-        .portfolio-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
-        .portfolio-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: var(--card-black);
-            border-radius: 16px;
-            border: 3px solid rgba(255, 223, 0, 0.2);
-            text-align: center;
-            padding: 2.5rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .portfolio-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--primary-gold);
-        }
-        
-        .portfolio-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.6rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            margin-top: 0.5rem;
-        }
-        
-        .portfolio-card p { 
-            font-size: 1.1rem; 
-            color: var(--bright-white); 
-            margin-top: 0.4rem; 
-            font-weight: 700;
-        }
-        
-        .portfolio-card .click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-
-        /* ===== GLOBAL DYNAMIC LAYER MODAL ===== */
-        .winners-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 5000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .winners-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 1100px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-        }
-
-        .close-modal-trigger {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 2.5rem;
-            color: var(--neon-red);
-            cursor: pointer;
-            font-weight: 900;
-            z-index: 100;
-        }
-
-        .modal-headline {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255, 223, 0, 0.3);
-            padding-bottom: 1rem;
-        }
-
-        .winners-profiles-container-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .winner-premium-profile-card {
-            background: var(--card-black);
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            border-radius: 12px;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .winner-avatar-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-            overflow: hidden;
-            background: #222;
-        }
-
-        .winner-avatar-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .winner-meta-details-box h4 {
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 0.3rem;
-        }
-
-        .winner-address-tag {
-            font-size: 0.95rem;
-            color: var(--neon-blue);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .winner-written-review {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #e2e2e8;
-            background: rgba(255,255,255,0.02);
-            padding: 1rem;
-            border-left: 4px solid var(--primary-gold);
-            margin-bottom: 1.2rem;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .winner-media-reviews-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .audio-review-wrapper, .video-review-wrapper {
-            background: #000;
-            padding: 1rem;
-            border: 1px solid rgba(255, 223, 0, 0.15);
-            border-radius: 6px;
-        }
-
-        .media-label-text {
-            font-size: 0.8rem;
-            color: #a1a1aa;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .audio-review-wrapper audio, .proof-media-item-box audio {
-            width: 100%;
-            outline: none;
-        }
-
-        .video-review-wrapper video, .proof-media-item-box video {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 223, 0, 0.3);
-            outline: none;
-            background: #121215;
-        }
-
-        /* ===== LUXURY FORM LABELS & INPUT FLUIDITY ===== */
-        .form-group { 
-            display: flex; 
-            flex-direction: column; 
-            margin-bottom: 1.2rem;
+        .prize-title {
+            background-color: #2b2b2b;
+            color: #fff;
+            width: 45%;
+            font-weight: bold;
             text-align: left;
         }
-        
-        .form-group label { 
-            color: var(--primary-gold); 
-            font-size: 0.9rem; 
-            font-weight: 900; 
-            margin-bottom: 0.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        .form-group input, .form-group select { 
-            padding: 1rem; 
-            background: var(--pure-black); 
-            border: 2px solid rgba(255, 223, 0, 0.5); 
-            color: var(--bright-white); 
-            border-radius: 6px; 
-            font-family: inherit; 
-            font-size: 1rem;
-            font-weight: 600;
-            width: 100%;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--primary-gold);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
-            color: var(--pure-black);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 900;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 2px solid var(--bright-white);
+        .prize-number {
+            font-weight: bold;
+            font-size: 24px;
+            color: #111;
             text-align: center;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s ease;
+            background-color: #fdfdfd;
+            letter-spacing: 2px;
         }
-
-        .cta-button:hover {
-            background: var(--bright-white);
-            color: #000000;
+        /* স্পেশাল নম্বর সেকশন */
+        .special-title {
+            background-color: #2b2b2b;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 14px;
         }
-
-        /* ===== FOOTER STRUCTURAL FLOW ===== */
-        footer {
-            background: #000000; 
-            color: var(--bright-white);
-            padding: 5rem 2rem 2rem 2rem;
-            border-top: 4px solid var(--primary-gold);
-            position: relative;
-            z-index: 100;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .special-numbers {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: start;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            padding: 12px;
+            background: #f9f9f9;
         }
-
-        .footer-left-block {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .footer-links-col {
-            width: 100%;
-        }
-
-        .footer-links-col h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-        .footer-links-col ul a {
-            color: #d1d1d6;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-        .footer-links-col ul a:hover {
-            color: var(--primary-gold);
-        }
-
-        .footer-reg-col {
-            background: var(--card-black);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 3px solid var(--primary-gold);
-        }
-
-        .footer-reg-col h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
+        .num-box {
+            border: 1px solid #ccc;
+            padding: 6px 2px;
             text-align: center;
-        }
-
-        .footer-right-contact-block {
-            background: var(--card-black);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-        }
-
-        .footer-right-contact-block h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(255,223,0,0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .contact-item-box {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            background: var(--pure-black);
-            padding: 1rem 1.2rem;
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            border-left: 5px solid var(--primary-gold);
+            font-weight: bold;
+            font-size: 15px;
+            background: #fff;
             border-radius: 4px;
         }
-
-        .contact-item-box span.icon { font-size: 1.6rem; color: var(--primary-gold); }
-        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #a1a1aa; text-transform: uppercase; font-weight: 800; }
-        .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
-
-        .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
-        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
-        .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-        
-        .social-icon-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #fff;
+        /* রিফ্রেশ বাটন */
+        .refresh-btn {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #0088cc; }
-        .btn-imo { background: #1f86ef; }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 4rem auto 0 auto;
-            border-top: 2px solid rgba(255,223,0,0.25);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #71717a;
-        }
-
-        /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
-        @media (max-width: 1024px) {
-            .profile-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-            .profile-image-box { max-width: 380px; }
-            .condition-highlight { border-left: none; border-top: 5px solid var(--primary-gold); border-radius: 0 0 12px 12px; }
-            .footer-container { grid-template-columns: 1fr; gap: 3rem; }
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 0.6rem 1rem; }
-            nav ul { display: none; }
-            .logo span { font-size: 1.1rem; }
-            .logo-img { height: 40px; }
-
-            .hero-view-port { 
-                margin-top: 65px; 
-                aspect-ratio: 4 / 3; 
-                border-width: 2px;
-            }
-
-            .slide-text-overlay { width: 92%; }
-            .slide-text-overlay h1 {
-                font-size: 2.3rem;
-                letter-spacing: 2px;
-                line-height: 1.2;
-            }
-
-            .section-title { font-size: 2rem; }
-            .profile-info h2 { font-size: 2.2rem; }
-            .live-arena-viewport { padding: 1.5rem 1rem; border-width: 3px; }
-            .live-header-ticker { flex-direction: column; gap: 1rem; text-align: center; }
-            .live-lucky-num { font-size: 4.2rem; letter-spacing: 2px; }
-            .live-op-name { font-size: 1.6rem; }
-
-            .winners-modal-window, .service-modal-window { padding: 2rem 1rem; height: 90vh; }
-            .winner-premium-profile-card { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                justify-items: center;
-                padding: 1.2rem;
-            }
-            .winner-media-reviews-row { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
-            .close-modal-trigger { top: 0.8rem; right: 1.2rem; font-size: 2rem; }
-            .modal-headline { font-size: 1.4rem; }
-
-            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .portfolio-grid, .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .footer-links-col ul { grid-template-columns: 1fr; }
-            .social-icons-row { justify-content: center; }
-            .social-icon-btn { width: 100%; justify-content: center; }
-        }
-
-        @media (max-width: 480px) {
-            .slide-text-overlay h1 { font-size: 1.9rem; }
-            .live-lucky-num { font-size: 3.5rem; }
-        }
+        .refresh-btn:hover { background-color: #45a049; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">
-            <img class="logo-img" src="1000014839.png" alt="Logo">
-            <span>MALAYSIAN LOTTERY</span>
-        </div>
-        <div class="nav-right-container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#profile">About Me</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#results">Live Screen</a></li>
-                <li><a href="#portfolio">Wins</a></li>
-                <li><a href="#footer-anchor">Register</a></li>
-            </ul>
-            <select class="lang-selector-box" onchange="alert('Language engine translating...');">
-                <option value="en">English (US)</option>
-                <option value="bn">Bangla (বাংলা)</option>
-            </select>
-        </div>
-    </nav>
+    <h1>Live 4D Lottery Results</h1>
+    <button class="refresh-btn" onclick="fetchLiveResults()">লাইভ রেজাল্ট রিফ্রেশ করুন</button>
 
-    <div class="hero-view-port" id="home">
-        <canvas id="particleCanvas"></canvas>
-        <div class="slider-wrapper">
-            <div class="full-slide-layer active">
-                <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
-                <div class="slide-text-overlay">
-                    <h1>
-                        <span>Welcome</span>
-                        <span>to</span>
-                        <span>Malaysian</span>
-                        <span>Lottery</span>
-                    </h1>
-                </div>
+    <div class="results-grid">
+
+        <div class="lottery-card">
+            <div class="card-header header-magnum">MAGNUM 4D</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="magnum-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="magnum-draw">----</span></div>
             </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
-            </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
-            </div>
-            <div class="full-slide-layer">
-                <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
-            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="magnum-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="magnum-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="magnum-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="magnum-special"></div>
         </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-damacai">DAMACAI 1+3D</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="damacai-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="damacai-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="damacai-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="damacai-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="damacai-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="damacai-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-toto">SPORTS TOTO</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="toto-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="toto-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="toto-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="toto-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="toto-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="toto-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-gdragon">GRAND DRAGON 4D</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="gd-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="gd-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="gd-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="gd-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="gd-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="gd-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-perdana">PERDANA 4D</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="perdana-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="perdana-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="perdana-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="perdana-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="perdana-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="perdana-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-sandakan">SANDAKAN TURF CLUB</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="stc-date">--/--/----</span></div>
+                <div>ড্র আইডি: <span id="stc-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="stc-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="stc-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="stc-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="stc-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-sabah">SABAH 88 (DIRIWAN)</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="sabah-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="sabah-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="sabah-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="sabah-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="sabah-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="sabah-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-sweep">SPECIAL CASH SWEEP</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="sweep-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="sweep-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize (1+3D)</td><td class="prize-number" id="sweep-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="sweep-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="sweep-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Starter Prizes</div>
+            <div class="special-numbers" id="sweep-special"></div>
+        </div>
+
+        <div class="lottery-card">
+            <div class="card-header header-good4d">GOOD 4D</div>
+            <div class="draw-info">
+                <div>তারিখ: <span id="good-date">--/--/----</span></div>
+                <div>ড্র নং: <span id="good-draw">----</span></div>
+            </div>
+            <table class="prize-table">
+                <tr><td class="prize-title">1st Prize</td><td class="prize-number" id="good-1st">----</td></tr>
+                <tr><td class="prize-title">2nd Prize</td><td class="prize-number" id="good-2nd">----</td></tr>
+                <tr><td class="prize-title">3rd Prize</td><td class="prize-number" id="good-3rd">----</td></tr>
+            </table>
+            <div class="special-title">Special Prizes</div>
+            <div class="special-numbers" id="good-special"></div>
+        </div>
+
     </div>
-
-    <section class="profile-section" id="profile">
-        <div class="profile-container">
-            <div class="profile-image-box">
-                <img class="profile-photo-main" src="1000014839.png" alt="Hanif Sarkar Brand Logo">
-            </div>
-            <div class="profile-info">
-                <h2>Hanif Sarkar</h2>
-                <div class="profile-badge">Verified 100% Winning Tips Agent</div>
-                <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases.</p>
-                <div class="condition-highlight">
-                    <strong>Zero Upfront Payment Terms:</strong>
-                    No advance service fees or hidden charges are required before an official win condition is met. A straightforward 30% commission applies only on total winnings.
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div>
-                    <div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win Only</div></div>
-                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">VIP Support</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-section" id="services">
-        <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks (Click any game to view Proof Options Popup)</p>
-        
-        <div class="services-grid">
-            <div class="service-card" onclick="openServicesModal('4D Dragon')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon"></div>
-                <h3>4D Dragon</h3>
-                <p>Expertly engineered prediction charts and exclusive direct coordinate structural number selections.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-
-            <div class="service-card" onclick="openServicesModal('Nine Lotto')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto"></div>
-                <h3>Nine Lotto</h3>
-                <p>Strategic pattern analysis configurations optimized to elevate your mathematical winning ratios safely.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-
-            <div class="service-card" onclick="openServicesModal('Sports Toto')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014883.png" alt="Sports Toto"></div>
-                <h3>Sports Toto</h3>
-                <p>High precision combination generators tracking historical execution trends across active pools.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-
-            <div class="service-card" onclick="openServicesModal('Magnum 4D')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D"></div>
-                <h3>Magnum 4D</h3>
-                <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-
-            <div class="service-card" onclick="openServicesModal('Grand Dragon Lotto')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
-                <h3>Grand Dragon Lotto</h3>
-                <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-
-            <div class="service-card" onclick="openServicesModal('Perdana 4D')">
-                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
-                <h3>Perdana 4D</h3>
-                <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
-                <div class="service-click-hint">Click to View Proofs ➔</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="service-modal-overlay" id="servicesModal">
-        <div class="service-modal-window">
-            <span class="close-modal-trigger" onclick="closeServicesModal()">&times;</span>
-            <div class="modal-headline" id="modalServiceTitle">Game Media Proofs</div>
-            <div class="modal-proof-content-layout" id="serviceProofsContainer"></div>
-        </div>
-    </div>
-
-    <section class="results-section" id="results">
-        <div class="results-section-bg"></div>
-        <h2 class="section-title">Latest Live Confirmations</h2>
-        <div class="live-arena-viewport">
-            <div class="live-header-ticker">
-                <div class="live-status-tag"><div class="live-dot"></div><span>Live Drawing</span></div>
-                <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
-            </div>
-            <div class="live-slideshow-container">
-                <div class="live-result-slide active">
-                    <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
-                    <div class="live-lucky-num">4829</div>
-                    <div class="live-status-txt">1ST PRIZE VERIFIED</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: #E91E63;">NINE Lotto</div>
-                    <div class="live-lucky-num">9312</div>
-                    <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-green);">SPORTS TOTO</div>
-                    <div class="live-lucky-num">5678</div>
-                    <div class="live-status-txt">SUPREME 4D CONFIRMED</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-blue);">MAGNUM 4D</div>
-                    <div class="live-lucky-num">7156</div>
-                    <div class="live-status-txt">GOLDEN TICKET MATCHED</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section" id="portfolio">
-        <h2 class="section-title">Previous Winning Games</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
-        
-        <div class="portfolio-grid">
-            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐉</div>
-                <h3>Grand Dragon</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
-                <h3>Sports Toto</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💎</div>
-                <h3>Magnum</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-            <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')">
-                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎰</div>
-                <h3>Nine Lotto</h3>
-                <p>Certified Winning Log</p>
-                <div class="click-hint">Click to Open Profiles ➔</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="winners-modal-overlay" id="winnersModal">
-        <div class="winners-modal-window">
-            <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
-            <div class="modal-headline" id="modalGameTitle">Game Winners</div>
-            <div class="winners-profiles-container-grid" id="profilesContainer"></div>
-        </div>
-    </div>
-
-    <footer id="footer-anchor">
-        <div class="footer-container">
-            <div class="footer-left-block">
-                <div class="footer-links-col">
-                    <h4>Quick Navigation</h4>
-                    <ul>
-                        <li><a href="#home">Home Gateway</a></li>
-                        <li><a href="#profile">About Me</a></li>
-                        <li><a href="#services">Game Services</a></li>
-                        <li><a href="#results">Live Monitor</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-reg-col">
-                    <h4>VIP Registration</h4>
-                    <form onsubmit="sendWhatsAppNotification(event)">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" id="regName" placeholder="Enter your official name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Contact Number</label>
-                            <input type="tel" id="regPhone" placeholder="Example: +60 12-345-6789" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Select Target Game</label>
-                            <select id="regGame" required>
-                                <option value="">-- Choose Your Game --</option>
-                                <option value="Magnum 4D">Magnum 4D</option>
-                                <option value="4D Dragon">4D Dragon</option>
-                                <option value="Sports Toto">Sports Toto</option>
-                                <option value="Nine Lotto">Nine Lotto</option>
-                                <option value="Grand Dragon">Grand Dragon</option>
-                                <option value="Perdana 4D">Perdana 4D</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Register For VIP Tips</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-right-contact-block">
-                <h4>Verified Agent Connections</h4>
-                <div class="footer-contact-details">
-                    <div class="contact-item-box">
-                        <span class="icon">✉️</span>
-                        <div>
-                            <p>Official Email Gateway</p>
-                            <a href="mailto:support@malaysianlottery.com">support@malaysianlottery.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item-box">
-                        <span class="icon">📍</span>
-                        <div>
-                            <p>Administrative Base</p>
-                            <h5>Kuala Lumpur, Malaysia</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-media-cluster">
-                    <div class="social-cluster-title">Instant Chat Networks:</div>
-                    <div class="social-icons-row">
-                        <a href="https://wa.me/601116448229" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
-                        <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
-                        <a href="imo://chat?phone=%2B601116448229" class="social-icon-btn btn-imo"><span>📱</span> Imo Call</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved</p>
-        </div>
-    </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC ===== */
-            const slides = document.querySelectorAll('.full-slide-layer');
-            let currentSlide = 0;
+        // স্ক্রিনশটের সব ডেটা দিয়ে তৈরি লাইভ আপডেট ফাংশন
+        function fetchLiveResults() {
+            console.log("fetching live data...");
             
-            function nextSlide() {
-                if (slides.length === 0) return;
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }
-            setInterval(nextSlide, 4000);
+            // স্ক্রিনশটের হুবহু আসল ডেটাসহ অবজেক্ট ম্যাপ
+            const demoData = {
+                magnum: { date: "29-11-2020", draw: "047/20", p1: "7402", p2: "3318", p3: "1631", special: ["0540", "1903", "3099", "3513", "4202", "5010", "6491", "6813", "8438", "9976"] },
+                damacai: { date: "29-11-2020", draw: "5134/20", p1: "7499", p2: "8303", p3: "1654", special: ["0704", "1653", "2087", "4275", "4516", "5174", "5378", "6074", "8472", "9392"] },
+                toto: { date: "29-11-2020", draw: "5204/20", p1: "8137", p2: "9179", p3: "6360", special: ["9253", "9857", "4011", "1212", "5334", "0856", "5333", "9039", "9236", "7417"] },
+                gdragon: { date: "30-11-2020", draw: "G084/20", p1: "5426", p2: "8672", p3: "2370", special: ["3468", "6441", "3204", "0275", "5233", "3838", "9991", "4185", "3018", "7120"] },
+                perdana: { date: "30-11-2020", draw: "P075/20", p1: "0314", p2: "5941", p3: "6025", special: ["0378", "0792", "2648", "2759", "4023", "5517", "6312", "6849", "7123", "8351"] },
+                stc: { date: "29-11-2020", draw: "106/20", p1: "5000", p2: "9944", p3: "1457", special: ["9312", "8714", "3298", "1735", "5436", "3923", "1571", "9626", "8400", "6476"] },
+                sabah: { date: "29-11-2020", draw: "3270/20", p1: "3925", p2: "2358", p3: "8237", special: ["0967", "2070", "3358", "5881", "6441", "7002", "7342", "7738", "7827", "8357"] },
+                sweep: { date: "29-11-2020", draw: "4363/20", p1: "7562", p2: "9864", p3: "5516", special: ["6741", "5848", "9497", "5601", "1973", "1022", "0427", "1165", "5249", "1578"] },
+                good: { date: "30-11-2020", draw: "G112/20", p1: "2232", p2: "6958", p3: "1428", special: ["2311", "5376", "5328", "8112", "4465", "4073", "8458", "1277", "4975", "2261"] }
+            };
 
-            /* ===== DIGITAL LIVE RESULTS SYSTEM ===== */
-            const liveSlides = document.querySelectorAll('.live-result-slide');
-            let currentLiveSlide = 0;
-            setInterval(() => {
-                if(liveSlides.length > 0) {
-                    liveSlides[currentLiveSlide].classList.remove('active');
-                    currentLiveSlide = (currentLiveSlide + 1) % liveSlides.length;
-                    liveSlides[currentLiveSlide].classList.add('active');
-                }
-            }, 3000);
-
-            /* ===== TERMINAL CLOCK SYNC ===== */
-            function updateLiveClock() {
-                const now = new Date();
-                const clockEl = document.getElementById('liveClock');
-                if(clockEl) {
-                    clockEl.innerText = "EST SYNC: " + now.toLocaleTimeString();
-                }
-            }
-            setInterval(updateLiveClock, 1000);
-            updateLiveClock();
-
-            /* ===== CANVAS GOLD PARTICLES GENERATOR ===== */
-            const canvas = document.getElementById("particleCanvas");
-            if (canvas) {
-                const ctx = canvas.getContext("2d");
-                function resizeCanvas() {
-                    const rect = canvas.parentElement.getBoundingClientRect();
-                    canvas.width = rect.width;
-                    canvas.height = rect.height;
-                }
-                resizeCanvas();
-                window.addEventListener("resize", resizeCanvas);
-
-                const particleCount = 120; 
-                const particles = [];
-                class Particle {
-                    constructor() { this.reset(); }
-                    reset() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = canvas.height + Math.random() * 20;
-                        this.size = Math.random() * 2.5 + 1;
-                        this.speedY = Math.random() * 1.2 + 0.4;
-                        this.speedX = (Math.random() - 0.5) * 0.6;
-                        this.alpha = Math.random() * 0.35 + 0.1; 
-                    }
-                    update() {
-                        this.y -= this.speedY;
-                        this.x += this.speedX;
-                        if (this.y < -10) this.reset();
-                    }
-                    draw() {
-                        ctx.save();
-                        ctx.globalAlpha = this.alpha;
-                        ctx.fillStyle = "#FFDF00";
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.restore();
-                    }
-                }
-                for(let i = 0; i < particleCount; i++) particles.push(new Particle());
-                function animateParticles() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(p => { p.update(); p.draw(); });
-                    requestAnimationFrame(animateParticles);
-                }
-                animateParticles();
-            }
-        });
-
-        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
-        function sendWhatsAppNotification(event) {
-            event.preventDefault(); 
-            const name = document.getElementById('regName').value;
-            const phone = document.getElementById('regPhone').value;
-            const game = document.getElementById('regGame').value;
-            const targetAgentWhatsAppNumber = "601116448229";
-
-            const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
-                                `👤 *Client Name:* ${name}\n` +
-                                `📱 *WhatsApp Number:* ${phone}\n` +
-                                `🎰 *Target Game:* ${game}\n\n` +
-                                `Please process the high-precision prediction matrices immediately.`;
-
-            const encodedMessage = encodeURIComponent(messageText);
-            const whatsAppUrl = `https://wa.me/${targetAgentWhatsAppNumber}?text=${encodedMessage}`;
-            window.open(whatsAppUrl, '_blank');
+            // ১. Magnum 4D
+            updateCardData('magnum', demoData.magnum);
+            // ২. Damacai 1+3D
+            updateCardData('damacai', demoData.damacai);
+            // ৩. Sports Toto
+            updateCardData('toto', demoData.toto);
+            // ৪. Grand Dragon
+            updateCardData('gd', demoData.gdragon);
+            // ৫. Perdana 4D
+            updateCardData('perdana', demoData.perdana);
+            // ৬. Sandakan
+            updateCardData('stc', demoData.stc);
+            // ৭. Sabah 88
+            updateCardData('sabah', demoData.sabah);
+            // ৮. Cash Sweep
+            updateCardData('sweep', demoData.sweep);
+            // ৯. Good 4D
+            updateCardData('good', demoData.good);
         }
 
-        /* ===== PREMIUM SERVICES POPUP MATRIX DATABASE ===== */
-        const servicesDatabase = {
-            "4D Dragon": { screenshot: "1000015083.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015084.jpg" },
-            "Nine Lotto": { screenshot: "1000015085.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015086.jpg" },
-            "Sports Toto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015080.jpg" },
-            "Magnum 4D": { screenshot: "1000015081.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015082.jpg" },
-            "Grand Dragon Lotto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015081.jpg" },
-            "Perdana 4D": { screenshot: "1000015101.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015100.jpg" }
-        };
+        // কার্ড ডেটা অ্যাসাইন করার কমন হেল্পার ফাংশন
+        function updateCardData(prefix, data) {
+            document.getElementById(`${prefix}-date`).innerText = data.date;
+            document.getElementById(`${prefix}-draw`).innerText = data.draw;
+            document.getElementById(`${prefix}-1st`).innerText = data.p1;
+            document.getElementById(`${prefix}-2nd`).innerText = data.p2;
+            document.getElementById(`${prefix}-3rd`).innerText = data.p3;
+            renderSpecialNumbers(`${prefix}-special`, data.special);
+        }
 
-        function openServicesModal(gameKey) {
-            document.getElementById('modalServiceTitle').innerText = gameKey + " - Official Media Proofs";
-            const container = document.getElementById('serviceProofsContainer');
-            if(!container) return;
+        // স্পেশাল নম্বর রেন্ডার করার ফাংশন
+        function renderSpecialNumbers(containerId, numbersArray) {
+            const container = document.getElementById(containerId);
             container.innerHTML = "";
-
-            const data = servicesDatabase[gameKey];
-            if(data) {
-                container.innerHTML = `
-                    <div class="proof-media-item-box">
-                        <span class="media-label-text"><i class="fa fa-image"></i> Official Screenshot</span>
-                        <img src="${data.screenshot}" alt="Screenshot Proof">
-                    </div>
-                    <div class="proof-media-item-box">
-                        <span class="media-label-text"><i class="fa fa-video"></i> Video Verification Proof</span>
-                        <video controls preload="metadata"><source src="${data.video}" type="video/mp4">Your browser does not support video.</video>
-                    </div>
-                    <div class="proof-media-item-box">
-                        <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
-                        <audio controls><source src="${data.audio}" type="audio/mpeg">Your browser does not support audio.</audio>
-                    </div>
-                    <div class="proof-media-item-box" style="text-align: center;">
-                        <span class="media-label-text" style="text-align:left;"><i class="fab fa-facebook"></i> Facebook Interaction</span>
-                        <a href="${data.facebook}" target="_blank" class="modal-fb-btn"><i class="fab fa-facebook"></i> Visit Facebook Post</a>
-                    </div>
-                    <div class="proof-media-item-box">
-                        <span class="media-label-text"><i class="fa fa-ticket-alt"></i> Extracted Game Slip</span>
-                        <img src="${data.gameslip}" alt="Game Slip Proof">
-                    </div>
-                `;
-            }
-            document.getElementById('servicesModal').style.display = 'flex';
+            numbersArray.forEach(num => {
+                const box = document.createElement('div');
+                box.className = 'num-box';
+                box.innerText = num;
+                container.appendChild(box);
+            });
         }
 
-        function closeServicesModal() {
-            document.getElementById('servicesModal').style.display = 'none';
-            const container = document.getElementById('serviceProofsContainer');
-            if(container) {
-                container.querySelectorAll('audio').forEach(a => a.pause());
-                container.querySelectorAll('video').forEach(v => v.pause());
-            }
-        }
-
-        /* ===== DYNAMIC DATABASE MATRIX FOR PORTFOLIO SECTION ONLY ===== */
-        const winnersDatabase = {
-            "Grand Dragon": [
-                { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
-                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিф ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"`, image: "1000015080.jpg" }
-            ],
-            "Sports Toto": [
-                { name: "Md. Ishtiaque", meta: "Age: 29 | Kuala Lumpur | Payout: 280,000 MYR", review: `"আমি প্রথমে বিশ্বাস করতে পারিনি, কিন্তু হানিফ ভাইয়ের হিসাব নিকাশ অসাধারণ। স্পোর্টস টোটো খেলায় বড় প্রাইজ পেয়েছি।"`, image: "1000015079.jpg" }
-            ],
-            "Magnum 4D": [
-                { name: "Babul Mia", meta: "Age: 37 | Rawang | Payout: 350,000 MYR", review: `"Magnum 4D direct prize pool extraction was smooth. Thanks Hanif Sarkar."`, image: "1000015081.jpg" }
-            ],
-            "Nine Lotto": [
-                { name: "Saiful Islam", meta: "Age: 30 | Sungai Petani | Payout: 290,000 MYR", review: `"Nine Lotto Jackpot pattern tracked perfectly! Hanif Sarkar helped me win safely."`, image: "1000015085.jpg" }
-            ]
-        };
-
-        function openWinnersModal(gameName) {
-            document.getElementById('modalGameTitle').innerText = gameName + " - Premium Portfolio & Winners";
-            const container = document.getElementById('profilesContainer');
-            if(!container) return;
-            container.innerHTML = ""; 
-
-            const selectedWinners = winnersDatabase[gameName];
-            if(!selectedWinners || selectedWinners.length === 0) {
-                container.innerHTML = `<p style="text-align:center; color:#aaa; font-size:1.2rem; padding: 2rem;">No portfolio logs loaded for this pool yet.</p>`;
-            } else {
-                selectedWinners.forEach((winner) => {
-                    const audioFile = "PTT-20260529-WA0000.opus"; 
-                    const videoFile = "VID-20260420-WA0007.mp4";
-
-                    const cardHTML = `
-                        <div class="winner-premium-profile-card">
-                            <div class="winner-avatar-frame">
-                                <img src="${winner.image}" alt="${winner.name}">
-                            </div>
-                            <div class="winner-meta-details-box">
-                                <h4>${winner.name}</h4>
-                                <div class="winner-address-tag">${winner.meta}</div>
-                                <div class="winner-written-review">${winner.review}</div>
-                                <div class="winner-media-reviews-row">
-                                    <div class="audio-review-wrapper">
-                                        <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
-                                        <audio controls><source src="${audioFile}" type="audio/mpeg">Your browser does not support audio.</audio>
-                                    </div>
-                                    <div class="video-review-wrapper">
-                                        <span class="media-label-text"><i class="fa fa-video"></i> Video Proof</span>
-                                        <video controls preload="metadata"><source src="${videoFile}" type="video/mp4">Your browser does not support video.</video>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                    container.innerHTML += cardHTML;
-                });
-            }
-            document.getElementById('winnersModal').style.display = 'flex';
-        }
-
-        function closeWinnersModal() {
-            document.getElementById('winnersModal').style.display = 'none';
-            const container = document.getElementById('profilesContainer');
-            if(container) {
-                container.querySelectorAll('audio').forEach(a => a.pause());
-                container.querySelectorAll('video').forEach(v => v.pause());
-            }
-        }
-
-        /* ===== CLOSING MODALS ON OUTSIDE CLICK ===== */
-        window.onclick = function(event) {
-            const winnersModal = document.getElementById('winnersModal');
-            const servicesModal = document.getElementById('servicesModal');
-            if (event.target == winnersModal) { closeWinnersModal(); }
-            if (event.target == servicesModal) { closeServicesModal(); }
-        }
+        // পেজ ওপেন হলে অটোমেটিক রান হবে
+        window.onload = fetchLiveResults;
     </script>
 </body>
 </html>
