@@ -355,6 +355,8 @@
             padding: 2.5rem 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .service-card:hover {
@@ -392,50 +394,81 @@
             color: #d1d1d6; 
             font-size: 1rem; 
             line-height: 1.6; 
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* ===== MEDIA PROOF BUTTONS CLUSTER ===== */
-        .media-proof-cluster {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .proof-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            padding: 0.6rem 0.4rem;
-            font-size: 0.78rem;
-            font-weight: 700;
+        .service-click-hint {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
             text-transform: uppercase;
-            color: var(--bright-white);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 223, 0, 0.3);
-            border-radius: 4px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SERVICE PROOF DYNAMIC MODAL ===== */
+        .service-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 6000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .service-modal-window {
+            background: #050507;
+            border: 3px solid var(--primary-gold);
+            width: 100%;
+            max-width: 800px;
+            height: 85vh;
+            border-radius: 16px;
+            overflow-y: auto;
+            position: relative;
+            padding: 3rem 2rem;
+        }
+
+        .modal-proof-content-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .proof-media-item-box {
+            background: var(--card-black);
+            border: 1px solid rgba(255, 223, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .proof-media-item-box img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid rgba(255,223,0,0.3);
+        }
+
+        .modal-fb-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #1877F2;
+            color: white;
             text-decoration: none;
-            transition: all 0.2s ease;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
         }
-
-        .proof-btn:hover {
-            background: var(--primary-gold);
-            color: var(--pure-black);
-            border-color: var(--bright-white);
-        }
-
-        .proof-btn-full {
-            grid-column: span 2;
-            background: rgba(0, 229, 255, 0.1);
-            border-color: var(--neon-blue);
-        }
-        
-        .proof-btn-full:hover {
-            background: var(--neon-blue);
-            color: var(--pure-black);
-        }
+        .modal-fb-btn:hover { opacity: 0.9; }
 
         /* ===== DIGITAL LIVE ARENA ===== */
         .results-section {
@@ -656,6 +689,7 @@
             color: var(--neon-red);
             cursor: pointer;
             font-weight: 900;
+            z-index: 100;
         }
 
         .modal-headline {
@@ -751,12 +785,12 @@
             display: block;
         }
 
-        .audio-review-wrapper audio {
+        .audio-review-wrapper audio, .proof-media-item-box audio {
             width: 100%;
             outline: none;
         }
 
-        .video-review-wrapper video {
+        .video-review-wrapper video, .proof-media-item-box video {
             width: 100%;
             border-radius: 4px;
             border: 1px solid rgba(255, 223, 0, 0.3);
@@ -997,7 +1031,7 @@
             .live-lucky-num { font-size: 4.2rem; letter-spacing: 2px; }
             .live-op-name { font-size: 1.6rem; }
 
-            .winners-modal-window { padding: 2rem 1rem; height: 90vh; }
+            .winners-modal-window, .service-modal-window { padding: 2rem 1rem; height: 90vh; }
             .winner-premium-profile-card { 
                 grid-template-columns: 1fr; 
                 text-align: center; 
@@ -1094,88 +1128,60 @@
 
     <section class="services-section" id="services">
         <h2 class="section-title">Our Premium Services</h2>
-        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks (Click elements to view media proof links)</p>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks (Click any game to view Proof Options Popup)</p>
         
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('4D Dragon')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon"></div>
                 <h3>4D Dragon</h3>
                 <p>Expertly engineered prediction charts and exclusive direct coordinate structural number selections.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015083.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015084.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('Nine Lotto')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto"></div>
                 <h3>Nine Lotto</h3>
                 <p>Strategic pattern analysis configurations optimized to elevate your mathematical winning ratios safely.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015085.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015086.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('Sports Toto')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014883.png" alt="Sports Toto"></div>
                 <h3>Sports Toto</h3>
                 <p>High precision combination generators tracking historical execution trends across active pools.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015079.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015080.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('Magnum 4D')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D"></div>
                 <h3>Magnum 4D</h3>
                 <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015081.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015082.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('Grand Dragon Lotto')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
                 <h3>Grand Dragon Lotto</h3>
                 <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015079.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015081.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openServicesModal('Perdana 4D')">
                 <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
                 <h3>Perdana 4D</h3>
                 <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
-                <div class="media-proof-cluster">
-                    <a href="1000015101.jpg" target="_blank" class="proof-btn"><i class="fa fa-image"></i> Screenshot</a>
-                    <a href="VID-20260420-WA0007.mp4" target="_blank" class="proof-btn"><i class="fa fa-video"></i> Video Proof</a>
-                    <a href="PTT-20260529-WA0000.opus" target="_blank" class="proof-btn"><i class="fa fa-volume-up"></i> Audio Track</a>
-                    <a href="https://facebook.com" target="_blank" class="proof-btn"><i class="fab fa-facebook"></i> FB Post</a>
-                    <a href="1000015100.jpg" target="_blank" class="proof-btn proof-btn-full"><i class="fa fa-ticket-alt"></i> View Game Slip Folder</a>
-                </div>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
             </div>
         </div>
     </section>
+
+    <div class="service-modal-overlay" id="servicesModal">
+        <div class="service-modal-window">
+            <span class="close-modal-trigger" onclick="closeServicesModal()">&times;</span>
+            <div class="modal-headline" id="modalServiceTitle">Game Media Proofs</div>
+            <div class="modal-proof-content-layout" id="serviceProofsContainer"></div>
+        </div>
+    </div>
 
     <section class="results-section" id="results">
         <div class="results-section-bg"></div>
@@ -1429,11 +1435,64 @@
             window.open(whatsAppUrl, '_blank');
         }
 
+        /* ===== PREMIUM SERVICES POPUP MATRIX DATABASE ===== */
+        const servicesDatabase = {
+            "4D Dragon": { screenshot: "1000015083.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015084.jpg" },
+            "Nine Lotto": { screenshot: "1000015085.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015086.jpg" },
+            "Sports Toto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015080.jpg" },
+            "Magnum 4D": { screenshot: "1000015081.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015082.jpg" },
+            "Grand Dragon Lotto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015081.jpg" },
+            "Perdana 4D": { screenshot: "1000015101.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015100.jpg" }
+        };
+
+        function openServicesModal(gameKey) {
+            document.getElementById('modalServiceTitle').innerText = gameKey + " - Official Media Proofs";
+            const container = document.getElementById('serviceProofsContainer');
+            if(!container) return;
+            container.innerHTML = "";
+
+            const data = servicesDatabase[gameKey];
+            if(data) {
+                container.innerHTML = `
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-image"></i> Official Screenshot</span>
+                        <img src="${data.screenshot}" alt="Screenshot Proof">
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-video"></i> Video Verification Proof</span>
+                        <video controls preload="metadata"><source src="${data.video}" type="video/mp4">Your browser does not support video.</video>
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
+                        <audio controls><source src="${data.audio}" type="audio/mpeg">Your browser does not support audio.</audio>
+                    </div>
+                    <div class="proof-media-item-box" style="text-align: center;">
+                        <span class="media-label-text" style="text-align:left;"><i class="fab fa-facebook"></i> Facebook Interaction</span>
+                        <a href="${data.facebook}" target="_blank" class="modal-fb-btn"><i class="fab fa-facebook"></i> Visit Facebook Post</a>
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-ticket-alt"></i> Extracted Game Slip</span>
+                        <img src="${data.gameslip}" alt="Game Slip Proof">
+                    </div>
+                `;
+            }
+            document.getElementById('servicesModal').style.display = 'flex';
+        }
+
+        function closeServicesModal() {
+            document.getElementById('servicesModal').style.display = 'none';
+            const container = document.getElementById('serviceProofsContainer');
+            if(container) {
+                container.querySelectorAll('audio').forEach(a => a.pause());
+                container.querySelectorAll('video').forEach(v => v.pause());
+            }
+        }
+
         /* ===== DYNAMIC DATABASE MATRIX FOR PORTFOLIO SECTION ONLY ===== */
         const winnersDatabase = {
             "Grand Dragon": [
                 { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
-                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিফ ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"`, image: "1000015080.jpg" }
+                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিф ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"`, image: "1000015080.jpg" }
             ],
             "Sports Toto": [
                 { name: "Md. Ishtiaque", meta: "Age: 29 | Kuala Lumpur | Payout: 280,000 MYR", review: `"আমি প্রথমে বিশ্বাস করতে পারিনি, কিন্তু হানিফ ভাইয়ের হিসাব নিকাশ অসাধারণ। স্পোর্টস টোটো খেলায় বড় প্রাইজ পেয়েছি।"`, image: "1000015079.jpg" }
@@ -1496,9 +1555,12 @@
             }
         }
 
+        /* ===== CLOSING MODALS ON OUTSIDE CLICK ===== */
         window.onclick = function(event) {
-            const modal = document.getElementById('winnersModal');
-            if (event.target == modal) { closeWinnersModal(); }
+            const winnersModal = document.getElementById('winnersModal');
+            const servicesModal = document.getElementById('servicesModal');
+            if (event.target == winnersModal) { closeWinnersModal(); }
+            if (event.target == servicesModal) { closeServicesModal(); }
         }
     </script>
 </body>
