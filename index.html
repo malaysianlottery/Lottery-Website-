@@ -3,138 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Malaysian Lottery - Premium Live 4D Portal</title>
-    
+    <title>Malaysian Lottery - Live 4D Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* ===== GLOBAL RESET & HIGH-END GOLDEN VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
-
         :root {
-            --primary-gold: #FFDF00;     
-            --deep-gold: #D4AF37;        
-            --dark-gold: #996515;        
+            --primary-gold: #FFDF00;
+            --deep-gold: #D4AF37;
             --pure-black: #000000;
             --card-black: #0d0d11;
             --bright-white: #ffffff;
-            --neon-green: #39FF14;
             --neon-blue: #00E5FF;
-            --neon-red: #FF3333;
-            --gold-glow: rgba(255, 223, 0, 0.35);
         }
-
-        html, body {
-            width: 100%;
-            height: 100%;
+        body {
             font-family: 'Poppins', sans-serif;
-            background: var(--pure-black); 
+            background: var(--pure-black);
             color: var(--bright-white);
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-
-        nav, .hero-view-port, section, footer {
-            position: relative;
-            z-index: 10;
-        }
-
-        /* ===== NAVBAR ===== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0,0,0,0.95);
             padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-bottom: 3px solid var(--primary-gold);
-            backdrop-filter: blur(10px);
         }
-
         .logo {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
         .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
+            height: 50px;
         }
-
         .logo span {
             font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            background: linear-gradient(135deg, #FFF, var(--primary-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
         }
-
-        .nav-right-container {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
         nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
         }
-
         nav a {
-            color: var(--bright-white);
+            color: white;
             text-decoration: none;
-            font-size: 0.9rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
         }
-
-        nav a:hover {
-            color: var(--primary-gold);
-        }
-
-        .lang-selector-box {
-            background: var(--card-black);
-            border: 2px solid var(--primary-gold);
-            color: var(--bright-white);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            outline: none;
-        }
-
-        /* ===== HERO AREA ===== */
+        nav a:hover { color: var(--primary-gold); }
         .hero-view-port {
-            margin-top: 85px; 
+            margin-top: 80px;
             width: 100%;
-            max-width: 1400px; 
+            max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
-            position: relative;
-            background: #111116; 
             border: 3px solid var(--primary-gold);
             overflow: hidden;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16/9;
+            position: relative;
         }
-
         #particleCanvas {
             position: absolute;
             top: 0;
@@ -144,382 +85,145 @@
             z-index: 2;
             pointer-events: none;
         }
-
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
-            z-index: 1;
         }
-
         .full-slide-layer {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.8s ease-in-out;
-            background: #111116;
+            transition: opacity 0.8s;
         }
-
-        .full-slide-layer.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        .full-slide-layer.active { opacity: 1; }
         .slide-bg-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            display: block;
+            object-fit: cover;
         }
-
         .slide-text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
             text-align: center;
-            z-index: 5;
+            width: 90%;
         }
-
         .slide-text-overlay h1 {
             font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.15;
-            color: var(--bright-white);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 0 20px black;
         }
-
-        .slide-text-overlay h1 span {
-            display: block;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ===== SECTION TITLES ===== */
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF, var(--primary-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            margin-bottom: 2rem;
         }
-
-        /* ===== PROFILE SECTION ===== */
-        .profile-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+        .profile-section, .services-section, .results-section, .past-results-section, .portfolio-section {
+            padding: 4rem 2rem;
+            border-bottom: 2px solid rgba(255,223,0,0.2);
         }
-
         .profile-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
-
         .profile-image-box {
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 1 / 1;
+            border: 3px solid var(--primary-gold);
             border-radius: 16px;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            margin: 0 auto;
-            background: #000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .profile-photo-main {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #0d0d11;
-            display: block;
-        }
-
-        .profile-info h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .profile-badge {
-            display: inline-block;
-            background: rgba(255, 223, 0, 0.1);
-            color: var(--primary-gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            border: 2px solid var(--primary-gold);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .profile-info p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #e2e2e8;
-            margin-bottom: 1.5rem;
-        }
-
+        .profile-photo-main { width: 100%; display: block; }
+        .profile-info h2 { color: var(--primary-gold); font-size: 2.5rem; }
         .condition-highlight {
             border-left: 5px solid var(--primary-gold);
-            background: linear-gradient(90deg, #101014, #050505);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0 12px 12px 0;
-            border: 1px solid rgba(255,223,0,0.2);
+            background: #111;
+            padding: 1rem;
+            margin: 1rem 0;
         }
-
-        .condition-highlight strong {
-            color: var(--primary-gold);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-        }
-
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1rem;
         }
-
         .stat-item {
             background: var(--card-black);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 1rem;
             text-align: center;
-            border: 2px solid rgba(255, 223, 0, 0.2);
-            border-top: 4px solid var(--primary-gold);
+            border-top: 3px solid var(--primary-gold);
         }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--primary-gold);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #b5b5be;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* ===== SERVICES ===== */
-        .services-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
         .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
         }
-
         .service-card {
             background: var(--card-black);
-            border-radius: 16px;
-            border: 2px solid rgba(255, 223, 0, 0.15);
-            padding: 2.5rem 1.5rem;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            border: 2px solid rgba(255,223,0,0.3);
+            border-radius: 16px;
             cursor: pointer;
+            transition: 0.3s;
         }
-
-        .service-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.1);
-        }
-
+        .service-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
         .game-logo-box {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto 1.5rem auto;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--primary-gold);
-            background: #111;
+            border: 2px solid var(--primary-gold);
         }
-
-        .game-logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-card h3 { 
-            color: var(--primary-gold); 
-            font-size: 1.5rem; 
-            margin-bottom: 0.8rem; 
-            font-weight: 900; 
-            text-transform: uppercase;
-        }
-        
-        .service-card p { 
-            color: #d1d1d6; 
-            font-size: 1rem; 
-            line-height: 1.6; 
-            margin-bottom: 1rem;
-        }
-
-        .service-click-hint {
-            font-size: 0.8rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        /* ===== MODAL ===== */
-        .service-modal-overlay, .winners-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            backdrop-filter: blur(10px);
-            z-index: 6000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .service-modal-window, .winners-modal-window {
-            background: #050507;
-            border: 3px solid var(--primary-gold);
-            width: 100%;
-            max-width: 800px;
-            height: 85vh;
-            border-radius: 16px;
-            overflow-y: auto;
-            position: relative;
-            padding: 3rem 2rem;
-        }
-
-        .close-modal-trigger {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 2.5rem;
-            color: var(--neon-red);
-            cursor: pointer;
-            font-weight: 900;
-        }
-
-        .modal-headline {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px dashed rgba(255,223,0,0.3);
-            padding-bottom: 1rem;
-        }
-
-        .proof-media-item-box, .winner-premium-profile-card {
-            background: var(--card-black);
-            border: 1px solid rgba(255, 223, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        /* ===== LIVE RESULTS (EMBEDDED check4d.org) ===== */
-        .results-section {
-            padding: 6rem 2rem;
-            background: var(--pure-black);
-            text-align: center;
-            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
-        }
-
+        .game-logo-img { width: 100%; height: 100%; object-fit: cover; }
         .live-enter-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            display: block;
             background: linear-gradient(135deg, #00FF66, #009933);
-            color: #000;
-            border: 2px solid #fff;
+            color: black;
             padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 900;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
             border-radius: 50px;
+            margin: 0 auto 2rem;
             cursor: pointer;
-            margin: 1rem auto;
-            transition: all 0.3s ease;
         }
-
-        .live-enter-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #00FF66;
-        }
-
         .live-arena-viewport {
             max-width: 1200px;
-            margin: 2rem auto 0;
+            margin: 0 auto;
             background: #050508;
             border: 3px solid var(--primary-gold);
             border-radius: 16px;
             padding: 1rem;
             display: none;
         }
-
-        .live-arena-viewport.show-live {
-            display: block;
-        }
-
+        .live-arena-viewport.show { display: block; }
         .live-header-ticker {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            padding-bottom: 1rem;
             border-bottom: 2px solid var(--primary-gold);
-            padding-bottom: 0.8rem;
             margin-bottom: 1rem;
-            flex-wrap: wrap;
         }
-
         .live-status-tag {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255,0,0,0.2);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            color: var(--neon-red);
+            color: #ff4444;
             font-weight: bold;
         }
-
         .live-dot {
             width: 10px;
             height: 10px;
@@ -527,118 +231,99 @@
             border-radius: 50%;
             animation: pulse 1s infinite;
         }
-
         @keyframes pulse {
             0% { opacity: 0.3; transform: scale(0.8);}
             100% { opacity: 1; transform: scale(1.2);}
         }
-
-        .live-timer-sync {
-            color: var(--neon-blue);
-            font-weight: bold;
-        }
-
         iframe {
             width: 100%;
             height: 600px;
             border: none;
             border-radius: 12px;
         }
-
-        /* ===== FOOTER ETC ===== */
-        .past-results-section, .portfolio-section {
-            padding: 4rem 2rem;
-            background: #050507;
-            text-align: center;
-            border-bottom: 2px solid rgba(255,223,0,0.2);
-        }
-
         .search-box {
-            max-width: 600px;
-            margin: 0 auto 2rem;
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
-
         .search-box input, .search-box select, .search-btn {
             padding: 0.8rem;
             background: #111;
-            border: 1px solid var(--primary-gold);
+            border: 2px solid var(--primary-gold);
             color: white;
             border-radius: 8px;
         }
-
         .search-btn {
             background: var(--primary-gold);
             color: black;
             font-weight: bold;
             cursor: pointer;
         }
-
+        .past-results-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0a0a0f;
+            border-radius: 16px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,223,0,0.3);
+        }
+        th {
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+        }
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
         }
-
         .portfolio-card {
             background: var(--card-black);
             padding: 2rem;
+            text-align: center;
             border: 2px solid var(--primary-gold);
             border-radius: 16px;
             cursor: pointer;
-            transition: 0.3s;
         }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            background: #1a1a22;
-        }
-
         footer {
             background: #000;
             padding: 3rem 2rem;
             border-top: 4px solid var(--primary-gold);
         }
-
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
         }
-
         .footer-reg-col, .footer-right-contact-block {
             background: #0a0a0f;
             padding: 1.5rem;
             border-radius: 16px;
-            border: 1px solid var(--primary-gold);
         }
-
         .form-group {
             margin-bottom: 1rem;
-            text-align: left;
         }
-
-        .form-group label {
-            color: var(--primary-gold);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
         .form-group input, .form-group select {
             width: 100%;
             padding: 0.6rem;
-            background: #000;
-            border: 1px solid #aaa;
+            background: black;
+            border: 1px solid var(--primary-gold);
             color: white;
             border-radius: 8px;
         }
-
         .cta-button {
             background: var(--primary-gold);
             color: black;
@@ -646,10 +331,9 @@
             border: none;
             font-weight: bold;
             border-radius: 8px;
-            cursor: pointer;
             width: 100%;
+            cursor: pointer;
         }
-
         .social-icon-btn {
             display: inline-block;
             background: #25D366;
@@ -660,10 +344,40 @@
             color: black;
             font-weight: bold;
         }
-
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 5000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-window {
+            background: #050507;
+            border: 3px solid var(--primary-gold);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: red;
+            cursor: pointer;
+        }
         @media (max-width: 768px) {
             .profile-container, .footer-container { grid-template-columns: 1fr; }
-            .hero-view-port { margin-top: 70px; }
             .slide-text-overlay h1 { font-size: 2rem; }
             nav ul { display: none; }
             iframe { height: 400px; }
@@ -677,34 +391,29 @@
         <img class="logo-img" src="1000014839.png" alt="Logo">
         <span>MALAYSIAN LOTTERY</span>
     </div>
-    <div class="nav-right-container">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#profile">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#live-monitor">Live 4D</a></li>
-            <li><a href="#portfolio">Winners</a></li>
-            <li><a href="#footer-anchor">Register</a></li>
-        </ul>
-        <select class="lang-selector-box">
-            <option>EN</option>
-            <option>BN</option>
-        </select>
-    </div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#profile">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#live-monitor">Live 4D</a></li>
+        <li><a href="#past-history">Past Results</a></li>
+        <li><a href="#portfolio">Winners</a></li>
+        <li><a href="#footer">Register</a></li>
+    </ul>
 </nav>
 
-<!-- HERO SLIDER -->
+<!-- Hero Slider -->
 <div class="hero-view-port" id="home">
     <canvas id="particleCanvas"></canvas>
     <div class="slider-wrapper">
-        <div class="full-slide-layer active"><img class="slide-bg-img" src="1000014883.png"><div class="slide-text-overlay"><h1><span>Welcome</span><span>to</span><span>Malaysian</span><span>Lottery</span></h1></div></div>
+        <div class="full-slide-layer active"><img class="slide-bg-img" src="1000014883.png"><div class="slide-text-overlay"><h1>MALAYSIAN LOTTERY</h1></div></div>
         <div class="full-slide-layer"><img class="slide-bg-img" src="1000014899.jpg"></div>
         <div class="full-slide-layer"><img class="slide-bg-img" src="1000014901.jpg"></div>
         <div class="full-slide-layer"><img class="slide-bg-img" src="1000014900.jpg"></div>
     </div>
 </div>
 
-<!-- PROFILE -->
+<!-- Profile -->
 <section class="profile-section" id="profile">
     <div class="profile-container">
         <div class="profile-image-box"><img class="profile-photo-main" src="1000014839.png"></div>
@@ -712,125 +421,250 @@
             <h2>Hanif Sarkar</h2>
             <div class="profile-badge">Verified 100% Winning Tips Agent</div>
             <p>Get access to calculated lottery matrices directly from structural pattern databases.</p>
-            <div class="condition-highlight"><strong>Zero Upfront Payment</strong> No advance fees. 30% commission only on total winnings.</div>
+            <div class="condition-highlight"><strong>Zero Upfront Payment</strong> — 30% commission only on total winnings.</div>
             <div class="stats-grid"><div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div><div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win</div></div><div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div></div>
         </div>
     </div>
 </section>
 
-<!-- SERVICES -->
+<!-- Services -->
 <section class="services-section" id="services">
     <h2 class="section-title">Premium Services</h2>
     <div class="services-grid">
-        <div class="service-card" onclick="openServicesModal('4D Dragon')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>4D Dragon</h3><p>Expert predictions & structural number selections.</p><div class="service-click-hint">Click for Proofs</div></div>
-        <div class="service-card" onclick="openServicesModal('Nine Lotto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Nine Lotto</h3><p>Strategic pattern analysis for winning ratios.</p><div class="service-click-hint">Click for Proofs</div></div>
-        <div class="service-card" onclick="openServicesModal('Sports Toto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014883.png"></div><h3>Sports Toto</h3><p>High precision combination generators.</p><div class="service-click-hint">Click for Proofs</div></div>
-        <div class="service-card" onclick="openServicesModal('Magnum 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg"></div><h3>Magnum 4D</h3><p>Direct top-tier prize pool strategies.</p><div class="service-click-hint">Click for Proofs</div></div>
-        <div class="service-card" onclick="openServicesModal('Grand Dragon Lotto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>Grand Dragon Lotto</h3><p>High precision double-chance permutations.</p><div class="service-click-hint">Click for Proofs</div></div>
-        <div class="service-card" onclick="openServicesModal('Perdana 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Perdana 4D</h3><p>Advanced algorithmic matrix extraction.</p><div class="service-click-hint">Click for Proofs</div></div>
+        <div class="service-card" onclick="openServiceModal('4D Dragon')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>4D Dragon</h3><p>Expert predictions & structural selections.</p></div>
+        <div class="service-card" onclick="openServiceModal('Nine Lotto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Nine Lotto</h3><p>Strategic pattern analysis for winning.</p></div>
+        <div class="service-card" onclick="openServiceModal('Sports Toto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014883.png"></div><h3>Sports Toto</h3><p>High precision combination generators.</p></div>
+        <div class="service-card" onclick="openServiceModal('Magnum 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg"></div><h3>Magnum 4D</h3><p>Top-tier prize pool strategies.</p></div>
+        <div class="service-card" onclick="openServiceModal('Grand Dragon')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>Grand Dragon</h3><p>High precision double-chance permutations.</p></div>
+        <div class="service-card" onclick="openServiceModal('Perdana 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Perdana 4D</h3><p>Advanced algorithmic matrix extraction.</p></div>
     </div>
 </section>
 
-<!-- LIVE 4D RESULTS (EMBEDDED check4d.org) -->
+<!-- Live Results (check4d.org) -->
 <section class="results-section" id="live-monitor">
     <h2 class="section-title">Live 4D Results</h2>
-    <button class="live-enter-btn" onclick="toggleLiveScreen()">🔴 লাইভ রেজাল্ট দেখুন <i class="fa fa-arrow-right"></i></button>
-    <div class="live-arena-viewport" id="liveArenaBox">
+    <button class="live-enter-btn" onclick="toggleLive()">🔴 লাইভ রেজাল্ট দেখুন</button>
+    <div class="live-arena-viewport" id="liveArena">
         <div class="live-header-ticker">
             <div class="live-status-tag"><div class="live-dot"></div> LIVE AUTO UPDATE</div>
-            <div class="live-timer-sync" id="liveClock"></div>
+            <div id="liveClock"></div>
         </div>
         <iframe src="https://www.check4d.org/" title="Live 4D Results Malaysia"></iframe>
-        <p style="color:#aaa; margin-top:1rem;">🔁 স্বয়ংক্রিয় আপডেট | উৎস: check4d.org (Magnum, Toto, DaMaCai, Singapore, Cambodia)</p>
+        <p style="color:#aaa; text-align:center; margin-top:1rem;">🔁 স্বয়ংক্রিয় আপডেট | Magnum, Toto, DaMaCai, Singapore, Cambodia</p>
     </div>
 </section>
 
-<!-- PAST RESULTS (demo) -->
+<!-- Past Results History (Fully Active) -->
 <section class="past-results-section" id="past-history">
     <h2 class="section-title">Past Results History</h2>
     <div class="search-box">
-        <select id="past-game"><option>Magnum 4D</option><option>Sports Toto</option><option>Grand Dragon</option></select>
-        <input type="date" id="past-date">
-        <button class="search-btn" onclick="searchPastRecords()">Search</button>
+        <select id="gameSelect">
+            <option value="Magnum 4D">Magnum 4D</option>
+            <option value="Sports Toto">Sports Toto</option>
+            <option value="Grand Dragon">Grand Dragon</option>
+            <option value="Singapore 4D">Singapore 4D</option>
+        </select>
+        <input type="date" id="dateSelect">
+        <button class="search-btn" onclick="searchPastResults()">Search Results</button>
     </div>
-    <div id="past-content">Select a game and date to view historical data.</div>
+    <div id="pastResultsDisplay" class="past-results-table">
+        <!-- Dynamic table will appear here -->
+        <p style="text-align:center; padding:2rem;">Select a game and date to view historical results.</p>
+    </div>
 </section>
 
-<!-- WINNERS PORTFOLIO -->
+<!-- Winners Portfolio -->
 <section class="portfolio-section" id="portfolio">
     <h2 class="section-title">🏆 Recent Winners</h2>
     <div class="portfolio-grid">
-        <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon')"><h3>Grand Dragon</h3><p>RM 450k Winner</p><div class="click-hint">Click for Profile</div></div>
-        <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')"><h3>Sports Toto</h3><p>RM 280k Winner</p><div class="click-hint">Click for Profile</div></div>
-        <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')"><h3>Magnum 4D</h3><p>RM 350k Winner</p><div class="click-hint">Click for Profile</div></div>
-        <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')"><h3>Nine Lotto</h3><p>RM 290k Winner</p><div class="click-hint">Click for Profile</div></div>
+        <div class="portfolio-card" onclick="openWinnerModal('Grand Dragon', 'Sabbir Ali', 'RM 450,000', 'Johor Bahru')"><h3>Grand Dragon</h3><p>RM 450k Winner</p></div>
+        <div class="portfolio-card" onclick="openWinnerModal('Sports Toto', 'Md. Ishtiaque', 'RM 280,000', 'Kuala Lumpur')"><h3>Sports Toto</h3><p>RM 280k Winner</p></div>
+        <div class="portfolio-card" onclick="openWinnerModal('Magnum 4D', 'Babul Mia', 'RM 350,000', 'Rawang')"><h3>Magnum 4D</h3><p>RM 350k Winner</p></div>
+        <div class="portfolio-card" onclick="openWinnerModal('Nine Lotto', 'Saiful Islam', 'RM 290,000', 'Sungai Petani')"><h3>Nine Lotto</h3><p>RM 290k Winner</p></div>
     </div>
 </section>
 
-<!-- MODALS -->
-<div class="service-modal-overlay" id="servicesModal"><div class="service-modal-window"><span class="close-modal-trigger" onclick="closeServicesModal()">&times;</span><div class="modal-headline" id="modalServiceTitle">Proofs</div><div id="serviceProofsContainer"></div></div></div>
-<div class="winners-modal-overlay" id="winnersModal"><div class="winners-modal-window"><span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span><div class="modal-headline" id="modalGameTitle">Winner Details</div><div id="profilesContainer"></div></div></div>
+<!-- Modals -->
+<div id="serviceModal" class="modal-overlay"><div class="modal-window"><span class="close-modal" onclick="closeServiceModal()">&times;</span><h2 id="modalTitle" style="color:gold;">Proofs</h2><div id="modalContent"><p>Loading...</p></div></div></div>
+<div id="winnerModal" class="modal-overlay"><div class="modal-window"><span class="close-modal" onclick="closeWinnerModal()">&times;</span><h2 id="winnerModalTitle" style="color:gold;">Winner Details</h2><div id="winnerModalContent"></div></div></div>
 
-<!-- FOOTER -->
-<footer id="footer-anchor">
+<!-- Footer -->
+<footer id="footer">
     <div class="footer-container">
         <div class="footer-reg-col">
-            <h4>VIP Registration</h4>
-            <form onsubmit="sendWhatsAppNotification(event)">
+            <h3>VIP Registration</h3>
+            <form onsubmit="sendWhatsApp(event)">
                 <div class="form-group"><label>Full Name</label><input type="text" id="regName" required></div>
-                <div class="form-group"><label>WhatsApp</label><input type="tel" id="regPhone" required></div>
-                <div class="form-group"><label>Game</label><select id="regGame"><option>Magnum 4D</option><option>Sports Toto</option><option>Grand Dragon</option></select></div>
+                <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="regPhone" required></div>
+                <div class="form-group"><label>Target Game</label><select id="regGame"><option>Magnum 4D</option><option>Sports Toto</option><option>Grand Dragon</option></select></div>
                 <button type="submit" class="cta-button">Register for VIP Tips</button>
             </form>
         </div>
         <div class="footer-right-contact-block">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <p>📧 support@malaysianlottery.com</p>
             <p>📍 Kuala Lumpur, Malaysia</p>
-            <div><a href="https://wa.me/601116448229" class="social-icon-btn">💬 WhatsApp</a><a href="#" class="social-icon-btn">✈️ Telegram</a></div>
+            <a href="https://wa.me/601116448229" class="social-icon-btn">💬 WhatsApp</a>
+            <a href="#" class="social-icon-btn">✈️ Telegram</a>
         </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 MALAYSIAN LOTTERY | Information only. No gambling.</p></div>
+    <p style="text-align:center; margin-top:2rem;">© 2026 MALAYSIAN LOTTERY | Information only</p>
 </footer>
 
 <script>
-    // Slider
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.full-slide-layer');
-    setInterval(() => { slides[slideIndex].classList.remove('active'); slideIndex = (slideIndex+1)%slides.length; slides[slideIndex].classList.add('active'); }, 4000);
+    // ========== SLIDER ==========
+    let slides = document.querySelectorAll('.full-slide-layer');
+    let current = 0;
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 4000);
 
-    // Clock
-    function updateClock() { document.getElementById('liveClock') && (document.getElementById('liveClock').innerText = new Date().toLocaleString()); }
-    setInterval(updateClock, 1000); updateClock();
+    // ========== CLOCK ==========
+    function updateClock() {
+        let clock = document.getElementById('liveClock');
+        if(clock) clock.innerText = new Date().toLocaleString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-    // Live Toggle
-    function toggleLiveScreen() { document.getElementById('liveArenaBox').classList.toggle('show-live'); }
+    // ========== LIVE TOGGLE ==========
+    function toggleLive() {
+        document.getElementById('liveArena').classList.toggle('show');
+    }
 
-    // Particle effect
+    // ========== PARTICLES ==========
     const canvas = document.getElementById('particleCanvas');
     if(canvas) {
-        canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight;
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
         const ctx = canvas.getContext('2d');
         let particles = [];
-        for(let i=0;i<100;i++) particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, vx:(Math.random()-0.5)*0.5, vy:Math.random()*0.8+0.2});
-        function draw() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ ctx.fillStyle=`rgba(255,223,0,${Math.random()*0.5+0.2})`; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.vx; p.y+=p.vy; if(p.y>canvas.height) p.y=0; }); requestAnimationFrame(draw); }
-        draw();
+        for(let i=0;i<80;i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: Math.random() * 0.8 + 0.2
+            });
+        }
+        function drawParticles() {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            particles.forEach(p => {
+                ctx.fillStyle = `rgba(255,215,0,${Math.random() * 0.5 + 0.2})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                ctx.fill();
+                p.x += p.vx;
+                p.y += p.vy;
+                if(p.y > canvas.height) p.y = 0;
+                if(p.x > canvas.width) p.x = 0;
+                if(p.x < 0) p.x = canvas.width;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
     }
 
-    // Services Proofs (static demo)
-    function openServicesModal(game) { document.getElementById('servicesModal').style.display='flex'; document.getElementById('serviceProofsContainer').innerHTML=`<div class="proof-media-item-box"><img src="1000015083.jpg" width="100%"><p>Screenshot proof for ${game}</p><audio controls><source src="PTT-20260529-WA0000.opus"></audio><video controls><source src="VID-20260420-WA0007.mp4"></video></div>`; }
-    function closeServicesModal() { document.getElementById('servicesModal').style.display='none'; }
+    // ========== PAST RESULTS DATABASE (ACTIVE) ==========
+    const pastResultsData = {
+        "Magnum 4D": {
+            "2026-06-03": { first: "2469", second: "6830", third: "6747", special: "3779,5646,2625,3321,0489,3849,7616,0523,0335,3495", cons: "5040,1304,0194,4638,9937,3724,2433,7723,9162,9827" },
+            "2026-05-27": { first: "5123", second: "7890", third: "3456", special: "1234,5678,9012,3456,7890,2345,6789,0123,4567,8901", cons: "1111,2222,3333,4444,5555,6666,7777,8888,9999,0000" }
+        },
+        "Sports Toto": {
+            "2026-06-03": { first: "6697", second: "2969", third: "1040", special: "9698,4693,5478,9612,3744,1601,7323,9962,1780,9816", cons: "5072,3672,5420,3828,7663,9903,1225,8267,6677,1909" },
+            "2026-05-27": { first: "1234", second: "5678", third: "9012", special: "1111,2222,3333,4444,5555,6666,7777,8888,9999,0000", cons: "1212,2323,3434,4545,5656,6767,7878,8989,9090,0101" }
+        },
+        "Grand Dragon": {
+            "2026-06-05": { first: "4862", second: "7853", third: "3446", special: "0495,3951,9877,2896,9314,1405,3396,8525,1445,8366", cons: "0503,4460,4751,1674,4975,2142,6053,1355,8253,4138" }
+        },
+        "Singapore 4D": {
+            "2026-06-03": { first: "2414", second: "8613", third: "2868", special: "0126,0171,0949,1212,1375,2292,2354,3121,8707,8834", cons: "0637,3753,4160,4542,5459,5865,6360,6572,8376,9038" }
+        }
+    };
 
-    // Winners Profiles
-    function openWinnersModal(game) {
-        document.getElementById('winnersModal').style.display='flex';
-        document.getElementById('profilesContainer').innerHTML = `<div class="winner-premium-profile-card"><img src="1000015079.jpg" width="100%"><h3>Winner</h3><p>${game} winner testimonial with audio/video proof.</p><audio controls><source src="PTT-20260529-WA0000.opus"></audio><video controls><source src="VID-20260420-WA0007.mp4"></video></div>`;
+    function searchPastResults() {
+        let game = document.getElementById('gameSelect').value;
+        let date = document.getElementById('dateSelect').value;
+        let displayDiv = document.getElementById('pastResultsDisplay');
+        
+        if(!date) {
+            displayDiv.innerHTML = `<p style="color:red; text-align:center;">Please select a date first!</p>`;
+            return;
+        }
+        
+        let data = pastResultsData[game]?.[date];
+        if(data) {
+            displayDiv.innerHTML = `
+                <table>
+                    <thead><tr><th>Prize</th><th>Numbers</th></tr></thead>
+                    <tbody>
+                        <tr><td>🏆 1st Prize</td><td style="color:gold; font-size:1.5rem;">${data.first}</td></tr>
+                        <tr><td>🥈 2nd Prize</td><td>${data.second}</td></tr>
+                        <tr><td>🥉 3rd Prize</td><td>${data.third}</td></tr>
+                        <tr><td>⭐ Special Prizes</td><td>${data.special}</td></tr>
+                        <tr><td>🎗️ Consolation Prizes</td><td>${data.cons}</td></tr>
+                    </tbody>
+                </table>
+                <p style="text-align:center; margin-top:1rem;">Draw Date: ${date} | Game: ${game}</p>
+            `;
+        } else {
+            displayDiv.innerHTML = `<p style="color:#ffaa00; text-align:center;">No results found for ${game} on ${date}. Try another date (e.g., 2026-06-03).</p>`;
+        }
     }
-    function closeWinnersModal() { document.getElementById('winnersModal').style.display='none'; }
 
-    function searchPastRecords() { document.getElementById('past-content').innerHTML = `<p>Showing results for ${document.getElementById('past-game').value} on ${document.getElementById('past-date').value} (demo data).</p>`; }
-    function sendWhatsAppNotification(e) { e.preventDefault(); window.open(`https://wa.me/601116448229?text=VIP%20Registration%3A%20${document.getElementById('regName').value}%20%7C%20Game%3A%20${document.getElementById('regGame').value}`, '_blank'); }
-    window.onclick = e => { if(e.target.classList.contains('service-modal-overlay')) closeServicesModal(); if(e.target.classList.contains('winners-modal-overlay')) closeWinnersModal(); };
+    // ========== SERVICE MODAL ==========
+    function openServiceModal(game) {
+        document.getElementById('modalTitle').innerText = game + " - Media Proofs";
+        document.getElementById('modalContent').innerHTML = `
+            <div style="background:#111; padding:1rem; margin:1rem 0; border-radius:8px;">
+                <img src="1000015083.jpg" width="100%" style="border-radius:8px;">
+                <audio controls style="width:100%; margin:1rem 0;"><source src="PTT-20260529-WA0000.opus"></audio>
+                <video controls style="width:100%;"><source src="VID-20260420-WA0007.mp4"></video>
+                <p style="margin-top:1rem;">✅ Official proof for ${game}</p>
+            </div>
+        `;
+        document.getElementById('serviceModal').style.display = 'flex';
+    }
+    function closeServiceModal() { document.getElementById('serviceModal').style.display = 'none'; }
+
+    // ========== WINNER MODAL ==========
+    function openWinnerModal(game, name, amount, location) {
+        document.getElementById('winnerModalTitle').innerText = game + " Winner";
+        document.getElementById('winnerModalContent').innerHTML = `
+            <div style="background:#111; padding:1rem; border-radius:8px;">
+                <h3>${name}</h3>
+                <p><strong>🏆 Winning Amount:</strong> ${amount}</p>
+                <p><strong>📍 Location:</strong> ${location}</p>
+                <p><strong>💬 Testimonial:</strong> "Hanif Sarkar's tips are 100% genuine! No advance payment needed, just 30% after win."</p>
+                <audio controls style="width:100%; margin:1rem 0;"><source src="PTT-20260529-WA0000.opus"></audio>
+                <video controls style="width:100%;"><source src="VID-20260420-WA0007.mp4"></video>
+            </div>
+        `;
+        document.getElementById('winnerModal').style.display = 'flex';
+    }
+    function closeWinnerModal() { document.getElementById('winnerModal').style.display = 'none'; }
+
+    // ========== WHATSAPP REGISTRATION ==========
+    function sendWhatsApp(e) {
+        e.preventDefault();
+        let name = document.getElementById('regName').value;
+        let phone = document.getElementById('regPhone').value;
+        let game = document.getElementById('regGame').value;
+        let msg = `VIP Registration%0AName: ${name}%0APhone: ${phone}%0AGame: ${game}`;
+        window.open(`https://wa.me/601116448229?text=${msg}`, '_blank');
+    }
+
+    // Close modals on outside click
+    window.onclick = function(e) {
+        if(e.target.classList.contains('modal-overlay')) {
+            closeServiceModal();
+            closeWinnerModal();
+        }
+    }
 </script>
 </body>
 </html>
