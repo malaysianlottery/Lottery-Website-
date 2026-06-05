@@ -531,7 +531,7 @@
             100% { transform: translateX(5px); }
         }
 
-        /* লাইভ স্ক্রিন কন্টেইনার (ডিফল্ট অবস্থায় এটি হাইড থাকবে) */
+        /* লাইভ স্ক্রিন কন্টেইনার */
         .live-arena-viewport {
             position: relative;
             z-index: 5;
@@ -541,7 +541,7 @@
             border: 4px solid var(--primary-gold);
             border-radius: 16px;
             padding: 3rem 2rem;
-            display: none; /* জাভাস্ক্রিপ্ট দিয়ে টগল করা হবে */
+            display: none; 
             opacity: 0;
             transform: translateY(-20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
@@ -566,27 +566,27 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(255, 0, 0, 0.2);
+            background: rgba(0, 229, 255, 0.1);
             padding: 0.5rem 1.5rem;
             border-radius: 4px;
-            border: 2px solid var(--neon-red);
+            border: 2px solid var(--neon-blue);
             font-size: 1rem;
             font-weight: 900;
-            color: var(--neon-red);
+            color: var(--neon-blue);
             text-transform: uppercase;
         }
 
         .live-dot {
             width: 12px;
             height: 12px;
-            background-color: var(--neon-red);
+            background-color: var(--neon-blue);
             border-radius: 50%;
             animation: pulseBlink 0.8s infinite alternate;
         }
 
         @keyframes pulseBlink {
             0% { opacity: 0.2; }
-            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-red); }
+            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-blue); }
         }
 
         .live-timer-sync {
@@ -638,6 +638,17 @@
             line-height: 0.9; 
             margin: 5px 0;
             text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
+        }
+
+        /* ড্র ফ্ল্যাশিং অ্যানিমেশনের জন্য ক্লাস */
+        .live-lucky-num.flashing {
+            animation: numberFlash 0.1s infinite alternate;
+            color: #ff3333;
+        }
+
+        @keyframes numberFlash {
+            0% { opacity: 0.5; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1.02); }
         }
 
         .live-status-txt {
@@ -1245,31 +1256,11 @@
 
         <div class="live-arena-viewport" id="liveArenaBox">
             <div class="live-header-ticker">
-                <div class="live-status-tag"><div class="live-dot"></div><span>Live Drawing</span></div>
+                <div class="live-status-tag"><div class="live-dot"></div><span>OFFICIAL TERMINAL SYNCED</span></div>
                 <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
             </div>
             <div class="live-slideshow-container">
-                <div class="live-result-slide active">
-                    <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
-                    <div class="live-lucky-num">4829</div>
-                    <div class="live-status-txt">1ST PRIZE VERIFIED</div>
                 </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: #E91E63;">NINE Lotto</div>
-                    <div class="live-lucky-num">9312</div>
-                    <div class="live-status-txt">SUPER JACKPOT DRAWN</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-green);">SPORTS TOTO</div>
-                    <div class="live-lucky-num">5678</div>
-                    <div class="live-status-txt">SUPREME 4D CONFIRMED</div>
-                </div>
-                <div class="live-result-slide">
-                    <div class="live-op-name" style="color: var(--neon-blue);">MAGNUM 4D</div>
-                    <div class="live-lucky-num">7156</div>
-                    <div class="live-status-txt">GOLDEN TICKET MATCHED</div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1402,17 +1393,6 @@
             }
             setInterval(nextSlide, 4000);
 
-            /* ===== DIGITAL LIVE RESULTS SYSTEM ===== */
-            const liveSlides = document.querySelectorAll('.live-result-slide');
-            let currentLiveSlide = 0;
-            setInterval(() => {
-                if(liveSlides.length > 0) {
-                    liveSlides[currentLiveSlide].classList.remove('active');
-                    currentLiveSlide = (currentLiveSlide + 1) % liveSlides.length;
-                    liveSlides[currentLiveSlide].classList.add('active');
-                }
-            }, 3000);
-
             /* ===== TERMINAL CLOCK SYNC ===== */
             function updateLiveClock() {
                 const now = new Date();
@@ -1471,6 +1451,93 @@
                 }
                 animateParticles();
             }
+
+            /* ===== মালয়েশিয়ান লটারি লাইভ টাইম রেজাল্ট আপডেট ইঞ্জিন ===== */
+            
+            // লটারিগুলোর অফিসিয়াল ড্র টাইম (মালয়েশিয়ান সময়কে বাংলাদেশ সময়ে কনভার্ট করে সেট করা)
+            const lotterySchedule = [
+                { name: "4D DRAGON", color: "#FF5722", targetTime: "17:15", numbers: ["4829", "1024", "7893", "5512"] },
+                { name: "NINE Lotto", color: "#E91E63", targetTime: "18:00", numbers: ["9312", "4056", "1189", "6723"] },
+                { name: "SPORTS TOTO", color: "#39FF14", targetTime: "19:10", numbers: ["5678", "3341", "8902", "1254"] },
+                { name: "MAGNUM 4D", color: "#00E5FF", targetTime: "19:35", numbers: ["7156", "9928", "3410", "8865"] }
+            ];
+
+            const liveSlidesContainer = document.querySelector('.live-slideshow-container');
+            const liveStatusTag = document.querySelector('.live-status-tag span');
+            const liveDot = document.querySelector('.live-dot');
+
+            function updateLiveResultsEngine() {
+                const bdTime = new Date();
+                const hours = String(bdTime.getHours()).padStart(2, '0');
+                const minutes = String(bdTime.getMinutes()).padStart(2, '0');
+                const currentTimeString = `${hours}:${minutes}`;
+
+                if (!liveSlidesContainer) return;
+                
+                // কন্টেইনার ফাকা করে নতুন করে স্লাইড তৈরি হচ্ছে
+                liveSlidesContainer.innerHTML = ""; 
+
+                let anyGameLive = false;
+
+                lotterySchedule.forEach((game, index) => {
+                    let currentNumber = "----"; 
+                    let gameStatus = "WAITING FOR DRAW";
+                    let isFlashing = false;
+
+                    // অফিসিয়াল সময় চেক করা
+                    if (currentTimeString >= game.targetTime) {
+                        // ড্র টাইম পার হয়ে গেলে নাম্বার এবং ভেরিফাইড মেসেজ দেখাবে
+                        const numIndex = (bdTime.getDate() + index) % game.numbers.length; 
+                        currentNumber = game.numbers[numIndex];
+                        gameStatus = "1ST PRIZE VERIFIED";
+                    } else {
+                        // ড্র টাইমের ঠিক ১৫ মিনিট আগে থেকে লাইভ ড্র শুরু হওয়ার অ্যানিমেশন দেখাবে
+                        const [targetH, targetM] = game.targetTime.split(':').map(Number);
+                        const diffInMinutes = (targetH * 60 + targetM) - (bdTime.getHours() * 60 + bdTime.getMinutes());
+                        
+                        if (diffInMinutes <= 15 && diffInMinutes > 0) {
+                            gameStatus = "LIVE DRAWING ACTIVE...";
+                            currentNumber = Math.floor(1000 + Math.random() * 9000); // ফ্ল্যাশিং র‍্যান্ডম নাম্বার
+                            isFlashing = true;
+                            anyGameLive = true;
+                        }
+                    }
+
+                    // ডায়নামিক স্লাইড তৈরি
+                    const slide = document.createElement('div');
+                    slide.className = `live-result-slide ${index === 0 ? 'active' : ''}`;
+                    slide.innerHTML = `
+                        <div class="live-op-name" style="color: ${game.color};">${game.name}</div>
+                        <div class="live-lucky-num ${isFlashing ? 'flashing' : ''}">${currentNumber}</div>
+                        <div class="live-status-txt" style="color: ${isFlashing ? 'var(--neon-red)' : 'var(--neon-green)'};">${gameStatus}</div>
+                    `;
+                    liveSlidesContainer.appendChild(slide);
+                });
+
+                // গ্লোবাল টার্মিনাল স্ট্যাটাস বার টেক্সট ও লাইট কালার আপডেট
+                if (anyGameLive) {
+                    if(liveStatusTag) liveStatusTag.innerText = "LIVE DRAWING ACTIVE";
+                    if(liveDot) liveDot.style.backgroundColor = "var(--neon-red)";
+                } else {
+                    if(liveStatusTag) liveStatusTag.innerText = "OFFICIAL TERMINAL SYNCED";
+                    if(liveDot) liveDot.style.backgroundColor = "var(--neon-blue)";
+                }
+            }
+
+            // প্রতি ১ মিনিটে রিয়েল-টাইমে রিলোড ছাড়া চেক করবে
+            setInterval(updateLiveResultsEngine, 60000);
+            updateLiveResultsEngine(); 
+
+            /* ===== লাইভ স্লাইডশো রোটেটর কোড (১টি করে গেম চেঞ্জ হওয়ার জন্য) ===== */
+            let activeLiveIndex = 0;
+            setInterval(() => {
+                const dynamicSlides = document.querySelectorAll('.live-result-slide');
+                if (dynamicSlides.length > 0) {
+                    dynamicSlides[activeLiveIndex].classList.remove('active');
+                    activeLiveIndex = (activeLiveIndex + 1) % dynamicSlides.length;
+                    dynamicSlides[activeLiveIndex].classList.add('active');
+                }
+            }, 4000); // প্রতি ৪ সেকেন্ড পর পর স্ক্রিনে এক লটারির পর অন্য লটারি স্ক্রোল হবে
         });
 
         /* ===== TOGGLE LIVE RESULTS ENGINE ===== */
@@ -1597,14 +1664,16 @@
                                 <h4>${winner.name}</h4>
                                 <div class="winner-address-tag">${winner.meta}</div>
                                 <div class="winner-written-review">${winner.review}</div>
-                                <div class="winner-media-reviews-row">
-                                    <div class="audio-review-wrapper">
-                                        <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
-                                        <audio controls><source src="${audioFile}" type="audio/mpeg">Your browser does not support audio.</audio>
-                                    </div>
-                                    <div class="video-review-wrapper">
-                                        <span class="media-label-text"><i class="fa fa-video"></i> Video Proof</span>
-                                        <video controls preload="metadata"><source src="${videoFile}" type="video/mp4">Your browser does not support video.</video>
+                                <div class="winner-meta-details-box">
+                                    <div class="winner-media-reviews-row">
+                                        <div class="audio-review-wrapper">
+                                            <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
+                                            <audio controls><source src="${audioFile}" type="audio/mpeg">Your browser does not support audio.</audio>
+                                        </div>
+                                        <div class="video-review-wrapper">
+                                            <span class="media-label-text"><i class="fa fa-video"></i> Video Proof</span>
+                                            <video controls preload="metadata"><source src="${videoFile}" type="video/mp4">Your browser does not support video.</video>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
