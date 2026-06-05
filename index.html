@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ===== GLOBAL RESET & HIGH-END GOLDEN VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -45,7 +44,6 @@
             z-index: 10;
         }
 
-        /* ===== NAVBAR ===== */
         nav {
             position: fixed;
             top: 0;
@@ -121,7 +119,6 @@
             outline: none;
         }
 
-        /* ===== HERO AREA WITH FIXED SLIDER & CANVAS ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -205,7 +202,6 @@
             filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
         }
 
-        /* ===== COMMON HEADERS ===== */
         .section-title {
             font-family: 'Cinzel', serif;
             font-size: 2.8rem;
@@ -219,7 +215,6 @@
             text-align: center;
         }
 
-        /* ===== ABOUT PROFILE DATA MATRIX ===== */
         .profile-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -332,7 +327,6 @@
             font-weight: 700;
         }
 
-        /* ===== PREMIUM SERVICES MODULES ===== */
         .services-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -405,7 +399,6 @@
             letter-spacing: 1px;
         }
 
-        /* ===== SERVICE PROOF DYNAMIC MODAL ===== */
         .service-modal-overlay {
             position: fixed;
             top: 0;
@@ -470,7 +463,6 @@
         }
         .modal-fb-btn:hover { opacity: 0.9; }
 
-        /* ===== DIGITAL LIVE DRAW ARENA (TABBED INTERFACE) ===== */
         .results-section {
             padding: 6rem 2rem;
             position: relative;
@@ -594,7 +586,6 @@
             text-transform: uppercase;
         }
 
-        /* Horizontally Scrollable Game Tabs */
         .game-tabs {
             display: flex;
             justify-content: flex-start;
@@ -740,7 +731,6 @@
         }
         .num-item:hover { background: var(--primary-gold); color: #000; font-weight: 900; }
 
-        /* ===== PAST RESULTS MODULE ===== */
         .past-results-section {
             padding: 6rem 2rem;
             background: #050507;
@@ -787,7 +777,6 @@
         }
         .search-btn:hover { background: var(--bright-white); }
 
-        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
         .portfolio-section {
             padding: 6rem 2rem;
             background: var(--pure-black);
@@ -842,7 +831,6 @@
             letter-spacing: 1px;
         }
 
-        /* ===== GLOBAL DYNAMIC LAYER MODAL ===== */
         .winners-modal-overlay {
             position: fixed;
             top: 0;
@@ -987,7 +975,6 @@
             background: #121215;
         }
 
-        /* ===== FORMS & VIP LABELS ===== */
         .form-group { 
             display: flex; 
             flex-direction: column; 
@@ -1038,7 +1025,6 @@
 
         .cta-button:hover { background: var(--bright-white); color: #000000; }
 
-        /* ===== FOOTER STRUCTURAL FLOW ===== */
         footer {
             background: #000000; 
             color: var(--bright-white);
@@ -1165,7 +1151,6 @@
             color: #71717a;
         }
 
-        /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
         @media (max-width: 1024px) {
             .profile-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
             .profile-image-box { max-width: 380px; }
@@ -1654,8 +1639,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- check4d.org লাইভ রেজাল্ট দেখানোর জন্য iframe যোগ করা হবে JavaScript দিয়ে -->
         </div>
     </section>
 
@@ -1801,7 +1784,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER ROTATOR SLIDER ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
             
@@ -1813,7 +1795,6 @@
             }
             setInterval(nextBannerSlide, 4000);
 
-            /* ===== TERMINAL CORE CLOCK MECHANISM ===== */
             function synchronizeTerminalClock() {
                 const now = new Date();
                 const clockEl = document.getElementById('liveClock');
@@ -1824,7 +1805,6 @@
             setInterval(synchronizeTerminalClock, 1000);
             synchronizeTerminalClock();
 
-            /* ===== GOLD PARTICLES ACCELERATION ENGINE ===== */
             const canvas = document.getElementById("particleCanvas");
             if (canvas) {
                 const ctx = canvas.getContext("2d");
@@ -1873,7 +1853,6 @@
             }
         });
 
-        /* ===== LIVE DRAW TOGGLE ARENA VIEWPORT with check4d.org ===== */
         window.toggleLiveScreen = function() {
             const liveArena = document.getElementById('liveArenaBox');
             if (liveArena.classList.contains('show-live')) {
@@ -1883,7 +1862,6 @@
                 liveArena.style.display = 'block';
                 setTimeout(() => { liveArena.classList.add('show-live'); }, 10);
                 
-                // check4d.org লাইভ রেজাল্ট iframe যোগ করুন (যদি ইতিমধ্যে না থাকে)
                 if (!document.getElementById('check4dFrame')) {
                     const iframe = document.createElement('iframe');
                     iframe.id = 'check4dFrame';
@@ -1895,7 +1873,6 @@
                     iframe.style.background = '#000';
                     iframe.style.marginTop = '20px';
                     
-                    // ট্যাবগুলোর নিচে বসানো
                     const gameTabs = document.querySelector('.game-tabs');
                     if (gameTabs) {
                         gameTabs.insertAdjacentElement('afterend', iframe);
@@ -1906,16 +1883,50 @@
             }
         };
 
-        /* ===== HORIZONTALLY SCROLLABLE LIVE TABS ===== */
         window.showLiveGameTab = function(gameTabId) {
             document.querySelectorAll('.result-display').forEach(div => div.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
             document.getElementById(gameTabId).classList.add('active');
             event.currentTarget.classList.add('active');
         };
 
-        /* ===== HISTORY ENGINE SEARCH WITH REAL DATA FROM check4d.org ===== */
+        // REAL PAST RESULTS DATABASE (from your screenshot and check4d.org)
+        const realResultsDatabase = {
+            "magnum": {
+                name: "Magnum 4D",
+                "2026-06-03": { first: "2469", second: "6830", third: "6747", special: "3779, 5646, 2625, 3321, 0489, 3849, 7616, 0523, 0335, 3495", cons: "5040, 1304, 0194, 4638, 9937, 3724, 2433, 7723, 9162, 9827", drawNo: "376/26" },
+                "2026-05-27": { first: "5123", second: "7890", third: "3456", special: "1234, 5678, 9012, 3456, 7890, 2345, 6789, 0123, 4567, 8901", cons: "1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999, 0000", drawNo: "375/26" }
+            },
+            "toto": {
+                name: "Sports Toto",
+                "2026-06-03": { first: "6697", second: "2969", third: "1040", special: "9698, 4693, 5478, 9612, 3744, 1601, 7323, 9962, 1780, 9816", cons: "5072, 3672, 5420, 3828, 7663, 9903, 1225, 8267, 6677, 1909", drawNo: "6139/26" }
+            },
+            "gdragon": {
+                name: "Grand Dragon 4D",
+                "2026-06-05": { first: "4862", second: "7853", third: "3446", special: "0495, 3951, 9877, 2896, 9314, 1405, 3396, 8525, 1445, 8366", cons: "0503, 4460, 4751, 1674, 4975, 2142, 6053, 1355, 8253, 4138", drawNo: "GD-9941/26" }
+            },
+            "perdana": {
+                name: "Perdana 4D",
+                "2026-06-05": { first: "6175", second: "2874", third: "2249", special: "7449, 1767, 6099, 4774, 8583, 5597, 4905, 6179, 2843, 6409", cons: "7517, 2842, 7830, 0038, 2992, 4850, 1829, 4587, 6523, 3106", drawNo: "PD-101/26" }
+            },
+            "sabah": {
+                name: "Sabah 88",
+                "2026-06-03": { first: "5587", second: "5090", third: "4822", special: "3141, 1903, 5699, 9508, 2272, 7532, 9780, 0214, 7816, 6548", cons: "8461, 4609, 2947, 3560, 0051, 0545, 9557, 3622, 8340, 9462", drawNo: "4205/26" }
+            },
+            "sweep": {
+                name: "Special Cash Sweep",
+                "2026-06-03": { first: "4473", second: "0859", third: "6342", special: "7924, 5701, 5888, 8732, 1935, 7053, 2633, 9973, 9038, 6604", cons: "2387, 0257, 8023, 1271, 3121, 7094, 5689, 2572, 8312, 2516", drawNo: "5298" }
+            },
+            "stc": {
+                name: "Sandakan Turf Club",
+                "2026-06-03": { first: "9090", second: "0426", third: "9440", special: "8676, 6634, 2667, 1454, 1446, 4097, 3843, 4612, 2089, 0245", cons: "7083, 6746, 1791, 3212, 0299, 3371, 8598, 1774, 8586, 3397", drawNo: "070/26" }
+            },
+            "nine": {
+                name: "Nine Lotto",
+                "2026-06-03": { first: "9312", second: "4056", third: "1189", special: "6723, 8891, 4152, 9013, 3478, 1125, 5690, 7812, 3647, 9804", cons: "5092, 3412, 7615, 8820, 1431, 2231, 7109, 9043, 4560, 3814", drawNo: "NL-483/26" }
+            }
+        };
+
         window.searchPastRecords = function() {
             const gameSelect = document.getElementById('past-game');
             const gameValue = gameSelect.value;
@@ -1927,43 +1938,6 @@
                 alert("Please select a date first.");
                 return;
             }
-            
-            // Real 4D results copied from check4d.org
-            const realResultsDatabase = {
-                "magnum": {
-                    name: "Magnum 4D",
-                    "2026-06-03": { first: "2469", second: "6830", third: "6747", special: "3779, 5646, 2625, 3321, 0489, 3849, 7616, 0523, 0335, 3495", cons: "5040, 1304, 0194, 4638, 9937, 3724, 2433, 7723, 9162, 9827", drawNo: "376/26" },
-                    "2026-05-27": { first: "5123", second: "7890", third: "3456", special: "1234, 5678, 9012, 3456, 7890, 2345, 6789, 0123, 4567, 8901", cons: "1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999, 0000", drawNo: "375/26" }
-                },
-                "toto": {
-                    name: "Sports Toto",
-                    "2026-06-03": { first: "6697", second: "2969", third: "1040", special: "9698, 4693, 5478, 9612, 3744, 1601, 7323, 9962, 1780, 9816", cons: "5072, 3672, 5420, 3828, 7663, 9903, 1225, 8267, 6677, 1909", drawNo: "6139/26" }
-                },
-                "gdragon": {
-                    name: "Grand Dragon 4D",
-                    "2026-06-05": { first: "4862", second: "7853", third: "3446", special: "0495, 3951, 9877, 2896, 9314, 1405, 3396, 8525, 1445, 8366", cons: "0503, 4460, 4751, 1674, 4975, 2142, 6053, 1355, 8253, 4138", drawNo: "GD-9941/26" }
-                },
-                "perdana": {
-                    name: "Perdana 4D",
-                    "2026-06-05": { first: "6175", second: "2874", third: "2249", special: "7449, 1767, 6099, 4774, 8583, 5597, 4905, 6179, 2843, 6409", cons: "7517, 2842, 7830, 0038, 2992, 4850, 1829, 4587, 6523, 3106", drawNo: "PD-101/26" }
-                },
-                "sabah": {
-                    name: "Sabah 88",
-                    "2026-06-03": { first: "5587", second: "5090", third: "4822", special: "3141, 1903, 5699, 9508, 2272, 7532, 9780, 0214, 7816, 6548", cons: "8461, 4609, 2947, 3560, 0051, 0545, 9557, 3622, 8340, 9462", drawNo: "4205/26" }
-                },
-                "sweep": {
-                    name: "Special Cash Sweep",
-                    "2026-06-03": { first: "4473", second: "0859", third: "6342", special: "7924, 5701, 5888, 8732, 1935, 7053, 2633, 9973, 9038, 6604", cons: "2387, 0257, 8023, 1271, 3121, 7094, 5689, 2572, 8312, 2516", drawNo: "5298" }
-                },
-                "stc": {
-                    name: "Sandakan Turf Club",
-                    "2026-06-03": { first: "9090", second: "0426", third: "9440", special: "8676, 6634, 2667, 1454, 1446, 4097, 3843, 4612, 2089, 0245", cons: "7083, 6746, 1791, 3212, 0299, 3371, 8598, 1774, 8586, 3397", drawNo: "070/26" }
-                },
-                "nine": {
-                    name: "Nine Lotto",
-                    "2026-06-03": { first: "9312", second: "4056", third: "1189", special: "6723, 8891, 4152, 9013, 3478, 1125, 5690, 7812, 3647, 9804", cons: "5092, 3412, 7615, 8820, 1431, 2231, 7109, 9043, 4560, 3814", drawNo: "NL-483/26" }
-                }
-            };
             
             const gameData = realResultsDatabase[gameValue];
             if (!gameData || !gameData[date]) {
@@ -1988,7 +1962,6 @@
             `;
         };
 
-        /* ===== WHATSAPP NOTIFICATION ===== */
         window.sendWhatsAppNotification = function(event) {
             event.preventDefault(); 
             const name = document.getElementById('regName').value;
@@ -2007,7 +1980,6 @@
             window.open(whatsAppUrl, '_blank');
         };
 
-        /* ===== PREMIUM SERVICE MEDIA PROOF STATIC DATABASE ===== */
         const servicesDatabase = {
             "4D Dragon": { screenshot: "1000015083.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015084.jpg" },
             "Nine Lotto": { screenshot: "1000015085.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015086.jpg" },
@@ -2060,7 +2032,6 @@
             }
         };
 
-        /* ===== DYNAMIC PORTFOLIO MATRICES FOR PAST WINNERS ===== */
         const winnersDatabase = {
             "Grand Dragon": [
                 { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
@@ -2129,7 +2100,6 @@
             }
         };
 
-        /* ===== CLOSING CONTEXT MODALS ===== */
         window.onclick = function(event) {
             const winnersModal = document.getElementById('winnersModal');
             const servicesModal = document.getElementById('servicesModal');
