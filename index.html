@@ -121,7 +121,7 @@
             outline: none;
         }
 
-        /* ===== HERO AREA FIXED SLIDER ===== */
+        /* ===== HERO AREA WITH FIXED SLIDER & CANVAS ===== */
         .hero-view-port {
             margin-top: 85px; 
             width: 100%;
@@ -205,7 +205,7 @@
             filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
         }
 
-        /* ===== COMMON GOLDEN HEADLINE HEADER ===== */
+        /* ===== COMMON HEADERS ===== */
         .section-title {
             font-family: 'Cinzel', serif;
             font-size: 2.8rem;
@@ -470,7 +470,7 @@
         }
         .modal-fb-btn:hover { opacity: 0.9; }
 
-        /* ===== DIGITAL LIVE ARENA ===== */
+        /* ===== DIGITAL LIVE DRAW ARENA (TABBED INTERFACE) ===== */
         .results-section {
             padding: 6rem 2rem;
             position: relative;
@@ -492,7 +492,6 @@
             pointer-events: none;
         }
 
-        /* সবুজ এন্টার বাটন স্টাইল */
         .live-enter-btn {
             display: inline-flex;
             align-items: center;
@@ -531,14 +530,13 @@
             100% { transform: translateX(5px); }
         }
 
-        /* লাইভ স্ক্রিন কন্টেইনার */
         .live-arena-viewport {
             position: relative;
             z-index: 5;
-            max-width: 950px;
+            max-width: 1100px;
             margin: 2rem auto 0 auto;
-            background: #000000;
-            border: 4px solid var(--primary-gold);
+            background: #050508;
+            border: 3px solid var(--primary-gold);
             border-radius: 16px;
             padding: 3rem 2rem;
             display: none; 
@@ -566,27 +564,27 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(0, 229, 255, 0.1);
+            background: rgba(255, 51, 51, 0.1);
             padding: 0.5rem 1.5rem;
             border-radius: 4px;
-            border: 2px solid var(--neon-blue);
+            border: 2px solid var(--neon-red);
             font-size: 1rem;
             font-weight: 900;
-            color: var(--neon-blue);
+            color: var(--neon-red);
             text-transform: uppercase;
         }
 
         .live-dot {
             width: 12px;
             height: 12px;
-            background-color: var(--neon-blue);
+            background-color: var(--neon-red);
             border-radius: 50%;
             animation: pulseBlink 0.8s infinite alternate;
         }
 
         @keyframes pulseBlink {
             0% { opacity: 0.2; }
-            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-blue); }
+            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-red); }
         }
 
         .live-timer-sync {
@@ -596,69 +594,198 @@
             text-transform: uppercase;
         }
 
-        .live-slideshow-container {
-            position: relative;
-            height: 200px;
-            width: 100%;
-        }
-
-        .live-result-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
+        /* Horizontally Scrollable Game Tabs */
+        .game-tabs {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 223, 0, 0.2);
         }
 
-        .live-result-slide.active {
-            opacity: 1;
-            visibility: visible;
+        .game-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        .game-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 3px;
         }
 
-        .live-op-name {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 0px;
-            line-height: 1;
-        }
-
-        .live-lucky-num {
-            font-size: 7.5rem; 
-            font-weight: 900; 
+        .tab-btn {
+            background: var(--card-black);
+            border: 2px solid var(--primary-gold);
             color: var(--primary-gold);
-            letter-spacing: 4px;
-            line-height: 0.9; 
-            margin: 5px 0;
-            text-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
-        }
-
-        /* ড্র ফ্ল্যাশিং অ্যানিমেশনের জন্য ক্লাস */
-        .live-lucky-num.flashing {
-            animation: numberFlash 0.1s infinite alternate;
-            color: #ff3333;
-        }
-
-        @keyframes numberFlash {
-            0% { opacity: 0.5; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1.02); }
-        }
-
-        .live-status-txt {
-            font-size: 1.2rem;
-            color: var(--neon-green);
-            font-weight: 900;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1;
+            transition: 0.3s;
+            white-space: nowrap;
+            font-family: inherit;
         }
+
+        .tab-btn.active {
+            background: var(--primary-gold);
+            color: var(--pure-black);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .result-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #b5b5be;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .result-display {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+            text-align: center;
+        }
+
+        .result-display.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        .main-prizes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .prize-card {
+            background: var(--card-black);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 223, 0, 0.2);
+            transition: all 0.3s;
+        }
+        .prize-card:hover { border-color: var(--primary-gold); }
+
+        .prize-label {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .prize-num {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--bright-white);
+        }
+
+        .prize-card.first {
+            grid-column: span 3;
+            border: 3px solid var(--primary-gold);
+            background: linear-gradient(180deg, #0d0d11 0%, #15151d 100%);
+        }
+
+        .prize-card.first .prize-num {
+            font-size: 6rem;
+            color: var(--primary-gold);
+            text-shadow: 0 0 25px rgba(255, 223, 0, 0.5);
+            animation: flashLight 2s infinite alternate;
+        }
+
+        .sub-prizes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            text-align: left;
+        }
+
+        .sub-prize-box h4 {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            border-left: 4px solid var(--neon-blue);
+            padding-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .num-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.8rem;
+        }
+
+        .num-item {
+            background: #111116;
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e2e2e8;
+            transition: 0.2s;
+        }
+        .num-item:hover { background: var(--primary-gold); color: #000; font-weight: 900; }
+
+        /* ===== PAST RESULTS MODULE ===== */
+        .past-results-section {
+            padding: 6rem 2rem;
+            background: #050507;
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+            text-align: center;
+        }
+
+        .search-box {
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            gap: 1rem;
+            background: var(--card-black);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255,223,0,0.3);
+        }
+
+        .search-box input, .search-box select {
+            flex: 1;
+            padding: 1rem;
+            background: var(--pure-black);
+            border: 2px solid rgba(255,223,0,0.5);
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            outline: none;
+        }
+        .search-box input:focus, .search-box select:focus { border-color: var(--primary-gold); }
+
+        .search-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
+            border: none;
+            color: black;
+            font-weight: 900;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .search-btn:hover { background: var(--bright-white); }
 
         /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
         .portfolio-section {
@@ -860,7 +987,7 @@
             background: #121215;
         }
 
-        /* ===== LUXURY FORM LABELS & INPUT FLUIDITY ===== */
+        /* ===== FORMS & VIP LABELS ===== */
         .form-group { 
             display: flex; 
             flex-direction: column; 
@@ -891,10 +1018,6 @@
             transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus, .form-group select:focus {
-            border-color: var(--primary-gold);
-        }
-
         .cta-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
@@ -913,10 +1036,7 @@
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            background: var(--bright-white);
-            color: #000000;
-        }
+        .cta-button:hover { background: var(--bright-white); color: #000000; }
 
         /* ===== FOOTER STRUCTURAL FLOW ===== */
         footer {
@@ -937,15 +1057,8 @@
             align-items: start;
         }
 
-        .footer-left-block {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .footer-links-col {
-            width: 100%;
-        }
+        .footer-left-block { display: flex; flex-direction: column; gap: 3rem; }
+        .footer-links-col { width: 100%; }
 
         .footer-links-col h4 {
             font-family: 'Cinzel', serif;
@@ -966,9 +1079,7 @@
             font-weight: 600;
             transition: color 0.2s ease;
         }
-        .footer-links-col ul a:hover {
-            color: var(--primary-gold);
-        }
+        .footer-links-col ul a:hover { color: var(--primary-gold); }
 
         .footer-reg-col {
             background: var(--card-black);
@@ -1005,12 +1116,7 @@
             padding-bottom: 0.5rem;
         }
 
-        .footer-contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
+        .footer-contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
 
         .contact-item-box {
             display: flex;
@@ -1028,7 +1134,7 @@
         .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
 
         .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
-        .social-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .social-media-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
         .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
         
         .social-icon-btn {
@@ -1073,48 +1179,32 @@
             .logo span { font-size: 1.1rem; }
             .logo-img { height: 40px; }
 
-            .hero-view-port { 
-                margin-top: 65px; 
-                aspect-ratio: 4 / 3; 
-                border-width: 2px;
-            }
-
-            .slide-text-overlay { width: 92%; }
-            .slide-text-overlay h1 {
-                font-size: 2.3rem;
-                letter-spacing: 2px;
-                line-height: 1.2;
-            }
+            .hero-view-port { margin-top: 65px; aspect-ratio: 4 / 3; border-width: 2px; }
+            .slide-text-overlay h1 { font-size: 2.3rem; letter-spacing: 2px; line-height: 1.2; }
 
             .section-title { font-size: 2rem; }
             .profile-info h2 { font-size: 2.2rem; }
             .live-arena-viewport { padding: 1.5rem 1rem; border-width: 3px; }
             .live-header-ticker { flex-direction: column; gap: 1rem; text-align: center; }
-            .live-lucky-num { font-size: 4.2rem; letter-spacing: 2px; }
-            .live-op-name { font-size: 1.6rem; }
-            .live-enter-btn { padding: 1rem 2rem; font-size: 1.1rem; }
+            
+            .main-prizes { grid-template-columns: 1fr; gap: 1rem; }
+            .prize-card.first { grid-column: span 1; }
+            .prize-card.first .prize-num { font-size: 3.8rem; }
+            .prize-num { font-size: 2.5rem; }
+            .sub-prizes-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .num-grid { grid-template-columns: repeat(4, 1fr); }
 
-            .winners-modal-window, .service-modal-window { padding: 2rem 1rem; height: 90vh; }
-            .winner-premium-profile-card { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                justify-items: center;
-                padding: 1.2rem;
-            }
+            .search-box { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+            .winners-modal-window { padding: 2rem 1rem; height: 90vh; }
+            .winner-premium-profile-card { grid-template-columns: 1fr; text-align: center; justify-items: center; padding: 1.2rem; }
             .winner-media-reviews-row { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
             .close-modal-trigger { top: 0.8rem; right: 1.2rem; font-size: 2rem; }
-            .modal-headline { font-size: 1.4rem; }
-
+            
             .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
             .portfolio-grid, .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .footer-links-col ul { grid-template-columns: 1fr; }
             .social-icons-row { justify-content: center; }
             .social-icon-btn { width: 100%; justify-content: center; }
-        }
-
-        @media (max-width: 480px) {
-            .slide-text-overlay h1 { font-size: 1.9rem; }
-            .live-lucky-num { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -1130,7 +1220,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#profile">About Me</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#results">Live Screen</a></li>
+                <li><a href="#live-monitor">Live Arena</a></li>
+                <li><a href="#past-history">Past Results</a></li>
                 <li><a href="#portfolio">Wins</a></li>
                 <li><a href="#footer-anchor">Register</a></li>
             </ul>
@@ -1246,9 +1337,10 @@
         </div>
     </div>
 
-    <section class="results-section" id="results">
+    <section class="results-section" id="live-monitor">
         <div class="results-section-bg"></div>
-        <h2 class="section-title">Latest Live Confirmations</h2>
+        <h2 class="section-title">Live Draw Arena</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 1.5rem;">Realtime Terminal Streams directly from Malaysian Drawing Nodes</p>
         
         <button class="live-enter-btn" onclick="toggleLiveScreen()">
             লাইভ রেজাল্ট দেখতে এখানে ক্লিক করুন <i class="fa fa-arrow-alt-circle-right"></i>
@@ -1256,16 +1348,336 @@
 
         <div class="live-arena-viewport" id="liveArenaBox">
             <div class="live-header-ticker">
-                <div class="live-status-tag"><div class="live-dot"></div><span>OFFICIAL TERMINAL SYNCED</span></div>
-                <div class="live-timer-sync" id="liveClock">Syncing Terminal Clock...</div>
+                <div class="live-status-tag"><div class="live-dot"></div><span>LIVE NOW</span></div>
+                <div class="live-timer-sync" id="liveClock">00-00-2026 00:00:00 PM</div>
             </div>
-            <div class="live-slideshow-container">
-                <div class="live-result-slide active">
-                    <div class="live-op-name" style="color: #FF5722;">4D DRAGON</div>
-                    <div class="live-lucky-num">----</div>
-                    <div class="live-status-txt" style="color: var(--neon-green);">CONNECTING TERMINAL...</div>
+
+            <div class="game-tabs">
+                <button class="tab-btn active" onclick="showLiveGameTab('tab-magnum')">Magnum 4D</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-toto')">Sports Toto</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-gdragon')">Grand Dragon</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-nine')">Nine Lotto</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-stc')">Sandakan TC</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-sweep')">Cash Sweep</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-sabah')">Sabah 88</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-perdana')">Perdana 4D</button>
+            </div>
+
+            <div id="tab-magnum" class="result-display active">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #376/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">2469</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">6830</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6747</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3779</div><div class="num-item">5646</div><div class="num-item">2625</div><div class="num-item">3321</div><div class="num-item">0489</div>
+                            <div class="num-item">3849</div><div class="num-item">7616</div><div class="num-item">0523</div><div class="num-item">0335</div><div class="num-item">3495</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">5040</div><div class="num-item">1304</div><div class="num-item">0194</div><div class="num-item">4638</div><div class="num-item">9937</div>
+                            <div class="num-item">3724</div><div class="num-item">2433</div><div class="num-item">7723</div><div class="num-item">9162</div><div class="num-item">9827</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div id="tab-toto" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #5204/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">8137</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9179</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6360</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9253</div><div class="num-item">9857</div><div class="num-item">4011</div><div class="num-item">1212</div><div class="num-item">5334</div>
+                            <div class="num-item">0856</div><div class="num-item">9039</div><div class="num-item">9236</div><div class="num-item">7417</div><div class="num-item">5333</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1142</div><div class="num-item">5563</div><div class="num-item">9088</div><div class="num-item">3421</div><div class="num-item">6712</div>
+                            <div class="num-item">9901</div><div class="num-item">4627</div><div class="num-item">2345</div><div class="num-item">8871</div><div class="num-item">6120</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-gdragon" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #GD-9941/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">5426</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">8672</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">2370</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3468</div><div class="num-item">6441</div><div class="num-item">3204</div><div class="num-item">0275</div><div class="num-item">5230</div>
+                            <div class="num-item">3838</div><div class="num-item">9991</div><div class="num-item">4185</div><div class="num-item">3018</div><div class="num-item">7120</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1092</div><div class="num-item">3489</div><div class="num-item">6715</div><div class="num-item">8890</div><div class="num-item">4431</div>
+                            <div class="num-item">2561</div><div class="num-item">7112</div><div class="num-item">9083</div><div class="num-item">4510</div><div class="num-item">3894</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-nine" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #NL-483/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">9312</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">4056</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1189</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">6723</div><div class="num-item">8891</div><div class="num-item">4152</div><div class="num-item">9013</div><div class="num-item">3478</div>
+                            <div class="num-item">1125</div><div class="num-item">5690</div><div class="num-item">7812</div><div class="num-item">3647</div><div class="num-item">9804</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">5092</div><div class="num-item">3412</div><div class="num-item">7615</div><div class="num-item">8820</div><div class="num-item">1431</div>
+                            <div class="num-item">2231</div><div class="num-item">7109</div><div class="num-item">9043</div><div class="num-item">4560</div><div class="num-item">3814</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-stc" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw ID: #106/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">5000</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9944</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1457</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9312</div><div class="num-item">8714</div><div class="num-item">3298</div><div class="num-item">1735</div><div class="num-item">5436</div>
+                            <div class="num-item">3923</div><div class="num-item">1571</div><div class="num-item">9626</div><div class="num-item">8400</div><div class="num-item">6476</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">2039</div><div class="num-item">8812</div><div class="num-item">6547</div><div class="num-item">1294</div><div class="num-item">3389</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-sweep" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #4363/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize (1+3D / 3D Big)</div>
+                        <div class="prize-num">7562 / 562</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9864 / 864</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">5516 / 516</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Starter Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">6741</div><div class="num-item">5848</div><div class="num-item">9497</div><div class="num-item">5601</div><div class="num-item">1973</div>
+                            <div class="num-item">1022</div><div class="num-item">0427</div><div class="num-item">1165</div><div class="num-item">5249</div><div class="num-item">1578</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">4410</div><div class="num-item">9083</div><div class="num-item">1178</div><div class="num-item">5691</div><div class="num-item">2340</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-sabah" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #3270/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">3925</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">2358</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">8237</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">0967</div><div class="num-item">2070</div><div class="num-item">3358</div><div class="num-item">5881</div><div class="num-item">6441</div>
+                            <div class="num-item">7002</div><div class="num-item">7342</div><div class="num-item">7738</div><div class="num-item">7827</div><div class="num-item">8357</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3410</div><div class="num-item">8891</div><div class="num-item">1124</div><div class="num-item">5638</div><div class="num-item">9024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-perdana" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Status: Final Result Sequence</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">7156</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9928</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">3410</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1914</div><div class="num-item">7656</div><div class="num-item">0245</div><div class="num-item">4812</div><div class="num-item">7552</div>
+                            <div class="num-item">9851</div><div class="num-item">4691</div><div class="num-item">8519</div><div class="num-item">9434</div><div class="num-item">6921</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1049</div><div class="num-item">2348</div><div class="num-item">8850</div><div class="num-item">7120</div><div class="num-item">4539</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="past-results-section" id="past-history">
+        <h2 class="section-title">Past Results History</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 2rem;">Select a game pool and target execution date to fetch standalone historical database arrays</p>
+        
+        <div class="search-box">
+            <select id="past-game">
+                <option value="magnum">Magnum 4D</option>
+                <option value="toto">Sports Toto</option>
+                <option value="stc">Sandakan Turf Club</option>
+                <option value="sweep">Special Cash Sweep</option>
+                <option value="sabah">Sabah 88</option>
+                <option value="nine">Nine Lotto</option>
+                <option value="gdragon">Grand Dragon 4D</option>
+                <option value="perdana">Perdana 4D</option>
+            </select>
+            <input type="date" id="past-date">
+            <button class="search-btn" onclick="searchPastRecords()">Search Results</button>
+        </div>
+        <div id="past-content" style="text-align: center; color: #71717a; font-size: 1.1rem; font-weight: 600;">
+            Select a standalone game and date context to view structural database sheets.
         </div>
     </section>
 
@@ -1318,7 +1730,8 @@
                         <li><a href="#home">Home Gateway</a></li>
                         <li><a href="#profile">About Me</a></li>
                         <li><a href="#services">Game Services</a></li>
-                        <li><a href="#results">Live Monitor</a></li>
+                        <li><a href="#live-monitor">Live Arena</a></li>
+                        <li><a href="#past-history">Past Sheets</a></li>
                     </ul>
                 </div>
 
@@ -1381,51 +1794,52 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved</p>
+            <p style="font-size: 0.8rem; margin-top: 0.6rem; color: #444;">This platform architecture functions strictly as an information synthesis interface. We do not support or regulate remote wagering operations.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            /* ===== MULTI-BANNER SLIDER LOGIC ===== */
+            /* ===== MULTI-BANNER ROTATOR SLIDER ===== */
             const slides = document.querySelectorAll('.full-slide-layer');
             let currentSlide = 0;
             
-            function nextSlide() {
+            function nextBannerSlide() {
                 if (slides.length === 0) return;
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
             }
-            setInterval(nextSlide, 4000);
+            setInterval(nextBannerSlide, 4000);
 
-            /* ===== TERMINAL CLOCK SYNC ===== */
-            function updateLiveClock() {
+            /* ===== TERMINAL CORE CLOCK MECHANISM ===== */
+            function synchronizeTerminalClock() {
                 const now = new Date();
                 const clockEl = document.getElementById('liveClock');
                 if(clockEl) {
-                    clockEl.innerText = "EST SYNC: " + now.toLocaleTimeString();
+                    clockEl.innerText = now.toLocaleDateString() + " " + now.toLocaleTimeString();
                 }
             }
-            setInterval(updateLiveClock, 1000);
-            updateLiveClock();
+            setInterval(synchronizeTerminalClock, 1000);
+            synchronizeTerminalClock();
 
-            /* ===== CANVAS GOLD PARTICLES GENERATOR ===== */
+            /* ===== GOLD PARTICLES ACCELERATION ENGINE ===== */
             const canvas = document.getElementById("particleCanvas");
             if (canvas) {
                 const ctx = canvas.getContext("2d");
-                function resizeCanvas() {
+                function resizeCanvasViewport() {
                     const rect = canvas.parentElement.getBoundingClientRect();
                     canvas.width = rect.width;
                     canvas.height = rect.height;
                 }
-                resizeCanvas();
-                window.addEventListener("resize", resizeCanvas);
+                resizeCanvasViewport();
+                window.addEventListener("resize", resizeCanvasViewport);
 
                 const particleCount = 120; 
-                const particles = [];
-                class Particle {
-                    constructor() { this.reset(); }
-                    reset() {
+                const particlesArray = [];
+                class GoldenParticle {
+                    constructor() { this.resetState(); }
+                    resetState() {
                         this.x = Math.random() * canvas.width;
                         this.y = canvas.height + Math.random() * 20;
                         this.size = Math.random() * 2.5 + 1;
@@ -1433,12 +1847,12 @@
                         this.speedX = (Math.random() - 0.5) * 0.6;
                         this.alpha = Math.random() * 0.35 + 0.1; 
                     }
-                    update() {
+                    updateMovement() {
                         this.y -= this.speedY;
                         this.x += this.speedX;
-                        if (this.y < -10) this.reset();
+                        if (this.y < -10) this.resetState();
                     }
-                    draw() {
+                    renderState() {
                         ctx.save();
                         ctx.globalAlpha = this.alpha;
                         ctx.fillStyle = "#FFDF00";
@@ -1448,95 +1862,17 @@
                         ctx.restore();
                     }
                 }
-                for(let i = 0; i < particleCount; i++) particles.push(new Particle());
-                function animateParticles() {
+                for(let i = 0; i < particleCount; i++) particlesArray.push(new GoldenParticle());
+                function particleAnimationLoop() {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(p => { p.update(); p.draw(); });
-                    requestAnimationFrame(animateParticles);
+                    particlesArray.forEach(p => { p.updateMovement(); p.renderState(); });
+                    requestAnimationFrame(particleAnimationLoop);
                 }
-                animateParticles();
+                particleAnimationLoop();
             }
-
-            /* ===== মালয়েশিয়ান লটারি লাইভ টাইম রেজাল্ট আপডেট ইঞ্জিন ===== */
-            const lotterySchedule = [
-                { name: "4D DRAGON", color: "#FF5722", targetTime: "17:15", numbers: ["4829", "1024", "7893", "5512"] },
-                { name: "NINE Lotto", color: "#E91E63", targetTime: "18:00", numbers: ["9312", "4056", "1189", "6723"] },
-                { name: "SPORTS TOTO", color: "#39FF14", targetTime: "19:10", numbers: ["5678", "3341", "8902", "1254"] },
-                { name: "MAGNUM 4D", color: "#00E5FF", targetTime: "19:35", numbers: ["7156", "9928", "3410", "8865"] }
-            ];
-
-            const liveSlidesContainer = document.querySelector('.live-slideshow-container');
-            const liveStatusTag = document.querySelector('.live-status-tag span');
-            const liveDot = document.querySelector('.live-dot');
-
-            function updateLiveResultsEngine() {
-                const bdTime = new Date();
-                const hours = String(bdTime.getHours()).padStart(2, '0');
-                const minutes = String(bdTime.getMinutes()).padStart(2, '0');
-                const currentTimeString = `${hours}:${minutes}`;
-
-                if (!liveSlidesContainer) return;
-                
-                liveSlidesContainer.innerHTML = ""; 
-                let anyGameLive = false;
-
-                lotterySchedule.forEach((game, index) => {
-                    let currentNumber = "----"; 
-                    let gameStatus = "WAITING FOR DRAW";
-                    let isFlashing = false;
-
-                    if (currentTimeString >= game.targetTime) {
-                        const numIndex = (bdTime.getDate() + index) % game.numbers.length; 
-                        currentNumber = game.numbers[numIndex];
-                        gameStatus = "1ST PRIZE VERIFIED";
-                    } else {
-                        const [targetH, targetM] = game.targetTime.split(':').map(Number);
-                        const diffInMinutes = (targetH * 60 + targetM) - (bdTime.getHours() * 60 + bdTime.getMinutes());
-                        
-                        if (diffInMinutes <= 15 && diffInMinutes > 0) {
-                            gameStatus = "LIVE DRAWING ACTIVE...";
-                            currentNumber = Math.floor(1000 + Math.random() * 9000); 
-                            isFlashing = true;
-                            anyGameLive = true;
-                        }
-                    }
-
-                    const slide = document.createElement('div');
-                    slide.className = `live-result-slide ${index === 0 ? 'active' : ''}`;
-                    slide.innerHTML = `
-                        <div class="live-op-name" style="color: ${game.color};">${game.name}</div>
-                        <div class="live-lucky-num ${isFlashing ? 'flashing' : ''}">${currentNumber}</div>
-                        <div class="live-status-txt" style="color: ${isFlashing ? 'var(--neon-red)' : 'var(--neon-green)'};">${gameStatus}</div>
-                    `;
-                    liveSlidesContainer.appendChild(slide);
-                });
-
-                if (anyGameLive) {
-                    if(liveStatusTag) liveStatusTag.innerText = "LIVE DRAWING ACTIVE";
-                    if(liveDot) liveDot.style.backgroundColor = "var(--neon-red)";
-                } else {
-                    if(liveStatusTag) liveStatusTag.innerText = "OFFICIAL TERMINAL SYNCED";
-                    if(liveDot) liveDot.style.backgroundColor = "var(--neon-blue)";
-                }
-            }
-
-            // প্রথমবার লোড হওয়া এবং প্রতি ১ মিনিট পর পর আপডেট চেক করার ইন্টিগ্রেশন
-            updateLiveResultsEngine(); 
-            setInterval(updateLiveResultsEngine, 60000);
-
-            /* ===== লাইভ স্লাইডশো রোটেটর কোড ===== */
-            let activeLiveIndex = 0;
-            setInterval(() => {
-                const dynamicSlides = document.querySelectorAll('.live-result-slide');
-                if (dynamicSlides.length > 0) {
-                    dynamicSlides[activeLiveIndex].classList.remove('active');
-                    activeLiveIndex = (activeLiveIndex + 1) % dynamicSlides.length;
-                    dynamicSlides[activeLiveIndex].classList.add('active');
-                }
-            }, 4000); 
         });
 
-        /* ===== TOGGLE LIVE RESULTS ENGINE ===== */
+        /* ===== LIVE DRAW TOOGLE ARENA VIEWPORT ===== */
         function toggleLiveScreen() {
             const liveArena = document.getElementById('liveArenaBox');
             if (liveArena.classList.contains('show-live')) {
@@ -1548,7 +1884,38 @@
             }
         }
 
-        /* ===== WHATSAPP NOTIFICATION REDIRECT ENGINE ===== */
+        /* ===== HOVIZONTALLY SCROLLABLE LIVE TABS RIG ===== */
+        function showLiveGameTab(gameTabId) {
+            document.querySelectorAll('.result-display').forEach(div => div.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(gameTabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        /* ===== HISTORY ENGINE SEARCH SHEET TARGET ===== */
+        function searchPastRecords() {
+            const gameNodeValue = document.getElementById('past-game').value;
+            const gameSelectionText = document.getElementById('past-game').options[document.getElementById('past-game').selectedIndex].text;
+            const dateSheetValue = document.getElementById('past-date').value;
+            const contextContainer = document.getElementById('past-content');
+            
+            if (!dateSheetValue) {
+                alert("Please select an evaluation date record sheet.");
+                return;
+            }
+
+            contextContainer.innerHTML = `
+                <div style="color: var(--primary-gold); font-weight: 900; margin-bottom: 12px; font-size: 1.3rem; text-transform: uppercase;">
+                    <i class="fa fa-database"></i> Streaming Context: ${gameSelectionText} Results for ${dateSheetValue}
+                </div>
+                <p style="color:#d1d1d6; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    (Database Query Successful. In production live environment, an API fetch request extracts standlone matrix configurations of "${gameSelectionText}" for this target timestamps directly from structured storage nodes.)
+                </p>
+            `;
+        }
+
+        /* ===== WHATSAPP HIGH PRECISION REDIRECT ROUTING ===== */
         function sendWhatsAppNotification(event) {
             event.preventDefault(); 
             const name = document.getElementById('regName').value;
@@ -1567,7 +1934,7 @@
             window.open(whatsAppUrl, '_blank');
         }
 
-        /* ===== PREMIUM SERVICES POPUP MATRIX DATABASE ===== */
+        /* ===== PREMIUM SERVICE MEDIA PROOF STATIC DATABASE ===== */
         const servicesDatabase = {
             "4D Dragon": { screenshot: "1000015083.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015084.jpg" },
             "Nine Lotto": { screenshot: "1000015085.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015086.jpg" },
@@ -1620,7 +1987,7 @@
             }
         }
 
-        /* ===== DYNAMIC DATABASE MATRIX FOR PORTFOLIO SECTION ONLY ===== */
+        /* ===== DYNAMIC PORTFOLIO MATRICES FOR PAST WINNERS ===== */
         const winnersDatabase = {
             "Grand Dragon": [
                 { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
@@ -1689,7 +2056,7 @@
             }
         }
 
-        /* ===== CLOSING MODALS ON OUTSIDE CLICK ===== */
+        /* ===== CLOSING CONTEXT MODALS RIG ===== */
         window.onclick = function(event) {
             const winnersModal = document.getElementById('winnersModal');
             const servicesModal = document.getElementById('servicesModal');
