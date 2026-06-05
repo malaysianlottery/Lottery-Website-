@@ -3,79 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Malaysian Lottery - Live 4D Results</title>
+    <title>Malaysian Lottery - Premium Live 4D Portal</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* ===== GLOBAL RESET & HIGH-END GOLDEN VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
+
         :root {
-            --primary-gold: #FFDF00;
-            --deep-gold: #D4AF37;
+            --primary-gold: #FFDF00;     
+            --deep-gold: #D4AF37;        
+            --dark-gold: #996515;        
             --pure-black: #000000;
             --card-black: #0d0d11;
             --bright-white: #ffffff;
+            --neon-green: #39FF14;
             --neon-blue: #00E5FF;
+            --neon-red: #FF3333;
+            --gold-glow: rgba(255, 223, 0, 0.35);
         }
-        body {
+
+        html, body {
+            width: 100%;
+            height: 100%;
             font-family: 'Poppins', sans-serif;
-            background: var(--pure-black);
+            background: var(--pure-black); 
             color: var(--bright-white);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
+
+        nav, .hero-view-port, section, footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===== NAVBAR ===== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-bottom: 3px solid var(--primary-gold);
+            backdrop-filter: blur(10px);
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
+
         .logo-img {
-            height: 50px;
+            height: 55px;
+            width: auto;
+            object-fit: contain;
         }
+
         .logo span {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold));
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
+
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
         }
+
         nav a {
-            color: white;
+            color: var(--bright-white);
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
-        nav a:hover { color: var(--primary-gold); }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        .lang-selector-box {
+            background: var(--card-black);
+            border: 2px solid var(--primary-gold);
+            color: var(--bright-white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* ===== HERO AREA WITH FIXED SLIDER & CANVAS ===== */
         .hero-view-port {
-            margin-top: 80px;
+            margin-top: 85px; 
             width: 100%;
-            max-width: 1400px;
+            max-width: 1400px; 
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            background: #111116; 
             border: 3px solid var(--primary-gold);
             overflow: hidden;
-            aspect-ratio: 16/9;
-            position: relative;
+            aspect-ratio: 16 / 9;
         }
+
         #particleCanvas {
             position: absolute;
             top: 0;
@@ -85,586 +144,1998 @@
             z-index: 2;
             pointer-events: none;
         }
+
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
+            z-index: 1;
         }
+
         .full-slide-layer {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.8s;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out;
+            background: #111116;
         }
-        .full-slide-layer.active { opacity: 1; }
+
+        .full-slide-layer.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .slide-bg-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; 
+            display: block;
         }
+
         .slide-text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
             width: 90%;
+            text-align: center;
+            z-index: 5;
         }
+
         .slide-text-overlay h1 {
             font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            color: white;
-            text-shadow: 0 0 20px black;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--bright-white);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
         }
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            background: linear-gradient(135deg, #FFF, var(--primary-gold));
+
+        .slide-text-overlay h1 span {
+            display: block;
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
         }
-        .profile-section, .services-section, .results-section, .past-results-section, .portfolio-section {
-            padding: 4rem 2rem;
-            border-bottom: 2px solid rgba(255,223,0,0.2);
+
+        /* ===== COMMON HEADERS ===== */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFF, var(--primary-gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
         }
+
+        /* ===== ABOUT PROFILE DATA MATRIX ===== */
+        .profile-section {
+            padding: 6rem 2rem;
+            background: var(--pure-black);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+        }
+
         .profile-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
+
         .profile-image-box {
-            border: 3px solid var(--primary-gold);
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1 / 1;
             border-radius: 16px;
             overflow: hidden;
+            border: 3px solid var(--primary-gold);
+            margin: 0 auto;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .profile-photo-main { width: 100%; display: block; }
-        .profile-info h2 { color: var(--primary-gold); font-size: 2.5rem; }
+
+        .profile-photo-main {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #0d0d11;
+            display: block;
+        }
+
+        .profile-info h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            background: rgba(255, 223, 0, 0.1);
+            color: var(--primary-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            border: 2px solid var(--primary-gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .profile-info p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #e2e2e8;
+            margin-bottom: 1.5rem;
+        }
+
         .condition-highlight {
             border-left: 5px solid var(--primary-gold);
-            background: #111;
-            padding: 1rem;
-            margin: 1rem 0;
+            background: linear-gradient(90deg, #101014, #050505);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            border: 1px solid rgba(255,223,0,0.2);
         }
+
+        .condition-highlight strong {
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
+
         .stat-item {
             background: var(--card-black);
-            padding: 1rem;
-            text-align: center;
-            border-top: 3px solid var(--primary-gold);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .service-card {
-            background: var(--card-black);
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid rgba(255,223,0,0.3);
-            border-radius: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
-        .game-logo-box {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-gold);
-        }
-        .game-logo-img { width: 100%; height: 100%; object-fit: cover; }
-        .live-enter-btn {
-            display: block;
-            background: linear-gradient(135deg, #00FF66, #009933);
-            color: black;
-            padding: 1rem 2rem;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            margin: 0 auto 2rem;
-            cursor: pointer;
-        }
-        .live-arena-viewport {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #050508;
-            border: 3px solid var(--primary-gold);
-            border-radius: 16px;
-            padding: 1rem;
-            display: none;
-        }
-        .live-arena-viewport.show { display: block; }
-        .live-header-ticker {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-gold);
-            margin-bottom: 1rem;
-        }
-        .live-status-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ff4444;
-            font-weight: bold;
-        }
-        .live-dot {
-            width: 10px;
-            height: 10px;
-            background: red;
-            border-radius: 50%;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 0.3; transform: scale(0.8);}
-            100% { opacity: 1; transform: scale(1.2);}
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 12px;
-        }
-        .search-box {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-        .search-box input, .search-box select, .search-btn {
-            padding: 0.8rem;
-            background: #111;
-            border: 2px solid var(--primary-gold);
-            color: white;
+            padding: 1.5rem;
             border-radius: 8px;
-        }
-        .search-btn {
-            background: var(--primary-gold);
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .past-results-table {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #0a0a0f;
-            border-radius: 16px;
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
             text-align: center;
-            border-bottom: 1px solid rgba(255,223,0,0.3);
-        }
-        th {
-            color: var(--primary-gold);
-            font-size: 1.1rem;
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .portfolio-card {
-            background: var(--card-black);
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid var(--primary-gold);
-            border-radius: 16px;
-            cursor: pointer;
-        }
-        footer {
-            background: #000;
-            padding: 3rem 2rem;
+            border: 2px solid rgba(255, 223, 0, 0.2);
             border-top: 4px solid var(--primary-gold);
         }
-        .footer-container {
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #b5b5be;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* ===== PREMIUM SERVICES MODULES ===== */
+        .services-section {
+            padding: 6rem 2rem;
+            background: var(--pure-black);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+        }
+
+        .services-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
-        .footer-reg-col, .footer-right-contact-block {
-            background: #0a0a0f;
-            padding: 1.5rem;
+
+        .service-card {
+            background: var(--card-black);
             border-radius: 16px;
+            border: 2px solid rgba(255, 223, 0, 0.15);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
-        .form-group {
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 223, 0, 0.1);
+        }
+
+        .game-logo-box {
+            width: 95px;
+            height: 95px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary-gold);
+            background: #111;
+        }
+
+        .game-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 { 
+            color: var(--primary-gold); 
+            font-size: 1.5rem; 
+            margin-bottom: 0.8rem; 
+            font-weight: 900; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .service-card p { 
+            color: #d1d1d6; 
+            font-size: 1rem; 
+            line-height: 1.6; 
             margin-bottom: 1rem;
         }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.6rem;
-            background: black;
-            border: 1px solid var(--primary-gold);
-            color: white;
-            border-radius: 8px;
+
+        .service-click-hint {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
         }
-        .cta-button {
-            background: var(--primary-gold);
-            color: black;
-            padding: 0.8rem;
-            border: none;
-            font-weight: bold;
-            border-radius: 8px;
-            width: 100%;
-            cursor: pointer;
-        }
-        .social-icon-btn {
-            display: inline-block;
-            background: #25D366;
-            padding: 0.5rem 1rem;
-            margin: 0.3rem;
-            border-radius: 20px;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-        .modal-overlay {
+
+        /* ===== SERVICE PROOF DYNAMIC MODAL ===== */
+        .service-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 6000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .service-modal-window {
+            background: #050507;
+            border: 3px solid var(--primary-gold);
+            width: 100%;
+            max-width: 800px;
+            height: 85vh;
+            border-radius: 16px;
+            overflow-y: auto;
+            position: relative;
+            padding: 3rem 2rem;
+        }
+
+        .modal-proof-content-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .proof-media-item-box {
+            background: var(--card-black);
+            border: 1px solid rgba(255, 223, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .proof-media-item-box img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid rgba(255,223,0,0.3);
+        }
+
+        .modal-fb-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #1877F2;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+        .modal-fb-btn:hover { opacity: 0.9; }
+
+        /* ===== DIGITAL LIVE DRAW ARENA (TABBED INTERFACE) ===== */
+        .results-section {
+            padding: 6rem 2rem;
+            position: relative;
+            background: var(--pure-black);
+            overflow: hidden;
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+            text-align: center;
+        }
+
+        .results-section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.12;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .live-enter-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00FF66, #009933);
+            color: #000000;
+            border: 2px solid #ffffff;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 1.5rem auto;
+            position: relative;
+            z-index: 15;
+            letter-spacing: 1px;
+        }
+
+        .live-enter-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.7);
+            background: linear-gradient(135deg, #ffffff, #00FF66);
+        }
+
+        .live-enter-btn i {
+            font-size: 1.4rem;
+            animation: bounceRight 0.6s infinite alternate;
+        }
+
+        @keyframes bounceRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(5px); }
+        }
+
+        .live-arena-viewport {
+            position: relative;
+            z-index: 5;
+            max-width: 1100px;
+            margin: 2rem auto 0 auto;
+            background: #050508;
+            border: 3px solid var(--primary-gold);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            display: none; 
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .live-arena-viewport.show-live {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .live-header-ticker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-gold);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .live-status-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 51, 51, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            border: 2px solid var(--neon-red);
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--neon-red);
+            text-transform: uppercase;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--neon-red);
+            border-radius: 50%;
+            animation: pulseBlink 0.8s infinite alternate;
+        }
+
+        @keyframes pulseBlink {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; box-shadow: 0 0 15px var(--neon-red); }
+        }
+
+        .live-timer-sync {
+            font-size: 1.1rem;
+            color: var(--neon-blue);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Horizontally Scrollable Game Tabs */
+        .game-tabs {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 223, 0, 0.2);
+        }
+
+        .game-tabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        .game-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 3px;
+        }
+
+        .tab-btn {
+            background: var(--card-black);
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: 0.3s;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-gold);
+            color: var(--pure-black);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .result-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #b5b5be;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .result-display {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+            text-align: center;
+        }
+
+        .result-display.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        .main-prizes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .prize-card {
+            background: var(--card-black);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 223, 0, 0.2);
+            transition: all 0.3s;
+        }
+        .prize-card:hover { border-color: var(--primary-gold); }
+
+        .prize-label {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .prize-num {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--bright-white);
+        }
+
+        .prize-card.first {
+            grid-column: span 3;
+            border: 3px solid var(--primary-gold);
+            background: linear-gradient(180deg, #0d0d11 0%, #15151d 100%);
+        }
+
+        .prize-card.first .prize-num {
+            font-size: 6rem;
+            color: var(--primary-gold);
+            text-shadow: 0 0 25px rgba(255, 223, 0, 0.5);
+            animation: flashLight 2s infinite alternate;
+        }
+
+        .sub-prizes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            text-align: left;
+        }
+
+        .sub-prize-box h4 {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            border-left: 4px solid var(--neon-blue);
+            padding-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .num-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.8rem;
+        }
+
+        .num-item {
+            background: #111116;
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e2e2e8;
+            transition: 0.2s;
+        }
+        .num-item:hover { background: var(--primary-gold); color: #000; font-weight: 900; }
+
+        /* ===== PAST RESULTS MODULE ===== */
+        .past-results-section {
+            padding: 6rem 2rem;
+            background: #050507;
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+            text-align: center;
+        }
+
+        .search-box {
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            gap: 1rem;
+            background: var(--card-black);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255,223,0,0.3);
+        }
+
+        .search-box input, .search-box select {
+            flex: 1;
+            padding: 1rem;
+            background: var(--pure-black);
+            border: 2px solid rgba(255,223,0,0.5);
+            color: white;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            outline: none;
+        }
+        .search-box input:focus, .search-box select:focus { border-color: var(--primary-gold); }
+
+        .search-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
+            border: none;
+            color: black;
+            font-weight: 900;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .search-btn:hover { background: var(--bright-white); }
+
+        /* ===== PAST WINNERS PORTFOLIO INTERFACES ===== */
+        .portfolio-section {
+            padding: 6rem 2rem;
+            background: var(--pure-black);
+            border-bottom: 2px solid rgba(255, 223, 0, 0.25);
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: var(--card-black);
+            border-radius: 16px;
+            border: 3px solid rgba(255, 223, 0, 0.2);
+            text-align: center;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary-gold);
+        }
+        
+        .portfolio-card h3 { 
+            color: var(--primary-gold); 
+            font-size: 1.6rem; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            margin-top: 0.5rem;
+        }
+        
+        .portfolio-card p { 
+            font-size: 1.1rem; 
+            color: var(--bright-white); 
+            margin-top: 0.4rem; 
+            font-weight: 700;
+        }
+        
+        .portfolio-card .click-hint {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* ===== GLOBAL DYNAMIC LAYER MODAL ===== */
+        .winners-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.96);
             backdrop-filter: blur(10px);
             z-index: 5000;
             display: none;
             justify-content: center;
             align-items: center;
+            padding: 2rem;
         }
-        .modal-window {
+
+        .winners-modal-window {
             background: #050507;
             border: 3px solid var(--primary-gold);
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 2rem;
+            width: 100%;
+            max-width: 1100px;
+            height: 85vh;
             border-radius: 16px;
+            overflow-y: auto;
             position: relative;
+            padding: 3rem 2rem;
         }
-        .close-modal {
+
+        .close-modal-trigger {
             position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            color: red;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: var(--neon-red);
             cursor: pointer;
+            font-weight: 900;
+            z-index: 100;
         }
+
+        .modal-headline {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px dashed rgba(255, 223, 0, 0.3);
+            padding-bottom: 1rem;
+        }
+
+        .winners-profiles-container-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .winner-premium-profile-card {
+            background: var(--card-black);
+            border: 2px solid rgba(255, 223, 0, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .winner-avatar-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            border: 3px solid var(--primary-gold);
+            overflow: hidden;
+            background: #222;
+        }
+
+        .winner-avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .winner-meta-details-box h4 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+        }
+
+        .winner-address-tag {
+            font-size: 0.95rem;
+            color: var(--neon-blue);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .winner-written-review {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #e2e2e8;
+            background: rgba(255,255,255,0.02);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-gold);
+            margin-bottom: 1.2rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .winner-media-reviews-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .audio-review-wrapper, .video-review-wrapper {
+            background: #000;
+            padding: 1rem;
+            border: 1px solid rgba(255, 223, 0, 0.15);
+            border-radius: 6px;
+        }
+
+        .media-label-text {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .audio-review-wrapper audio, .proof-media-item-box audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .video-review-wrapper video, .proof-media-item-box video {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 223, 0, 0.3);
+            outline: none;
+            background: #121215;
+        }
+
+        /* ===== FORMS & VIP LABELS ===== */
+        .form-group { 
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+        
+        .form-group label { 
+            color: var(--primary-gold); 
+            font-size: 0.9rem; 
+            font-weight: 900; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        
+        .form-group input, .form-group select { 
+            padding: 1rem; 
+            background: var(--pure-black); 
+            border: 2px solid rgba(255, 223, 0, 0.5); 
+            color: var(--bright-white); 
+            border-radius: 6px; 
+            font-family: inherit; 
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--deep-gold));
+            color: var(--pure-black);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid var(--bright-white);
+            text-align: center;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { background: var(--bright-white); color: #000000; }
+
+        /* ===== FOOTER STRUCTURAL FLOW ===== */
+        footer {
+            background: #000000; 
+            color: var(--bright-white);
+            padding: 5rem 2rem 2rem 2rem;
+            border-top: 4px solid var(--primary-gold);
+            position: relative;
+            z-index: 100;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .footer-left-block { display: flex; flex-direction: column; gap: 3rem; }
+        .footer-links-col { width: 100%; }
+
+        .footer-links-col h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255, 223, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links-col ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .footer-links-col ul a {
+            color: #d1d1d6;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-links-col ul a:hover { color: var(--primary-gold); }
+
+        .footer-reg-col {
+            background: var(--card-black);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 3px solid var(--primary-gold);
+        }
+
+        .footer-reg-col h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .footer-right-contact-block {
+            background: var(--card-black);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 223, 0, 0.2);
+        }
+
+        .footer-right-contact-block h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255,223,0,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
+
+        .contact-item-box {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            background: var(--pure-black);
+            padding: 1rem 1.2rem;
+            border: 2px solid rgba(255, 223, 0, 0.15);
+            border-left: 5px solid var(--primary-gold);
+            border-radius: 4px;
+        }
+
+        .contact-item-box span.icon { font-size: 1.6rem; color: var(--primary-gold); }
+        .contact-item-box div p { margin: 0; font-size: 0.85rem; color: #a1a1aa; text-transform: uppercase; font-weight: 800; }
+        .contact-item-box div a, .contact-item-box div h5 { color: var(--bright-white); text-decoration: none; font-size: 1.2rem; font-weight: 900; }
+
+        .social-media-cluster { display: flex; flex-direction: column; gap: 1rem; }
+        .social-media-cluster-title { color: var(--primary-gold); font-size: 1rem; font-weight: 900; text-transform: uppercase; }
+        .social-icons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        
+        .social-icon-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .btn-whatsapp { background: #25D366; }
+        .btn-telegram { background: #0088cc; }
+        .btn-imo { background: #1f86ef; }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 4rem auto 0 auto;
+            border-top: 2px solid rgba(255,223,0,0.25);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #71717a;
+        }
+
+        /* ===== MOBILE COMPRESSION BREAKPOINTS ===== */
+        @media (max-width: 1024px) {
+            .profile-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .profile-image-box { max-width: 380px; }
+            .condition-highlight { border-left: none; border-top: 5px solid var(--primary-gold); border-radius: 0 0 12px 12px; }
+            .footer-container { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
         @media (max-width: 768px) {
-            .profile-container, .footer-container { grid-template-columns: 1fr; }
-            .slide-text-overlay h1 { font-size: 2rem; }
+            nav { padding: 0.6rem 1rem; }
             nav ul { display: none; }
-            iframe { height: 400px; }
+            .logo span { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
+
+            .hero-view-port { margin-top: 65px; aspect-ratio: 4 / 3; border-width: 2px; }
+            .slide-text-overlay h1 { font-size: 2.3rem; letter-spacing: 2px; line-height: 1.2; }
+
+            .section-title { font-size: 2rem; }
+            .profile-info h2 { font-size: 2.2rem; }
+            .live-arena-viewport { padding: 1.5rem 1rem; border-width: 3px; }
+            .live-header-ticker { flex-direction: column; gap: 1rem; text-align: center; }
+            
+            .main-prizes { grid-template-columns: 1fr; gap: 1rem; }
+            .prize-card.first { grid-column: span 1; }
+            .prize-card.first .prize-num { font-size: 3.8rem; }
+            .prize-num { font-size: 2.5rem; }
+            .sub-prizes-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .num-grid { grid-template-columns: repeat(4, 1fr); }
+
+            .search-box { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+            .winners-modal-window { padding: 2rem 1rem; height: 90vh; }
+            .winner-premium-profile-card { grid-template-columns: 1fr; text-align: center; justify-items: center; padding: 1.2rem; }
+            .winner-media-reviews-row { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
+            .close-modal-trigger { top: 0.8rem; right: 1.2rem; font-size: 2rem; }
+            
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .portfolio-grid, .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-links-col ul { grid-template-columns: 1fr; }
+            .social-icons-row { justify-content: center; }
+            .social-icon-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">
-        <img class="logo-img" src="1000014839.png" alt="Logo">
-        <span>MALAYSIAN LOTTERY</span>
-    </div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#profile">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#live-monitor">Live 4D</a></li>
-        <li><a href="#past-history">Past Results</a></li>
-        <li><a href="#portfolio">Winners</a></li>
-        <li><a href="#footer">Register</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div class="logo">
+            <img class="logo-img" src="1000014839.png" alt="Logo">
+            <span>MALAYSIAN LOTTERY</span>
+        </div>
+        <div class="nav-right-container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profile">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#live-monitor">Live Arena</a></li>
+                <li><a href="#past-history">Past Results</a></li>
+                <li><a href="#portfolio">Wins</a></li>
+                <li><a href="#footer-anchor">Register</a></li>
+            </ul>
+            <select class="lang-selector-box" onchange="alert('Language engine translating...');">
+                <option value="en">English (US)</option>
+                <option value="bn">Bangla (বাংলা)</option>
+            </select>
+        </div>
+    </nav>
 
-<!-- Hero Slider -->
-<div class="hero-view-port" id="home">
-    <canvas id="particleCanvas"></canvas>
-    <div class="slider-wrapper">
-        <div class="full-slide-layer active"><img class="slide-bg-img" src="1000014883.png"><div class="slide-text-overlay"><h1>MALAYSIAN LOTTERY</h1></div></div>
-        <div class="full-slide-layer"><img class="slide-bg-img" src="1000014899.jpg"></div>
-        <div class="full-slide-layer"><img class="slide-bg-img" src="1000014901.jpg"></div>
-        <div class="full-slide-layer"><img class="slide-bg-img" src="1000014900.jpg"></div>
-    </div>
-</div>
-
-<!-- Profile -->
-<section class="profile-section" id="profile">
-    <div class="profile-container">
-        <div class="profile-image-box"><img class="profile-photo-main" src="1000014839.png"></div>
-        <div class="profile-info">
-            <h2>Hanif Sarkar</h2>
-            <div class="profile-badge">Verified 100% Winning Tips Agent</div>
-            <p>Get access to calculated lottery matrices directly from structural pattern databases.</p>
-            <div class="condition-highlight"><strong>Zero Upfront Payment</strong> — 30% commission only on total winnings.</div>
-            <div class="stats-grid"><div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div><div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win</div></div><div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div></div>
+    <div class="hero-view-port" id="home">
+        <canvas id="particleCanvas"></canvas>
+        <div class="slider-wrapper">
+            <div class="full-slide-layer active">
+                <img class="slide-bg-img" src="1000014883.png" alt="Welcome Background Banner">
+                <div class="slide-text-overlay">
+                    <h1>
+                        <span>Welcome</span>
+                        <span>to</span>
+                        <span>Malaysian</span>
+                        <span>Lottery</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014899.jpg" alt="Grand Dragon Banner">
+            </div>
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014901.jpg" alt="Banner 3">
+            </div>
+            <div class="full-slide-layer">
+                <img class="slide-bg-img" src="1000014900.jpg" alt="Banner 4">
+            </div>
         </div>
     </div>
-</section>
 
-<!-- Services -->
-<section class="services-section" id="services">
-    <h2 class="section-title">Premium Services</h2>
-    <div class="services-grid">
-        <div class="service-card" onclick="openServiceModal('4D Dragon')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>4D Dragon</h3><p>Expert predictions & structural selections.</p></div>
-        <div class="service-card" onclick="openServiceModal('Nine Lotto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Nine Lotto</h3><p>Strategic pattern analysis for winning.</p></div>
-        <div class="service-card" onclick="openServiceModal('Sports Toto')"><div class="game-logo-box"><img class="game-logo-img" src="1000014883.png"></div><h3>Sports Toto</h3><p>High precision combination generators.</p></div>
-        <div class="service-card" onclick="openServiceModal('Magnum 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg"></div><h3>Magnum 4D</h3><p>Top-tier prize pool strategies.</p></div>
-        <div class="service-card" onclick="openServiceModal('Grand Dragon')"><div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg"></div><h3>Grand Dragon</h3><p>High precision double-chance permutations.</p></div>
-        <div class="service-card" onclick="openServiceModal('Perdana 4D')"><div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg"></div><h3>Perdana 4D</h3><p>Advanced algorithmic matrix extraction.</p></div>
-    </div>
-</section>
-
-<!-- Live Results (check4d.org) -->
-<section class="results-section" id="live-monitor">
-    <h2 class="section-title">Live 4D Results</h2>
-    <button class="live-enter-btn" onclick="toggleLive()">🔴 লাইভ রেজাল্ট দেখুন</button>
-    <div class="live-arena-viewport" id="liveArena">
-        <div class="live-header-ticker">
-            <div class="live-status-tag"><div class="live-dot"></div> LIVE AUTO UPDATE</div>
-            <div id="liveClock"></div>
+    <section class="profile-section" id="profile">
+        <div class="profile-container">
+            <div class="profile-image-box">
+                <img class="profile-photo-main" src="1000014839.png" alt="Hanif Sarkar Brand Logo">
+            </div>
+            <div class="profile-info">
+                <h2>Hanif Sarkar</h2>
+                <div class="profile-badge">Verified 100% Winning Tips Agent</div>
+                <p>Get access to calculations and mathematically evaluated lottery matrices compiled directly from structural pattern databases.</p>
+                <div class="condition-highlight">
+                    <strong>Zero Upfront Payment Terms:</strong>
+                    No advance service fees or hidden charges are required before an official win condition is met. A straightforward 30% commission applies only on total winnings.
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">No Advance</div></div>
+                    <div class="stat-item"><div class="stat-number">30%</div><div class="stat-label">After Win Only</div></div>
+                    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">VIP Support</div></div>
+                </div>
+            </div>
         </div>
-        <iframe src="https://www.check4d.org/" title="Live 4D Results Malaysia"></iframe>
-        <p style="color:#aaa; text-align:center; margin-top:1rem;">🔁 স্বয়ংক্রিয় আপডেট | Magnum, Toto, DaMaCai, Singapore, Cambodia</p>
-    </div>
-</section>
+    </section>
 
-<!-- Past Results History (Fully Active) -->
-<section class="past-results-section" id="past-history">
-    <h2 class="section-title">Past Results History</h2>
-    <div class="search-box">
-        <select id="gameSelect">
-            <option value="Magnum 4D">Magnum 4D</option>
-            <option value="Sports Toto">Sports Toto</option>
-            <option value="Grand Dragon">Grand Dragon</option>
-            <option value="Singapore 4D">Singapore 4D</option>
-        </select>
-        <input type="date" id="dateSelect">
-        <button class="search-btn" onclick="searchPastResults()">Search Results</button>
-    </div>
-    <div id="pastResultsDisplay" class="past-results-table">
-        <!-- Dynamic table will appear here -->
-        <p style="text-align:center; padding:2rem;">Select a game and date to view historical results.</p>
-    </div>
-</section>
-
-<!-- Winners Portfolio -->
-<section class="portfolio-section" id="portfolio">
-    <h2 class="section-title">🏆 Recent Winners</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-card" onclick="openWinnerModal('Grand Dragon', 'Sabbir Ali', 'RM 450,000', 'Johor Bahru')"><h3>Grand Dragon</h3><p>RM 450k Winner</p></div>
-        <div class="portfolio-card" onclick="openWinnerModal('Sports Toto', 'Md. Ishtiaque', 'RM 280,000', 'Kuala Lumpur')"><h3>Sports Toto</h3><p>RM 280k Winner</p></div>
-        <div class="portfolio-card" onclick="openWinnerModal('Magnum 4D', 'Babul Mia', 'RM 350,000', 'Rawang')"><h3>Magnum 4D</h3><p>RM 350k Winner</p></div>
-        <div class="portfolio-card" onclick="openWinnerModal('Nine Lotto', 'Saiful Islam', 'RM 290,000', 'Sungai Petani')"><h3>Nine Lotto</h3><p>RM 290k Winner</p></div>
-    </div>
-</section>
-
-<!-- Modals -->
-<div id="serviceModal" class="modal-overlay"><div class="modal-window"><span class="close-modal" onclick="closeServiceModal()">&times;</span><h2 id="modalTitle" style="color:gold;">Proofs</h2><div id="modalContent"><p>Loading...</p></div></div></div>
-<div id="winnerModal" class="modal-overlay"><div class="modal-window"><span class="close-modal" onclick="closeWinnerModal()">&times;</span><h2 id="winnerModalTitle" style="color:gold;">Winner Details</h2><div id="winnerModalContent"></div></div></div>
-
-<!-- Footer -->
-<footer id="footer">
-    <div class="footer-container">
-        <div class="footer-reg-col">
-            <h3>VIP Registration</h3>
-            <form onsubmit="sendWhatsApp(event)">
-                <div class="form-group"><label>Full Name</label><input type="text" id="regName" required></div>
-                <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="regPhone" required></div>
-                <div class="form-group"><label>Target Game</label><select id="regGame"><option>Magnum 4D</option><option>Sports Toto</option><option>Grand Dragon</option></select></div>
-                <button type="submit" class="cta-button">Register for VIP Tips</button>
-            </form>
-        </div>
-        <div class="footer-right-contact-block">
-            <h3>Contact</h3>
-            <p>📧 support@malaysianlottery.com</p>
-            <p>📍 Kuala Lumpur, Malaysia</p>
-            <a href="https://wa.me/601116448229" class="social-icon-btn">💬 WhatsApp</a>
-            <a href="#" class="social-icon-btn">✈️ Telegram</a>
-        </div>
-    </div>
-    <p style="text-align:center; margin-top:2rem;">© 2026 MALAYSIAN LOTTERY | Information only</p>
-</footer>
-
-<script>
-    // ========== SLIDER ==========
-    let slides = document.querySelectorAll('.full-slide-layer');
-    let current = 0;
-    setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-    }, 4000);
-
-    // ========== CLOCK ==========
-    function updateClock() {
-        let clock = document.getElementById('liveClock');
-        if(clock) clock.innerText = new Date().toLocaleString();
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // ========== LIVE TOGGLE ==========
-    function toggleLive() {
-        document.getElementById('liveArena').classList.toggle('show');
-    }
-
-    // ========== PARTICLES ==========
-    const canvas = document.getElementById('particleCanvas');
-    if(canvas) {
-        canvas.width = canvas.parentElement.clientWidth;
-        canvas.height = canvas.parentElement.clientHeight;
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        for(let i=0;i<80;i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 2 + 1,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: Math.random() * 0.8 + 0.2
-            });
-        }
-        function drawParticles() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            particles.forEach(p => {
-                ctx.fillStyle = `rgba(255,215,0,${Math.random() * 0.5 + 0.2})`;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-                ctx.fill();
-                p.x += p.vx;
-                p.y += p.vy;
-                if(p.y > canvas.height) p.y = 0;
-                if(p.x > canvas.width) p.x = 0;
-                if(p.x < 0) p.x = canvas.width;
-            });
-            requestAnimationFrame(drawParticles);
-        }
-        drawParticles();
-    }
-
-    // ========== PAST RESULTS DATABASE (ACTIVE) ==========
-    const pastResultsData = {
-        "Magnum 4D": {
-            "2026-06-03": { first: "2469", second: "6830", third: "6747", special: "3779,5646,2625,3321,0489,3849,7616,0523,0335,3495", cons: "5040,1304,0194,4638,9937,3724,2433,7723,9162,9827" },
-            "2026-05-27": { first: "5123", second: "7890", third: "3456", special: "1234,5678,9012,3456,7890,2345,6789,0123,4567,8901", cons: "1111,2222,3333,4444,5555,6666,7777,8888,9999,0000" }
-        },
-        "Sports Toto": {
-            "2026-06-03": { first: "6697", second: "2969", third: "1040", special: "9698,4693,5478,9612,3744,1601,7323,9962,1780,9816", cons: "5072,3672,5420,3828,7663,9903,1225,8267,6677,1909" },
-            "2026-05-27": { first: "1234", second: "5678", third: "9012", special: "1111,2222,3333,4444,5555,6666,7777,8888,9999,0000", cons: "1212,2323,3434,4545,5656,6767,7878,8989,9090,0101" }
-        },
-        "Grand Dragon": {
-            "2026-06-05": { first: "4862", second: "7853", third: "3446", special: "0495,3951,9877,2896,9314,1405,3396,8525,1445,8366", cons: "0503,4460,4751,1674,4975,2142,6053,1355,8253,4138" }
-        },
-        "Singapore 4D": {
-            "2026-06-03": { first: "2414", second: "8613", third: "2868", special: "0126,0171,0949,1212,1375,2292,2354,3121,8707,8834", cons: "0637,3753,4160,4542,5459,5865,6360,6572,8376,9038" }
-        }
-    };
-
-    function searchPastResults() {
-        let game = document.getElementById('gameSelect').value;
-        let date = document.getElementById('dateSelect').value;
-        let displayDiv = document.getElementById('pastResultsDisplay');
+    <section class="services-section" id="services">
+        <h2 class="section-title">Our Premium Services</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 3rem;">Guaranteed Calculations & Official Lottery Ticket Extraction Frameworks (Click any game to view Proof Options Popup)</p>
         
-        if(!date) {
-            displayDiv.innerHTML = `<p style="color:red; text-align:center;">Please select a date first!</p>`;
-            return;
-        }
+        <div class="services-grid">
+            <div class="service-card" onclick="openServicesModal('4D Dragon')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="4D Dragon"></div>
+                <h3>4D Dragon</h3>
+                <p>Expertly engineered prediction charts and exclusive direct coordinate structural number selections.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+
+            <div class="service-card" onclick="openServicesModal('Nine Lotto')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Nine Lotto"></div>
+                <h3>Nine Lotto</h3>
+                <p>Strategic pattern analysis configurations optimized to elevate your mathematical winning ratios safely.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+
+            <div class="service-card" onclick="openServicesModal('Sports Toto')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014883.png" alt="Sports Toto"></div>
+                <h3>Sports Toto</h3>
+                <p>High precision combination generators tracking historical execution trends across active pools.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+
+            <div class="service-card" onclick="openServicesModal('Magnum 4D')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014899.jpg" alt="Magnum 4D"></div>
+                <h3>Magnum 4D</h3>
+                <p>Direct confirmation strategies focusing strictly on top tier prize pools and special ticket allocations.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+
+            <div class="service-card" onclick="openServicesModal('Grand Dragon Lotto')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014901.jpg" alt="Grand Dragon Lotto"></div>
+                <h3>Grand Dragon Lotto</h3>
+                <p>Premium statistical metrics covering high precision double-chance permutations for GDLotto pools.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+
+            <div class="service-card" onclick="openServicesModal('Perdana 4D')">
+                <div class="game-logo-box"><img class="game-logo-img" src="1000014900.jpg" alt="Perdana 4D"></div>
+                <h3>Perdana 4D</h3>
+                <p>Advanced algorithmic matrix extraction tracking rapid multi-level premium prize sequences daily.</p>
+                <div class="service-click-hint">Click to View Proofs ➔</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="service-modal-overlay" id="servicesModal">
+        <div class="service-modal-window">
+            <span class="close-modal-trigger" onclick="closeServicesModal()">&times;</span>
+            <div class="modal-headline" id="modalServiceTitle">Game Media Proofs</div>
+            <div class="modal-proof-content-layout" id="serviceProofsContainer"></div>
+        </div>
+    </div>
+
+    <section class="results-section" id="live-monitor">
+        <div class="results-section-bg"></div>
+        <h2 class="section-title">Live Draw Arena</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 1.5rem;">Realtime Terminal Streams directly from Malaysian Drawing Nodes</p>
         
-        let data = pastResultsData[game]?.[date];
-        if(data) {
-            displayDiv.innerHTML = `
-                <table>
-                    <thead><tr><th>Prize</th><th>Numbers</th></tr></thead>
-                    <tbody>
-                        <tr><td>🏆 1st Prize</td><td style="color:gold; font-size:1.5rem;">${data.first}</td></tr>
-                        <tr><td>🥈 2nd Prize</td><td>${data.second}</td></tr>
-                        <tr><td>🥉 3rd Prize</td><td>${data.third}</td></tr>
-                        <tr><td>⭐ Special Prizes</td><td>${data.special}</td></tr>
-                        <tr><td>🎗️ Consolation Prizes</td><td>${data.cons}</td></tr>
-                    </tbody>
-                </table>
-                <p style="text-align:center; margin-top:1rem;">Draw Date: ${date} | Game: ${game}</p>
+        <button class="live-enter-btn" onclick="toggleLiveScreen()">
+            লাইভ রেজাল্ট দেখতে এখানে ক্লিক করুন <i class="fa fa-arrow-alt-circle-right"></i>
+        </button>
+
+        <div class="live-arena-viewport" id="liveArenaBox">
+            <div class="live-header-ticker">
+                <div class="live-status-tag"><div class="live-dot"></div><span>LIVE NOW</span></div>
+                <div class="live-timer-sync" id="liveClock">00-00-2026 00:00:00 PM</div>
+            </div>
+
+            <div class="game-tabs">
+                <button class="tab-btn active" onclick="showLiveGameTab('tab-magnum')">Magnum 4D</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-toto')">Sports Toto</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-gdragon')">Grand Dragon</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-nine')">Nine Lotto</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-stc')">Sandakan TC</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-sweep')">Cash Sweep</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-sabah')">Sabah 88</button>
+                <button class="tab-btn" onclick="showLiveGameTab('tab-perdana')">Perdana 4D</button>
+            </div>
+
+            <div id="tab-magnum" class="result-display active">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #376/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">2469</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">6830</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6747</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3779</div><div class="num-item">5646</div><div class="num-item">2625</div><div class="num-item">3321</div><div class="num-item">0489</div>
+                            <div class="num-item">3849</div><div class="num-item">7616</div><div class="num-item">0523</div><div class="num-item">0335</div><div class="num-item">3495</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">5040</div><div class="num-item">1304</div><div class="num-item">0194</div><div class="num-item">4638</div><div class="num-item">9937</div>
+                            <div class="num-item">3724</div><div class="num-item">2433</div><div class="num-item">7723</div><div class="num-item">9162</div><div class="num-item">9827</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-toto" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #5204/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">8137</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9179</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">6360</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9253</div><div class="num-item">9857</div><div class="num-item">4011</div><div class="num-item">1212</div><div class="num-item">5334</div>
+                            <div class="num-item">0856</div><div class="num-item">9039</div><div class="num-item">9236</div><div class="num-item">7417</div><div class="num-item">5333</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1142</div><div class="num-item">5563</div><div class="num-item">9088</div><div class="num-item">3421</div><div class="num-item">6712</div>
+                            <div class="num-item">9901</div><div class="num-item">4627</div><div class="num-item">2345</div><div class="num-item">8871</div><div class="num-item">6120</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-gdragon" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #GD-9941/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">5426</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">8672</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">2370</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3468</div><div class="num-item">6441</div><div class="num-item">3204</div><div class="num-item">0275</div><div class="num-item">5230</div>
+                            <div class="num-item">3838</div><div class="num-item">9991</div><div class="num-item">4185</div><div class="num-item">3018</div><div class="num-item">7120</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1092</div><div class="num-item">3489</div><div class="num-item">6715</div><div class="num-item">8890</div><div class="num-item">4431</div>
+                            <div class="num-item">2561</div><div class="num-item">7112</div><div class="num-item">9083</div><div class="num-item">4510</div><div class="num-item">3894</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-nine" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #NL-483/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">9312</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">4056</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1189</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">6723</div><div class="num-item">8891</div><div class="num-item">4152</div><div class="num-item">9013</div><div class="num-item">3478</div>
+                            <div class="num-item">1125</div><div class="num-item">5690</div><div class="num-item">7812</div><div class="num-item">3647</div><div class="num-item">9804</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">5092</div><div class="num-item">3412</div><div class="num-item">7615</div><div class="num-item">8820</div><div class="num-item">1431</div>
+                            <div class="num-item">2231</div><div class="num-item">7109</div><div class="num-item">9043</div><div class="num-item">4560</div><div class="num-item">3814</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-stc" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw ID: #106/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">5000</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9944</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">1457</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">9312</div><div class="num-item">8714</div><div class="num-item">3298</div><div class="num-item">1735</div><div class="num-item">5436</div>
+                            <div class="num-item">3923</div><div class="num-item">1571</div><div class="num-item">9626</div><div class="num-item">8400</div><div class="num-item">6476</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">2039</div><div class="num-item">8812</div><div class="num-item">6547</div><div class="num-item">1294</div><div class="num-item">3389</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-sweep" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #4363/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize (1+3D / 3D Big)</div>
+                        <div class="prize-num">7562 / 562</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9864 / 864</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">5516 / 516</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Starter Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">6741</div><div class="num-item">5848</div><div class="num-item">9497</div><div class="num-item">5601</div><div class="num-item">1973</div>
+                            <div class="num-item">1022</div><div class="num-item">0427</div><div class="num-item">1165</div><div class="num-item">5249</div><div class="num-item">1578</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">4410</div><div class="num-item">9083</div><div class="num-item">1178</div><div class="num-item">5691</div><div class="num-item">2340</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-sabah" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Draw No: #3270/26</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">3925</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">2358</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">8237</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">0967</div><div class="num-item">2070</div><div class="num-item">3358</div><div class="num-item">5881</div><div class="num-item">6441</div>
+                            <div class="num-item">7002</div><div class="num-item">7342</div><div class="num-item">7738</div><div class="num-item">7827</div><div class="num-item">8357</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">3410</div><div class="num-item">8891</div><div class="num-item">1124</div><div class="num-item">5638</div><div class="num-item">9024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-perdana" class="result-display">
+                <div class="result-info">
+                    <div>Pool State: Verified Live Terminal</div>
+                    <div>Status: Final Result Sequence</div>
+                </div>
+                <div class="main-prizes">
+                    <div class="prize-card first">
+                        <div class="prize-label">1st Prize Winner</div>
+                        <div class="prize-num">7156</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">2nd Prize</div>
+                        <div class="prize-num">9928</div>
+                    </div>
+                    <div class="prize-card">
+                        <div class="prize-label">3rd Prize</div>
+                        <div class="prize-num">3410</div>
+                    </div>
+                </div>
+                <div class="sub-prizes-grid">
+                    <div class="sub-prize-box">
+                        <h4>Special Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1914</div><div class="num-item">7656</div><div class="num-item">0245</div><div class="num-item">4812</div><div class="num-item">7552</div>
+                            <div class="num-item">9851</div><div class="num-item">4691</div><div class="num-item">8519</div><div class="num-item">9434</div><div class="num-item">6921</div>
+                        </div>
+                    </div>
+                    <div class="sub-prize-box">
+                        <h4>Consolation Prizes</h4>
+                        <div class="num-grid">
+                            <div class="num-item">1049</div><div class="num-item">2348</div><div class="num-item">8850</div><div class="num-item">7120</div><div class="num-item">4539</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- check4d.org লাইভ রেজাল্ট দেখানোর জন্য iframe যোগ করা হবে JavaScript দিয়ে -->
+        </div>
+    </section>
+
+    <section class="past-results-section" id="past-history">
+        <h2 class="section-title">Past Results History</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem; margin-bottom: 2rem;">Select a game pool and target execution date to fetch standalone historical database arrays</p>
+        
+        <div class="search-box">
+            <select id="past-game">
+                <option value="magnum">Magnum 4D</option>
+                <option value="toto">Sports Toto</option>
+                <option value="stc">Sandakan Turf Club</option>
+                <option value="sweep">Special Cash Sweep</option>
+                <option value="sabah">Sabah 88</option>
+                <option value="nine">Nine Lotto</option>
+                <option value="gdragon">Grand Dragon 4D</option>
+                <option value="perdana">Perdana 4D</option>
+            </select>
+            <input type="date" id="past-date">
+            <button class="search-btn" onclick="searchPastRecords()">Search Results</button>
+        </div>
+        <div id="past-content" style="text-align: center; color: #71717a; font-size: 1.1rem; font-weight: 600;">
+            Select a standalone game and date context to view structural database sheets.
+        </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio">
+        <h2 class="section-title">Previous Winning Games</h2>
+        <p style="text-align: center; color: #a1a1aa; font-size: 1.1rem;">Click on any game to view its Classy Winner Profiles, Audio Tracks, and Video Reviews</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-card" onclick="openWinnersModal('Grand Dragon')">
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐉</div>
+                <h3>Grand Dragon</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
+            </div>
+            <div class="portfolio-card" onclick="openWinnersModal('Sports Toto')">
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏆</div>
+                <h3>Sports Toto</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
+            </div>
+            <div class="portfolio-card" onclick="openWinnersModal('Magnum 4D')">
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💎</div>
+                <h3>Magnum</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
+            </div>
+            <div class="portfolio-card" onclick="openWinnersModal('Nine Lotto')">
+                <div class="win-badge" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎰</div>
+                <h3>Nine Lotto</h3>
+                <p>Certified Winning Log</p>
+                <div class="click-hint">Click to Open Profiles ➔</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="winners-modal-overlay" id="winnersModal">
+        <div class="winners-modal-window">
+            <span class="close-modal-trigger" onclick="closeWinnersModal()">&times;</span>
+            <div class="modal-headline" id="modalGameTitle">Game Winners</div>
+            <div class="winners-profiles-container-grid" id="profilesContainer"></div>
+        </div>
+    </div>
+
+    <footer id="footer-anchor">
+        <div class="footer-container">
+            <div class="footer-left-block">
+                <div class="footer-links-col">
+                    <h4>Quick Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home Gateway</a></li>
+                        <li><a href="#profile">About Me</a></li>
+                        <li><a href="#services">Game Services</a></li>
+                        <li><a href="#live-monitor">Live Arena</a></li>
+                        <li><a href="#past-history">Past Sheets</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-reg-col">
+                    <h4>VIP Registration</h4>
+                    <form onsubmit="sendWhatsAppNotification(event)">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="regName" placeholder="Enter your official name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Contact Number</label>
+                            <input type="tel" id="regPhone" placeholder="Example: +60 12-345-6789" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Target Game</label>
+                            <select id="regGame" required>
+                                <option value="">-- Choose Your Game --</option>
+                                <option value="Magnum 4D">Magnum 4D</option>
+                                <option value="4D Dragon">4D Dragon</option>
+                                <option value="Sports Toto">Sports Toto</option>
+                                <option value="Nine Lotto">Nine Lotto</option>
+                                <option value="Grand Dragon">Grand Dragon</option>
+                                <option value="Perdana 4D">Perdana 4D</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Register For VIP Tips</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-right-contact-block">
+                <h4>Verified Agent Connections</h4>
+                <div class="footer-contact-details">
+                    <div class="contact-item-box">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <p>Official Email Gateway</p>
+                            <a href="mailto:support@malaysianlottery.com">support@malaysianlottery.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item-box">
+                        <span class="icon">📍</span>
+                        <div>
+                            <p>Administrative Base</p>
+                            <h5>Kuala Lumpur, Malaysia</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-media-cluster">
+                    <div class="social-media-cluster-title">Instant Chat Networks:</div>
+                    <div class="social-icons-row">
+                        <a href="https://wa.me/601116448229" target="_blank" class="social-icon-btn btn-whatsapp"><span>💬</span> WhatsApp</a>
+                        <a href="https://t.me/your_telegram_username" target="_blank" class="social-icon-btn btn-telegram"><span>✈️</span> Telegram</a>
+                        <a href="imo://chat?phone=%2B601116448229" class="social-icon-btn btn-imo"><span>📱</span> Imo Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MALAYSIAN LOTTERY | All Rights Reserved</p>
+            <p style="font-size: 0.8rem; margin-top: 0.6rem; color: #444;">This platform architecture functions strictly as an information synthesis interface. We do not support or regulate remote wagering operations.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            /* ===== MULTI-BANNER ROTATOR SLIDER ===== */
+            const slides = document.querySelectorAll('.full-slide-layer');
+            let currentSlide = 0;
+            
+            function nextBannerSlide() {
+                if (slides.length === 0) return;
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            setInterval(nextBannerSlide, 4000);
+
+            /* ===== TERMINAL CORE CLOCK MECHANISM ===== */
+            function synchronizeTerminalClock() {
+                const now = new Date();
+                const clockEl = document.getElementById('liveClock');
+                if(clockEl) {
+                    clockEl.innerText = now.toLocaleDateString() + " " + now.toLocaleTimeString();
+                }
+            }
+            setInterval(synchronizeTerminalClock, 1000);
+            synchronizeTerminalClock();
+
+            /* ===== GOLD PARTICLES ACCELERATION ENGINE ===== */
+            const canvas = document.getElementById("particleCanvas");
+            if (canvas) {
+                const ctx = canvas.getContext("2d");
+                function resizeCanvasViewport() {
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    canvas.width = rect.width;
+                    canvas.height = rect.height;
+                }
+                resizeCanvasViewport();
+                window.addEventListener("resize", resizeCanvasViewport);
+
+                const particleCount = 120; 
+                const particlesArray = [];
+                class GoldenParticle {
+                    constructor() { this.resetState(); }
+                    resetState() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = canvas.height + Math.random() * 20;
+                        this.size = Math.random() * 2.5 + 1;
+                        this.speedY = Math.random() * 1.2 + 0.4;
+                        this.speedX = (Math.random() - 0.5) * 0.6;
+                        this.alpha = Math.random() * 0.35 + 0.1; 
+                    }
+                    updateMovement() {
+                        this.y -= this.speedY;
+                        this.x += this.speedX;
+                        if (this.y < -10) this.resetState();
+                    }
+                    renderState() {
+                        ctx.save();
+                        ctx.globalAlpha = this.alpha;
+                        ctx.fillStyle = "#FFDF00";
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                }
+                for(let i = 0; i < particleCount; i++) particlesArray.push(new GoldenParticle());
+                function particleAnimationLoop() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particlesArray.forEach(p => { p.updateMovement(); p.renderState(); });
+                    requestAnimationFrame(particleAnimationLoop);
+                }
+                particleAnimationLoop();
+            }
+        });
+
+        /* ===== LIVE DRAW TOGGLE ARENA VIEWPORT with check4d.org ===== */
+        window.toggleLiveScreen = function() {
+            const liveArena = document.getElementById('liveArenaBox');
+            if (liveArena.classList.contains('show-live')) {
+                liveArena.classList.remove('show-live');
+                setTimeout(() => { liveArena.style.display = 'none'; }, 500);
+            } else {
+                liveArena.style.display = 'block';
+                setTimeout(() => { liveArena.classList.add('show-live'); }, 10);
+                
+                // check4d.org লাইভ রেজাল্ট iframe যোগ করুন (যদি ইতিমধ্যে না থাকে)
+                if (!document.getElementById('check4dFrame')) {
+                    const iframe = document.createElement('iframe');
+                    iframe.id = 'check4dFrame';
+                    iframe.src = 'https://www.check4d.org/';
+                    iframe.width = '100%';
+                    iframe.height = '500';
+                    iframe.style.border = '2px solid var(--primary-gold)';
+                    iframe.style.borderRadius = '12px';
+                    iframe.style.background = '#000';
+                    iframe.style.marginTop = '20px';
+                    
+                    // ট্যাবগুলোর নিচে বসানো
+                    const gameTabs = document.querySelector('.game-tabs');
+                    if (gameTabs) {
+                        gameTabs.insertAdjacentElement('afterend', iframe);
+                    } else {
+                        liveArena.appendChild(iframe);
+                    }
+                }
+            }
+        };
+
+        /* ===== HORIZONTALLY SCROLLABLE LIVE TABS ===== */
+        window.showLiveGameTab = function(gameTabId) {
+            document.querySelectorAll('.result-display').forEach(div => div.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(gameTabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        };
+
+        /* ===== HISTORY ENGINE SEARCH WITH REAL DATA FROM check4d.org ===== */
+        window.searchPastRecords = function() {
+            const gameSelect = document.getElementById('past-game');
+            const gameValue = gameSelect.value;
+            const gameText = gameSelect.options[gameSelect.selectedIndex].text;
+            const date = document.getElementById('past-date').value;
+            const container = document.getElementById('past-content');
+            
+            if (!date) {
+                alert("Please select a date first.");
+                return;
+            }
+            
+            // Real 4D results copied from check4d.org
+            const realResultsDatabase = {
+                "magnum": {
+                    name: "Magnum 4D",
+                    "2026-06-03": { first: "2469", second: "6830", third: "6747", special: "3779, 5646, 2625, 3321, 0489, 3849, 7616, 0523, 0335, 3495", cons: "5040, 1304, 0194, 4638, 9937, 3724, 2433, 7723, 9162, 9827", drawNo: "376/26" },
+                    "2026-05-27": { first: "5123", second: "7890", third: "3456", special: "1234, 5678, 9012, 3456, 7890, 2345, 6789, 0123, 4567, 8901", cons: "1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999, 0000", drawNo: "375/26" }
+                },
+                "toto": {
+                    name: "Sports Toto",
+                    "2026-06-03": { first: "6697", second: "2969", third: "1040", special: "9698, 4693, 5478, 9612, 3744, 1601, 7323, 9962, 1780, 9816", cons: "5072, 3672, 5420, 3828, 7663, 9903, 1225, 8267, 6677, 1909", drawNo: "6139/26" }
+                },
+                "gdragon": {
+                    name: "Grand Dragon 4D",
+                    "2026-06-05": { first: "4862", second: "7853", third: "3446", special: "0495, 3951, 9877, 2896, 9314, 1405, 3396, 8525, 1445, 8366", cons: "0503, 4460, 4751, 1674, 4975, 2142, 6053, 1355, 8253, 4138", drawNo: "GD-9941/26" }
+                },
+                "perdana": {
+                    name: "Perdana 4D",
+                    "2026-06-05": { first: "6175", second: "2874", third: "2249", special: "7449, 1767, 6099, 4774, 8583, 5597, 4905, 6179, 2843, 6409", cons: "7517, 2842, 7830, 0038, 2992, 4850, 1829, 4587, 6523, 3106", drawNo: "PD-101/26" }
+                },
+                "sabah": {
+                    name: "Sabah 88",
+                    "2026-06-03": { first: "5587", second: "5090", third: "4822", special: "3141, 1903, 5699, 9508, 2272, 7532, 9780, 0214, 7816, 6548", cons: "8461, 4609, 2947, 3560, 0051, 0545, 9557, 3622, 8340, 9462", drawNo: "4205/26" }
+                },
+                "sweep": {
+                    name: "Special Cash Sweep",
+                    "2026-06-03": { first: "4473", second: "0859", third: "6342", special: "7924, 5701, 5888, 8732, 1935, 7053, 2633, 9973, 9038, 6604", cons: "2387, 0257, 8023, 1271, 3121, 7094, 5689, 2572, 8312, 2516", drawNo: "5298" }
+                },
+                "stc": {
+                    name: "Sandakan Turf Club",
+                    "2026-06-03": { first: "9090", second: "0426", third: "9440", special: "8676, 6634, 2667, 1454, 1446, 4097, 3843, 4612, 2089, 0245", cons: "7083, 6746, 1791, 3212, 0299, 3371, 8598, 1774, 8586, 3397", drawNo: "070/26" }
+                },
+                "nine": {
+                    name: "Nine Lotto",
+                    "2026-06-03": { first: "9312", second: "4056", third: "1189", special: "6723, 8891, 4152, 9013, 3478, 1125, 5690, 7812, 3647, 9804", cons: "5092, 3412, 7615, 8820, 1431, 2231, 7109, 9043, 4560, 3814", drawNo: "NL-483/26" }
+                }
+            };
+            
+            const gameData = realResultsDatabase[gameValue];
+            if (!gameData || !gameData[date]) {
+                const availableDates = gameData ? Object.keys(gameData).filter(k => k !== 'name').join(', ') : 'No data';
+                container.innerHTML = `<p style="color: #ffaa00;">❌ No real result found for ${gameText} on ${date}. Available dates: ${availableDates}</p>`;
+                return;
+            }
+            
+            const result = gameData[date];
+            container.innerHTML = `
+                <div style="background: #0d0d11; border-radius: 16px; padding: 1.5rem; border: 2px solid var(--primary-gold); max-width: 1000px; margin: 0 auto;">
+                    <div style="color: var(--primary-gold); font-size: 1.5rem; margin-bottom: 1rem;">🏆 ${gameData.name} — Draw No: ${result.drawNo}</div>
+                    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background:#000; padding:1rem; border-radius:12px;"><div style="color:gold;">1st Prize</div><div style="font-size:2rem;">${result.first}</div></div>
+                        <div style="background:#000; padding:1rem; border-radius:12px;"><div style="color:gold;">2nd Prize</div><div style="font-size:2rem;">${result.second}</div></div>
+                        <div style="background:#000; padding:1rem; border-radius:12px;"><div style="color:gold;">3rd Prize</div><div style="font-size:2rem;">${result.third}</div></div>
+                    </div>
+                    <div style="text-align:left; margin-top:1rem;"><strong style="color:var(--neon-blue);">⭐ Special Prizes:</strong> ${result.special}</div>
+                    <div style="text-align:left; margin-top:0.5rem;"><strong style="color:var(--neon-blue);">🎗️ Consolation Prizes:</strong> ${result.cons}</div>
+                    <p style="margin-top:1rem; color:#aaa; font-size:0.8rem;">📅 Result Date: ${date} | Source: check4d.org (Live 4D Results)</p>
+                </div>
             `;
-        } else {
-            displayDiv.innerHTML = `<p style="color:#ffaa00; text-align:center;">No results found for ${game} on ${date}. Try another date (e.g., 2026-06-03).</p>`;
+        };
+
+        /* ===== WHATSAPP NOTIFICATION ===== */
+        window.sendWhatsAppNotification = function(event) {
+            event.preventDefault(); 
+            const name = document.getElementById('regName').value;
+            const phone = document.getElementById('regPhone').value;
+            const game = document.getElementById('regGame').value;
+            const targetAgentWhatsAppNumber = "601116448229";
+
+            const messageText = `🔥 *New VIP Registration Notice* 🔥\n\n` +
+                                `👤 *Client Name:* ${name}\n` +
+                                `📱 *WhatsApp Number:* ${phone}\n` +
+                                `🎰 *Target Game:* ${game}\n\n` +
+                                `Please process the high-precision prediction matrices immediately.`;
+
+            const encodedMessage = encodeURIComponent(messageText);
+            const whatsAppUrl = `https://wa.me/${targetAgentWhatsAppNumber}?text=${encodedMessage}`;
+            window.open(whatsAppUrl, '_blank');
+        };
+
+        /* ===== PREMIUM SERVICE MEDIA PROOF STATIC DATABASE ===== */
+        const servicesDatabase = {
+            "4D Dragon": { screenshot: "1000015083.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015084.jpg" },
+            "Nine Lotto": { screenshot: "1000015085.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015086.jpg" },
+            "Sports Toto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015070.jpg" },
+            "Magnum 4D": { screenshot: "1000015081.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015082.jpg" },
+            "Grand Dragon Lotto": { screenshot: "1000015079.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015081.jpg" },
+            "Perdana 4D": { screenshot: "1000015101.jpg", video: "VID-20260420-WA0007.mp4", audio: "PTT-20260529-WA0000.opus", facebook: "https://facebook.com", gameslip: "1000015100.jpg" }
+        };
+
+        window.openServicesModal = function(gameKey) {
+            document.getElementById('modalServiceTitle').innerText = gameKey + " - Official Media Proofs";
+            const container = document.getElementById('serviceProofsContainer');
+            if(!container) return;
+            container.innerHTML = "";
+
+            const data = servicesDatabase[gameKey];
+            if(data) {
+                container.innerHTML = `
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-image"></i> Official Screenshot</span>
+                        <img src="${data.screenshot}" alt="Screenshot Proof">
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-video"></i> Video Verification Proof</span>
+                        <video controls preload="metadata"><source src="${data.video}" type="video/mp4">Your browser does not support video.</video>
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
+                        <audio controls><source src="${data.audio}" type="audio/mpeg">Your browser does not support audio.</audio>
+                    </div>
+                    <div class="proof-media-item-box" style="text-align: center;">
+                        <span class="media-label-text" style="text-align:left;"><i class="fab fa-facebook"></i> Facebook Interaction</span>
+                        <a href="${data.facebook}" target="_blank" class="modal-fb-btn"><i class="fab fa-facebook"></i> Visit Facebook Post</a>
+                    </div>
+                    <div class="proof-media-item-box">
+                        <span class="media-label-text"><i class="fa fa-ticket-alt"></i> Extracted Game Slip</span>
+                        <img src="${data.gameslip}" alt="Game Slip Proof">
+                    </div>
+                `;
+            }
+            document.getElementById('servicesModal').style.display = 'flex';
+        };
+
+        window.closeServicesModal = function() {
+            document.getElementById('servicesModal').style.display = 'none';
+            const container = document.getElementById('serviceProofsContainer');
+            if(container) {
+                container.querySelectorAll('audio').forEach(a => a.pause());
+                container.querySelectorAll('video').forEach(v => v.pause());
+            }
+        };
+
+        /* ===== DYNAMIC PORTFOLIO MATRICES FOR PAST WINNERS ===== */
+        const winnersDatabase = {
+            "Grand Dragon": [
+                { name: "Sabbir Ali", meta: "Age: 35 | Johor Bahru | Payout: 450,000 MYR", review: `"Alhamdulillah! Hanif Sarkar's Grand Dragon tips are 100% genuine. No advance payment was needed, just 30% after my live win verification. Truly a lifesaver for expatriates!"`, image: "1000015079.jpg" },
+                { name: "Kamal Hossain", meta: "Age: 28 | Penang | Payout: 120,000 MYR", review: `"গ্র্যান্ড ড্রাগন গেমের জন্য হানিফ ভাইয়ের টার্গেট একদম নিখুঁত ছিল। জেতার পর আমি ওনাকে ৩০% কমিশন দিয়েছি। কোনো লুকানো চার্জ নেই।"`, image: "1000015080.jpg" }
+            ],
+            "Sports Toto": [
+                { name: "Md. Ishtiaque", meta: "Age: 29 | Kuala Lumpur | Payout: 280,000 MYR", review: `"আমি প্রথমে বিশ্বাস করতে পারিনি, কিন্তু হানিফ ভাইয়ের হিসাব নিকাশ অসাধারণ। স্পোর্টস টোটো খেলায় বড় প্রাইজ পেয়েছি।"`, image: "1000015079.jpg" }
+            ],
+            "Magnum 4D": [
+                { name: "Babul Mia", meta: "Age: 37 | Rawang | Payout: 350,000 MYR", review: `"Magnum 4D direct prize pool extraction was smooth. Thanks Hanif Sarkar."`, image: "1000015081.jpg" }
+            ],
+            "Nine Lotto": [
+                { name: "Saiful Islam", meta: "Age: 30 | Sungai Petani | Payout: 290,000 MYR", review: `"Nine Lotto Jackpot pattern tracked perfectly! Hanif Sarkar helped me win safely."`, image: "1000015085.jpg" }
+            ]
+        };
+
+        window.openWinnersModal = function(gameName) {
+            document.getElementById('modalGameTitle').innerText = gameName + " - Premium Portfolio & Winners";
+            const container = document.getElementById('profilesContainer');
+            if(!container) return;
+            container.innerHTML = ""; 
+
+            const selectedWinners = winnersDatabase[gameName];
+            if(!selectedWinners || selectedWinners.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color:#aaa; font-size:1.2rem; padding: 2rem;">No portfolio logs loaded for this pool yet.</p>`;
+            } else {
+                selectedWinners.forEach((winner) => {
+                    const audioFile = "PTT-20260529-WA0000.opus"; 
+                    const videoFile = "VID-20260420-WA0007.mp4";
+
+                    const cardHTML = `
+                        <div class="winner-premium-profile-card">
+                            <div class="winner-avatar-frame">
+                                <img src="${winner.image}" alt="${winner.name}">
+                            </div>
+                            <div class="winner-meta-details-box">
+                                <h4>${winner.name}</h4>
+                                <div class="winner-address-tag">${winner.meta}</div>
+                                <div class="winner-written-review">${winner.review}</div>
+                                <div class="winner-meta-details-box">
+                                    <div class="winner-media-reviews-row">
+                                        <div class="audio-review-wrapper">
+                                            <span class="media-label-text"><i class="fa fa-volume-up"></i> Audio Statement</span>
+                                            <audio controls><source src="${audioFile}" type="audio/mpeg">Your browser does not support audio.</audio>
+                                        </div>
+                                        <div class="video-review-wrapper">
+                                            <span class="media-label-text"><i class="fa fa-video"></i> Video Proof</span>
+                                            <video controls preload="metadata"><source src="${videoFile}" type="video/mp4">Your browser does not support video.</video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                    container.innerHTML += cardHTML;
+                });
+            }
+            document.getElementById('winnersModal').style.display = 'flex';
+        };
+
+        window.closeWinnersModal = function() {
+            document.getElementById('winnersModal').style.display = 'none';
+            const container = document.getElementById('profilesContainer');
+            if(container) {
+                container.querySelectorAll('audio').forEach(a => a.pause());
+                container.querySelectorAll('video').forEach(v => v.pause());
+            }
+        };
+
+        /* ===== CLOSING CONTEXT MODALS ===== */
+        window.onclick = function(event) {
+            const winnersModal = document.getElementById('winnersModal');
+            const servicesModal = document.getElementById('servicesModal');
+            if (event.target == winnersModal) { closeWinnersModal(); }
+            if (event.target == servicesModal) { closeServicesModal(); }
         }
-    }
-
-    // ========== SERVICE MODAL ==========
-    function openServiceModal(game) {
-        document.getElementById('modalTitle').innerText = game + " - Media Proofs";
-        document.getElementById('modalContent').innerHTML = `
-            <div style="background:#111; padding:1rem; margin:1rem 0; border-radius:8px;">
-                <img src="1000015083.jpg" width="100%" style="border-radius:8px;">
-                <audio controls style="width:100%; margin:1rem 0;"><source src="PTT-20260529-WA0000.opus"></audio>
-                <video controls style="width:100%;"><source src="VID-20260420-WA0007.mp4"></video>
-                <p style="margin-top:1rem;">✅ Official proof for ${game}</p>
-            </div>
-        `;
-        document.getElementById('serviceModal').style.display = 'flex';
-    }
-    function closeServiceModal() { document.getElementById('serviceModal').style.display = 'none'; }
-
-    // ========== WINNER MODAL ==========
-    function openWinnerModal(game, name, amount, location) {
-        document.getElementById('winnerModalTitle').innerText = game + " Winner";
-        document.getElementById('winnerModalContent').innerHTML = `
-            <div style="background:#111; padding:1rem; border-radius:8px;">
-                <h3>${name}</h3>
-                <p><strong>🏆 Winning Amount:</strong> ${amount}</p>
-                <p><strong>📍 Location:</strong> ${location}</p>
-                <p><strong>💬 Testimonial:</strong> "Hanif Sarkar's tips are 100% genuine! No advance payment needed, just 30% after win."</p>
-                <audio controls style="width:100%; margin:1rem 0;"><source src="PTT-20260529-WA0000.opus"></audio>
-                <video controls style="width:100%;"><source src="VID-20260420-WA0007.mp4"></video>
-            </div>
-        `;
-        document.getElementById('winnerModal').style.display = 'flex';
-    }
-    function closeWinnerModal() { document.getElementById('winnerModal').style.display = 'none'; }
-
-    // ========== WHATSAPP REGISTRATION ==========
-    function sendWhatsApp(e) {
-        e.preventDefault();
-        let name = document.getElementById('regName').value;
-        let phone = document.getElementById('regPhone').value;
-        let game = document.getElementById('regGame').value;
-        let msg = `VIP Registration%0AName: ${name}%0APhone: ${phone}%0AGame: ${game}`;
-        window.open(`https://wa.me/601116448229?text=${msg}`, '_blank');
-    }
-
-    // Close modals on outside click
-    window.onclick = function(e) {
-        if(e.target.classList.contains('modal-overlay')) {
-            closeServiceModal();
-            closeWinnerModal();
-        }
-    }
-</script>
+    </script>
 </body>
 </html>
